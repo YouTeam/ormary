@@ -1,0 +1,202 @@
+.content h4 {
+	margin-bottom: 20px;
+}
+
+.clothing_aside {
+	padding-left: 0;
+}
+
+.clothing_aside .tabs {
+	margin-bottom: 20px;
+	border-bottom: 1px solid #c0c0c0;
+}
+
+.clothing_aside fieldset {
+	margin-bottom: 50px;
+}
+
+.clothing_aside .tabs a {
+	display: inline-block;
+	font-size: 14px;
+	line-height: 14px;
+	color: #7f7f7f;
+	margin-right: 30px;
+	text-decoration: none;
+	padding-bottom: 4px;
+	margin-bottom: -1px;
+}
+
+.clothing_aside .tabs a.active {
+	color: #000000;
+	border-bottom: 2px solid #000000;
+}
+
+.filter-clothing {
+	padding: 0;
+	list-style: none;
+	margin-bottom: 0px;
+}
+
+.filter-clothing li label {
+	cursor: pointer;
+	padding-left: 20px;
+	position: relative;
+}
+
+.filter-clothing li input[type="radio"] {
+	display: none;
+}
+
+.filter-clothing li input:checked {
+	display: none;
+}
+
+.filter-label:before {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	top: 1px;
+	border: 2px solid #c6c6c6;
+	width: 12px;
+	height: 12px;
+	border-radius: 7px;
+	margin-right: 6px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	vertical-align: middle;
+	margin-bottom: 2px;
+	cursor: pointer;
+}
+
+.filter-label:hover:before {
+	border: 2px solid #3c3c3c;
+	background-color: #fff;
+}
+
+#orm_filter input:checked+.filter-label:before {
+	background: #4b4b4b;
+	border-color: #3c3c3c;
+}
+
+.filter_title {
+	font-size: 14px;
+	border-bottom: 1px solid #c0c0c0;
+	padding-bottom: 3px;
+	margin-bottom: 20px;
+}
+
+.designer-search-wrap input {
+	font-family: 'nexa_lightregular';
+	border: none;
+	width: 100%;
+	padding: 8px 30px 8px 10px;
+	background: url(../images/loop2.png) no-repeat 97% center;
+	background-color: #f7f7f7;
+}
+
+.month_select {
+	width: 147px;
+	height: 24px;
+	float: left;
+}
+
+.year_select {
+	width: 103px;
+	height: 24px;
+	float: right;
+}
+
+ul.filter-colors {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+ul.filter-colors li {
+	float: left;
+}
+
+ul.filter-colors li a {
+	width: 18px;
+	height: 18px;
+	display: block;
+	margin-right: 18px;
+	margin-bottom: 18px;
+}
+
+ul.filter-colors li a.purple {
+	background: #af59ba;
+}
+
+ul.filter-colors li a.red {
+	background: #ff4b39;
+}
+
+ul.filter-colors li a.orange {
+	background: #ff9d00;
+}
+
+ul.filter-colors li a.yellow {
+	background: #fff000;
+}
+
+ul.filter-colors li a.green {
+	background: #00cd6b;
+}
+
+ul.filter-colors li a.braun {
+	background: #aa662b;
+}
+
+ul.filter-colors li a.pink {
+	background: #ff669c;
+}
+
+ul.filter-colors li a.blue {
+	background: #00e5fe;
+}
+
+ul.filter-colors li a.neutrals {
+	background: #ffe6a9;
+}
+
+ul.filter-colors li a.metalic {
+	background: #8fa7a8;
+}
+
+ul.filter-colors li a.grey {
+	background: #bcc4c8;
+}
+
+ul.filter-colors li a.silver {
+	background: #ebf0f1;
+}
+
+ul.filter-colors li a.black {
+	background: #000000;
+}
+
+ul.filter-colors li a.white {
+	background: #ffffff;
+	width: 18px;
+	height: 18px;
+	border: 1px solid #000000;
+}
+
+ul.filter-colors li a.animal {
+	background: url(../images/animal.png) no-repeat 0 0;
+}
+
+ul.filter-colors li:nth-child(8) a {
+	margin-right: 0;
+}
+
+ul.filter-colors li:nth-child(16) a {
+	margin-right: 0;
+}
+
+
