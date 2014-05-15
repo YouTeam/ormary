@@ -38,7 +38,6 @@ body {
 .top_bar .left_side .search_inp {
 	width: 158px;
 	height: 24px;
-	line-height: 24px;
 	padding: 0px 20px 0px 10px;
 	border: 1px solid #4d4d4d;
 	background: #000000;
@@ -272,7 +271,7 @@ footer .orm_footer_top .social_icons li {
 	padding-left: 20px !important;
 }
 
-/* Main page styles */
+/* Main page */
 
 .orm_slider {
 	position: relative;
@@ -407,7 +406,7 @@ footer .orm_footer_top .social_icons li {
 	font-size: 14px;
 }
 
-/* CLOATHING PAGE */
+/* Cloathing page */
 
 .content select {
 	border-color: #cecece;
@@ -516,14 +515,12 @@ footer .orm_footer_top .social_icons li {
 .month_select {
 	width: 147px;
 	height: 24px;
-	line-height: 24px;
 	float: left;
 }
 
 .year_select {
 	width: 103px;
 	height: 24px;
-	line-height: 24px;
 	float: right;
 }
 
@@ -608,11 +605,11 @@ ul.filter-colors li a.animal {
 	background: url(../images/animal.png) no-repeat 0 0;
 }
 
-ul.filter-colors li:nth-child(8) a {
+.clothing_aside ul.filter-colors li:nth-child(8) a {
 	margin-right: 0;
 }
 
-ul.filter-colors li:nth-child(16) a {
+.clothing_aside ul.filter-colors li:nth-child(16) a {
 	margin-right: 0;
 }
 
@@ -636,13 +633,11 @@ ul.filter-colors li:nth-child(16) a {
 .clothing_top_panel .outfit_view {
 	width: 100%;
 	height: 24px;
-	line-height: 24px;
 }
 
 .clothing_top_panel .sort_by_newest {
 	width: 100%;
 	height: 24px;
-	line-height: 24px;
 }
 
 .clothing_top_panel .pagination {
@@ -683,6 +678,258 @@ ul.filter-colors li:nth-child(16) a {
 .clothing_top_panel .wrap_items_on_page .items_on_page {
 	width: 54px;
 	height: 24px;
+}
+
+/* Product page */
+
+.breadcrumbs {
+	width: 100%;
+	border-bottom: 1px solid #c0c0c0;
+	margin-bottom: 50px;
+	margin-top: 30px;
+}
+
+.breadcrumbs ul {
+	padding: 0;
+	margin: 0;
+}
+
+.breadcrumbs ul li {
+	float: left;
+	list-style: none;
+	margin-right: 30px;
+}
+
+.breadcrumbs ul li a {
+	color: #595959;
+	text-decoration: none;
+}
+
+.breadcrumbs ul li a.active {
+	color: #000000;
+	border-bottom: 2px solid #000000;
+	padding-bottom: 4px;
+	margin-bottom: -1px;
+	display: block;
+}
+
+.product_image {
+	margin-bottom: 20px;
+}
+
+.product_image img {
+	margin: 0 auto;
+	display: block;
+	width: 80%;
+}
+
+.product_title {
+	text-transform: uppercase;
+	font-size: 20px;
+	margin-bottom: 5px;
+}
+
+.product_sub_title {
+	font-size: 16px;
+	margin-bottom: 30px;
+}
+
+.product_description {
+	font-size: 13px;
+	margin-bottom: 30px;
+}
+
+.available {
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+.available + .available {
+	margin-bottom: 50px;
+}
+
+.available span {
+	float: left;
+	padding-right: 15px;
+}
+
+.available_sizes {
+	width: 85px;
+	float: left;
+	margin-left: 7px;
+}
+
+.available_sizes select {
+	width: 100%;
+	height: 24px;
+	font-size: 12px;
+	position: relative;
+	top: -2px;
+}
+
+.buttons_pannel .price {
+	line-height: 32px;
+	font-size: 14px;
+}
+
+a.add_to_cart,
+a.add_to_my_wardrobe {
+	display: block;
+	width: 189px;
+	height: 32px;
+	line-height: 32px;
+	float: right;
+	text-align: center;
+	font-size: 14px;
+	text-transform: uppercase;
+	text-decoration: none;
+	margin-left: 10px;
+	position: relative;
+}
+
+a.add_to_cart {
+	color: #ffffff;
+	background: #000000;
+}
+
+a.add_to_cart:hover {
+	color: #000000;
+	background: #ffffff;
+	border: 1px solid #000000;
+}
+
+a.add_to_my_wardrobe {
+	color: #000000;
+	background: #ffffff;
+	border: 1px solid #000000;
+	padding-left: 15px;
+}
+
+a.add_to_my_wardrobe:hover {
+	color: #ffffff;
+	background: #000000;
+}
+
+.plus {
+	font-size: 16px;
+	font-family: Arial;
+	font-weight: bold;
+	position: absolute;
+	left: 32px;
+	top: 0px;
+}
+
+a.follow {
+	font-size: 16px;
+	color: #000000;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding-left: 15px;
+}
+
+a.follow .plus {
+	left: 0;
+	top: 1px;
+}
+
+.content.product_page {
+	padding-bottom: 0;
+}
+
+.orm_share .share {
+	margin-right: 7px;
+}
+
+.orm_share .share,
+.orm_share .social {
+	float: left;
+}
+
+.orm_share .social {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.orm_share .social li {
+	float: left;
+}
+
+.orm_share .social li a {
+	padding: 0 7px;
+}
+
+.orm_share .social li a:hover {
+	opacity: 0.8;
+}
+
+.orm_share .more {
+	float: right;
+}
+
+.product_page_bottom {
+	padding-bottom: 85px;
+}
+
+.product_page_bottom a.underline {
+	text-decoration: underline;
+	color: #333333;
+}
+
+.product_page_bottom a.underline:hover {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.orm_product_carousel {
+  width: 80%;
+  height: 63px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.orm_product_carousel .swiper-slide {
+	height: 63px !important;
+}
+
+.orm_carousel_slide:hover {
+	cursor: pointer;
+}
+
+.orm_product_carousel .swiper-slide img {
+	width: 60px;
+	height: 63px;
+}
+
+.orm_product_carousel .swiper-slide.active img {
+	border: 2px solid #9c9c9c;
+}
+
+.orm_carousel_prev,
+.orm_carousel_next {
+	position: absolute;
+	top: 0;
+	display: block;
+	height: 100%;
+	width: 7px;
+	z-index: 999;
+}
+
+.orm_carousel_prev {
+	left: 0;
+	background: url(../images/carousel_prev.png) no-repeat 0 center;
+}
+
+.orm_carousel_next {
+	right: 0;
+	background: url(../images/carousel_next.png) no-repeat 0 center;
+}
+
+.orm_share {
+	position: relative;
+	top: -15px;
 }
 
 

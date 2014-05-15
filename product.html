@@ -7,6 +7,7 @@
     <title>ORMARY - My Stylefeed</title>
 
     <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/idangerous.swiper.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="fonts/fonts.css">
@@ -125,120 +126,110 @@
           </div>
         </div>
       </div>
-      <div class="container content">
-        <h4>MY STYLEFEED</h4>
-        <div class="col-md-9 clearfix nopadding section">
-          <div class="criteria">
-            <a href="#" class="active">All</a>
-            <a href="#">New from designers</a>
-            <a href="#">Recommended for wardrobe</a>
-            <a href="#">Featured</a>
-          </div>
-          <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
-              <div class="product_wrap">
-                <div class="product">
-                  <a href="#"><img src="images/test-img1.png" alt="1"></a>
-                  <div class="designer_name">Designer Name</div>
-                  <div class="prod_name light_font">Product name</div>
-                  <div class="price">£ 30</div>
-                  <a href="#" class="pin">
-                    <img src="images/pin.png" alt="pin it">
-                  </a>
-                  <a href="#" class="add_to_wardrobe">
-                    <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
-                  </a>
-                </div>
-              </div>
-          </div>
-          <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
-              <div class="product_wrap">
-                <div class="product">
-                  <a href="#"><img src="images/test-img2.png" alt="2"></a>
-                  <div class="designer_name">Designer Name</div>
-                  <div class="prod_name light_font">Product name</div>
-                  <div class="price">£ 99</div>
-                  <a href="#" class="pin">
-                    <img src="images/pin.png" alt="pin it">
-                  </a>
-                  <a href="#" class="add_to_wardrobe">
-                    <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
-                  </a>
-                </div>
-              </div>
-          </div>
-          <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
-              <div class="product_wrap">
-                <div class="product">
-                  <a href="#"><img src="images/test-img3.png" alt="3"></a>
-                  <div class="designer_name">Designer Name</div>
-                  <div class="prod_name light_font">Product name</div>
-                  <div class="price">£ 300</div>
-                  <a href="#" class="pin">
-                    <img src="images/pin.png" alt="pin it">
-                  </a>
-                  <a href="#" class="add_to_wardrobe">
-                    <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
-                  </a>
-                </div>
-              </div>
-          </div>
-          <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
-              <div class="product_wrap">
-                <div class="product">
-                  <a href="#"><img src="images/test-img1.png" alt="1"></a>
-                  <div class="designer_name">Designer Name</div>
-                  <div class="prod_name light_font">Product name</div>
-                  <div class="price">£ 30</div>
-                  <a href="#" class="pin">
-                    <img src="images/pin.png" alt="pin it">
-                  </a>
-                  <a href="#" class="add_to_wardrobe">
-                    <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
-                  </a>
-                </div>
-              </div>
-          </div>
-          <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
-              <div class="product_wrap">
-                <div class="product">
-                  <a href="#"><img src="images/test-img2.png" alt="2"></a>
-                  <div class="designer_name">Designer Name</div>
-                  <div class="prod_name light_font">Product name</div>
-                  <div class="price">£ 99</div>
-                  <a href="#" class="pin">
-                    <img src="images/pin.png" alt="pin it">
-                  </a>
-                  <a href="#" class="add_to_wardrobe">
-                    <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
-                  </a>
-                </div>
-              </div>
-          </div>
-          <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
-              <div class="product_wrap">
-                <div class="product">
-                  <a href="#"><img src="images/test-img3.png" alt="3"></a>
-                  <div class="designer_name">Designer Name</div>
-                  <div class="prod_name light_font">Product name</div>
-                  <div class="price">£ 300</div>
-                  <a href="#" class="pin">
-                    <img src="images/pin.png" alt="pin it">
-                  </a>
-                  <a href="#" class="add_to_wardrobe">
-                    <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
-                  </a>
-                </div>
-              </div>
-          </div>
+      <div class="container content product_page">
+        <div class="breadcrumbs clearfix">
+          <ul>
+            <li><a href="#">Knitwear</a></li>
+            <li><a href="#" class="active">Burbery Britt</a></li>
+          </ul>
         </div>
-        <div class="col-md-3 clearfix aside">
-          <div class="my_wardrobe">
-            <img class="wardrobe_icon" src="images/i.png" alt="i">
-            <span class="in_my_wardrobe">IN MY WARDROBE</span>
-            <div class="wardrobe_product">
-              <img src="images/wardrobe_default.png" alt="default">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <div class="product_image">
+            <img src="images/test-product-img.png" alt="Product image">
+          </div>
+          <div class="swiper-container orm_product_carousel">
+            <a href="#" class="orm_carousel_prev"></a>
+            <a href="#" class="orm_carousel_next"></a>
+            <div class="swiper-wrapper">
+              <div class="swiper-slide orm_carousel_slide active">
+                <div class="title">
+                  <img src="images/test-product-img.png" alt="car1">
+                </div>
+              </div>
+              <div class="swiper-slide orm_carousel_slide">
+                <div class="title">
+                  <img src="images/test-carousel-img2.png" alt="car2">
+                </div>
+              </div>
+              <div class="swiper-slide orm_carousel_slide">
+                <div class="title">
+                  <img src="images/test-carousel-img3.png" alt="car3">
+                </div>
+              </div>
+              <div class="swiper-slide orm_carousel_slide">
+                <div class="title">
+                  <img src="images/test-carousel-img4.png" alt="car4">
+                </div>
+              </div>
+              <div class="swiper-slide orm_carousel_slide">
+                <div class="title">
+                  <img src="images/test-carousel-img.png" alt="car5">
+                </div>
+              </div>
+              <div class="swiper-slide orm_carousel_slide">
+                <div class="title">
+                  <img src="images/test-carousel-img2.png" alt="car6">
+                </div>
+              </div>
+              <div class="swiper-slide orm_carousel_slide">
+                <div class="title">
+                  <img src="images/test-carousel-img3.png" alt="car7">
+                </div>
+              </div>
+              <div class="swiper-slide orm_carousel_slide">
+                <div class="title">
+                  <img src="images/test-carousel-img4.png" alt="car8">
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <div class="product_title">BURBERRY BRITT</div>
+          <div class="product_sub_title light_font">Stripped wool and Cashmere-blend sweater</div>
+          <div class="product_description light_font">
+            Get into cold weather dressing with a luxe merino v-neck full of stylish possibilities. Its smooth, lightweight knit is ideal for layering yet soft enough to throw on and go. Every closet should have at least one. V-neck. Long sleeves. Ribbed trim at neckline, sleeve cuffs and waistband. Pure merino wool. Dry clean only. Imported.
+          </div>
+          <div class="available clearfix light_font">
+            <span>Available colors</span>
+            <ul class="filter-colors">
+              <li><a href="#" class="purple" title="Purple"></a></li>
+              <li><a href="#" class="red" title="Red"></a></li>
+              <li><a href="#" class="orange" title="Orange"></a></li>
+              <li><a href="#" class="yellow" title="Yellow"></a></li>
+            </ul>
+          </div>
+          <div class="available clearfix light_font">
+            <span>Available sizes</span>
+            <div class="available_sizes">
+              <form action="">
+                <select name="" id="">
+                  <option value="">XXL</option>
+                  <option value="">XL</option>
+                  <option value="">L</option>
+                </select>
+              </form>
+            </div>
+          </div>
+          <div class="buttons_pannel">
+            <span class="price">£ 390</span>
+            <a href="#" class="add_to_my_wardrobe"><span class="plus">+</span> My wardrobe</a>
+            <a href="#" class="add_to_cart">Add to cart</a>
+          </div>
+          <a href="#" class="follow"><span class="plus">+</span>Follow</a>
+        </div>
+      </div>
+      <div class="container product_page_bottom clearfix">
+        <div class="col-lg-6 col-md-6 col-sm-6"></div>
+        <div class="col-lg-6 col-md-6 col-sm-6 orm_share">
+          <span class="share light_font">Share</span>
+          <ul class="social">
+            <li><a href="#"><img src="images/soc1.png" alt="soc1"></a></li>
+            <li><a href="#"><img src="images/soc2.png" alt="soc2"></a></a></li>
+            <li><a href="#"><img src="images/soc3.png" alt="soc3"></a></a></li>
+            <li><a href="#"><img src="images/soc4.png" alt="soc4"></a></a></li>
+          </ul>
+          <span class="more light_font">More questions? <a class="underline">Contact us</a></span>
         </div>
       </div>
     </div>
@@ -250,5 +241,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/idangerous.swiper-2.1.min.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
