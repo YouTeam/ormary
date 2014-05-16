@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ORMARY - All designers</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container-fluid top_bar">
+        <div class="container">
+          <div class="col-lg-6 col-md-5 left_side clearfix">
+            <div class="logo">
+              <a href="#">
+                <img src="images/logo.png" alt="Logo">
+              </a>
+            </div>
+            <form class="search" role="search">
+              <input type="text" class="search_inp light_font" placeholder="Search">
+              <button type="submit" class="search_btn"></button>
+            </form>
+          </div>
+          <div class="navbar-right right_side clearfix">
+            <div class="account">
+              <a href="#"><img src="images/account.png" alt="Account"></a>
+              <a href="#">Charlotte</a>
+            </div>
+            <div class="stylefeed">
+              <a href="#">Fashionfeed</a>
+            </div>
+            <div class="wardrobe">
+              <a href="#">Wardrobe</a>
+              <span class="number">0</span>
+            </div>
+            <div class="cart">
+              <a href="#">Cart</a>
+              <span class="number">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="navbar navbar-default main_menu">
+            <div class="container">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#responsive_menu">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+              <div class="collapse navbar-collapse" id="responsive_menu">
+                <ul class="nav navbar-nav navbar-left">
+                  <li><a href="#">JUST IN DESIGNERS</a></li>
+                  <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">CLOTHING</a>
+                      <ul class="dropdown-menu orm_sub_dropdown-menu">
+                        <li class="menu-item light_font">
+                          <a href="#">Item 1</a>
+                        </li>
+                        <li class="menu-item light_font">
+                          <a href="#">Item 2</a>
+                        </li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">BAGS</a>
+                      <ul class="dropdown-menu orm_sub_dropdown-menu">
+                        <li class="menu-item light_font">
+                          <a href="#">Item 1</a>
+                        </li>
+                        <li class="menu-item light_font">
+                          <a href="#">Item 2</a>
+                        </li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">SHOES</a>
+                      <ul class="dropdown-menu orm_sub_dropdown-menu">
+                        <li class="menu-item light_font">
+                          <a href="#">Item 1</a>
+                        </li>
+                        <li class="menu-item light_font">
+                          <a href="#">Item 2</a>
+                        </li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Lingerie</a>
+                      <ul class="dropdown-menu orm_sub_dropdown-menu">
+                        <li class="menu-item light_font">
+                          <a href="#">Item 1</a>
+                        </li>
+                        <li class="menu-item light_font">
+                          <a href="#">Item 2</a>
+                        </li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">ACCESORIES</a>
+                      <ul class="dropdown-menu orm_sub_dropdown-menu">
+                        <li class="menu-item light_font">
+                          <a href="#">Item 1</a>
+                        </li>
+                        <li class="menu-item light_font">
+                          <a href="#">Item 2</a>
+                        </li>
+                      </ul>
+                  </li>
+                  <li><a href="#">BLOG</a></li>
+                  <li><a href="#">ABOUT</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">£ GBP <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li class="light_font"><a href="#">$ DOL</a></li>
+                      <li class="light_font"><a href="#">Another action</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container content all_designers_page">
+      <h4>All Designers</h4>
+        <div class="col-md-3 clearfix aside clothing_aside">
+          <form action="" id="orm_filter">
+            <fieldset>
+              <div class="tabs">
+                <a href="#" class="womens_tab active">Womens</a>
+                <a href="#" class="mens_tab">Mens</a>
+              </div>
+              <ul class="filter-clothing filter-clothing-womens">
+                <li class="light_font">
+                    <input type="radio" id="wall_categories" checked="checked">
+                    <label class="filter-label" for="wall_categories">
+                        All categories
+                    </label>
+                </li>
+                <li class="light_font">
+                    <input type="radio" name="" id="wclothing">
+                    <label class="filter-label" for="wclothing">
+                        Clothing
+                    </label>
+                    <ul class="sub_filter-clothing filter-clothing-womens">
+                    <li class="light_font">
+                        <input type="radio" name="" id="wbeachwear">
+                        <label class="filter-label" for="wbeachwear">
+                            Beachwear
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wcoats">
+                        <label class="filter-label" for="wcoats">
+                            Coats
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wdresses">
+                        <label class="filter-label" for="wdresses">
+                            Dresses
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wjackets">
+                        <label class="filter-label" for="wjackets">
+                            Jackets
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wjeans">
+                        <label class="filter-label" for="wjeans">
+                            Jeans
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wjumpsuits">
+                        <label class="filter-label" for="wjumpsuits">
+                            Jumpsuits
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wknitwear">
+                        <label class="filter-label" for="wknitwear">
+                            Knitwear
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wpants">
+                        <label class="filter-label" for="wpants">
+                            Pants
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wshorts">
+                        <label class="filter-label" for="wshorts">
+                            Shorts
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wskirts">
+                        <label class="filter-label" for="wskirts">
+                            Skirts
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wtops">
+                        <label class="filter-label" for="wtops">
+                            Tops
+                        </label>
+                    </li>
+                  </ul>
+                </li>
+                <li class="light_font">
+                    <input type="radio" name="" id="wbags">
+                    <label class="filter-label" for="wbags">
+                        Bags
+                    </label>
+                    <ul class="sub_filter-clothing filter-clothing-womens">
+                    <li class="light_font">
+                        <input type="radio" name="" id="wbackpacks">
+                        <label class="filter-label" for="wbackpacks">
+                            Backpacks
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wclutch_bags">
+                        <label class="filter-label" for="wclutch_bags">
+                            Clutch bags
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wshoulder_bags">
+                        <label class="filter-label" for="wshoulder_bags">
+                            Shoulder bags
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wtote_bag">
+                        <label class="filter-label" for="wtote_bag">
+                            Tote bag
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wtravel_bags">
+                        <label class="filter-label" for="wtravel_bags">
+                            Travel bags
+                        </label>
+                    </li>
+                  </ul>
+                </li>
+                <li class="light_font">
+                    <input type="radio" name="" id="wshoes">
+                    <label class="filter-label" for="wshoes">
+                        Shoes
+                    </label>
+                    <ul class="sub_filter-clothing filter-clothing-womens">
+                    <li class="light_font">
+                        <input type="radio" name="" id="wboots">
+                        <label class="filter-label" for="wboots">
+                            Boots
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wflat_shoes">
+                        <label class="filter-label" for="wflat_shoes">
+                            Flat shoes
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wpumps">
+                        <label class="filter-label" for="wpumps">
+                            Pumps
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wsandals">
+                        <label class="filter-label" for="wsandals">
+                            Sandals
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wsneakers">
+                        <label class="filter-label" for="wsneakers">
+                            Sneakers
+                        </label>
+                    </li>
+                    </ul>
+                </li>
+                <li class="light_font">
+                    <input type="radio" name="" id="wlingerie">
+                    <label class="filter-label" for="wlingerie">
+                        Lingerie
+                    </label>
+                </li>
+                <li class="light_font">
+                    <input type="radio" name="" id="waccessories">
+                    <label class="filter-label" for="waccessories">
+                        Accessories
+                    </label>
+                </li>
+              </ul>
+              <ul class="filter-clothing filter-clothing-mens">
+                  <li class="light_font">
+                    <input type="radio" name="" id="all_categories">
+                    <label class="filter-label" for="all_categories">
+                        All categories
+                    </label>
+                </li>
+                <li class="light_font">
+                    <input type="radio" name="" id="clothing">
+                    <label class="filter-label" for="clothing">
+                        Clothing
+                    </label>
+
+                </li>
+                <li class="light_font">
+                    <input type="radio" name="" id="bags">
+                    <label class="filter-label" for="bags">
+                        Bags
+                    </label>
+                </li>
+                <li class="light_font">
+                    <input type="radio" name="" id="shoes">
+                    <label class="filter-label" for="shoes">
+                        Shoes
+                    </label>
+                </li>
+                <li class="light_font">
+                    <input type="radio" name="" id="lingerie">
+                    <label class="filter-label" for="lingerie">
+                        Lingerie
+                    </label>
+                </li>
+                <li class="light_font">
+                    <input type="radio" name="" id="accessories">
+                    <label class="filter-label" for="accessories">
+                        Accessories
+                    </label>
+                </li>
+              </ul>
+            </fieldset>
+          </form>
+        </div>
+        <div class="col-md-9 clearfix nopadding section">
+          <div class="row">
+            <form action="">
+              <div class="designer-search-wrap">
+                <input type="text" placeholder="Type designer name">
+              </div>
+            </form>
+          </div>
+          <div class="row">
+            <div class="all_des_caption">0-9</div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">A.L.C.</a></li>
+                <li><a href="#">APC</a></li>
+                <li><a href="#">acne</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="all_des_caption">A-B-C</div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">A.L.C.</a></li>
+                <li><a href="#">APC</a></li>
+                <li><a href="#">acne</a></li>
+                <li><a href="#">Adidas</a></li>
+                <li><a href="#">Agent Provocateur</a></li>
+                <li><a href="#">Alaïa</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">Alberta Ferretti</a></li>
+                <li><a href="#">Alexander McQueen</a></li>
+                <li><a href="#">Alexander Wang</a></li>
+                <li><a href="#">Alice + Olivia</a></li>
+                <li><a href="#">Alice By Temperley</a></li>
+                <li><a href="#">AllSaints</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">American Apparel</a></li>
+                <li><a href="#">American Vintage</a></li>
+                <li><a href="#">Ann Demeulemeester</a></li>
+                <li><a href="#">Anna Sui</a></li>
+                <li><a href="#">Anthropologie</a></li>
+                <li><a href="#">Armani</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="all_des_caption">D-E-F</div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">A.L.C.</a></li>
+                <li><a href="#">APC</a></li>
+                <li><a href="#">acne</a></li>
+                <li><a href="#">Adidas</a></li>
+                <li><a href="#">Agent Provocateur</a></li>
+                <li><a href="#">Alaïa</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">Alberta Ferretti</a></li>
+                <li><a href="#">Alexander McQueen</a></li>
+                <li><a href="#">Alexander Wang</a></li>
+                <li><a href="#">Alice + Olivia</a></li>
+                <li><a href="#">Alice By Temperley</a></li>
+                <li><a href="#">AllSaints</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">American Apparel</a></li>
+                <li><a href="#">American Vintage</a></li>
+                <li><a href="#">Ann Demeulemeester</a></li>
+                <li><a href="#">Anna Sui</a></li>
+                <li><a href="#">Anthropologie</a></li>
+                <li><a href="#">Armani</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="all_des_caption">G-H-I</div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">A.L.C.</a></li>
+                <li><a href="#">APC</a></li>
+                <li><a href="#">acne</a></li>
+                <li><a href="#">Adidas</a></li>
+                <li><a href="#">Agent Provocateur</a></li>
+                <li><a href="#">Alaïa</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">Alberta Ferretti</a></li>
+                <li><a href="#">Alexander McQueen</a></li>
+                <li><a href="#">Alexander Wang</a></li>
+                <li><a href="#">Alice + Olivia</a></li>
+                <li><a href="#">Alice By Temperley</a></li>
+                <li><a href="#">AllSaints</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">American Apparel</a></li>
+                <li><a href="#">American Vintage</a></li>
+                <li><a href="#">Ann Demeulemeester</a></li>
+                <li><a href="#">Anna Sui</a></li>
+                <li><a href="#">Anthropologie</a></li>
+                <li><a href="#">Armani</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="all_des_caption">J-K-L</div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">A.L.C.</a></li>
+                <li><a href="#">APC</a></li>
+                <li><a href="#">acne</a></li>
+                <li><a href="#">Adidas</a></li>
+                <li><a href="#">Agent Provocateur</a></li>
+                <li><a href="#">Alaïa</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">Alberta Ferretti</a></li>
+                <li><a href="#">Alexander McQueen</a></li>
+                <li><a href="#">Alexander Wang</a></li>
+                <li><a href="#">Alice + Olivia</a></li>
+                <li><a href="#">Alice By Temperley</a></li>
+                <li><a href="#">AllSaints</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">American Apparel</a></li>
+                <li><a href="#">American Vintage</a></li>
+                <li><a href="#">Ann Demeulemeester</a></li>
+                <li><a href="#">Anna Sui</a></li>
+                <li><a href="#">Anthropologie</a></li>
+                <li><a href="#">Armani</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="all_des_caption">M-N-O</div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">A.L.C.</a></li>
+                <li><a href="#">APC</a></li>
+                <li><a href="#">acne</a></li>
+                <li><a href="#">Adidas</a></li>
+                <li><a href="#">Agent Provocateur</a></li>
+                <li><a href="#">Alaïa</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">Alberta Ferretti</a></li>
+                <li><a href="#">Alexander McQueen</a></li>
+                <li><a href="#">Alexander Wang</a></li>
+                <li><a href="#">Alice + Olivia</a></li>
+                <li><a href="#">Alice By Temperley</a></li>
+                <li><a href="#">AllSaints</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">American Apparel</a></li>
+                <li><a href="#">American Vintage</a></li>
+                <li><a href="#">Ann Demeulemeester</a></li>
+                <li><a href="#">Anna Sui</a></li>
+                <li><a href="#">Anthropologie</a></li>
+                <li><a href="#">Armani</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="all_des_caption">P-Q-R</div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">A.L.C.</a></li>
+                <li><a href="#">APC</a></li>
+                <li><a href="#">acne</a></li>
+                <li><a href="#">Adidas</a></li>
+                <li><a href="#">Agent Provocateur</a></li>
+                <li><a href="#">Alaïa</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">Alberta Ferretti</a></li>
+                <li><a href="#">Alexander McQueen</a></li>
+                <li><a href="#">Alexander Wang</a></li>
+                <li><a href="#">Alice + Olivia</a></li>
+                <li><a href="#">Alice By Temperley</a></li>
+                <li><a href="#">AllSaints</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">American Apparel</a></li>
+                <li><a href="#">American Vintage</a></li>
+                <li><a href="#">Ann Demeulemeester</a></li>
+                <li><a href="#">Anna Sui</a></li>
+                <li><a href="#">Anthropologie</a></li>
+                <li><a href="#">Armani</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="all_des_caption">S-T-U</div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">A.L.C.</a></li>
+                <li><a href="#">APC</a></li>
+                <li><a href="#">acne</a></li>
+                <li><a href="#">Adidas</a></li>
+                <li><a href="#">Agent Provocateur</a></li>
+                <li><a href="#">Alaïa</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">Alberta Ferretti</a></li>
+                <li><a href="#">Alexander McQueen</a></li>
+                <li><a href="#">Alexander Wang</a></li>
+                <li><a href="#">Alice + Olivia</a></li>
+                <li><a href="#">Alice By Temperley</a></li>
+                <li><a href="#">AllSaints</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">American Apparel</a></li>
+                <li><a href="#">American Vintage</a></li>
+                <li><a href="#">Ann Demeulemeester</a></li>
+                <li><a href="#">Anna Sui</a></li>
+                <li><a href="#">Anthropologie</a></li>
+                <li><a href="#">Armani</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="all_des_caption">V-W-X</div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">A.L.C.</a></li>
+                <li><a href="#">APC</a></li>
+                <li><a href="#">acne</a></li>
+                <li><a href="#">Adidas</a></li>
+                <li><a href="#">Agent Provocateur</a></li>
+                <li><a href="#">Alaïa</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">Alberta Ferretti</a></li>
+                <li><a href="#">Alexander McQueen</a></li>
+                <li><a href="#">Alexander Wang</a></li>
+                <li><a href="#">Alice + Olivia</a></li>
+                <li><a href="#">Alice By Temperley</a></li>
+                <li><a href="#">AllSaints</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">American Apparel</a></li>
+                <li><a href="#">American Vintage</a></li>
+                <li><a href="#">Ann Demeulemeester</a></li>
+                <li><a href="#">Anna Sui</a></li>
+                <li><a href="#">Anthropologie</a></li>
+                <li><a href="#">Armani</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="all_des_caption">Y-Z</div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">A.L.C.</a></li>
+                <li><a href="#">APC</a></li>
+                <li><a href="#">acne</a></li>
+                <li><a href="#">Adidas</a></li>
+                <li><a href="#">Agent Provocateur</a></li>
+                <li><a href="#">Alaïa</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">Alberta Ferretti</a></li>
+                <li><a href="#">Alexander McQueen</a></li>
+                <li><a href="#">Alexander Wang</a></li>
+                <li><a href="#">Alice + Olivia</a></li>
+                <li><a href="#">Alice By Temperley</a></li>
+                <li><a href="#">AllSaints</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <ul>
+                <li><a href="#">American Apparel</a></li>
+                <li><a href="#">American Vintage</a></li>
+                <li><a href="#">Ann Demeulemeester</a></li>
+                <li><a href="#">Anna Sui</a></li>
+                <li><a href="#">Anthropologie</a></li>
+                <li><a href="#">Armani</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
+  

@@ -26,6 +26,19 @@ $(document).ready(function(){
 		$('.filter-clothing-mens').show();
 		$('.filter-clothing-womens').hide();
 	});
+
+	/* ALL DESIGNERS FILTER SUB*/
+	$('.filter-label').click(function(){
+		$(this).toggleClass('activelabel');
+		$(this).each(function(){
+			if ($(this).hasClass('activelabel')) {
+				$(this).next('.sub_filter-clothing').slideDown();
+			}
+			else {
+				$(this).next('.sub_filter-clothing').slideUp();
+			}
+		});
+	});
 });
 
 /* Main slider */
