@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ORMARY - Designer</title>
+    <title>ORMARY - Just in designers</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -241,32 +241,10 @@
           </div>
         </div>
       </div>
-      <div class="container content orm_designer_page">
-        <div class="breadcrumbs clearfix">
-          <ul>
-            <li><a href="#">All designers</a></li>
-            <li><a href="#" class="active">Ralf Simons</a></li>
-          </ul>
-        </div>
-        <div class="orm_designer_info_wrap">
-          <div class="orm_designer_info">
-            <div class="orm_designer_logo">
-              <img src="images/raf.png" alt="Raf">
-            </div>
-            <div class="orm_designer_content">
-              <div class="orm_designer_content_inner">
-                <div class="orm_designer_name">Raf Simons</div>
-                <div class="orm_designer_about light_font">Get into cold weather dressing with a luxe merino v-neck full of stylish possibilities. Its smooth, lightweight knit is ideal for layering yet soft enough to throw on and go. Every closet should have at least one. V-neck.
-                <a href="#" class="read_more">Read more</a>
-                </div>
-                <a href="#" class="follow"><span class="plus">+</span>Follow</a>
-                <span class="orm_followers light_font">18 988 followers</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 clearfix aside clothing_aside">
-          <form action="" id="orm_filter">
+      <div class="container content">
+      <h4>Just in designers</h4>
+<div class="col-md-3 clearfix aside clothing_aside">
+          <form action="" id="orm_des_filter">
             <fieldset>
               <div class="tabs">
                 <a href="#" class="womens_tab active">Womens</a>
@@ -274,134 +252,345 @@
               </div>
               <ul class="filter-clothing filter-clothing-womens">
                 <li class="light_font">
-                    <input type="radio" name="clothing" id="wactiwear" checked="checked">
-                    <label class="filter-label" for="wactiwear">
-                        Actiwear
+                    <input type="radio" id="wall_categories" checked="checked">
+                    <label class="filter-label" for="wall_categories">
+                        All categories
                     </label>
                 </li>
                 <li class="light_font">
-                    <input type="radio" name="clothing" id="wbeachwear">
-                    <label class="filter-label" for="wbeachwear">
-                        Beachwear
+                    <input type="radio" name="" id="wclothing">
+                    <label class="filter-label" for="wclothing">
+                        Clothing
                     </label>
+                    <ul class="sub_filter-clothing">
+                      <li class="light_font">
+                          <input type="radio" name="" id="wbeachwear">
+                          <label class="filter-label" for="wbeachwear">
+                              Beachwear
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wcoats">
+                          <label class="filter-label" for="wcoats">
+                              Coats
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wdresses">
+                          <label class="filter-label" for="wdresses">
+                              Dresses
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wjackets">
+                          <label class="filter-label" for="wjackets">
+                              Jackets
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wjeans">
+                          <label class="filter-label" for="wjeans">
+                              Jeans
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wjumpsuits">
+                          <label class="filter-label" for="wjumpsuits">
+                              Jumpsuits
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wknitwear">
+                          <label class="filter-label" for="wknitwear">
+                              Knitwear
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wpants">
+                          <label class="filter-label" for="wpants">
+                              Pants
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wshorts">
+                          <label class="filter-label" for="wshorts">
+                              Shorts
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wskirts">
+                          <label class="filter-label" for="wskirts">
+                              Skirts
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wtops">
+                          <label class="filter-label" for="wtops">
+                              Tops
+                          </label>
+                      </li>
+                    </ul>
                 </li>
                 <li class="light_font">
-                    <input type="radio" name="clothing" id="wcoats">
-                    <label class="filter-label" for="wcoats">
-                        Coats
+                    <input type="radio" name="" id="wbags">
+                    <label class="filter-label" for="wbags">
+                        Bags
                     </label>
+                    <ul class="sub_filter-clothing">
+                    <li class="light_font">
+                        <input type="radio" name="" id="wbackpacks">
+                        <label class="filter-label" for="wbackpacks">
+                            Backpacks
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wclutch_bags">
+                        <label class="filter-label" for="wclutch_bags">
+                            Clutch bags
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wshoulder_bags">
+                        <label class="filter-label" for="wshoulder_bags">
+                            Shoulder bags
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wtote_bag">
+                        <label class="filter-label" for="wtote_bag">
+                            Tote bag
+                        </label>
+                    </li>
+                    <li class="light_font">
+                        <input type="radio" name="" id="wtravel_bags">
+                        <label class="filter-label" for="wtravel_bags">
+                            Travel bags
+                        </label>
+                    </li>
+                  </ul>
                 </li>
                 <li class="light_font">
-                    <input type="radio" name="clothing" id="wdresses">
-                    <label class="filter-label" for="wdresses">
-                        Dresses
+                    <input type="radio" name="" id="wshoes">
+                    <label class="filter-label" for="wshoes">
+                        Shoes
                     </label>
+                    <ul class="sub_filter-clothing">
+                      <li class="light_font">
+                          <input type="radio" name="" id="wboots">
+                          <label class="filter-label" for="wboots">
+                              Boots
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wflat_shoes">
+                          <label class="filter-label" for="wflat_shoes">
+                              Flat shoes
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wpumps">
+                          <label class="filter-label" for="wpumps">
+                              Pumps
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wsandals">
+                          <label class="filter-label" for="wsandals">
+                              Sandals
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wsneakers">
+                          <label class="filter-label" for="wsneakers">
+                              Sneakers
+                          </label>
+                      </li>
+                    </ul>
                 </li>
                 <li class="light_font">
-                    <input type="radio" name="clothing" id="wjackets">
-                    <label class="filter-label" for="wjackets">
-                        Jackets
+                    <input type="radio" name="" id="wlingerie">
+                    <label class="filter-label" for="wlingerie">
+                        Lingerie
                     </label>
+                    <ul class="sub_filter-clothing">
+                      <li class="light_font">
+                          <input type="radio" name="" id="wbodysuits">
+                          <label class="filter-label" for="wbodysuits">
+                              Bodysuits
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wbras">
+                          <label class="filter-label" for="wbras">
+                              Bras
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wbriefs">
+                          <label class="filter-label" for="wbriefs">
+                              Briefs
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wcamisoles_and_chemises">
+                          <label class="filter-label" for="wcamisoles_and_chemises">
+                              Camisoles and chemises
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wcorsetry">
+                          <label class="filter-label" for="wcorsetry">
+                              Corsetry
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="whosiery">
+                          <label class="filter-label" for="whosiery">
+                              Hosiery
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wshapewear">
+                          <label class="filter-label" for="wshapewear">
+                              Shapewear
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wsleepwear">
+                          <label class="filter-label" for="wsleepwear">
+                              Sleepwear
+                          </label>
+                      </li>
+                    </ul>
                 </li>
                 <li class="light_font">
-                    <input type="radio" name="clothing" id="wjeans">
-                    <label class="filter-label" for="wjeans">
-                        Jeans
+                    <input type="radio" name="" id="waccessories">
+                    <label class="filter-label" for="waccessories">
+                        Accessories
                     </label>
-                </li>
-                <li class="light_font">
-                    <input type="radio" name="clothing" id="wjumpsuits">
-                    <label class="filter-label" for="wjumpsuits">
-                        Jumpsuits
-                    </label>
-                </li>
-                <li class="light_font">
-                    <input type="radio" name="clothing" id="wknitwear">
-                    <label class="filter-label" for="wknitwear">
-                        Knitwear
-                    </label>
-                </li>
-                <li class="light_font">
-                    <input type="radio" name="clothing" id="wpants">
-                    <label class="filter-label" for="wpants">
-                        Pants
-                    </label>
-                </li>
-                <li class="light_font">
-                    <input type="radio" name="clothing" id="wshorts">
-                    <label class="filter-label" for="wshorts">
-                        Shorts
-                    </label>
-                </li>
-                <li class="light_font">
-                    <input type="radio" name="clothing" id="wskirts">
-                    <label class="filter-label" for="wskirts">
-                        Skirts
-                    </label>
-                </li>
-                <li class="light_font">
-                    <input type="radio" name="clothing" id="wtops">
-                    <label class="filter-label" for="wtops">
-                        Tops
-                    </label>
+                    <ul class="sub_filter-clothing">
+                      <li class="light_font">
+                          <input type="radio" name="" id="wbelts">
+                          <label class="filter-label" for="wbelts">
+                              Belts
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wcollars">
+                          <label class="filter-label" for="wcollars">
+                              Collars
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wfine_jewellery">
+                          <label class="filter-label" for="wfine_jewellery">
+                              Fine Jewellery
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wgloves">
+                          <label class="filter-label" for="wgloves">
+                              Gloves
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="what">
+                          <label class="filter-label" for="what">
+                              Hat
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wjewellery">
+                          <label class="filter-label" for="wjewellery">
+                              Jewellery
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wscarves">
+                          <label class="filter-label" for="wscarves">
+                              Scarves
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wstationary">
+                          <label class="filter-label" for="wstationary">
+                              Stationary
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wsunglasses">
+                          <label class="filter-label" for="wsunglasses">
+                              Sunglasses
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wumbrellas">
+                          <label class="filter-label" for="wumbrellas">
+                              Umbrellas
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wwallet">
+                          <label class="filter-label" for="wwallet">
+                              Wallet
+                          </label>
+                      </li>
+                      <li class="light_font">
+                          <input type="radio" name="" id="wwatches">
+                          <label class="filter-label" for="wwatches">
+                              Watches
+                          </label>
+                      </li>
+                    </ul>
                 </li>
               </ul>
               <ul class="filter-clothing filter-clothing-mens">
-                <li class="light_font">
-                    <input type="radio" name="clothing" id="actiwear">
-                    <label class="filter-label" for="actiwear">
-                        Actiwear
+                  <li class="light_font">
+                    <input type="radio" name="" id="all_categories">
+                    <label class="filter-label" for="all_categories">
+                        All categories
                     </label>
                 </li>
                 <li class="light_font">
-                    <input type="radio" name="clothing" id="beachwear">
-                    <label class="filter-label" for="beachwear">
-                        Beachwear
+                    <input type="radio" name="" id="clothing">
+                    <label class="filter-label" for="clothing">
+                        Clothing
+                    </label>
+
+                </li>
+                <li class="light_font">
+                    <input type="radio" name="" id="bags">
+                    <label class="filter-label" for="bags">
+                        Bags
                     </label>
                 </li>
                 <li class="light_font">
-                    <input type="radio" name="clothing" id="coats">
-                    <label class="filter-label" for="coats">
-                        Coats
+                    <input type="radio" name="" id="shoes">
+                    <label class="filter-label" for="shoes">
+                        Shoes
                     </label>
                 </li>
                 <li class="light_font">
-                    <input type="radio" name="clothing" id="jackets">
-                    <label class="filter-label" for="jackets">
-                        Jackets
+                    <input type="radio" name="" id="lingerie">
+                    <label class="filter-label" for="lingerie">
+                        Lingerie
                     </label>
                 </li>
                 <li class="light_font">
-                    <input type="radio" name="clothing" id="jeans">
-                    <label class="filter-label" for="jeans">
-                        Jeans
-                    </label>
-                </li>
-                <li class="light_font">
-                    <input type="radio" name="clothing" id="jumpsuits">
-                    <label class="filter-label" for="jumpsuits">
-                        Jumpsuits
-                    </label>
-                </li>
-                <li class="light_font">
-                    <input type="radio" name="clothing" id="knitwear">
-                    <label class="filter-label" for="knitwear">
-                        Knitwear
-                    </label>
-                </li>
-                <li class="light_font">
-                    <input type="radio" name="clothing" id="pants">
-                    <label class="filter-label" for="pants">
-                        Pants
-                    </label>
-                </li>
-                <li class="light_font">
-                    <input type="radio" name="clothing" id="shorts">
-                    <label class="filter-label" for="shorts">
-                        Shorts
+                    <input type="radio" name="" id="accessories">
+                    <label class="filter-label" for="accessories">
+                        Accessories
                     </label>
                 </li>
               </ul>
+            </fieldset>
+<fieldset>
+              <div class="filter_title">
+                Designers
+              </div>
+              <div class="designer-search-wrap">
+                <input type="text" placeholder="Type designer name">
+              </div>
             </fieldset>
             <fieldset>
               <div class="filter_title">
@@ -429,11 +618,104 @@
                 <option value="">2014</option>
               </select>
             </fieldset>
+            <fieldset>
+              <div class="filter_title">
+                Color
+              </div>
+              <ul class="filter-colors">
+                <li><a href="#" class="purple" title="Purple"></a></li>
+                <li><a href="#" class="red" title="Red"></a></li>
+                <li><a href="#" class="orange" title="Orange"></a></li>
+                <li><a href="#" class="yellow" title="Yellow"></a></li>
+                <li><a href="#" class="green" title="Green"></a></li>
+                <li><a href="#" class="braun" title="Braun"></a></li>
+                <li><a href="#" class="pink" title="Pink"></a></li>
+                <li><a href="#" class="blue" title="Blue"></a></li>
+                <li><a href="#" class="neutrals" title="Neutrals"></a></li>
+                <li><a href="#" class="metalic" title="Metalic"></a></li>
+                <li><a href="#" class="grey" title="Grey"></a></li>
+                <li><a href="#" class="silver" title="Silver"></a></li>
+                <li><a href="#" class="black" title="Black"></a></li>
+                <li><a href="#" class="white" title="White"></a></li>
+                <li><a href="#" class="animal" title="Animal print"></a></li>
+              </ul>
+            </fieldset>
+            <fieldset>
+              <div class="filter_title">
+                Size
+              </div>
+              <ul class="filter-clothing filter-clothing-sizes">
+                <li class="light_font">
+                    <input type="radio" name="size" id="xxxs" checked="checked">
+                    <label class="filter-label" for="xxxs">
+                        XXXS
+                    </label>
+                </li>
+                <li class="light_font">
+                    <input type="radio" name="size" id="xxs">
+                    <label class="filter-label" for="xxs">
+                        XXS
+                    </label>
+                </li>
+                <li class="light_font">
+                    <input type="radio" name="size" id="xs">
+                    <label class="filter-label" for="xs">
+                        XS
+                    </label>
+                </li>
+                <li class="light_font">
+                    <input type="radio" name="size" id="s">
+                    <label class="filter-label" for="s">
+                        S
+                    </label>
+                </li>
+                <li class="light_font">
+                    <input type="radio" name="size" id="m">
+                    <label class="filter-label" for="m">
+                        M
+                    </label>
+                </li>
+                <li class="light_font">
+                    <input type="radio" name="size" id="l">
+                    <label class="filter-label" for="l">
+                        L
+                    </label>
+                </li>
+                <li class="light_font">
+                    <input type="radio" name="size" id="xl">
+                    <label class="filter-label" for="xl">
+                        XL
+                    </label>
+                </li>
+                <li class="light_font">
+                    <input type="radio" name="size" id="xxl">
+                    <label class="filter-label" for="xxl">
+                        XXL
+                    </label>
+                </li>
+                <li class="light_font">
+                    <input type="radio" name="size" id="xxxl">
+                    <label class="filter-label" for="xxxl">
+                        XXXL
+                    </label>
+                </li>
+              </ul>
+            </fieldset>
           </form>
         </div>
         <div class="col-md-9 clearfix nopadding section">
           <div class="clothing_top_panel">
             <div class="col-md-6 clearfix">
+              <div class="wrap_outfit_view">
+                <form action="">
+                  <select name="" id="" class="outfit_view">
+                    <option value="">Outfit view</option>
+                    <option value="">test1</option>
+                    <option value="">test2</option>
+                    <option value="">test3</option>
+                  </select>
+                </form>
+              </div>
               <div class="wrap_sort_by_newest">
                 <form action="">
                   <select name="" id="" class="sort_by_newest">

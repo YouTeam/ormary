@@ -28,16 +28,24 @@ $(document).ready(function(){
 	});
 
 	/* ALL DESIGNERS FILTER SUB*/
-	$('.filter-label').click(function(){
+
+	$('#orm_des_filter .filter-label').click(function(){
 		$(this).toggleClass('activelabel');
-		$(this).each(function(){
-			if ($(this).hasClass('activelabel')) {
-				$(this).next('.sub_filter-clothing').slideDown();
-			}
-			else {
-				$(this).next('.sub_filter-clothing').slideUp();
-			}
-		});
+		$(this).next('.sub_filter-clothing').toggle();
+		$(this).siblings().next('.sub_filter-clothing').hide();
+	});
+
+	/* Product add to cart popup */
+
+	$('.open_add_to_cart_popup').click(function(event){
+		event.preventDefault();
+		$('.wrap_product_popup').show();
+	});
+	$('.add_to_cart_popup').click(function(event){
+		event.stopPropagation();
+	});
+	$('.wrap_product_popup, .close_popup').click(function(){
+		$('.wrap_product_popup').hide();
 	});
 });
 
@@ -82,3 +90,7 @@ $(document).ready(function(){
 		$('.product_image img').attr('src',imgsource);
 	});
 });
+
+/**/
+
+
