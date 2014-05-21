@@ -200,6 +200,12 @@ body {
 	padding: 10px;
 	font-size: 14px;
 	color: #000000;
+	text-decoration: none;
+}
+
+.content .criteria a:hover {
+	border-bottom: 2px solid #bfbfbf;
+	margin-bottom: -1px;
 }
 
 .content .criteria a.active {
@@ -1089,7 +1095,7 @@ a.follow:hover {
 }
 
 .orm_designer_info_wrap .orm_designer_info .orm_designer_logo {
-	width: 25%;
+	width: 22%;
 	height: 100%;
 	float: left;
 }
@@ -1101,7 +1107,7 @@ a.follow:hover {
 
 .orm_designer_info_wrap .orm_designer_info .orm_designer_content {
 	float: left;
-	width: 75%;
+	width: 78%;
 	height: 100%;
 	padding: 50px 60px;
 }
@@ -1192,6 +1198,150 @@ a.follow:hover {
 	border-color: #3c3c3c;
 }
 
+/* My ORMARY page */
+
+.orm_profile {
+	height: 225px;
+}
+
+.orm_avatar {
+	width: 225px;
+	height: 225px;
+	border: 1px solid #cccccc;
+	padding: 35px 40px;
+	position: relative;
+}
+
+a.orm_avatar_hover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.7);
+	color: #ffffff;
+	text-align: center;
+	cursor: pointer;
+	text-decoration: none;
+	display: none;
+}
+
+.orm_avatar:hover a.orm_avatar_hover {
+	display: block;
+}
+
+.orm_avatar_hover span {
+	display: block;
+	padding-right: 10px;
+	margin-top: 48%;
+	background: url(../images/change_img.png) no-repeat 158px 3px;
+}
+
+.orm_avatar img {
+	width: 100%;
+	height: 100%;
+}
+
+.orm_profile .title {
+	font-size: 16px;
+	text-transform: uppercase;
+	margin-bottom: 5px;
+}
+
+.orm_profile .about {
+	font-size: 13px;
+}
+
+.orm_profile .sub-info {
+	margin-bottom: 20px;
+	font-size: 14px;
+}
+
+.orm_profile .sub-info .site {
+	display: block;
+	padding-right: 20px;
+	float: left;
+	background: url(../images/bc_punct.png) no-repeat 95% center;
+}
+
+.orm_profile .sub-info .site a {
+	color: #333333;
+}
+
+a.edit_my_profile {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 14px;
+	color: #000000;
+	text-decoration: none;
+	padding: 0 5px;
+}
+
+a.edit_my_profile:hover {
+	color: #ffffff;
+	background: #000000;
+}
+
+.wrap_designer_box {
+	margin-bottom: 43px;
+}
+
+.wrap_designer_box .designer_box_img {
+	text-align: center;
+	margin-bottom: 15px;
+}
+
+.wrap_designer_box .designer_box_img a img {
+	width: 142px;
+	height: 142px;
+}
+
+.wrap_designer_box .designer_box_title {
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+.wrap_designer_box .designer_box_title a {
+	color: #000000;
+	text-decoration: none;
+}
+
+.unfollow_btn {
+	text-align: center;
+}
+
+a.unfollow {
+	display: inline-block;
+	margin: 0 auto;
+	color: #cecece;
+	text-transform: uppercase;
+	border: 1px solid #cecece;
+	padding: 5px 15px;
+	font-size: 10px;
+	text-decoration: none;
+}
+
+a.unfollow:hover {
+	color: #ffffff;
+	border: 1px solid #ffffff;
+	background: #cecece;
+}
+
+.my_ormary_page .criteria {
+	position: relative;
+	top: -42px;
+}
+
+.content .criteria a .number {
+	height: 20px;
+	line-height: 20px;
+	display: inline-block;
+	padding: 0 5px;
+	margin-left: 8px;
+	background: #cccccc;
+	color: #ffffff;
+}
 
 /* Media queries */
 
