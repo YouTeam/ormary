@@ -1343,6 +1343,138 @@ a.unfollow:hover {
 	color: #ffffff;
 }
 
+/* PROFILE EDITING */
+
+.profile_steps a {
+	display: block;
+	line-height: 26px;
+	font-size: 14px;
+	color: #404040;
+	margin-bottom: 5px;
+	text-decoration: none;
+	padding: 0 8px;
+	position: relative;
+	width: 80%;
+}
+
+.profile_steps a.active {
+	background: #eeeeee;
+}
+
+.profile_steps a.active:after {
+	position: absolute;
+	top: 0;
+	right: -7px;
+	content: "";
+	height: 26px;
+	width: 8px;
+	background-image: url(../images/profile_step.png);
+	background-repeat: no-repeat; 
+	background-position: 100% 0;
+}
+
+.my_ormary_profile_page .aside {
+	padding-left: 0;
+}
+
+.my_ormary_profile_page .orm_avatar {
+	float: none;
+	width: 120px;
+	height: 120px;
+	padding: 19px;
+}
+
+.change_avatar {
+	margin-top: 5px;
+	margin-bottom: 25px;
+	float: none !important;
+}
+
+.change_avatar a {
+	text-transform: uppercase;
+	padding: 0 7px;
+	color: #000000;
+	margin-right: 10px;
+}
+
+.change_avatar span {
+	color: #9b9b9b;
+	opacity: 0;
+}
+
+.change_avatar a:hover+span {
+	opacity: 1;
+}
+
+.wrap_input {
+	width: 467px;
+	margin-bottom: 15px;
+}
+
+.section .wrap_input {
+	float: none;
+}
+
+.wrap_select {
+	width: 221px;
+	margin-bottom: 15px;
+}
+
+.wrap_select.country_select {
+	margin-right: 24px;
+}
+
+.wrap_select select {
+	width: 100%;
+}
+
+.wrap_input .title {
+	margin-bottom: 5px;
+}
+
+.wrap_input input,
+.wrap_input textarea,
+.wrap_select select {
+	width: 100%;
+	height: 24px;
+	border: 1px solid #cccccc;
+	padding: 10px;
+}
+
+.wrap_input textarea {
+	resize: none;
+	height: 84px;
+}
+
+.wrap_input input.user_name {
+	width: 314px;
+	margin-left: 5px;
+}
+
+.wrap_input span {
+	color: #8c8c8c;
+	float: left;
+	line-height: 24px;
+}
+
+a.black_btn {
+	display: block;
+	width: 170px;
+	height: 26px;
+	line-height: 28px;
+	color: #ffffff;
+	background: #000000;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+a.black_btn:hover {
+	border: 1px solid #000000;
+	background: #ffffff;
+	color: #000000;
+}
+
 /* Media queries */
 
 @media screen and (max-width: 1199px){
