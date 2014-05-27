@@ -93,4 +93,23 @@ $(document).ready(function(){
 
 /**/
 
+$(function() {
+
+	jQuery("#slider").slider({
+	    min: 0,
+	    max: 1000,
+	    values: [0,1000],
+	    range: true,
+	    stop: function(event, ui) {
+	        jQuery("span#minCost").text(jQuery("#slider").slider("values",0));
+	        jQuery("span#maxCost").text(jQuery("#slider").slider("values",1));
+	    },
+	    slide: function(event, ui){
+	        jQuery("span#minCost").text(jQuery("#slider").slider("values",0));
+	        jQuery("span#maxCost").text(jQuery("#slider").slider("values",1));
+	    }
+	});
+
+});
+
 
