@@ -483,7 +483,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
   }
 
   Collapse.DEFAULTS = {
-    toggle: true
+    toggle: false
   }
 
   Collapse.prototype.dimension = function () {

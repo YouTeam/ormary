@@ -1,5 +1,15 @@
 $(document).ready(function(){
 
+	if ($(window).width()>768) {
+		$('.dropdown-toggle').dropdownHover();
+	}
+
+	$(window).resize(function(){
+		if ($(window).width()>768) {
+			$('.dropdown-toggle').dropdownHover();
+		}
+	});
+
 	/* A FOCUS ON blocks hover */
 
 	$('.orm_focus_on .col-md-4').hover(function(){
@@ -47,6 +57,64 @@ $(document).ready(function(){
 	$('.wrap_product_popup, .close_popup').click(function(){
 		$('.wrap_product_popup').hide();
 	});
+
+	/* JOIN ORMARY POPUPS */
+
+	$('.open_ormary').click(function(event){
+		event.preventDefault();
+		$('.wrap_sign_in').show();
+	});
+	$('.sign_in_popup').click(function(event){
+		event.stopPropagation();
+	});
+	$('.wrap_sign_in').click(function(){
+		$('.wrap_sign_in').hide();
+	});
+
+	/**/
+
+	$('.open_wizard').click(function(event){
+		event.preventDefault();
+		$('.wrap_interested_in').show();
+		$('.wrap_sign_in').hide();
+	});
+	$('.interested_in').click(function(event){
+		event.stopPropagation();
+	});
+	$('.wrap_interested_in').click(function(){
+		$('.wrap_interested_in').hide();
+	});
+
+	/**/
+
+	$('.open_wizard2').click(function(event){
+		event.preventDefault();
+		$('.wrap_do_you_like').show();
+		$('.wrap_interested_in').hide();
+		designerGoods();
+	});
+	$('.do_you_like').click(function(event){
+		event.stopPropagation();
+	});
+	$('.wrap_do_you_like').click(function(){
+		$('.wrap_do_you_like').hide();
+	});
+
+	/**/
+
+	$('.open_wizard3').click(function(event){
+		event.preventDefault();
+		$('.wrap_you_are_following').show();
+		$('.wrap_do_you_like').hide();
+	});
+	$('.you_are_following').click(function(event){
+		event.stopPropagation();
+	});
+	$('.wrap_you_are_following').click(function(){
+		$('.wrap_you_are_following').hide();
+	});
+
+
 });
 
 /* Main slider */
@@ -91,6 +159,27 @@ $(document).ready(function(){
 	});
 });
 
+/* Designer goods slider */
+
+function designerGoods(){
+
+	var mySwiper3 = new Swiper('.designer_goods_slider',{
+		paginationClickable: true,
+		slidesPerView: 4,
+		loop: true
+	})
+
+	 $('.des_slider_left').on('click', function(e){
+		e.preventDefault()
+		mySwiper3.swipePrev()
+	})
+	$('.des_slider_right').on('click', function(e){
+		e.preventDefault()
+		mySwiper3.swipeNext()
+	})
+
+}
+
 /**/
 
 $(function() {
@@ -111,5 +200,8 @@ $(function() {
 	});
 
 });
+
+
+
 
 
