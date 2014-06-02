@@ -10,14 +10,6 @@ $(document).ready(function(){
 		}
 	});
 
-	/* A FOCUS ON blocks hover */
-
-	$('.orm_focus_on .col-md-4').hover(function(){
-		$(this).animate({opacity: "0.7"}, 150);
-	},function(){
-		$(this).animate({opacity: "1"}, 100);
-	});
-
 	/* CLOTHING FILTER TABS */
 
 	$('.filter-clothing-mens').hide();
