@@ -29,6 +29,32 @@ $(document).ready(function(){
 		$('.filter-clothing-womens').hide();
 	});
 
+	/* MY ORMARY TABS */
+
+	$('.following_designers_to').click(function(event){
+		event.preventDefault();
+		$(this).addClass('active');
+		$(this).siblings().removeClass('active');
+		$('.following_designers').show();
+		$('.following_designers').siblings().hide();
+	});
+
+	$('.recommended_designers_to').click(function(event){
+		event.preventDefault();
+		$(this).addClass('active');
+		$(this).siblings().removeClass('active');
+		$('.recommended_designers').show();
+		$('.recommended_designers').siblings().hide();
+	});
+
+	$('.my_orders_to').click(function(event){
+		event.preventDefault();
+		$(this).addClass('active');
+		$(this).siblings().removeClass('active');
+		$('.my_orders').show();
+		$('.my_orders').siblings().hide();
+	});
+
 	/* ALL DESIGNERS FILTER SUB*/
 
 	$('#orm_des_filter .filter-label').click(function(){
@@ -48,6 +74,19 @@ $(document).ready(function(){
 	});
 	$('.wrap_product_popup, .close_popup').click(function(){
 		$('.wrap_product_popup').hide();
+	});
+
+	/* My Wardrobe view recommended popup */
+
+	$('.view_recommended').click(function(event){
+		event.preventDefault();
+		$('.wrap_related_popup').show();
+	});
+	$('.related_popup').click(function(event){
+		event.stopPropagation();
+	});
+	$('.wrap_related_popup, .close_popup').click(function(){
+		$('.wrap_related_popup').hide();
 	});
 
 	/* JOIN ORMARY POPUPS */

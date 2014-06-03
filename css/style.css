@@ -1094,6 +1094,7 @@ a.follow:hover {
 /* All Popups */
 
 .wrap_product_popup,
+.wrap_related_popup,
 .wrap_sign_in,
 .wrap_interested_in,
 .wrap_do_you_like,
@@ -1106,6 +1107,99 @@ a.follow:hover {
 	background: rgba(0,0,0,0.8);
 	z-index: 999;
 	display: none;
+}
+
+.wrap_related_popup .related_popup {
+	width: 800px;
+	background: #ffffff;
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	margin-left: -400px;
+}
+
+.wrap_related_popup .related_popup .product_wrap {
+	float: left;
+	background: #f7f7f7;
+	height: 100%;
+}
+
+.wrap_related_popup .related_popup .product {
+	max-width: 267px;
+	min-height: 441px;
+}
+
+.wrap_related_popup .related_popup .product {
+	margin: 0;
+	border: none !important;
+	padding: 30px;
+	position: relative;
+}
+
+.wrap_related_popup .related_popup .product:after {
+	content: '';
+	position: absolute;
+	right: -20px;
+	top: 50%;
+	border: 10px solid transparent;
+	border-left: 10px solid #f7f7f7;
+	margin-top: -10px;
+}
+
+.wrap_related_popup .related_popup .product select {
+	border: none;
+	background: #f7f7f7; 
+}
+
+.wrap_related_popup .related_popup .recommended {
+	padding: 10px 25px 0;
+	float: left;
+	width: 533px;
+}
+
+.wrap_related_popup .related_popup .recommended .number {
+	height: 24px;
+	line-height: 24px;
+	display: inline-block;
+	padding: 0 5px;
+	margin-left: 8px;
+	background: #cccccc;
+	color: #ffffff;
+	font-size: 14px;
+	position: relative;
+	top: -2px;
+}
+
+.wrap_related_popup .related_popup .recommended .rec_product {
+	width: 230px;
+	height: 114px;
+	float: left;
+	margin-bottom: 15px;
+	color: #000000;
+}
+
+.wrap_related_popup .related_popup .recommended .rec_product_img {
+	width: 93px;
+	height: 114px;
+	float: left;
+}
+
+.wrap_related_popup .related_popup .recommended .rec_product_img img {
+	width: 100%;
+	height: 100%;
+}
+
+.wrap_related_popup .related_popup .recommended .rec_product_info {
+	margin-left: 10px;
+	float: left;
+	line-height: 20px;
+}
+
+.wrap_related_popup .related_popup .recommended .rec_product_info div {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 90px;
+	white-space: nowrap;
 }
 
 .wrap_interested_in,
@@ -1719,14 +1813,76 @@ a.unfollow:hover {
 	top: -42px;
 }
 
+.my_ormary_page .criteria + div {
+	width: 100%;
+}
+
+.my_ormary_page .criteria + div > div {
+	display: none;
+}
+
+.my_ormary_page .criteria + div > div.active {
+	display: block;
+}
+
 .content .criteria a .number {
 	height: 20px;
 	line-height: 20px;
 	display: inline-block;
 	padding: 0 5px;
 	margin-left: 8px;
-	background: #cccccc;
-	color: #ffffff;
+	background: #f5f5f5;
+	color: #9a9a9a;
+}
+
+.content .criteria a .number2 {
+	height: 20px;
+	line-height: 20px;
+	display: inline-block;
+	padding: 0 5px;
+	margin-left: 8px;
+	background: #f5f5f5;
+	color: #ff0000;
+}
+
+.my_ormary_page .following_designers,
+.my_ormary_page .recommended_designers,
+.my_ormary_page .my_orders {
+	width: 100%;
+}
+
+.my_ormary_page .my_orders table {
+	width: 100%;
+}
+
+.my_ormary_page .my_orders table thead {
+	border-top: 1px solid #cecece;
+	border-bottom: 1px solid #cecece;
+	line-height: 30px;
+}
+
+.my_ormary_page .my_orders table tbody {
+	line-height: 50px;
+}
+
+.my_ormary_page .my_orders table tbody {
+	font-family: 'nexa_lightregular';
+}
+
+.my_ormary_page .my_orders table tbody .date {
+	color: #9a9a9a;
+}
+
+.my_ormary_page .my_orders table tbody .price {
+	font-family: 'nexa_boldregular';
+}
+
+.my_ormary_page .my_orders table tbody .in_progress {
+	color: #FFCC00;
+}
+
+.my_ormary_page .my_orders table tbody .succesfull {
+	color: #0fab0f;
 }
 
 /* My WARDROBE page */
@@ -2206,6 +2362,57 @@ a.black_btn:hover {
 	background: url(../images/separator.png) no-repeat center;
 }
 
+/* PAGE 404 */
+
+.oops img {
+	display: block;
+	margin: 20px auto 10px;
+}
+
+.oops + p {
+	font-size: 18px;
+	color: #9a9a9a;
+	margin-bottom: 20px;
+}
+
+.pages {
+	text-align: center;
+}
+
+.pages a {
+	display: inline-block;
+	margin: 0 50px;
+	font-size: 14px;
+	color: #404040;
+	font-family: 'nexa_lightregular';
+	padding-top: 45px;
+}
+
+.just_in_icon {
+	background: url(../images/just_in_icon.png) no-repeat center 0;
+}
+
+.clothing_icon {
+	background: url(../images/clothing_icon.png) no-repeat center 0;
+}
+
+.bags_icon {
+	background: url(../images/bags_icon.png) no-repeat center 0;
+}
+
+.shoes_icon {
+	background: url(../images/shoes_icon.png) no-repeat center 5px;
+	padding: 0 5px;
+}
+
+.lingerie_icon {
+	background: url(../images/lingerie_icon.png) no-repeat center 5px;
+}
+
+.accessories_icon {
+	background: url(../images/accessories_icon.png) no-repeat center 5px;
+}
+
 /* ui-slider */
 
 .ui-slider {
@@ -2220,6 +2427,7 @@ a.black_btn:hover {
     background: url(../img/slider.png) no-repeat; /* картинка изображающая ползунок. Или можно залить цветом, задать бордюр и скругления */
     cursor: pointer
 }
+
 .ui-slider .ui-slider-range {
     position: absolute;
     z-index: 1;
@@ -2367,7 +2575,7 @@ a.black_btn:hover {
 }
 
 @media screen and (max-width: 520px){
-	.section > div {
+	.section > div.col-md-4 {
 		float: none;
 		width: 266px;
 		margin: 0 auto;
