@@ -67,82 +67,95 @@ $(document).ready(function(){
 
 	$('.open_add_to_cart_popup').click(function(event){
 		event.preventDefault();
-		$('.wrap_product_popup').show();
+		$('.popup, .add_to_cart_popup').show();
 	});
 	$('.add_to_cart_popup').click(function(event){
 		event.stopPropagation();
 	});
-	$('.wrap_product_popup, .close_popup').click(function(){
-		$('.wrap_product_popup').hide();
+	$('.popup, .close_popup').click(function(){
+		$('.add_to_cart_popup, .popup').hide();
 	});
 
 	/* My Wardrobe view recommended popup */
 
 	$('.view_recommended').click(function(event){
 		event.preventDefault();
-		$('.wrap_related_popup').show();
+		$('.related_popup, .popup').show();
 	});
 	$('.related_popup').click(function(event){
 		event.stopPropagation();
 	});
-	$('.wrap_related_popup, .close_popup').click(function(){
-		$('.wrap_related_popup').hide();
+	$('.popup, .close_popup').click(function(){
+		$('.related_popup, .popup').hide();
 	});
 
 	/* JOIN ORMARY POPUPS */
 
 	$('.open_ormary').click(function(event){
 		event.preventDefault();
-		$('.wrap_sign_in').show();
+		$('.sign_in_popup, .popup').show();
 	});
 	$('.sign_in_popup').click(function(event){
 		event.stopPropagation();
 	});
-	$('.wrap_sign_in').click(function(){
-		$('.wrap_sign_in').hide();
+	$('.popup').click(function(){
+		$('.popup, .sign_in_popup').hide();
 	});
 
 	/**/
 
 	$('.open_wizard').click(function(event){
 		event.preventDefault();
-		$('.wrap_interested_in').show();
-		$('.wrap_sign_in').hide();
+		$('.popup, .interested_in').show();
+		$('.sign_in_popup').hide();
 	});
 	$('.interested_in').click(function(event){
 		event.stopPropagation();
 	});
-	$('.wrap_interested_in').click(function(){
-		$('.wrap_interested_in').hide();
+	$('.popup').click(function(){
+		$('.popup, .interested_in').hide();
 	});
 
 	/**/
 
 	$('.open_wizard2').click(function(event){
 		event.preventDefault();
-		$('.wrap_do_you_like').show();
-		$('.wrap_interested_in').hide();
+		$('.do_you_like, .popup').show();
+		$('.interested_in').hide();
 		designerGoods();
 	});
 	$('.do_you_like').click(function(event){
 		event.stopPropagation();
 	});
-	$('.wrap_do_you_like').click(function(){
-		$('.wrap_do_you_like').hide();
+	$('.popup').click(function(){
+		$('.popup, .do_you_like').hide();
 	});
 
 	/**/
 
 	$('.open_wizard3').click(function(event){
 		event.preventDefault();
-		$('.wrap_you_are_following').show();
-		$('.wrap_do_you_like').hide();
+		$('.you_are_following, .popup').show();
+		$('.do_you_like').hide();
 	});
 	$('.you_are_following').click(function(event){
 		event.stopPropagation();
 	});
-	$('.wrap_you_are_following').click(function(){
-		$('.wrap_you_are_following').hide();
+	$('.popup').click(function(){
+		$('.popup, .you_are_following').hide();
+	});
+
+	/* Add your shipping address popup */
+
+	$('.open_shipping_address').click(function(event){
+		event.preventDefault();
+		$('.shipping_address, .popup').show();
+	});
+	$('.shipping_address').click(function(event){
+		event.stopPropagation();
+	});
+	$('.popup').click(function(){
+		$('.popup, .shipping_address').hide();
 	});
 
 
