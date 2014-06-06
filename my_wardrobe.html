@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ORMARY - My Wardrobe</title>
-
+    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
@@ -20,228 +20,231 @@
   </head>
   <body>
     <div class="wrapper">
-      <div class="container-fluid top_bar">
-        <div class="container">
-          <div class="col-lg-6 col-md-5 left_side clearfix">
-            <div class="logo">
-              <a href="#">
-                <img src="images/logo.png" alt="Logo">
-              </a>
-            </div>
-            <form class="search" role="search">
-              <input type="text" class="search_inp light_font" placeholder="Search">
-              <button type="submit" class="search_btn"></button>
-            </form>
-          </div>
-          <div class="navbar-right right_side clearfix">
-            <div class="account">
-              <a href="#"><img src="images/account.png" alt="Account"></a>
-              <a href="#">Charlotte</a>
-            </div>
-            <div class="stylefeed">
-              <a href="#">Fashionfeed</a>
-            </div>
-            <div class="wardrobe">
-              <a href="#">Wardrobe</a>
-              <span class="number">0</span>
-            </div>
-            <div class="cart">
-              <a href="#">Cart</a>
-              <span class="number">0</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="navbar navbar-default main_menu">
-            <div class="container">
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#responsive_menu">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
+      <header>
+        <div class="container-fluid top_bar">
+          <div class="container">
+            <div class="col-lg-6 col-md-5 left_side clearfix">
+              <div class="logo">
+                <a href="#">
+                  <img src="images/logo.png" alt="Logo">
+                </a>
               </div>
-              <div class="collapse navbar-collapse" id="responsive_menu">
-                <ul class="nav navbar-nav navbar-left">
-                  <li><a href="#">JUST IN DESIGNERS</a></li>
-                  <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">CLOTHING <b class="caret"></b></a>
-                      <ul class="dropdown-menu orm_sub_dropdown-menu">
-                        <li class="menu-item light_font">
-                          <a href="#">All clothing</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Coats</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Dresses</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Jackets</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Jeans</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Jumpsuits</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Knitwear</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Pants</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Shorts</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Skirts</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Tops</a>
-                        </li>
-                      </ul>
-                  </li>
-                  <li>
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">BAGS <b class="caret"></b></a>
-                      <ul class="dropdown-menu orm_sub_dropdown-menu">
-                        <li class="menu-item light_font">
-                          <a href="#">All bags</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Backpacks</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Clutch bags</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Shoulder bags</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Tote bag</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Travel bags</a>
-                        </li>
-                      </ul>
-                  </li>
-                  <li>
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">SHOES <b class="caret"></b></a>
-                      <ul class="dropdown-menu orm_sub_dropdown-menu">
-                        <li class="menu-item light_font">
-                          <a href="#">All shoes</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Boots</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Flat shoes</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Pumps</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Sandals</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Sneakers</a>
-                        </li>
-                      </ul>
-                  </li>
-                  <li>
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Lingerie <b class="caret"></b></a>
-                      <ul class="dropdown-menu orm_sub_dropdown-menu">
-                        <li class="menu-item light_font">
-                          <a href="#">All lingerie</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Bodysuits</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Bras</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Briefs</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Camisoles and chemises</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Corsetry</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Hosiery</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Shapewear</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Sleepwear</a>
-                        </li>
-                      </ul>
-                  </li>
-                  <li>
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">ACCESORIES <b class="caret"></b></a>
-                      <ul class="dropdown-menu orm_sub_dropdown-menu">
-                        <li class="menu-item light_font">
-                          <a href="#">All accesories</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Belts</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Collars</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Fine Jewellery</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Gloves</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Hat</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Jewellery</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Scarves</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Stationary</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Sunglasses</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Umbrellas</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Wallet</a>
-                        </li>
-                        <li class="menu-item light_font">
-                          <a href="#">Watches</a>
-                        </li>
-                      </ul>
-                  </li>
-                  <li><a href="#">BLOG</a></li>
-                  <li><a href="#">ABOUT</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">£ GBP <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                      <li class="light_font"><a href="#">$ DOL</a></li>
-                      <li class="light_font"><a href="#">Another action</a></li>
-                    </ul>
-                  </li>
-                </ul>
+              <form class="search" role="search">
+                <input type="text" class="search_inp light_font" placeholder="Search">
+                <button type="submit" class="search_btn"></button>
+              </form>
+            </div>
+            <div class="navbar-right right_side clearfix">
+              <div class="account">
+                <a href="#"><img src="images/account.png" alt="Account"></a>
+                <a href="#">Charlotte</a>
+              </div>
+              <div class="stylefeed">
+                <a href="#">Fashionfeed</a>
+              </div>
+              <div class="wardrobe">
+                <a href="#">Wardrobe</a>
+                <span class="number">0</span>
+              </div>
+              <div class="cart">
+                <a href="#">Cart</a>
+                <span class="number">0</span>
               </div>
             </div>
           </div>
         </div>
-      </div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="navbar navbar-default main_menu">
+              <div class="container">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#responsive_menu">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                </div>
+                <div class="collapse navbar-collapse" id="responsive_menu">
+                  <ul class="nav navbar-nav navbar-left">
+                    <li><a href="#">JUST IN</a></li>
+                    <li><a href="#">DESIGNERS</a></li>
+                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">CLOTHING <b class="caret"></b></a>
+                        <ul class="dropdown-menu orm_sub_dropdown-menu">
+                          <li class="menu-item light_font">
+                            <a href="#">All clothing</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Coats</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Dresses</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Jackets</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Jeans</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Jumpsuits</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Knitwear</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Pants</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Shorts</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Skirts</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Tops</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">BAGS <b class="caret"></b></a>
+                        <ul class="dropdown-menu orm_sub_dropdown-menu">
+                          <li class="menu-item light_font">
+                            <a href="#">All bags</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Backpacks</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Clutch bags</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Shoulder bags</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Tote bag</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Travel bags</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">SHOES <b class="caret"></b></a>
+                        <ul class="dropdown-menu orm_sub_dropdown-menu">
+                          <li class="menu-item light_font">
+                            <a href="#">All shoes</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Boots</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Flat shoes</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Pumps</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Sandals</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Sneakers</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Lingerie <b class="caret"></b></a>
+                        <ul class="dropdown-menu orm_sub_dropdown-menu">
+                          <li class="menu-item light_font">
+                            <a href="#">All lingerie</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Bodysuits</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Bras</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Briefs</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Camisoles and chemises</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Corsetry</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Hosiery</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Shapewear</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Sleepwear</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">ACCESORIES <b class="caret"></b></a>
+                        <ul class="dropdown-menu orm_sub_dropdown-menu">
+                          <li class="menu-item light_font">
+                            <a href="#">All accesories</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Belts</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Collars</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Fine Jewellery</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Gloves</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Hat</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Jewellery</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Scarves</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Stationary</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Sunglasses</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Umbrellas</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Wallet</a>
+                          </li>
+                          <li class="menu-item light_font">
+                            <a href="#">Watches</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li><a href="#">BLOG</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">£ GBP <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li class="light_font"><a href="#">$ DOL</a></li>
+                        <li class="light_font"><a href="#">Another action</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
       <div class="container content my_wardrobe_page">
       <h4>My wardrobe</h4>
         <div class="col-md-3 clearfix aside my_wardrobe_aside light_font">
@@ -387,7 +390,7 @@
         </div>
       </div>
     </div>
-    <footer>
+<footer>
       <div class="container-fluid footer_top">
         <div class="container">
           <div class="col-md-6 left social-icons">
@@ -403,6 +406,9 @@
             </a>
             <a href="#">
               <i class="fa fa-pinterest"></i>
+            </a>
+            <a href="#">
+              <i class="fa fa-instagram"></i>
             </a>
           </div>
           <div class="col-md-6 right sign_up">
@@ -462,9 +468,9 @@
         <a href="#">
           <img src="images/pay3.png" alt="">
         </a>
-        <div class="copyright light_font">
-          ©2014 Ormary  All rights reserved
-        </div>
+      </div>
+      <div class="copyright light_font text-center">
+        ©2014 Ormary  All rights reserved
       </div>
     </footer>
     <div class="popup"></div>

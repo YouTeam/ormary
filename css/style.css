@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Lora);
+
 /* CUSTOM STYLES */
 
 input:focus,
@@ -11,6 +13,15 @@ body {
 
 .wrapper {
 	margin-bottom: 75px;
+	padding-top: 121px;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 999;
 }
 
 a {
@@ -144,16 +155,13 @@ select {
 	background-color: #f7f7f7;
 }
 
-.navbar.main_menu .navbar-left li:first-child a {
-	padding-left: 0;
-}
-
 .navbar-collapse {
 	padding: 0;
 }
 
 .navbar-nav {
 	margin:0px;
+	margin-left: -15px;
 }
 
 .content h4 {
@@ -190,7 +198,7 @@ select {
 
 .product:hover {
 	border: 1px solid #000000;
-	z-index: 999;
+	z-index: 99;
 }
 
 .product:hover .pin,
@@ -278,12 +286,12 @@ select {
 /* FOOTER */
 
 footer {
-	background: #333333;
-	color: #ffffff;
+	background: #ffffff;
+	color: #000000;
 }
 
 .footer_top {
-	border-bottom: 1px solid #484848;
+	border-top: 1px solid #e5e5e5;
 }
 
 .footer_top > div {
@@ -301,8 +309,8 @@ footer {
 }
 
 .footer_top .sign_up input[type="text"] {
-	background: #484848;
-	border: none;
+	background: #ffffff;
+	border: 1px solid #9a9a9a;
 	height: 30px;
 	padding: 0 9px;
 	width: 184px;
@@ -319,7 +327,7 @@ footer {
 	border: none;
 	margin-left: -3px;
 	background: url(../images/mail.png) no-repeat center;
-	background-color: #7f7f7f;
+	background-color: #9a9a9a;
 	position: relative;
 	top: -2px;
 }
@@ -329,29 +337,29 @@ footer {
 }
 
 .footer_top .social-icons a {
-	font-size: 14px;
-	color: #dbdbdb;
-	margin: 0 6px;
+	font-size: 19px;
+	color: #9a9a9a;
+	margin: 0 3px;
 	display: inline-block;
 	width: 32px;
 	height: 32px;
 	text-align: center;
-	background: #484848;
+	background: none;
 	line-height: 32px;
 	border-radius: 32px;
 }
 
 .footer_top .social-icons a:hover {
 	background: #dbdbdb; 
-	color: #484848;
+	color: #ffffff;
 }
 
 footer .footer_middle {
-	padding: 50px 0;
+	padding: 40px 0;
 }
 
 footer .footer_middle ul li a {
-	color: #686868;
+	color: #000000;
 	line-height: 25px;
 	display: inline-block;
 	font-family: 'nexa_lightregular';
@@ -360,13 +368,14 @@ footer .footer_middle ul li a {
 
 footer .footer_middle ul li a:hover,
 footer .footer_middle ul li.caption a:hover {
-	color: #ffffff;
+	text-decoration: underline;
 }
 
 footer .footer_middle ul li.caption a {
 	font-size: 14px;
-	color: #9f9f9f;
+	color: #000000;
 	margin-bottom: 20px;
+	font-family: 'nexa_boldregular';
 }
 
 footer .footer_bottom a {
@@ -374,14 +383,11 @@ footer .footer_bottom a {
 	padding: 0 5px;
 }
 
-footer .footer_bottom a:hover {
-	opacity: 0.8;
-}
-
-footer .footer_bottom .copyright {
-	margin-top: 40px;
-	margin-bottom: 20px;
-	color: #686868;
+footer .copyright {
+	line-height: 35px;
+	color: #000000;
+	background: #e5e5e5;
+	margin-top: 20px;
 }
 
 /* additional */
@@ -409,11 +415,11 @@ footer .footer_bottom .copyright {
 	margin-bottom: 10px;
 }
 
-.swiper-container {
+.orm_main_slider {
 	height: 400px;
 }
 
-.swiper-slide {
+.orm_main_slider .swiper-slide {
 	position: relative;
 }
 
@@ -505,7 +511,11 @@ footer .footer_bottom .copyright {
 }
 
 .orm_focus_on div.col-md-4:hover {
+	opacity: 0.8;
+}
 
+.focus_title {
+	margin-bottom: 20px;
 }
 
 .orm_focus_on .orm_focus_box {
@@ -536,6 +546,37 @@ footer .footer_bottom .copyright {
 	margin-top: 3px;
 	font-size: 14px;
 }
+
+.orm_newest_carousel {
+	padding: 0;
+	height: 326px;
+	position: relative;
+}
+
+.newest_carousel_prev,
+.newest_carousel_next {
+	position: absolute;
+	top: 45%;
+	width: 44px;
+	height: 44px;
+	margin-top: -22px;
+	z-index: 999;
+}
+
+.newest_products {
+	position: relative;
+}
+
+.newest_carousel_prev {
+	left: -20px;
+	background: url(../images/newest_carousel_prev.png) no-repeat 0 0;
+}
+
+.newest_carousel_next {
+	right: -20px;
+	background: url(../images/newest_carousel_next.png) no-repeat 0 0;
+}
+
 
 /* Cloathing page */
 
@@ -1382,6 +1423,10 @@ a.follow:hover {
 	height: 212px;
 }
 
+.do_you_like .designer_goods .swiper-slide {
+	height: 212px;
+}
+
 .do_you_like .designer_goods a.des_slider_left,
 .do_you_like .designer_goods a.des_slider_right {
 	position: absolute;
@@ -1467,13 +1512,13 @@ a.follow:hover {
 }
 
 .sign_in_popup .caption span {
-	font-size: 48px;
-	font-family:"Times New Roman", Times, serif;
+	font-size: 47px;
+	font-family: 'Lora', "Times New Roman", Times, serif;
 	color: #ffffff;
 }
 
 .sign_in_popup .caption span + span {
-	font-size: 40px;
+	font-size: 39px;
 }
 
 .sign_in_popup .form {
@@ -1537,7 +1582,6 @@ a.follow:hover {
 	top: 50%;
 	left: 50%;
 	background: #ffffff;
-	margin-top: -146px;
 	margin-left: -300px;
 	z-index: 999;
 	display: none;
@@ -2586,7 +2630,7 @@ a.black_btn:hover {
 
 .orm_article .orm_article_caption {
 	font-size: 24px;
-	font-family: "Times New Roman", Times, serif;
+	font-family: 'Lora', "Times New Roman", Times, serif;
 	margin-bottom: 10px;
 }
 
@@ -2749,7 +2793,7 @@ a.black_btn:hover {
 }
 
 .orm_landing_sign_up .sign_up {
-	padding: 45px 105px 20px;
+	padding: 45px 100px 20px;
 	background: rgba(0,0,0,0.8);
 	text-align: center;
 	color: #cbcbca;
@@ -2817,28 +2861,12 @@ a.black_btn:hover {
 .orm_landing_sign_up .social_icons a {
 	padding: 0 5px;
 	text-decoration: none;
+	color: #cbcbca;
 }
 
 .orm_landing_sign_up .social_icons a:hover {
-	opacity: 0.8;
+	color: #ffffff;
 }
-
-.orm_landing_sign_up .social_icons a .fa-facebook {
-	color: #4674bb;
-}
-
-.orm_landing_sign_up .social_icons a .fa-twitter {
-	color: #00c1fd;
-}
-
-.orm_landing_sign_up .social_icons a .fa-pinterest {
-	color: #ec1a22;
-}
-
-.orm_landing_sign_up .social_icons a .fa-instagram {
-	color: #507fa2;
-}
-
 
 /* ui-slider */
 

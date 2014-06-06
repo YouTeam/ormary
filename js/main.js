@@ -68,6 +68,10 @@ $(document).ready(function(){
 	$('.open_add_to_cart_popup').click(function(event){
 		event.preventDefault();
 		$('.popup, .add_to_cart_popup').show();
+		var topDistance = $(window).scrollTop();
+		var popupHeight = $('.add_to_cart_popup').height()/2;
+		var popupPosition = $(window).height()/2;
+		$('.add_to_cart_popup').css('top',topDistance + popupPosition - popupHeight);
 	});
 	$('.add_to_cart_popup').click(function(event){
 		event.stopPropagation();
@@ -81,6 +85,10 @@ $(document).ready(function(){
 	$('.view_recommended').click(function(event){
 		event.preventDefault();
 		$('.related_popup, .popup').show();
+		var topDistance = $(window).scrollTop();
+		var popupHeight = $('.related_popup').height()/2;
+		var popupPosition = $(window).height()/2;
+		$('.related_popup').css('top',topDistance + popupPosition - popupHeight);
 	});
 	$('.related_popup').click(function(event){
 		event.stopPropagation();
@@ -94,6 +102,10 @@ $(document).ready(function(){
 	$('.open_ormary').click(function(event){
 		event.preventDefault();
 		$('.sign_in_popup, .popup').show();
+		var topDistance = $(window).scrollTop();
+		var popupHeight = $('.sign_in_popup').height()/2;
+		var popupPosition = $(window).height()/2;
+		$('.sign_in_popup').css('top',topDistance + popupPosition - popupHeight);
 	});
 	$('.sign_in_popup').click(function(event){
 		event.stopPropagation();
@@ -108,6 +120,10 @@ $(document).ready(function(){
 		event.preventDefault();
 		$('.popup, .interested_in').show();
 		$('.sign_in_popup').hide();
+		var topDistance = $(window).scrollTop();
+		var popupHeight = $('.interested_in').height()/2;
+		var popupPosition = $(window).height()/2;
+		$('.interested_in').css('top',topDistance + popupPosition - popupHeight);
 	});
 	$('.interested_in').click(function(event){
 		event.stopPropagation();
@@ -121,6 +137,10 @@ $(document).ready(function(){
 	$('.open_wizard2').click(function(event){
 		event.preventDefault();
 		$('.do_you_like, .popup').show();
+		var topDistance = $(window).scrollTop();
+		var popupHeight = $('.do_you_like').height()/2;
+		var popupPosition = $(window).height()/2;
+		$('.do_you_like').css('top',topDistance + popupPosition - popupHeight);
 		$('.interested_in').hide();
 		designerGoods();
 	});
@@ -137,6 +157,10 @@ $(document).ready(function(){
 		event.preventDefault();
 		$('.you_are_following, .popup').show();
 		$('.do_you_like').hide();
+		var topDistance = $(window).scrollTop();
+		var popupHeight = $('.you_are_following').height()/2;
+		var popupPosition = $(window).height()/2;
+		$('.you_are_following').css('top',topDistance + popupPosition - popupHeight);
 	});
 	$('.you_are_following').click(function(event){
 		event.stopPropagation();
@@ -150,6 +174,10 @@ $(document).ready(function(){
 	$('.open_shipping_address').click(function(event){
 		event.preventDefault();
 		$('.shipping_address, .popup').show();
+		var topDistance = $(window).scrollTop();
+		var popupHeight = $('.shipping_address').height()/2;
+		var popupPosition = $(window).height()/2;
+		$('.shipping_address').css('top',topDistance + popupPosition - popupHeight);
 	});
 	$('.shipping_address').click(function(event){
 		event.stopPropagation();
@@ -178,21 +206,40 @@ $('.arrow-right').on('click', function(e){
 	mySwiper.swipeNext()
 })
 
+/* Newest products */
+
+	var newestCarousel = new Swiper('.orm_newest_carousel',{
+		paginationClickable: true,
+		slidesPerView: 6,
+		loop: true,
+		autoplay:3500,
+		speed: 750
+	})
+
+	$('.newest_carousel_prev').on('click', function(e){
+		e.preventDefault()
+		newestCarousel.swipePrev()
+	})
+	$('.newest_carousel_next').on('click', function(e){
+		e.preventDefault()
+		newestCarousel.swipeNext()
+	})
+
 /* Product carousel */
 
-  var myCarousel = new Swiper('.orm_product_carousel',{
-    paginationClickable: true,
-    slidesPerView: 5
-  })
+	var myCarousel = new Swiper('.orm_product_carousel',{
+		paginationClickable: true,
+		slidesPerView: 5
+	})
 
-  $('.orm_carousel_prev').on('click', function(e){
-	e.preventDefault()
-	myCarousel.swipePrev()
-})
-$('.orm_carousel_next').on('click', function(e){
-	e.preventDefault()
-	myCarousel.swipeNext()
-})
+	$('.orm_carousel_prev').on('click', function(e){
+		e.preventDefault()
+		myCarousel.swipePrev()
+	})
+	$('.orm_carousel_next').on('click', function(e){
+		e.preventDefault()
+		myCarousel.swipeNext()
+	})
 
 $(document).ready(function(){
 	$('.orm_carousel_slide').click(function(){
