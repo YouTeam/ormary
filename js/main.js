@@ -195,7 +195,8 @@ var mySwiper = new Swiper('.orm_main_slider',{
   pagination: '.pagination',
   paginationClickable: true,
   loop: true,
-  autoplay:3000
+  autoplay:3000,
+  speed: 850
 })
 $('.arrow-left').on('click', function(e){
 	e.preventDefault()
