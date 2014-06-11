@@ -1,5 +1,17 @@
 $(document).ready(function(){
 
+	$('.sort_by').click(function(){
+		$(this).next('.clothing_aside').slideToggle();
+	});
+
+	$(window).resize(function(){
+
+		if ($(window).width()>991) {
+			$('.clothing_aside').show();
+		}
+		
+	});
+
 	if ($(window).width()>768) {
 		$('.dropdown-toggle').dropdownHover();
 	}

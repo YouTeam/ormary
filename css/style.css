@@ -250,9 +250,9 @@ select {
 	padding-top: 10px;
 }
 
-.content {
+/* .content {
 	padding-bottom: 85px;
-}
+} */
 
 .content .criteria {
 	border-bottom: 1px solid #bfbfbf;
@@ -613,7 +613,38 @@ footer .copyright {
 }
 
 
-/* Cloathing page */
+/* Clothing page */
+
+a.sort_by {
+	display: block;
+	text-decoration: none;
+	line-height: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 14px;
+	margin-bottom: 20px;
+	color: #000000;
+	position: relative;
+	display: none;
+	border: 1px solid #000000;
+}
+
+a.sort_by:after {
+	content: "";
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+	right: 20px;
+	top: 10px;
+	margin-right: -3px;
+	-webkit-transform: rotate(135deg);
+	-moz-transform: rotate(135deg);
+	-o-transform: rotate(135deg);
+	-ms-transform: rotate(135deg);
+	transform: rotate(135deg);
+} 
 
 .content select {
 	border-color: #cecece;
@@ -625,6 +656,7 @@ footer .copyright {
 
 .clothing_aside {
 	padding-left: 0;
+	padding-right: 0;
 }
 
 .clothing_aside .tabs {
@@ -1916,9 +1948,16 @@ a.edit_my_profile:hover {
 	margin-bottom: 15px;
 }
 
-.wrap_designer_box .designer_box_img a img {
+.wrap_designer_box .designer_box_img a {
+	display: block;
 	width: 142px;
 	height: 142px;
+	margin: 0 auto;
+}
+
+.wrap_designer_box .designer_box_img a img {
+	width: 100%;
+	height: 100%;
 }
 
 .wrap_designer_box .designer_box_title {
@@ -1995,8 +2034,13 @@ a.unfollow:hover {
 	width: 100%;
 }
 
+.my_ormary_page .my_orders {
+	overflow: auto;
+}
+
 .my_ormary_page .my_orders table {
 	width: 100%;
+	min-width: 400px;
 }
 
 .my_ormary_page .my_orders table thead {
@@ -2610,6 +2654,7 @@ a.black_btn:hover {
 	font-size: 18px;
 	color: #9a9a9a;
 	margin-bottom: 20px;
+	padding: 0 20px;
 }
 
 .pages {
@@ -2618,15 +2663,20 @@ a.black_btn:hover {
 
 .pages a {
 	display: inline-block;
-	margin: 0 50px;
+	margin: 0 4%;
 	font-size: 14px;
 	color: #404040;
 	font-family: 'nexa_lightregular';
 	padding-top: 45px;
+	margin-bottom: 20px;
 }
 
 .just_in_icon {
 	background: url(../images/just_in_icon.png) no-repeat center 0;
+}
+
+.designers_icon {
+	background: url(../images/designers_icon.png) no-repeat center 0;
 }
 
 .clothing_icon {
@@ -3031,16 +3081,20 @@ a.black_btn:hover {
     border-radius: 6px;
     background: #000000;
 }
+
 .ui-slider-horizontal .ui-slider-handle:focus {
 	outline: none;
 }
+
 .ui-slider-horizontal .ui-slider-range {
     top: 0;
     height: 100%;
 }
+
 .ui-slider-horizontal .ui-slider-range-min { 
     left: 0;
 }
+
 .ui-slider-horizontal .ui-slider-range-max {
     right: 0;
 }
@@ -3078,7 +3132,8 @@ a.black_btn:hover {
 
 /* Media queries */
 
-@media screen and (max-width: 1199px){
+@media screen and (max-width: 1199px) {
+
 	.swiper-wrapper,
 	.swiper-slide {
 		height: auto !important;
@@ -3125,6 +3180,27 @@ a.black_btn:hover {
 	.newest_carousel_prev {
 		display: none;
 	}
+
+	.cnc .plus {
+		display: none;
+	}
+
+	/* clothing page adaptation */
+
+	.clothing_aside ul.filter-colors li:nth-child(8) a {
+		margin-right: 18px;
+	}
+
+	.clothing_aside ul.filter-colors li:nth-child(16) a {
+		margin-right: 18px;
+	}
+
+	.month_select, .year_select {
+		width: 45%;
+	}
+
+
+
 }
 
 @media screen and (max-width: 991px){
@@ -3180,6 +3256,10 @@ a.black_btn:hover {
 	.top_bar .right_side ul li {
 		float: none;
 		display: inline-block;
+	}
+
+	.top_bar .right_side > div.join {
+		margin-right: 0;
 	}
 
 	/**/
@@ -3241,6 +3321,31 @@ a.black_btn:hover {
 	.orm_designer_info_wrap .orm_designer_info .orm_designer_content .orm_followers {
 		display: none;
 	}
+
+	/* clothing page adaptation */
+
+	.clothing_top_panel {
+		display: none;
+	}
+
+	.clothing_aside {
+		display: none;
+	}
+
+	a.sort_by {
+		display: block;
+	}
+
+	/* designers page adaptation */
+
+	.all_designers_page .section > div {
+		padding-left: 0;
+	}
+
+	.all_designers_page .designer-search-wrap {
+		margin-top: 0;
+		width: 100%;
+	}
 }
 
 @media screen and (max-width: 768px){
@@ -3294,6 +3399,7 @@ a.black_btn:hover {
 	.orm_carousel_prev, .orm_carousel_next {
 		display: block;
 	}
+
 }
 
 @media screen and (max-width: 650px) {
@@ -3366,6 +3472,26 @@ a.black_btn:hover {
 		float: none;
 	}
 
+	.content .criteria a.active {
+		background: #f5f5f5;
+	}
+
+	.content .criteria a.active,
+	.content .criteria a:hover {
+		border: none;
+		margin: 0;
+	}
+
+	.orm_profile {
+		height: auto;
+	}
+
+	.my_ormary_page .criteria {
+		top: 0;
+		border: none;
+		padding: 10px 0;
+	}
+
 	.content h4 {
 		text-align: center;
 	}
@@ -3380,7 +3506,7 @@ a.black_btn:hover {
 	}
 
 	.footer_top .social-icons a {
-		font-size: 30px;
+		font-size: 24px;
 	}
 
 	.orm_carousel_prev, .orm_carousel_next {
@@ -3391,6 +3517,17 @@ a.black_btn:hover {
 		width: 50px;
 		height: 53px;
 	}
+
+	.footer_top .sign_up {
+		padding-top: 0;
+	}
+
+	/* 404 */
+
+	.oops img {
+		width: 100%;
+	}
+
 }
 
 @media screen and (max-width: 520px){
@@ -3444,6 +3581,10 @@ a.black_btn:hover {
 	.buttons_pannel a.add_to_cart {
 		float: none;
 		margin: 0 auto 10px;
+	}
+
+	.available + .available + .available {
+		margin-bottom: 0;
 	}
 
 	/* registration wizard */
@@ -3532,6 +3673,14 @@ a.black_btn:hover {
 	.top_bar .right_side > ul > li > a+.cart_dropdown {
 		display: none;
 	}
+
+	a.edit_my_profile {
+		position: static;
+		display: block;
+		line-height: 30px;
+		text-align: center;
+		margin-top: 10px;
+	}
 }
 
 @media screen and (max-width: 440px){
@@ -3541,6 +3690,13 @@ a.black_btn:hover {
 	.orm_product_carousel .swiper-slide img {
 		width: 40px;
 		height: 43px;
+	}
+}
+
+@media screen and (max-width: 400px){
+	.wrap_designer_box .designer_box_img a {
+		width: 100%;
+		height: auto;
 	}
 }
 
