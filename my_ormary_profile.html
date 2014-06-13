@@ -249,7 +249,7 @@
             <a href="#">Purchase history</a>
           </div>
         </div>
-        <div class="col-md-9 clearfix nopadding section">
+        <div class="col-md-9 clearfix nopadding basic_information">
           <div class="orm_avatar">
             <img src="images/no_image.png" alt="Avatar">
           </div>
@@ -257,19 +257,19 @@
             <a href="#">Change avatar</a>
             <span>Accepted formats: jpeg, png, gif    max size 900 kb</span>
           </div>
-          <div class="wrap_input">
+          <div class="wrap_input clearfix">
             <div class="title">
               First name*
             </div>
             <input type="text" class="light_font">
           </div>
-          <div class="wrap_input">
+          <div class="wrap_input clearfix">
             <div class="title">
               Last name*
             </div>
             <input type="text" class="light_font">
           </div>
-          <div class="wrap_input">
+          <div class="wrap_input clearfix">
             <div class="title">
               User name*
             </div>
@@ -278,29 +278,74 @@
           </div>
           <div class="wrap_input clearfix">
             <div class="title">
+              Interested in 
+            </div>
+            <div class="wrap_radio">
+              <input type="radio" name="interested" id="interested_w" checked="checked">
+              <label class="filter-label" for="interested_w">
+                Women’s fashion
+              </label>
+            </div>
+            <div class="wrap_radio">
+              <input type="radio" name="interested" id="interested_m">
+              <label class="filter-label" for="interested_m">
+                 Men’s fashion
+              </label>
+            </div>
+          </div>
+          <div class="wrap_input clearfix">
+            <div class="title">
+              Your email*
+            </div>
+            <input type="email" class="light_font">
+            <div class="wrap_checkbox">
+              <input type="checkbox" id='subscribe'>
+              <label for="subscribe">Subscribe to newsletter</label>
+            </div>
+          </div>
+          <div class="wrap_input clearfix">
+            <div class="title">
               Phone number*
             </div>
             <input type="text" class="light_font">
           </div>
           <div class="wrap_select country_select">
-            <div class="title">Country</div>
+            <div class="title">Country*</div>
             <select name="" id="">
               <option value=""></option>
             </select>
           </div>
           <div class="wrap_select">
-            <div class="title">City</div>
+            <div class="title">City*</div>
             <select name="" id="">
               <option value=""></option>
             </select>
           </div>
-          <div class="wrap_input">
+          <div class="wrap_input clearfix">
             <div class="title">
-              Biography*
+              Your website
+            </div>
+            <input type="text" class="light_font">
+          </div>
+          <div class="wrap_input clearfix">
+            <div class="title">
+              Biography
             </div>
             <textarea name="" id="" placeholder='Tell about yourself' class="light_font"></textarea>
           </div>
-          <a href="#" class="black_btn">Save profile</a>
+          <div class="wrap_link">
+            <a href="#" class="black_btn">Save profile</a>
+          </div>
+          <div class="disable_my_account">
+            <div class="caption">Account disabling</div>
+            <div class="prevention">
+              By disabling your account, your Fashionfeed will be stopped, and you will be logged out. All of your Wardrobe items and  profile settings will be saved. <br>
+              Your account will be re-activated upon next login.
+            </div>
+            <div class="wrap_link">
+              <a href="#" class="black_btn">disable my account</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

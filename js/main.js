@@ -16,7 +16,7 @@ $(document).ready(function(){
 		$('.dropdown-toggle').dropdownHover();
 	}
 
-	$(window).resize(function(){
+	$(window).resize(function() {
 		if ($(window).width()>768) {
 			$('.dropdown-toggle').dropdownHover();
 		}
@@ -84,6 +84,9 @@ $(document).ready(function(){
 		var popupHeight = $('.add_to_cart_popup').height()/2;
 		var popupPosition = $(window).height()/2;
 		$('.add_to_cart_popup').css('top',topDistance + popupPosition - popupHeight);
+		if (popupHeight > popupPosition) {
+			$('.add_to_cart_popup').css('maxHeight',popupPosition*2).css('overflow','auto').css('top',topDistance);
+		}
 	});
 	$('.add_to_cart_popup').click(function(event){
 		event.stopPropagation();
@@ -101,6 +104,9 @@ $(document).ready(function(){
 		var popupHeight = $('.related_popup').height()/2;
 		var popupPosition = $(window).height()/2;
 		$('.related_popup').css('top',topDistance + popupPosition - popupHeight);
+		if (popupHeight > popupPosition) {
+			$('.related_popup').css('maxHeight',popupPosition*2).css('overflow','auto').css('top',topDistance);
+		}
 	});
 	$('.related_popup').click(function(event){
 		event.stopPropagation();
@@ -118,6 +124,9 @@ $(document).ready(function(){
 		var popupHeight = $('.sign_in_popup').height()/2;
 		var popupPosition = $(window).height()/2;
 		$('.sign_in_popup').css('top',topDistance + popupPosition - popupHeight);
+		if (popupHeight > popupPosition) {
+			$('.sign_in_popup').css('maxHeight',popupPosition*2).css('overflow','auto').css('top',topDistance);
+		}
 	});
 	$('.sign_in_popup').click(function(event){
 		event.stopPropagation();
@@ -136,6 +145,9 @@ $(document).ready(function(){
 		var popupHeight = $('.interested_in').height()/2;
 		var popupPosition = $(window).height()/2;
 		$('.interested_in').css('top',topDistance + popupPosition - popupHeight);
+		if (popupHeight > popupPosition) {
+			$('.interested_in').css('maxHeight',popupPosition*2).css('overflow','auto').css('top',topDistance);
+		}
 	});
 	$('.interested_in').click(function(event){
 		event.stopPropagation();
@@ -153,6 +165,9 @@ $(document).ready(function(){
 		var popupHeight = $('.do_you_like').height()/2;
 		var popupPosition = $(window).height()/2;
 		$('.do_you_like').css('top',topDistance + popupPosition - popupHeight);
+		if (popupHeight > popupPosition) {
+			$('.do_you_like').css('maxHeight',popupPosition*2).css('overflow','auto').css('top',topDistance);
+		}
 		$('.interested_in').hide();
 		designerGoods();
 	});
@@ -173,6 +188,9 @@ $(document).ready(function(){
 		var popupHeight = $('.you_are_following').height()/2;
 		var popupPosition = $(window).height()/2;
 		$('.you_are_following').css('top',topDistance + popupPosition - popupHeight);
+		if (popupHeight > popupPosition) {
+			$('.you_are_following').css('maxHeight',popupPosition*2).css('overflow','auto').css('top',topDistance);
+		}
 	});
 	$('.you_are_following').click(function(event){
 		event.stopPropagation();
@@ -190,6 +208,9 @@ $(document).ready(function(){
 		var popupHeight = $('.shipping_address').height()/2;
 		var popupPosition = $(window).height()/2;
 		$('.shipping_address').css('top',topDistance + popupPosition - popupHeight);
+		if (popupHeight > popupPosition) {
+			$('.shipping_address').css('maxHeight',popupPosition*2).css('overflow','auto').css('top',topDistance);
+		}
 	});
 	$('.shipping_address').click(function(event){
 		event.stopPropagation();

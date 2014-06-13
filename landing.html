@@ -44,8 +44,33 @@
         <link rel="stylesheet" href="css/font-awesome.css">
         <link rel="stylesheet" href="fonts/fonts.css">
         <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-51034240-1', 'ormary.com');
+          ga('send', 'pageview');
+
+        </script>
     </head>
     <body>
+        <div class="error">
+            <?php
+            if($_GET['error']=='email')
+            echo "* Please provide a valid email address";
+
+            if($_GET['error']=='username')
+            echo "* Please hoose a username";
+
+            if($_GET['error']=='password')
+            echo "* Please choose a pasword";
+
+
+
+            ?>
+        </div>
         <ul class="orm-slideshow">
             <li><span>Image 01</span></li>
             <li><span>Image 02</span></li>
@@ -71,8 +96,25 @@
                 <div class="caption">
                     Sign up to recieve the latest news
                 </div>
-                <input type="text" placeholder="Your Email">
-                <input type="submit" value="sign up" >
+                <form class="form-container" action="http://ormary.us8.list-manage.com/subscribe/post?u=a0b98ab43be84e0b66ede4d04&amp;id=9a7fa40bfd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <?php if(isset($_GET['success'])) {
+                ?>
+
+                <div class="thanks">
+                    <h2> Thanks for Registering! </h2>
+                    <p> We're not quite ready to open our doors yet, but as soon as we are, you'll be the first the to know.</p>
+                </div>
+
+                <?php 
+                } else { ?>
+                    <input type="email" value="" name="EMAIL" id="mce-EMAIL" placeholder="Your Email">
+                    <input type="submit" name="SIGN UP" value="sign up" >
+                    <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;"><input type="text" name="b_a0b98ab43be84e0b66ede4d04_9a7fa40bfd" value=""></div>
+                </form>
             </div>
             <div class="social_icons">
                 <a href="https://www.facebook.com/ormary" target="_blank">
