@@ -234,7 +234,7 @@ select {
 }
 
 .product:hover {
-	box-shadow: 0px 1px 3px #999999;
+	box-shadow: 0px 1px 3px #777777;
 	z-index: 99;
 }
 
@@ -309,11 +309,41 @@ select {
 .aside .my_wardrobe .wardrobe_product {
 	text-align: center;
 	padding-bottom: 18px;
+	width: 130px;
+	margin: 0 auto;
+	display: block;
 }
 
 .aside .my_wardrobe .wardrobe_product img {
-	width: 152px;
+	width: 100%;
 	height: auto;
+	padding-bottom: 10px;
+}
+
+.aside .my_wardrobe .wardrobe_product .designer_name,
+.aside .my_wardrobe .wardrobe_product .price {
+	text-align: left;
+	color: #000000;
+	line-height: 20px;
+	display: none;
+}
+
+.aside .my_wardrobe .wardrobe_product .prod_name {
+	color: #808080;
+	text-align: left;
+	line-height: 20px;
+	display: none;
+	text-decoration: none !important;
+}
+
+.aside .my_wardrobe .wardrobe_product:hover {
+	text-decoration: none !important;
+}
+
+.aside .my_wardrobe .wardrobe_product:hover .designer_name,
+.aside .my_wardrobe .wardrobe_product:hover .price,
+.aside .my_wardrobe .wardrobe_product:hover .prod_name {
+	display: block;
 }
 
 /* FOOTER */
@@ -745,7 +775,8 @@ a.sort_by:after {
 	width: 100%;
 	padding: 8px 30px 8px 10px;
 	background: url(../images/loop2.png) no-repeat 97% center;
-	background-color: #f7f7f7;
+	background-color: #ffffff;
+	border: 1px solid #e6e6e6;
 }
 
 .month_select {
@@ -880,7 +911,7 @@ ul.filter-colors li a.animal {
 	position: static;
 	float: right;
 	margin: 0;
-	margin-right: 20px;
+	margin-right: -20px;
 	font-family: 'nexa_lightregular';
 }
 
@@ -940,7 +971,7 @@ ul.filter-colors li a.animal {
 }
 
 .breadcrumbs ul li a {
-	color: #595959;
+	color: #9f9f9f;
 	text-decoration: none;
 	padding-right: 17px;
 	background: url(../images/bc_punct.png) no-repeat right center;
@@ -979,7 +1010,11 @@ ul.filter-colors li a.animal {
 
 .product_sub_title {
 	font-size: 16px;
-	margin-bottom: 30px;
+}
+
+.product_sub_title + .price {
+	font-size: 14px;
+	margin-bottom: 20px;
 }
 
 .product_description {
@@ -1039,12 +1074,12 @@ a.add_to_my_wardrobe {
 	width: 189px;
 	height: 32px;
 	line-height: 32px;
-	float: right;
+	float: left;
 	text-align: center;
 	font-size: 14px;
 	text-transform: uppercase;
 	text-decoration: none;
-	margin-left: 10px;
+	margin-right: 10px;
 	position: relative;
 }
 
@@ -1137,10 +1172,6 @@ a.follow:hover {
 	float: right;
 }
 
-.product_page_bottom {
-	padding-bottom: 85px;
-}
-
 .product_page_bottom a.underline {
 	text-decoration: underline;
 	color: #333333;
@@ -1198,7 +1229,36 @@ a.follow:hover {
 
 .orm_share {
 	position: relative;
-	top: -20px;
+	top: -82px;
+}
+
+.orm_share div {
+	margin-bottom: 15px;
+}
+
+.orm_share div span {
+	color: #999999;
+}
+
+.orm_share div a {
+	color: #000000;
+}
+
+.orm_share div a i {
+	font-size: 16px;
+	margin-right: 10px;
+}
+
+.orm_share div span {
+	margin-right: 5px;
+}
+
+.orm_share div+div span {
+	margin-right: 38px;
+}
+
+.orm_share div+div+div span {
+	margin-right: 10px;
 }
 
 /* All Popups */
@@ -1294,6 +1354,7 @@ a.follow:hover {
 .related_popup .product {
 	max-width: 267px;
 	min-height: 441px;
+	box-shadow: none !important;
 }
 
 .related_popup .product {
@@ -1370,7 +1431,8 @@ a.follow:hover {
 }
 
 .do_you_like,
-.you_are_following {
+.you_are_following,
+.remove_collection {
 	width: 600px;
 	background: #ffffff;
 	position: absolute;
@@ -1448,6 +1510,7 @@ a.follow:hover {
 	display: none;
 }
 
+.remove_collection .caption,
 .interested_in .caption,
 .do_you_like .caption,
 .you_are_following .caption,
@@ -1456,6 +1519,11 @@ a.follow:hover {
 	line-height: 50px;
 	border-bottom: 1px solid #dedede;
 	position: relative;
+}
+
+.remove_collection .caption {
+	height: 200px;
+	padding-top: 80px;
 }
 
 .do_you_like .caption a {
@@ -1512,11 +1580,13 @@ a.follow:hover {
 	right: 3%;
 }
 
-.do_you_like .bottom_btn {
+.do_you_like .bottom_btn,
+.remove_collection .bottom_btn {
 	text-align: center;
 }
 
-.do_you_like .bottom_btn a {
+.do_you_like .bottom_btn a,
+.remove_collection .bottom_btn a {
 	color: #000000;
 	display: inline-block;
 	width: 128px;
@@ -1774,15 +1844,14 @@ a.follow:hover {
 }
 
 .orm_designer_info_wrap .orm_designer_info .orm_designer_content a.read_more {
-	display: block;
+	display: inline-block;
 	color: #333333;
-	text-decoration: underline;
-	float: right;
-	margin-top: 10px;
+	text-decoration: none;
+	font-size: 12px;
 }
 
 .orm_designer_info_wrap .orm_designer_info .orm_designer_content a.read_more:hover {
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 .orm_designer_info_wrap .orm_designer_info .orm_designer_content .orm_designer_name {
@@ -1801,6 +1870,18 @@ a.follow:hover {
 	font-size: 14px;
 }
 
+.orm_designer_info_wrap .orm_designer_info .orm_designer_content .share_on {
+	position: absolute;
+	bottom: -30px;
+	right: 0;
+}
+
+.orm_designer_info_wrap .orm_designer_info .orm_designer_content .share_on a {
+	font-size: 14px;
+	color: #000000;
+	margin-left: 8px; 
+}
+
 /* All designers page */
 
 .all_designers_page .row {
@@ -1815,7 +1896,7 @@ a.follow:hover {
 
 .all_designers_page .designer-search-wrap {
 	margin-top: -11px;
-	width: 220px;
+	width: 250px;
 }
 
 .all_designers_page .row .all_des_caption {
@@ -2131,6 +2212,14 @@ a.unfollow:hover {
 
 .my_wardrobe_aside a span {
 	float: right;
+}
+
+.my_wardrobe_aside a span.remove {
+	position: absolute;
+	top: 1px;
+	right: 40%;
+	margin-right: -18px;
+	font-size: 10px;
 }
 
 .my_wardrobe_aside a span.redtext {
@@ -3323,6 +3412,10 @@ a.black_btn:hover {
 
 	.table_head {
 		display: none;
+	}
+
+	.available + .available + .available {
+		margin-bottom: 10px;
 	}
 
 }

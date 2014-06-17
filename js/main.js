@@ -95,6 +95,26 @@ $(document).ready(function(){
 		$('.add_to_cart_popup, .popup').hide();
 	});
 
+	/* Wardrobe remove collection popup */
+
+	$('.open_remove_collection').click(function(event){
+		event.preventDefault();
+		$('.popup, .remove_collection').show();
+		var topDistance = $(window).scrollTop();
+		var popupHeight = $('.remove_collection').height()/2;
+		var popupPosition = $(window).height()/2;
+		$('.remove_collection').css('top',topDistance + popupPosition - popupHeight);
+		if (popupHeight > popupPosition) {
+			$('.remove_collection').css('maxHeight',popupPosition*2).css('overflow','auto').css('top',topDistance);
+		}
+	});
+	$('.remove_collection').click(function(event){
+		event.stopPropagation();
+	});
+	$('.popup, .close_popup').click(function(){
+		$('.remove_collection, .popup').hide();
+	});
+
 	/* My Wardrobe view recommended popup */
 
 	$('.view_recommended').click(function(event){
