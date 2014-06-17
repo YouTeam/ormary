@@ -1640,6 +1640,7 @@ a.follow:hover {
 	color: #ffffff;
 }
 
+.sign_up_popup,
 .sign_in_popup {
 	width: 462px;
 	position: absolute;
@@ -1650,16 +1651,19 @@ a.follow:hover {
 	display: none;
 }
 
+.sign_up_popup .caption span,
 .sign_in_popup .caption span {
 	font-size: 47px;
 	font-family: 'Lora', "Times New Roman", Times, serif;
 	color: #ffffff;
 }
 
+.sign_up_popup .caption span + span,
 .sign_in_popup .caption span + span {
 	font-size: 39px;
 }
 
+.sign_up_popup .form,
 .sign_in_popup .form {
 	background: #ffffff;
 	padding: 20px 0;
@@ -1667,6 +1671,7 @@ a.follow:hover {
 	position: relative;
 }
 
+.sign_up_popup .form:after,
 .sign_in_popup .form:after {
 	content: "";
 	position: absolute;
@@ -1678,6 +1683,7 @@ a.follow:hover {
 	background: url(../images/or.png) no-repeat 0 0;
 }
 
+.sign_up_popup .form input,
 .sign_in_popup .form input {
 	width: 90%;
 	height: 38px;
@@ -1689,6 +1695,7 @@ a.follow:hover {
 	color: #000000;
 }
 
+.sign_up_popup .form input[type='submit'],
 .sign_in_popup .form input[type='submit'] {
 	width: 50%;
 	margin: 10px 25%;
@@ -1697,16 +1704,19 @@ a.follow:hover {
 	font-family: 'nexa_boldregular';
 }
 
+.sign_up_popup .form input[type='submit']:hover,
 .sign_in_popup .form input[type='submit']:hover {
 	background: #000000;
 	color: #ffffff;
 }
 
+.sign_up_popup .facebook,
 .sign_in_popup .facebook {
 	padding: 30px 0;
 	background: #ffffff;
 }
 
+.sign_up_popup .facebook div,
 .sign_in_popup .facebook div {
 	width: 238px;
 	margin: 0 auto;
@@ -3973,18 +3983,18 @@ a.black_btn:hover {
 
 	/* registration wizard */
 
-	.sign_in_popup {
+	.sign_up_popup {
 		width: 300px;
 		margin-left: -150px;
 	}
 
-	.sign_in_popup .caption span {
+	.sign_up_popup .caption span {
 		font-size: 30px;
 		text-align: center;
 		display: block;
 	}
 
-	.sign_in_popup .caption span + span {
+	.sign_up_popup .caption span + span {
 		display: block;
 		font-size: 25px;
 		text-align: center;

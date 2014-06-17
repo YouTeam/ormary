@@ -137,7 +137,9 @@ $(document).ready(function(){
 
 	/* JOIN ORMARY POPUPS */
 
-	$('.open_ormary').click(function(event){
+	/* SIGN IN */
+
+	$('.open_sign_in_popup').click(function(event){
 		event.preventDefault();
 		$('.sign_in_popup, .popup').show();
 		var topDistance = $(window).scrollTop();
@@ -153,6 +155,26 @@ $(document).ready(function(){
 	});
 	$('.popup').click(function(){
 		$('.popup, .sign_in_popup').hide();
+	});
+
+	/* SIGN UP */
+
+	$('.open_ormary').click(function(event){
+		event.preventDefault();
+		$('.sign_up_popup, .popup').show();
+		var topDistance = $(window).scrollTop();
+		var popupHeight = $('.sign_up_popup').height()/2;
+		var popupPosition = $(window).height()/2;
+		$('.sign_up_popup').css('top',topDistance + popupPosition - popupHeight);
+		if (popupHeight > popupPosition) {
+			$('.sign_up_popup').css('maxHeight',popupPosition*2).css('overflow','auto').css('top',topDistance);
+		}
+	});
+	$('.sign_up_popup').click(function(event){
+		event.stopPropagation();
+	});
+	$('.popup').click(function(){
+		$('.popup, .sign_up_popup').hide();
 	});
 
 	/**/
