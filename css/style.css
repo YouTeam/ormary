@@ -715,6 +715,7 @@ a.sort_by:after {
 	padding: 0;
 	list-style: none;
 	margin-bottom: 0px;
+	margin-left: 2px;
 }
 
 .filter-clothing li label {
@@ -777,6 +778,34 @@ a.sort_by:after {
 	background: url(../images/loop2.png) no-repeat 97% center;
 	background-color: #ffffff;
 	border: 1px solid #e6e6e6;
+	margin-bottom: 20px;
+}
+
+.aside .designer-search-wrap input {
+	background-color: #f7f7f7;
+	border: 1px solid #f7f7f7;
+}
+
+.scrollable-area {
+	overflow: hidden;
+	max-height: 130px;
+	position: relative;
+}
+
+.iScrollVerticalScrollbar .iScrollIndicator {
+	width: 100%;
+	background: #4b4b4b !important;
+	border-radius: 0 !important;
+	cursor: pointer;
+	width: 5px !important;
+	left: -1px;
+}
+
+.iScrollVerticalScrollbar {
+	background: #dedede !important;
+	width: 3px !important;
+	overflow: visible !important;
+	z-index: 2 !important;
 }
 
 .month_select {
@@ -880,6 +909,10 @@ ul.filter-colors li a.animal {
 	margin-right: 0;
 }
 
+ul.filter-colors li a.selected {
+	border: 3px solid #4b4b4b;
+}
+
 .clothing_top_panel {
 	width: 100%;
 	margin-bottom: 22px;
@@ -927,6 +960,12 @@ ul.filter-colors li a.animal {
 	font-family: 'nexa_boldregular';
 }
 
+.clothing_top_panel .pagination li a.pag_arrow img {
+	position: relative;
+	left: 0;
+	top: -2px;
+}
+
 .clothing_top_panel .pagination li a.active {
 	color: #000000;
 	font-family: 'nexa_boldregular';
@@ -945,6 +984,10 @@ ul.filter-colors li a.animal {
 .clothing_top_panel .wrap_items_on_page .items_on_page {
 	width: 54px;
 	height: 24px;
+}
+
+.clothing_top_panel .wrap_items_on_page .items_on_page {
+	display: inline-block;
 }
 
 .section .col-md-4:nth-child(3n+1) {
@@ -4329,6 +4372,26 @@ a.black_btn:hover {
 
 .error, .thanks {
 	display: none;
+}
+
+
+/**/
+
+.form-control {
+	padding: 3px 5px;
+	font-family: 'nexa_lightregular';
+	border: 1px solid #cecece;
+	outline: none !important;
+	box-shadow: none;
+	color: #000000;
+	border-radius: 0;
+	font-size: 12px;
+}
+
+.form-control:focus {
+	outline: none !important;
+	box-shadow: none;
+	border: 1px solid #cecece;
 }
 
 
