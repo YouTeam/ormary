@@ -314,6 +314,10 @@ select {
 	display: block;
 }
 
+.aside .my_wardrobe .scroll-area ul li:last-child .wardrobe_product {
+	padding-bottom: 0;
+}
+
 .aside .my_wardrobe .wardrobe_product img {
 	width: 100%;
 	height: auto;
@@ -797,6 +801,10 @@ a.sort_by:after {
 	max-height: 540px;
 	position: relative;
 	margin: 0 15px;
+}
+
+.scroll-area ul {
+	margin: 0;
 }
 
 .iScrollVerticalScrollbar .iScrollIndicator {
