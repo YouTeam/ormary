@@ -792,6 +792,13 @@ a.sort_by:after {
 	position: relative;
 }
 
+.scroll-area {
+	overflow: hidden;
+	max-height: 540px;
+	position: relative;
+	margin: 0 15px;
+}
+
 .iScrollVerticalScrollbar .iScrollIndicator {
 	width: 100%;
 	background: #4b4b4b !important;
@@ -1340,7 +1347,7 @@ a.follow:hover {
 	margin-bottom: 20px;
 }
 
-.shipping_address .inputs label .required {
+label .required {
 	color: #ff0f0f;
 }
 
@@ -1475,7 +1482,8 @@ a.follow:hover {
 
 .do_you_like,
 .you_are_following,
-.remove_collection {
+.remove_collection,
+.create_collection {
 	width: 600px;
 	background: #ffffff;
 	position: absolute;
@@ -1554,6 +1562,7 @@ a.follow:hover {
 }
 
 .remove_collection .caption,
+.create_collection .caption,
 .interested_in .caption,
 .do_you_like .caption,
 .you_are_following .caption,
@@ -1574,6 +1583,35 @@ a.follow:hover {
 	color: #9a9a9a;
 	right: 20px;
 	top: 0px;
+}
+
+.create_collection .middle {
+	border-bottom: 1px solid #dedede;
+}
+
+.create_collection .middle label {
+	width: 100%;
+	height: 30px;
+	margin-bottom: 50px;
+	margin-top: 50px;
+	font-size: 14px;
+	font-family: 'nexa_lightregular';
+}
+
+.create_collection .middle label > span {
+	display: inline-block;
+	width: 140px;
+	padding: 0 10px;
+	text-align: right;
+	float: left;
+	line-height: 30px;
+}
+
+.create_collection .middle label input {
+	width: 345px;
+	height: 30px;
+	border: 1px solid #cccccc;
+	padding: 0 10px;
 }
 
 .do_you_like .designer {
@@ -1624,12 +1662,14 @@ a.follow:hover {
 }
 
 .do_you_like .bottom_btn,
-.remove_collection .bottom_btn {
+.remove_collection .bottom_btn,
+.create_collection .bottom_btn {
 	text-align: center;
 }
 
 .do_you_like .bottom_btn a,
-.remove_collection .bottom_btn a {
+.remove_collection .bottom_btn a,
+.create_collection .bottom_btn a {
 	color: #000000;
 	display: inline-block;
 	width: 128px;
@@ -3828,9 +3868,23 @@ a.black_btn:hover {
 
 	/* registration wizard */
 
-	.do_you_like, .you_are_following {
+	.do_you_like, 
+	.you_are_following,
+	.remove_collection,
+	.create_collection {
 		width: 300px;
 		margin-left: -150px;
+	}
+
+	.create_collection .middle label > span {
+		width: 100%;
+		text-align: left;
+		padding: 0 5%;
+	}
+
+	.create_collection .middle label input {
+		width: 90%;
+		margin: 0 5%;
 	}
 
 	.do_you_like .designer_goods {

@@ -95,6 +95,26 @@ $(document).ready(function(){
 		$('.add_to_cart_popup, .popup').hide();
 	});
 
+	/* Wardrobe create collection popup */
+
+	$('.open_create_collection').click(function(event){
+		event.preventDefault();
+		$('.popup, .create_collection').show();
+		var topDistance = $(window).scrollTop();
+		var popupHeight = $('.create_collection').height()/2;
+		var popupPosition = $(window).height()/2;
+		$('.create_collection').css('top',topDistance + popupPosition - popupHeight);
+		if (popupHeight > popupPosition) {
+			$('.create_collection').css('maxHeight',popupPosition*2).css('overflow','auto').css('top',topDistance);
+		}
+	});
+	$('.create_collection').click(function(event){
+		event.stopPropagation();
+	});
+	$('.popup, .close_popup').click(function(){
+		$('.create_collection, .popup').hide();
+	});
+
 	/* Wardrobe remove collection popup */
 
 	$('.open_remove_collection').click(function(event){
@@ -182,7 +202,7 @@ $(document).ready(function(){
 	$('.open_wizard').click(function(event){
 		event.preventDefault();
 		$('.popup, .interested_in').show();
-		$('.sign_in_popup').hide();
+		$('.sign_up_popup').hide();
 		var topDistance = $(window).scrollTop();
 		var popupHeight = $('.interested_in').height()/2;
 		var popupPosition = $(window).height()/2;
@@ -367,6 +387,9 @@ $(function() {
 	});
 
 });
+
+
+
 
 
 
