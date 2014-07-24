@@ -1,22 +1,22 @@
 @import url("http://fast.fonts.net/lt/1.css?apiType=css&c=ba959ab1-315b-4f55-a9f8-2c9ab2176cb2&fontids=692325,692316,728943,728922");
 @font-face{
-font-family:"Didot W01 Roman";
-src:url("../fonts/692325/dd077a5a-5331-4833-8a24-e3afbe24d92e.eot?#iefix");
-src:url("../fonts/692325/dd077a5a-5331-4833-8a24-e3afbe24d92e.eot?#iefix") format("eot"),url("../fonts/692325/8cf278e2-5b07-4c21-97da-4762c9ea76c1.woff") format("woff"),url("../fonts/692325/488ffbea-dc53-43b4-a9e2-d5bff132a85d.ttf") format("truetype"),url("../fonts/692325/972bb961-7f13-4e8d-8c1f-034e3f4e7517.svg#972bb961-7f13-4e8d-8c1f-034e3f4e7517") format("svg");
+	font-family:"Didot W01 Roman";
+	src:url("../fonts/692325/dd077a5a-5331-4833-8a24-e3afbe24d92e.eot?#iefix");
+	src:url("../fonts/692325/dd077a5a-5331-4833-8a24-e3afbe24d92e.eot?#iefix") format("eot"),url("../fonts/692325/8cf278e2-5b07-4c21-97da-4762c9ea76c1.woff") format("woff"),url("../fonts/692325/488ffbea-dc53-43b4-a9e2-d5bff132a85d.ttf") format("truetype"),url("../fonts/692325/972bb961-7f13-4e8d-8c1f-034e3f4e7517.svg#972bb961-7f13-4e8d-8c1f-034e3f4e7517") format("svg");
 }
 @font-face{
-font-family:"Didot W01 Bold";
-src:url("../fonts/692316/6adf1098-6e5c-458f-a68a-2de77db01a73.eot?#iefix");
-src:url("../fonts/692316/6adf1098-6e5c-458f-a68a-2de77db01a73.eot?#iefix") format("eot"),url("../fonts/692316/8c847ae1-0c02-4e9a-9203-c294e4a23fe1.woff") format("woff"),url("../fonts/692316/bae6ce0f-deaf-4f99-bdf6-de7f2cf54d04.ttf") format("truetype"),url("../fonts/692316/d62df477-3d45-4345-95a9-eac5dcd4b116.svg#d62df477-3d45-4345-95a9-eac5dcd4b116") format("svg");
+	font-family:"Didot W01 Bold";
+	src:url("../fonts/692316/6adf1098-6e5c-458f-a68a-2de77db01a73.eot?#iefix");
+	src:url("../fonts/692316/6adf1098-6e5c-458f-a68a-2de77db01a73.eot?#iefix") format("eot"),url("../fonts/692316/8c847ae1-0c02-4e9a-9203-c294e4a23fe1.woff") format("woff"),url("../fonts/692316/bae6ce0f-deaf-4f99-bdf6-de7f2cf54d04.ttf") format("truetype"),url("../fonts/692316/d62df477-3d45-4345-95a9-eac5dcd4b116.svg#d62df477-3d45-4345-95a9-eac5dcd4b116") format("svg");
 }
 @font-face{
-font-family:"Optima LT W01 Roman";
-src:url("../fonts/728943/36a73a3c-1fe5-4986-92cf-92879e7d3ac3.eot?#iefix");
-src:url("../fonts/728943/36a73a3c-1fe5-4986-92cf-92879e7d3ac3.eot?#iefix") format("eot"),url("../fonts/728943/60740f82-8b81-4b05-ba70-a17d20b5fac4.woff") format("woff"),url("../fonts/728943/20567f69-bce8-40cc-bd26-50903c18d448.ttf") format("truetype"),url("../fonts/728943/47829e8d-27f6-49a4-afb6-097f32f211ad.svg#47829e8d-27f6-49a4-afb6-097f32f211ad") format("svg");
+	font-family:"Optima LT W01 Roman";
+	src:url("../fonts/728943/36a73a3c-1fe5-4986-92cf-92879e7d3ac3.eot?#iefix");
+	src:url("../fonts/728943/36a73a3c-1fe5-4986-92cf-92879e7d3ac3.eot?#iefix") format("eot"),url("../fonts/728943/60740f82-8b81-4b05-ba70-a17d20b5fac4.woff") format("woff"),url("../fonts/728943/20567f69-bce8-40cc-bd26-50903c18d448.ttf") format("truetype"),url("../fonts/728943/47829e8d-27f6-49a4-afb6-097f32f211ad.svg#47829e8d-27f6-49a4-afb6-097f32f211ad") format("svg");
 }
 @font-face{
-font-family:"Optima LT W01 Demi Bold";
-src:url("../fonts/728922/187b25d1-ee67-4130-90e4-bcdbeb372b83.eot?#iefix");
-src:url("../fonts/728922/187b25d1-ee67-4130-90e4-bcdbeb372b83.eot?#iefix") format("eot"),url("../fonts/728922/fe1b6352-cabf-4b80-aa1a-a29bf8b898b6.woff") format("woff"),url("../fonts/728922/8109e0ec-65b7-4577-b5af-60a8e110ee6c.ttf") format("truetype"),url("../fonts/728922/7514ea13-bd07-4970-885f-1141dfda6207.svg#7514ea13-bd07-4970-885f-1141dfda6207") format("svg");
+	font-family:"Optima LT W01 Demi Bold";
+	src:url("../fonts/728922/187b25d1-ee67-4130-90e4-bcdbeb372b83.eot?#iefix");
+	src:url("../fonts/728922/187b25d1-ee67-4130-90e4-bcdbeb372b83.eot?#iefix") format("eot"),url("../fonts/728922/fe1b6352-cabf-4b80-aa1a-a29bf8b898b6.woff") format("woff"),url("../fonts/728922/8109e0ec-65b7-4577-b5af-60a8e110ee6c.ttf") format("truetype"),url("../fonts/728922/7514ea13-bd07-4970-885f-1141dfda6207.svg#7514ea13-bd07-4970-885f-1141dfda6207") format("svg");
 }
 

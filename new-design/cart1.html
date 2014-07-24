@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ORMARY - My Ormary</title>
+    <title>ORMARY - Cart</title>
     <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/idangerous.swiper.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/font-awesome.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -34,10 +35,31 @@
               <div class="join clearfix">
                 <ul>
                   <li>
-                    <a href="#" class="open_ormary">JOIN ORMARY</a>
-                  </li>
-                  <li>
-                    <a href="#">SIGN IN</a>
+                    <a href="#" class="account dropdown-toggle" data-toggle="dropdown">
+                      <div class="account_avatar">
+                        <img src="images/test-avatar.png" alt="Account">
+                      </div>
+                      <span>Charlotte</span>
+                      <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu submenu">
+                      <li>
+                        <a href="#">Fashionfeed</a>
+                      </li>
+                      <li>
+                        <a href="#">Wardrobe</a>
+                      </li>
+                      <li>
+                        <a href="#">Order status</a>
+                      </li>
+                      <li>
+                        <a href="#">Profile</a>
+                      </li>
+                      <li class="divider"></li>
+                      <li>
+                        <a href="#" class="logout">Logout</a>
+                      </li>
+                    </ul>
                   </li>
                   <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">$ <b class="caret"></b></a>
@@ -115,7 +137,7 @@
                       </ul>
                       <div class="cart_dropdown_bottom">
                         <span class="total">
-                          <span class="">
+                          <span>
                             Total for goods
                           </span> 
                           £ 210.00
@@ -319,211 +341,125 @@
           </div>
         </div>
       </header>
-      <div class="container content my_ormary_page">
-      <h4>My Ormary</h4>
-        <div class="col-md-3 clearfix aside">
-         <div class="orm_avatar">
-            <img src="images/no_image.png" alt="Avatar">
-            <a href="#" class="orm_avatar_hover">
-              <span>Change image</span>
-            </a>
+      <div class="container cart">
+        <h3 class="text-center">Cart</h3>
+        <div class="steps clearfix">
+          <div class="progress">
+            <div class="progress-bar">
+            </div>
           </div>
+          <a href="#" class="step step1 active"><span>Step 1:</span> Cart</a>
+          <a href="#" class="step step2"><span>Step 2:</span> Payment & Shipping</a>
+          <a href="#" class="step step3"><span>Step 3:</span> Place Order</a>
         </div>
-        <div class="col-md-9 clearfix nopadding">
-          <div class="orm_profile">
-            <div class="title">
-              Charlotte Winston
-            </div>
-            <div class="sub-info light_font">
-              <span class="site">
-                <a href="#">Charlotte-fashion.com</a>
-              </span>
-              <span class="country">Ukraine</span>
-            </div>
-            <div class="about light_font">
-              Get into cold weather dressing with a luxe merino v-neck full of stylish possibilities. Its smooth, lightweight knit is ideal for layering yet soft enough to throw on and go. Every closet should have at least one. V-neck. Long sleeves. Ribbed trim at neckline, sleeve cuffs and waistband. Pure merino wool. Dry clean only. Imported. I like to browse freshones and combine them between. 
-            </div>
-            <a href="#" class="edit_my_profile">Edit my profile</a>
-          </div>
-          <div class="criteria clearfix">
-            <a href="#" class="active following_designers_to">Following designers<span class="number">23</span></a>
-             <a href="#" class="recommended_designers_to">Recommended designers<span class="number2">4</span></a>
-            <a href="#" class="my_orders_to">My orders</a>
+        <div class="table_head clearfix">
+          <div class="first_title">
+            Added
           </div>
           <div>
-            <div class="following_designers active">
-              <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="wrap_designer_box">
-                  <div class="designer_box_img">
-                    <a href="#">
-                      <img src="images/test-des-3.png" alt="LUISA VIA ROMA">
-                    </a>
-                  </div>
-                  <div class="designer_box_title">
-                    <a href="#">LUISA VIA ROMA</a>
-                  </div>
-                  <div class="unfollow_btn">
-                    <a href="#" class="unfollow">Unfollow</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="wrap_designer_box">
-                  <div class="designer_box_img">
-                    <a href="#">
-                      <img src="images/test-des-1.png" alt="SHOESCRIME">
-                    </a>
-                  </div>
-                  <div class="designer_box_title">
-                    <a href="#">SHOESCRIME</a>
-                  </div>
-                  <div class="unfollow_btn">
-                    <a href="#" class="unfollow">Unfollow</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="wrap_designer_box">
-                  <div class="designer_box_img">
-                    <a href="#">
-                      <img src="images/test-des-2.png" alt="FASHIONSTA">
-                    </a>
-                  </div>
-                  <div class="designer_box_title">
-                    <a href="#">FASHIONSTA</a>
-                  </div>
-                  <div class="unfollow_btn">
-                    <a href="#" class="unfollow">Unfollow</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="wrap_designer_box">
-                  <div class="designer_box_img">
-                    <a href="#">
-                      <img src="images/test-des-3.png" alt="LUISA VIA ROMA">
-                    </a>
-                  </div>
-                  <div class="designer_box_title">
-                    <a href="#">LUISA VIA ROMA</a>
-                  </div>
-                  <div class="unfollow_btn">
-                    <a href="#" class="unfollow">Unfollow</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="wrap_designer_box">
-                  <div class="designer_box_img">
-                    <a href="#">
-                      <img src="images/test-des-1.png" alt="SHOESCRIME">
-                    </a>
-                  </div>
-                  <div class="designer_box_title">
-                    <a href="#">SHOESCRIME</a>
-                  </div>
-                  <div class="unfollow_btn">
-                    <a href="#" class="unfollow">Unfollow</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="wrap_designer_box">
-                  <div class="designer_box_img">
-                    <a href="#">
-                      <img src="images/test-des-2.png" alt="FASHIONSTA">
-                    </a>
-                  </div>
-                  <div class="designer_box_title">
-                    <a href="#">FASHIONSTA</a>
-                  </div>
-                  <div class="unfollow_btn">
-                    <a href="#" class="unfollow">Unfollow</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="recommended_designers">
-              <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="wrap_designer_box">
-                  <div class="designer_box_img">
-                    <a href="#">
-                      <img src="images/test-des-1.png" alt="SHOESCRIME">
-                    </a>
-                  </div>
-                  <div class="designer_box_title">
-                    <a href="#">SHOESCRIME</a>
-                  </div>
-                  <div class="unfollow_btn">
-                    <a href="#" class="unfollow">Unfollow</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-4 col-xs-6">
-                <div class="wrap_designer_box">
-                  <div class="designer_box_img">
-                    <a href="#">
-                      <img src="images/test-des-2.png" alt="FASHIONSTA">
-                    </a>
-                  </div>
-                  <div class="designer_box_title">
-                    <a href="#">FASHIONSTA</a>
-                  </div>
-                  <div class="unfollow_btn">
-                    <a href="#" class="unfollow">Unfollow</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="my_orders">
-              <table>
-                <thead>
-                  <tr>
-                    <td>Order No</td>
-                    <td>Date</td>
-                    <td>Order total</td>
-                    <td>Status</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>405230657549908</td>
-                    <td class="date">05.23.2014   06:57:54 AM</td>
-                    <td class="price">£ 1172</td>
-                    <td class="in_progress">In progress</td>
-                  </tr>
-                  <tr>
-                    <td>405230657549908</td>
-                    <td class="date">05.23.2014   06:57:54 AM</td>
-                    <td class="price">£ 1172</td>
-                    <td class="in_progress">In progress</td>
-                  </tr>
-                  <tr>
-                    <td>405230657549908</td>
-                    <td class="date">05.23.2014   06:57:54 AM</td>
-                    <td class="price">£ 1172</td>
-                    <td class="in_progress">In progress</td>
-                  </tr>
-                  <tr>
-                    <td>405230657549908</td>
-                    <td class="date">05.23.2014   06:57:54 AM</td>
-                    <td class="price">£ 1172</td>
-                    <td class="in_progress">In progress</td>
-                  </tr>
-                  <tr>
-                    <td>405230657549908</td>
-                    <td class="date">05.23.2014   06:57:54 AM</td>
-                    <td class="price">£ 1172</td>
-                    <td class="succesfull">Succesfull</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            Quantity
           </div>
+          <div>
+            Price
+          </div>
+          <div>
+            Edit
+          </div>
+          <div class="subtotal">
+            Subtotal
+          </div>
+        </div>
+        <div class="table_row clearfix">
+          <div class="checkbox">
+            <input type="checkbox">
+          </div>
+          <div class="product_img">
+            <img src="images/test-product-img.png" alt="Product img">
+          </div>
+          <div class="product_info">
+            <ul>
+              <li>Rick Owens</li>
+              <li>Tech Runner  Adidas fall 2014</li>
+              <li><span class="greytext">Color: </span>White</li>
+              <li><span class="greytext">Size: </span>XXXS</li>
+            </ul>
+          </div>
+          <div class="quantity">
+            <form action="">
+              <select name="" id="" class="form-control">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+                <option value="">10</option>
+              </select>
+            </form>
+          </div>
+          <div class="price">
+            £ 30
+          </div>
+          <div class="edit">
+            <a href="#">
+              <img src="images/del.png" alt="Remove">
+            </a>
+          </div>
+          <div class="total-price">
+            £ 30
+          </div>
+        </div>
+        <div class="table_row clearfix">
+          <div class="checkbox">
+            <input type="checkbox">
+          </div>
+          <div class="product_img">
+            <img src="images/test-img1.png" alt="Product img">
+          </div>
+          <div class="product_info">
+            <ul>
+              <li>Rick Owens</li>
+              <li>Tech Runner  Adidas fall 2014</li>
+              <li><span class="greytext">Color: </span>White</li>
+              <li><span class="greytext">Size: </span>XXXS</li>
+            </ul>
+          </div>
+          <div class="quantity">
+            <form action="">
+              <select name="" id="" class="form-control">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+                <option value="">10</option>
+              </select>
+            </form>
+          </div>
+          <div class="price">
+            £ 30
+          </div>
+          <div class="edit">
+            <a href="#">
+              <img src="images/del.png" alt="Remove">
+            </a>
+          </div>
+          <div class="total-price">
+            £ 30
+          </div>
+        </div>
+        <div class="table_footer">
+          <label><input type="checkbox">Select all</label>
+          <a href="#">Remove selected</a>
+          <a href="#">Move to Wardrobe</a>
+          <span class="total ">Total for goods <span>£  120</span></span>
+        </div>
+        <div class="bottom_btns">
+          <a href="#" class="dark_btn open_shipping_address">pROCEED</a>
+          <a href="#" class="light_btn">CONTINUE SHOPPING</a>
         </div>
       </div>
     </div>
-    
+
     <footer>
       <div class="container-fluid footer_top">
         <div class="container">
@@ -586,7 +522,7 @@
             <li><a href="#">My Fashionfeed</a></li>
             <li>
               <div class="sign_up">
-                <input type="text" placeholder="Sign up to newsletter" class="">
+                <input type="text" placeholder="Sign up to newsletter">
                 <input type="submit" value=" ">
               </div>
             </li>
@@ -605,6 +541,61 @@
         ©2014 Ormary  All rights reserved
       </div>
     </footer>
+    
+    <div class="popup"></div>
+    <div class="shipping_address">
+      <div class="caption text-center">Add your shipping address</div>
+      <div class="inputs">
+        <label>
+          <span>First name <span class="required">*</span></span>
+          <input type="text" required>
+        </label>
+        <label>
+          <span>Last name <span class="required">*</span></span>
+          <input type="text" required>
+        </label>
+        <label>
+          <span>E-mail address <span class="required">*</span></span>
+          <input type="text" required>
+        </label>
+        <label>
+          <span>Address line 1 <span class="required">*</span></span>
+          <input type="text" required>
+        </label>
+        <label>
+          <span>Address line 2</span>
+          <input type="text">
+        </label>
+        <label>
+          <span>Country / Region <span class="required">*</span></span>
+          <select name="" id="" class="form-control">
+            <option>Ukraine</option>
+            <option>UK</option>
+            <option>USA</option>
+          </select>
+        </label>
+        <label>
+          <span>States</span>
+          <input type="text">
+        </label>
+        <label>
+          <span>City <span class="required">*</span></span>
+          <input type="text" required>
+        </label>
+        <label>
+          <span>Phone number <span class="required">*</span></span>
+          <input type="text" required>
+        </label>
+        <label>
+          <span>ZIP/Postal Code <span class="required">*</span></span>
+          <input type="text" required>
+        </label>
+      </div>
+      <a href="#" class="dark_btn">pROCEED</a>
+      <div class="bottom_hint text-center">
+        You can always add several  shipping adresses in My Ormary profile settings
+      </div>
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
