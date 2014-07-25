@@ -2,6 +2,7 @@ $(document).ready(function(){
 
 	$('.sort_by').click(function(){
 		$(this).next('.clothing_aside').slideToggle();
+		iScrollInit();
 	});
 
 	$(window).resize(function(){

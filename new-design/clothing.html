@@ -934,19 +934,25 @@
 
       /* Custom scroll */
 
-      var myScroll;
+      function iScrollInit(){
+
+        var myScroll;
 
 
-      myScroll = new IScroll('.scrollable-area', {
-        scrollbars: true,
-        mouseWheel: true,
-        interactiveScrollbars: true,
-        shrinkScrollbars: 'scale',
-        fadeScrollbars: false
-      });
+        myScroll = new IScroll('.scrollable-area', {
+          scrollbars: true,
+          mouseWheel: true,
+          interactiveScrollbars: true,
+          shrinkScrollbars: 'scale',
+          fadeScrollbars: false
+        });
 
+      }
 
-      document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+      if (window.screen.width > 991) {
+        iScrollInit();
+      }
+
 
       /* Items counter */
 
