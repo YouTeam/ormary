@@ -269,11 +269,9 @@ $(document).ready(function(){
 /* Main slider */
 
 var mySwiper = new Swiper('.orm_main_slider',{
-  pagination: '.pagination',
-  paginationClickable: true,
   loop: true,
   autoplay:3000,
-  speed: 850
+  speed: 950
 })
 $('.arrow-left').on('click', function(e){
 	e.preventDefault()
@@ -288,10 +286,10 @@ $('.arrow-right').on('click', function(e){
 
 	var newestCarousel = new Swiper('.orm_newest_carousel',{
 		paginationClickable: true,
-		slidesPerView: 6,
+		slidesPerView: 5,
 		loop: true,
 		autoplay:3500,
-		speed: 750
+		speed: 950
 	})
 
 	$('.newest_carousel_prev').on('click', function(e){

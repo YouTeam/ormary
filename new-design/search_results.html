@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ORMARY - My Stylefeed</title>
+    <title>ORMARY - Clothing</title>
     <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -319,148 +319,518 @@
           </div>
         </div>
       </header>
-      <div class="container content">
-        <h4>MY FASHIONFEED</h4>
-        <div class="col-md-10 clearfix nopadding">
-          <div class="criteria clearfix">
-            <a href="#" class="active">All</a>
-            <a href="#">New from designers</a>
-            <a href="#">Recommended for wardrobe</a>
-            <a href="#">Featured</a>
+      <div class="container content search_page">
+        <h4>
+          Search for: 
+          <div class="search_span">
+            <span>badge</span>
+            <a href="#" class="open_search_input">
+              <img src="images/pencil.png" alt="Edit">
+            </a>
           </div>
-          <div class="section clearfix">
-            <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
-                <div class="product_wrap">
-                  <div class="product">
-                    <a href="#"><img src="images/test-img1.png" alt="1"></a>
-                    <div class="designer_name">Designer Name</div>
-                    <div class="prod_name ">Product name</div>
-                    <div class="price">£ 30</div>
-                    <a href="#" class="add_to_wardrobe">
-                      <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
-                    </a>
-                  </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
-                <div class="product_wrap">
-                  <div class="product">
-                    <a href="#"><img src="images/test-img2.png" alt="2"></a>
-                    <div class="designer_name">Designer Name</div>
-                    <div class="prod_name ">Product name</div>
-                    <div class="price">£ 99</div>
-                    <a href="#" class="add_to_wardrobe">
-                      <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
-                    </a>
-                  </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
-                <div class="product_wrap">
-                  <div class="product">
-                    <a href="#"><img src="images/test-img3.png" alt="3"></a>
-                    <div class="designer_name">Designer Name</div>
-                    <div class="prod_name ">Product name</div>
-                    <div class="price">£ 300</div>
-                    <a href="#" class="add_to_wardrobe">
-                      <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
-                    </a>
-                  </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
-                <div class="product_wrap">
-                  <div class="product">
-                    <a href="#"><img src="images/test-img1.png" alt="1"></a>
-                    <div class="designer_name">Designer Name</div>
-                    <div class="prod_name ">Product name</div>
-                    <div class="price">£ 30</div>
-                    <a href="#" class="add_to_wardrobe">
-                      <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
-                    </a>
-                  </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
-                <div class="product_wrap">
-                  <div class="product">
-                    <a href="#"><img src="images/test-img2.png" alt="2"></a>
-                    <div class="designer_name">Designer Name</div>
-                    <div class="prod_name ">Product name</div>
-                    <div class="price">£ 99</div>
-                    <a href="#" class="add_to_wardrobe">
-                      <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
-                    </a>
-                  </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
-                <div class="product_wrap">
-                  <div class="product">
-                    <a href="#"><img src="images/test-img3.png" alt="3"></a>
-                    <div class="designer_name">Designer Name</div>
-                    <div class="prod_name ">Product name</div>
-                    <div class="price">£ 300</div>
-                    <a href="#" class="add_to_wardrobe">
-                      <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
-                    </a>
-                  </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
-                <div class="product_wrap">
-                  <div class="product">
-                    <a href="#"><img src="images/test-img3.png" alt="3"></a>
-                    <div class="designer_name">Designer Name</div>
-                    <div class="prod_name ">Product name</div>
-                    <div class="price">£ 300</div>
-                    <a href="#" class="add_to_wardrobe">
-                      <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
-                    </a>
-                  </div>
-                </div>
-            </div>
+          <div class="search_input">
+            <input type="text" class="light_font s_input">
+            <input type="submit" value="">
           </div>
-        </div>
-        <div class="col-md-2 clearfix aside">
-          <div class="my_wardrobe">
-            <img class="wardrobe_icon" src="images/i.png" alt="i">
-            <span class="in_my_wardrobe">IN MY WARDROBE</span>
-            <div class="scroll-area">
-              <ul>
+        </h4>
+        <a href="#" class="sort_by">Sort by</a>
+        <div class="col-md-2 clearfix aside clothing_aside">
+          <form action="" id="orm_filter">
+            <fieldset>
+              <ul class="filter-clothing">
                 <li>
-                  <a href="#" class="wardrobe_product">
-                    <img src="images/test-img1.png" alt="default">
-                    <div class="designer_name">Designer Name</div>
-                    <div class="prod_name light_font">Product name</div>
-                    <div class="price">£ 99</div>
-                  </a>
+                  <input type="radio" name="clothing" id="wactiwear" checked="checked">
+                  <label class="filter-label" for="wactiwear">
+                      Actiwear
+                  </label>
                 </li>
                 <li>
-                  <a href="#" class="wardrobe_product">
-                    <img src="images/test-img1.png" alt="default">
-                    <div class="designer_name">Designer Name</div>
-                    <div class="prod_name light_font">Product name</div>
-                    <div class="price">£ 99</div>
-                  </a>
+                  <input type="radio" name="clothing" id="wbeachwear">
+                  <label class="filter-label" for="wbeachwear">
+                      Beachwear
+                  </label>
                 </li>
                 <li>
-                  <a href="#" class="wardrobe_product">
-                    <img src="images/test-img1.png" alt="default">
-                    <div class="designer_name">Designer Name</div>
-                    <div class="prod_name light_font">Product name</div>
-                    <div class="price">£ 99</div>
-                  </a>
+                  <input type="radio" name="clothing" id="wcoats">
+                  <label class="filter-label" for="wcoats">
+                      Coats
+                  </label>
                 </li>
                 <li>
-                  <a href="#" class="wardrobe_product">
-                    <img src="images/test-img1.png" alt="default">
-                    <div class="designer_name">Designer Name</div>
-                    <div class="prod_name light_font">Product name</div>
-                    <div class="price">£ 99</div>
-                  </a>
+                  <input type="radio" name="clothing" id="wdresses">
+                  <label class="filter-label" for="wdresses">
+                      Dresses
+                  </label>
+                </li>
+                <li>
+                  <input type="radio" name="clothing" id="wjackets">
+                  <label class="filter-label" for="wjackets">
+                      Jackets
+                  </label>
+                </li>
+                <li>
+                  <input type="radio" name="clothing" id="wjeans">
+                  <label class="filter-label" for="wjeans">
+                      Jeans
+                  </label>
+                </li>
+                <li>
+                  <input type="radio" name="clothing" id="wjumpsuits">
+                  <label class="filter-label" for="wjumpsuits">
+                      Jumpsuits
+                  </label>
+                </li>
+                <li>
+                  <input type="radio" name="clothing" id="wknitwear">
+                  <label class="filter-label" for="wknitwear">
+                      Knitwear
+                  </label>
+                </li>
+                <li>
+                  <input type="radio" name="clothing" id="wpants">
+                  <label class="filter-label" for="wpants">
+                      Pants
+                  </label>
+                </li>
+                <li>
+                  <input type="radio" name="clothing" id="wshorts">
+                  <label class="filter-label" for="wshorts">
+                      Shorts
+                  </label>
+                </li>
+                <li>
+                  <input type="radio" name="clothing" id="wskirts">
+                  <label class="filter-label" for="wskirts">
+                      Skirts
+                  </label>
+                </li>
+                <li>
+                  <input type="radio" name="clothing" id="wtops">
+                  <label class="filter-label" for="wtops">
+                      Tops
+                  </label>
                 </li>
               </ul>
+            </fieldset>
+            <fieldset>
+              <div class="filter_title">
+                Price
+              </div>
+              <div id="slider"></div>
+              <div class="slider_control">
+                <span class='minCost'>£ <span type="text" id="minCost">0</span></span>
+                <span class='maxCost'>£ <span type="text" id="maxCost">1000</span></span>
+              </div>
+            </fieldset>
+            <fieldset>
+              <div class="filter_title">
+                Designers
+              </div>
+              <div class="designer-search-wrap">
+                <input type="text" placeholder="Type designer name">
+                <div class="scrollable-area">
+                  <ul class="filter-clothing filter-designers">
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="">
+                          7 for all mankind
+                      </label>
+                    </li>
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="">
+                          7 for all mankind
+                      </label>
+                    </li>
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="">
+                          7 for all mankind
+                      </label>
+                    </li>
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="">
+                          7 for all mankind
+                      </label>
+                    </li>
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="">
+                          7 for all mankind
+                      </label>
+                    </li>
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="">
+                          7 for all mankind
+                      </label>
+                    </li>
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="">
+                          7 for all mankind
+                      </label>
+                    </li>
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="">
+                          7 for all mankind
+                      </label>
+                    </li>
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="">
+                          7 for all mankind
+                      </label>
+                    </li>
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="test_designer_10">
+                          7 for all mankind
+                      </label>
+                    </li>
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="test_designer_10">
+                          7 for all mankind
+                      </label>
+                    </li>
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="test_designer_10">
+                          7 for all mankind
+                      </label>
+                    </li>                    
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="test_designer_10">
+                          7 for all mankind
+                      </label>
+                    </li>                    
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="test_designer_10">
+                          7 for all mankind
+                      </label>
+                    </li>                    
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="test_designer_10">
+                          7 for all mankind
+                      </label>
+                    </li>                    
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="test_designer_10">
+                          7 for all mankind
+                      </label>
+                    </li>                    
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="test_designer_10">
+                          7 for all mankind
+                      </label>
+                    </li>                    
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="test_designer_10">
+                          7 for all mankind
+                      </label>
+                    </li>                    
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="test_designer_10">
+                          7 for all mankind
+                      </label>
+                    </li>                    
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="test_designer_10">
+                          7 for all mankind
+                      </label>
+                    </li>                    
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="test_designer_10">
+                          7 for all mankind
+                      </label>
+                    </li>                    
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="test_designer_10">
+                          7 for all mankind
+                      </label>
+                    </li>                    
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="test_designer_10">
+                          7 for all mankind
+                      </label>
+                    </li>                    
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="test_designer_10">
+                          7 for all mankind
+                      </label>
+                    </li>                    
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="test_designer_10">
+                          7 for all mankind
+                      </label>
+                    </li>                    
+                    <li class="">
+                      <input type="radio" name="clothing">
+                      <label class="filter-label" for="test_designer_10">
+                          7 for all mankind
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <div class="filter_title">
+                Color
+              </div>
+              <ul class="filter-clothing filter-clothing-colors">
+                <li class="">
+                    <input type="radio" name="color" id="White" checked="checked">
+                    <label class="filter-label" for="White">
+                        White
+                    </label>
+                </li>
+                <li class="">
+                    <input type="radio" name="color" id="Black">
+                    <label class="filter-label" for="Black">
+                        Black
+                    </label>
+                </li>
+                <li class="">
+                    <input type="radio" name="color" id="Silver">
+                    <label class="filter-label" for="Silver">
+                        Silver
+                    </label>
+                </li>
+                <li class="">
+                    <input type="radio" name="color" id="Yellow">
+                    <label class="filter-label" for="Yellow">
+                        Yellow
+                    </label>
+                </li>
+                <li class="">
+                    <input type="radio" name="color" id="Blue">
+                    <label class="filter-label" for="Blue">
+                        Blue
+                    </label>
+                </li>
+                <li class="">
+                    <input type="radio" name="color" id="Brown">
+                    <label class="filter-label" for="Brown">
+                        Brown
+                    </label>
+                </li>
+                <li class="">
+                    <input type="radio" name="color" id="Gray">
+                    <label class="filter-label" for="Gray">
+                        Gray
+                    </label>
+                </li>
+                <li class="">
+                    <input type="radio" name="color" id="Green">
+                    <label class="filter-label" for="Green">
+                        Green 
+                    </label>
+                </li>
+                <li class="">
+                    <input type="radio" name="color" id="Metalic">
+                    <label class="filter-label" for="Metalic">
+                        Metalic
+                    </label>
+                </li>
+              </ul>
+            </fieldset>
+            <fieldset>
+              <div class="filter_title">
+                Size
+              </div>
+              <ul class="filter-clothing filter-clothing-sizes">
+                <li class="">
+                    <input type="radio" name="size" id="xxxs" checked="checked">
+                    <label class="filter-label" for="xxxs">
+                        XXXS
+                    </label>
+                </li>
+                <li class="">
+                    <input type="radio" name="size" id="xxs">
+                    <label class="filter-label" for="xxs">
+                        XXS
+                    </label>
+                </li>
+                <li class="">
+                    <input type="radio" name="size" id="xs">
+                    <label class="filter-label" for="xs">
+                        XS
+                    </label>
+                </li>
+                <li class="">
+                    <input type="radio" name="size" id="s">
+                    <label class="filter-label" for="s">
+                        S
+                    </label>
+                </li>
+                <li class="">
+                    <input type="radio" name="size" id="m">
+                    <label class="filter-label" for="m">
+                        M
+                    </label>
+                </li>
+                <li class="">
+                    <input type="radio" name="size" id="l">
+                    <label class="filter-label" for="l">
+                        L
+                    </label>
+                </li>
+                <li class="">
+                    <input type="radio" name="size" id="xl">
+                    <label class="filter-label" for="xl">
+                        XL
+                    </label>
+                </li>
+                <li class="">
+                    <input type="radio" name="size" id="xxl">
+                    <label class="filter-label" for="xxl">
+                        XXL
+                    </label>
+                </li>
+                <li class="">
+                    <input type="radio" name="size" id="xxxl">
+                    <label class="filter-label" for="xxxl">
+                        XXXL
+                    </label>
+                </li>
+              </ul>
+            </fieldset>
+            <a href="#" class="dark_btn clear_filter_btn">Clear  all filters</a>
+          </form>
+        </div>
+        <div class="col-md-9 clearfix nopadding">
+          <div class="clothing_top_panel search_results_panel clearfix">
+            <div class="col-md-6 clearfix">
+              <div class="quantity_elements light_font">
+                <span>30</span> items found
+              </div>
+            </div>
+            <div class="col-md-6 clearfix">
+              <div class="wrap_sort_by_newest">
+                <form action="">
+                  <select name="" id="" class="sort_by_newest form-control">
+                    <option value="">Sort by newest</option>
+                    <option value="">test1</option>
+                    <option value="">test2</option>
+                    <option value="">test3</option>
+                  </select>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="section">
+            <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
+                <div class="product_wrap">
+                  <div class="product">
+                    <a href="#"><img src="images/test-img1.png" alt="1"></a>
+                    <div class="designer_name">Designer Name Designer Name Designer Name Designer Name Designer Name Designer Name Designer Name</div>
+                    <div class="prod_name light_font">Product name</div>
+                    <div class="price">£ 30</div>
+                    <a href="#" class="pin">
+                      <img src="images/pin.png" alt="pin it">
+                    </a>
+                    <a href="#" class="add_to_wardrobe">
+                      <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
+                    </a>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
+                <div class="product_wrap">
+                  <div class="product">
+                    <a href="#"><img src="images/test-img2.png" alt="2"></a>
+                    <div class="designer_name">Designer Name</div>
+                    <div class="prod_name light_font">Product name</div>
+                    <div class="price">£ 99</div>
+                    <a href="#" class="pin">
+                      <img src="images/pin.png" alt="pin it">
+                    </a>
+                    <a href="#" class="add_to_wardrobe">
+                      <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
+                    </a>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
+                <div class="product_wrap">
+                  <div class="product">
+                    <a href="#"><img src="images/test-img3.png" alt="3"></a>
+                    <div class="designer_name">Designer Name</div>
+                    <div class="prod_name light_font">Product name</div>
+                    <div class="price">£ 300</div>
+                    <a href="#" class="pin">
+                      <img src="images/pin.png" alt="pin it">
+                    </a>
+                    <a href="#" class="add_to_wardrobe">
+                      <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
+                    </a>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
+                <div class="product_wrap">
+                  <div class="product">
+                    <a href="#"><img src="images/test-img1.png" alt="1"></a>
+                    <div class="designer_name">Designer Name</div>
+                    <div class="prod_name light_font">Product name</div>
+                    <div class="price">£ 30</div>
+                    <a href="#" class="pin">
+                      <img src="images/pin.png" alt="pin it">
+                    </a>
+                    <a href="#" class="add_to_wardrobe">
+                      <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
+                    </a>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
+                <div class="product_wrap">
+                  <div class="product">
+                    <a href="#"><img src="images/test-img2.png" alt="2"></a>
+                    <div class="designer_name">Designer Name</div>
+                    <div class="prod_name light_font">Product name</div>
+                    <div class="price">£ 99</div>
+                    <a href="#" class="pin">
+                      <img src="images/pin.png" alt="pin it">
+                    </a>
+                    <a href="#" class="add_to_wardrobe">
+                      <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
+                    </a>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
+                <div class="product_wrap">
+                  <div class="product">
+                    <a href="#"><img src="images/test-img3.png" alt="3"></a>
+                    <div class="designer_name">Designer Name</div>
+                    <div class="prod_name light_font">Product name</div>
+                    <div class="price">£ 300</div>
+                    <a href="#" class="pin">
+                      <img src="images/pin.png" alt="pin it">
+                    </a>
+                    <a href="#" class="add_to_wardrobe">
+                      <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
+                    </a>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
@@ -555,13 +925,14 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-hover-dropdown.js"></script>
     <script src="js/idangerous.swiper-2.1.min.js"></script>
+    <script src="js/jquery-ui-1.10.4.custom.js"></script>
     <script src="js/iscroll.js"></script>
     <script src="js/main.js"></script>
     <script>
+      var myScroll;
 
-      var myScroll2;
 
-      myScroll2 = new IScroll('.scroll-area', {
+      myScroll = new IScroll('.scrollable-area', {
         scrollbars: true,
         mouseWheel: true,
         interactiveScrollbars: true,
@@ -571,19 +942,19 @@
 
 
       document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+    </script>
+    <script>
+      $(document).ready(function(){
+        $('.open_search_input').on('click',function(){
 
-      $('.scroll-area ul li').mouseover(function(){
-         myScroll2.refresh();
+          var valueResult = $(this).siblings('span').text();
+
+          $(this).parent().hide();
+          $(this).parent().siblings('.search_input').show().css('display','inline-block');
+          $(this).parent().siblings('.search_input').children('.s_input').attr('value', valueResult);
+        });
       });
-
-      $('.scroll-area ul li').mouseout(function(){
-         myScroll2.refresh();
-      });
-
-      if ($('.scroll-area').height() < 540 ) {
-        $(".iScrollVerticalScrollbar").hide();
-      }
-
     </script>
   </body>
 </html>
+  
