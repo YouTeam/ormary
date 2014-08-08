@@ -2611,7 +2611,7 @@ a.step3 {
 
 a.step.active {
 	background: url(../images/step_act.png) no-repeat center 0;
-	color: #fb1717;
+	font-family:"Optima LT W01 Demi Bold";
 }
 
 .table_head {
@@ -2896,11 +2896,18 @@ a.light_btn:hover {
 	margin-bottom: 15px;
 }
 
-.block .caption .edit {
+.block .caption .right_links {
 	position: absolute;
 	top: 0;
 	right: 0;
+}
+
+.block .caption .right_links a {
 	color: #000000;
+}
+
+.block .caption .right_links .add_addres {
+	margin-left: 10px;
 }
 
 .block .caption .edit span {
@@ -2922,34 +2929,20 @@ a.light_btn:hover {
 	margin-bottom: 30px;
 }
 
+.shipping_methods {
+	margin-bottom: 10px;
+}
+
 .shipping_methods .clearfix {
-	padding: 20px 0;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #cecece;
 }
 
 .shipping_methods .shipping {
 	width: 25%;
 	float: left;
-	padding-left: 20px;
 	position: relative;
 	text-transform: uppercase;
-}
-
-.shipping_methods .shipping label {
-	cursor: pointer;
-	margin: 0;
-}
-
-.shipping_methods .shipping input[type="radio"] {
-	display: none;
-}
-
-.shipping_methods .shipping .filter-label:before {
-	top: 2px;
-}
-
-.shipping_methods .shipping input:checked+.filter-label:before {
-	background: #4b4b4b;
-	border-color: #3c3c3c;
 }
 
 .shipping_methods .business_days {
