@@ -78,9 +78,6 @@ select {
 	display: none;
 }
 
-.light_font {
-}
-
 .nopadding {
 	padding: 0;
 }
@@ -523,7 +520,7 @@ footer {
 
 footer .footer_middle {
 	padding: 0;
-	height: 190px;
+	min-height: 190px;
 }
 
 footer .footer_middle ul li a {
@@ -2067,7 +2064,7 @@ label .required {
 .orm_designer_info_wrap .orm_designer_info .orm_designer_content .orm_followers {
 	position: absolute;
 	top: 1px;
-	right: 0px;
+	right: 80px;
 	font-size: 14px;
 }
 
@@ -2081,6 +2078,32 @@ label .required {
 	font-size: 14px;
 	color: #000000;
 	margin-left: 8px; 
+}
+
+a.follow {
+	font-size: 16px;
+	color: #000000;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding-left: 20px;
+	padding-right: 5px;
+	text-decoration: none;
+	font-family:"Optima LT W01 Demi Bold";
+}
+
+a.follow:hover {
+	background: #000000;
+	color: #ffffff;
+}
+
+a.follow .plus {
+	position: absolute;
+	left: 5px;
+	top: 1px;
+	font-size: 16px;
+	font-family: Arial;
+	font-weight: bold;
 }
 
 /* All designers page */
