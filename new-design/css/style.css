@@ -42,6 +42,10 @@ header + .container {
 	margin-top: 121px !important;
 }
 
+header + .container.my_wardrobe_page {
+	margin-top: 141px !important;
+}
+
 .container > h4 {
 	padding-bottom: 30px;
 }
@@ -67,6 +71,11 @@ select {
 .dropdown-menu {
 	margin: 0;
 	border-radius: 0;
+	min-width: 53px;
+}
+
+.cart_dropdown {
+	display: none;
 }
 
 .light_font {
@@ -303,6 +312,16 @@ select {
 	right: 30px;
 	top: 282px;
 	display: none;
+	width: 132px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	text-decoration: none;
+	background: #000;
+	color: #fff;
+	margin: 0 auto;
+	font-size: 14px;
+	font-family:"Optima LT W01 Demi Bold";
 }
 
 .product:hover .pin,
@@ -406,25 +425,36 @@ select {
 	text-align: left;
 	color: #000000;
 	line-height: 20px;
-	display: none;
 }
 
 .aside .my_wardrobe .wardrobe_product .prod_name {
 	color: #808080;
 	text-align: left;
 	line-height: 20px;
-	display: none;
 	text-decoration: none !important;
+	position: relative;
 }
 
 .aside .my_wardrobe .wardrobe_product:hover {
 	text-decoration: none !important;
 }
 
-.aside .my_wardrobe .wardrobe_product:hover .designer_name,
-.aside .my_wardrobe .wardrobe_product:hover .price,
-.aside .my_wardrobe .wardrobe_product:hover .prod_name {
-	display: block;
+.hover-info {
+	height: 0;
+	overflow: hidden;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+	opacity: 0;
+}
+
+.aside .my_wardrobe .wardrobe_product:hover .hover-info,
+.aside .my_wardrobe .wardrobe_product:hover .hover-info,
+.aside .my_wardrobe .wardrobe_product:hover .hover-info {
+	height: auto;
+	opacity: 1;
 }
 
 /* FOOTER */
@@ -493,6 +523,7 @@ footer {
 
 footer .footer_middle {
 	padding: 0;
+	height: 190px;
 }
 
 footer .footer_middle ul li a {
@@ -929,7 +960,7 @@ a.sort_by:after {
 
 .scroll-area {
 	overflow: hidden;
-	max-height: 540px;
+	max-height: 610px;
 	position: relative;
 	margin: 0 15px;
 }
@@ -1584,7 +1615,7 @@ label .required {
 .you_are_following .des_following a {
 	color: #000000;
 	float: left;
-	width: 75%;
+	width: 74%;
 }
 
 .you_are_following .des_following a span {
@@ -1849,6 +1880,11 @@ label .required {
 	padding: 0 10px;
 	border: 1px solid #000000;
 	color: #000000;
+}
+
+.sign_up_popup .alert_error,
+.sign_in_popup .alert_error {
+	margin: 0px 5%;
 }
 
 .sign_up_popup .form input[type='submit'],
@@ -2349,6 +2385,16 @@ a.unfollow:hover {
 	top: 255px;
 	right: 26px;
 	display: none;
+	width: 162px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	text-decoration: none;
+	background: #000;
+	color: #fff;
+	margin: 0 auto;
+	font-size: 14px;
+	font-family: "Optima LT W01 Demi Bold";
 }
 
 .product:hover .view_recommended {
@@ -2786,7 +2832,6 @@ a.light_btn:hover {
 }
 
 .cart_dropdown {
-	display: none;
 	position: absolute;
 	top: 50px;
 	right: -1px;
@@ -3844,6 +3889,13 @@ a.black_btn:hover {
 		margin-bottom: 10px;
 	}
 
+	/* My Ormary page adaptation */
+
+	.orm_avatar {
+		width: 200px;
+		height: 200px;
+	}
+
 }
 
 @media screen and (max-width: 991px){
@@ -3858,6 +3910,10 @@ a.black_btn:hover {
 
 	header + .container {
 		margin-top: 155px !important;
+	}
+
+	header + .container.my_wardrobe_page {
+		margin-top: 186px !important;
 	}
 
 	.top-banner {
@@ -4078,6 +4134,14 @@ a.black_btn:hover {
 	.sign_up input[type="text"] {
 		width: 115px;
 	}
+
+	/* My Ormary page adaptation */
+
+	.my_ormary_page .aside {
+		margin-bottom: 15px;
+		padding: 0;
+	}
+
 }
 
 @media screen and (max-width: 850px){
@@ -4234,6 +4298,11 @@ a.black_btn:hover {
 	.cart_dropdown {
 		display: none !important;
 	}
+
+	footer .footer_middle {
+		height: auto;
+	}
+
 }
 
 @media screen and (max-width: 650px) {
