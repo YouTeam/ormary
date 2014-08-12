@@ -370,6 +370,10 @@ select {
 	margin: 0 15px;
 }
 
+.my_wardrobe_page .section {
+	margin: 0;
+}
+
 .section > div {
 	float: left;
 }
@@ -3134,9 +3138,8 @@ a.light_btn:hover {
 
 .change_avatar a {
 	text-transform: uppercase;
-	padding: 0 7px;
+	padding: 0 10px;
 	color: #000000;
-	margin-right: 10px;
 }
 
 .change_avatar span {
@@ -3201,7 +3204,7 @@ a.light_btn:hover {
 
 .wrap_link a.black_btn {
 	margin-left: 110px;
-	line-height: 34px;
+	line-height: 32px;
 	height: 32px;
 	width: 204px;
 }
