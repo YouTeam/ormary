@@ -268,11 +268,25 @@ $(document).ready(function(){
 
 /* Main slider */
 
+var MainSliderLoop = true;
+var newestCarouselLopp = true;
+
+if ($('.orm_main_slider .swiper-slide').length < 2) {
+	MainSliderLoop = false;
+	$('.orm_main_slider .arrow-left, .orm_main_slider .arrow-right').hide();
+}
+
+if ($('.orm_newest_carousel .swiper-slide').length < 6) {
+	newestCarouselLopp = false;
+	$('.newest_products .newest_carousel_next, .newest_products .newest_carousel_prev').hide();
+}
+
 var mySwiper = new Swiper('.orm_main_slider',{
-  loop: true,
+  loop: MainSliderLoop,
   autoplay:6000,
   speed: 1500
-})
+});
+
 $('.arrow-left').on('click', function(e){
 	e.preventDefault()
 	mySwiper.swipePrev()
@@ -282,12 +296,15 @@ $('.arrow-right').on('click', function(e){
 	mySwiper.swipeNext()
 })
 
+
+
+
 /* Newest products */
 
 	var newestCarousel = new Swiper('.orm_newest_carousel',{
 		paginationClickable: true,
 		slidesPerView: 5,
-		loop: true,
+		loop: newestCarouselLopp,
 		autoplay:3500,
 		speed: 950
 	})
