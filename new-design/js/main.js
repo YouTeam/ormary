@@ -270,8 +270,8 @@ $(document).ready(function(){
 
 var mySwiper = new Swiper('.orm_main_slider',{
   loop: true,
-  autoplay:3000,
-  speed: 950
+  autoplay:6000,
+  speed: 1500
 })
 $('.arrow-left').on('click', function(e){
 	e.preventDefault()

@@ -475,29 +475,6 @@ footer {
 	padding: 0;
 }
 
-.sign_up input[type="text"] {
-	background: #ffffff;
-	border: 1px solid #d7d7d7;
-	height: 30px;
-	padding: 0 9px;
-	width: 150px;
-	color: #7f7f7f;
-	position: relative;
-	top: -2px;
-	margin-top: 10px;
-}
-
-.sign_up input[type="submit"] {
-	width: 40px;
-	height: 30px;
-	border: none;
-	margin-left: -3px;
-	background: url(../images/mail.png) no-repeat center;
-	background-color: #d7d7d7;
-	position: relative;
-	top: -2px;
-}
-
 .footer_top .social-icons {
 	display: inline-block;
 	background: #ffffff;
@@ -534,12 +511,12 @@ footer .footer_middle ul li a {
 	text-decoration: none;
 }
 
-footer .footer_middle ul li a:hover,
-footer .footer_middle ul li.caption a:hover {
+footer .footer_middle ul li a:hover {
 	text-decoration: underline;
 }
 
-footer .footer_middle ul li.caption a {
+footer .footer_middle ul li.caption span {
+	display: block;
 	font-size: 14px;
 	color: #000000;
 	margin-bottom: 15px;
@@ -1746,6 +1723,11 @@ label .required {
 .do_you_like .designer_goods {
 	position: relative;
 	height: 212px;
+}
+
+.designer_goods_slider {
+	height: 212px;
+	overflow: hidden;
 }
 
 .do_you_like .designer_goods .swiper-slide {
@@ -3814,6 +3796,166 @@ a.black_btn:hover {
 	top: 10px;
 }
 
+/* SHIPPING AND REFUNDS STARTS */
+
+#shipping-refunds {
+	display: block;
+	float: left;
+	min-height: 20px;
+	border: none;
+	margin-bottom: 0px; 
+	padding-bottom: 0px;
+	background: #4d4d4d;
+	border-radius: 0px;
+	margin-top: 13px;
+}
+
+#shipping-refunds li {
+	float: left;
+}
+
+#shipping-refunds li a {
+	color: white;
+	font-family:"Didot W01 Roman";
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 10px;
+	padding: 4px 10px 3px 10px;
+	font-style: italic;
+}
+
+#shipping-refunds li a:hover {
+	background: #4d4d4d;
+	text-decoration: underline;
+}
+
+#shipping-refunds .nav .open>a {
+	background: #4d4d4d;
+	text-decoration: underline;
+}
+
+#shipping-refunds .dropdown-menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 1000;
+	display: none;
+	float: left;
+	min-width: 160px;
+	padding: 0px 0;
+	margin: 0px 0 0;
+	list-style: none;
+	font-size: 14px;
+	background-color: #4d4d4d;
+	border: 1px solid #ccc;
+	border: none;
+	border-radius: 0px;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	background-clip: padding-box;
+}
+
+#shipping-refunds .open>.dropdown-menu {
+display: block;
+}
+
+#shipping-refunds b.caret {
+	display: none;
+}
+
+#shipping-refunds .separator {
+	color: white; 
+	padding: 0px 0px 0px 0px; 
+	height: 18px;
+	margin-top: 2px;
+	width: 1px;
+}
+
+#shipping-refunds .top-shipping {
+	width: 364px;
+}
+	
+#shipping-refunds .top-refunds {
+	width: 364px;
+	margin-left: -251px;
+}
+
+#shipping-refunds .dropdown-menu li  {
+	color: white;
+	font-family:"Optima LT W01 Roman";
+	padding: 0px 20px 10px 20px;
+}
+
+#shipping-refunds .dropdown-menu li h3 {
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	text-decoration: underline;
+	padding-bottom: 15px;
+}
+
+#shipping-refunds .dropdown-menu li p.bottomcta {
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	width: 100%;
+	padding-bottom: 15px;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+}
+
+#shipping-refunds .dropdown-menu li p {
+	font-size: 12px;
+	line-height: 22px;
+}
+
+.top-shipping table {
+	width: 100%;
+	border-bottom: 1px solid black;
+}
+
+.top-shipping table.last {
+	border-bottom: none;
+}
+
+.top-shipping table th{
+	padding-top: 10px;
+	padding-bottom: 0px;
+	text-transform: uppercase;
+	font-family:"Didot W01 Roman";
+	letter-spacing: 1px;
+	text-decoration: underline;
+}
+
+.top-shipping table td{
+	padding-top: 0px;
+	padding-bottom: 10px;
+}
+	
+.top-shipping table tr.last td{
+	padding-bottom: 10px;
+}
+
+#shipping-refunds .shippinglabel {
+	width: 65%;
+}
+	
+.top-shipping li {
+	width: 100%;
+}
+
+.top-shippings {
+	display: block !important;
+}
+
+.shippingvalue {
+	font-size: 16px;
+	font-family:"Didot W01 Bold";
+}
+
+/* SHIPPING AND REFUNDS ENDS */
+
 /* Media queries */
 
 @media screen and (max-width: 1199px) {
@@ -4166,6 +4308,12 @@ a.black_btn:hover {
 	.my_ormary_page .aside {
 		margin-bottom: 15px;
 		padding: 0;
+	}
+
+	/**/
+
+	#shipping-refunds {
+		display: none;
 	}
 
 }
