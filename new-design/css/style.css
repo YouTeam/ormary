@@ -38,12 +38,16 @@ header {
 	z-index: 999;
 }
 
+.navbar {
+	margin-bottom: 0px;
+}
+
 header + .container {
-	margin-top: 121px !important;
+	padding-top: 121px;
 }
 
 header + .container.my_wardrobe_page {
-	margin-top: 141px !important;
+	margin-top: 141px;
 }
 
 .container > h4 {
@@ -1025,11 +1029,12 @@ a.sort_by:after {
 }
 
 .wrap_items_on_page {
-	float: left;
+	float: right;
+	margin-right: 5px;
 }
 
 .wrap_items_on_page span {
-	margin-right: 10px;
+	margin-right: 5px;
 	color: #7f7f7f;
 }
 
@@ -2362,8 +2367,7 @@ a.unfollow:hover {
 	position: relative;
 	margin-top: 20px;
 	margin-top: 141px;
-	padding: 0 15px;
-	padding-top: 0 !important;
+	padding: 0 15px 15px;
 }
 
 .my_wardrobe_page:before {
@@ -4077,11 +4081,11 @@ display: block;
 	}
 
 	header + .container {
-		margin-top: 155px !important;
+		padding-top: 155px;
 	}
 
 	header + .container.my_wardrobe_page {
-		margin-top: 186px !important;
+		margin-top: 186px;
 	}
 
 	.top-banner {
@@ -4336,6 +4340,22 @@ display: block;
 }
 
 @media screen and (max-width: 767px){
+
+	header {
+		position: static;
+	}
+
+	header + .container {
+		padding-top: 15px 
+	}
+
+	.top-banner {
+		margin-top: 0px;
+	}
+
+	header + .container.my_wardrobe_page {
+		margin-top: 40px;
+	}
 
 	.swiper_title {
 		display: none;
