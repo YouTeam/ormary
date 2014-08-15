@@ -28,6 +28,7 @@ body {
 	margin: 0 auto;
 	min-height: 100%;
 	height: auto !important;
+	position: relative;
 }
 
 header {
@@ -1444,7 +1445,7 @@ a.add_to_my_wardrobe:hover {
 /* All Popups */
 
 .popup {
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -2653,6 +2654,10 @@ a.unfollow:hover {
 
 .office_img {
 	float: left;
+}
+
+.office_img img {
+	width: 100%;
 }
 
 .office_info {
@@ -4410,6 +4415,14 @@ display: block;
 
 	.swiper_title {
 		display: none;
+	}
+
+	.wrapper {
+		position: relative;
+	}
+
+	.popup {
+		position: absolute;
 	}
 
 	/* landing page adaptation */
