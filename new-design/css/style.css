@@ -1939,6 +1939,19 @@ label .required {
 	margin: 0 auto;
 }
 
+.sign_up_popup div.terms {
+	padding: 0 15px 20px;
+}
+
+.forgotps {
+	padding: 0 15px;
+	text-align: right;
+}
+
+.forgotps a {
+	color: #a1a1a1;
+}
+
 /* Product page popup */
 
 .add_to_cart_popup {
@@ -4770,18 +4783,20 @@ display: block;
 
 	/* registration wizard */
 
-	.sign_up_popup {
+	.sign_up_popup,
+	.sign_in_popup {
 		width: 300px;
 		margin-left: -150px;
 	}
 
-	.sign_up_popup .caption span {
+	.sign_up_popup .caption span, .sign_in_popup .caption span {
 		font-size: 30px;
 		text-align: center;
 		display: block;
 	}
 
-	.sign_up_popup .caption span + span {
+	.sign_up_popup .caption span + span,
+	.sign_in_popup .caption span + span {
 		display: block;
 		font-size: 25px;
 		text-align: center;
