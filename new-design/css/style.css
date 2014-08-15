@@ -4416,14 +4416,6 @@ display: block;
 		display: none;
 	}
 
-	.wrapper {
-		position: relative;
-	}
-
-	.popup {
-		position: absolute;
-	}
-
 	/* landing page adaptation */
 
 	.orm_landing_sign_up {
