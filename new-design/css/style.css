@@ -1332,6 +1332,15 @@ a.add_to_my_wardrobe {
 	width: 153px;
 }
 
+.add_to_cart_popup_bottom a.add_to_my_wardrobe {
+	width: 194px;
+	margin-right: 0;
+}
+
+.add_to_cart_popup_bottom a.add_to_cart {
+	width: 194px;
+}
+
 a.add_to_my_wardrobe:hover {
 	color: #ffffff;
 	background: #000000;
