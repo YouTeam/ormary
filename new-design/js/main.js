@@ -23,6 +23,19 @@ $(document).ready(function(){
 		}
 	});
 
+	/* Mobile zoom */
+
+	$('#open_zoom').click(function(){
+		$(this).hide();
+		$('#close_zoom').show();
+	});
+
+	$('#close_zoom').click(function(event){
+		event.preventDefault();
+		$(this).hide();
+		$('#open_zoom').show();
+	});
+
 	/* MY ORMARY TABS */
 
 	$('.following_designers_to').click(function(event){

@@ -321,7 +321,7 @@
         </div>
       </header>
       <div class="container content product_page">
-        <div class="breadcrumbs clearfix">
+        <div class="container breadcrumbs clearfix">
           <ul>
             <li><a href="#">Knitwear</a></li>
             <li><a href="#">Burbery Britt</a></li>
@@ -332,6 +332,10 @@
           <div class="col-lg-6 col-md-6 col-sm-6">
             <div class="product_image">
               <img src="images/large/test-product-img2.png" data-zoom-image="images/large/test-product-img2.png" alt="Product image" id="zoom">
+              <div class="scroll_cap" id="open_zoom"></div>
+              <a href="#" class="close_zoom" id="close_zoom">
+                <img src="./images/close_popup.png" alt="">
+              </a>
             </div>
             <div class="product_thumbnails clearfix" id="product_thumbs">
               <a href="#" data-image="images/test-product-img2.png" data-zoom-image="images/large/test-product-img2.png"><img src="images/test-product-img2.png" alt="test_img"></a>
@@ -366,13 +370,18 @@
                 <div class="alert_error">
                   Please, select a size first
                 </div>
+                <a href="#" class="size_guide">Size Guide</a>
               </div>
             </div>
             <div class="buttons_pannel clearfix">
-              <a href="#" class="add_to_my_wardrobe"><span class="plus">+</span> My wardrobe</a>
-              <a href="#" class="add_to_cart open_add_to_cart_popup">Add to cart</a>
+              <a href="#" class="add_to_cart open_add_to_cart_popup">Add to shopping bag</a>
+              <a href="#" class="add_to_my_wardrobe"> + My wardrobe</a>
             </div>
             <div class="orm_share clearfix">
+              <div>
+                <span>Got more questions about this item?</span>
+                <a href="#">Email us</a>
+              </div>
               <div>
                 <span class="share_on">Share on</span>
                 <a href="#">
@@ -516,12 +525,6 @@
             <li><a href="#">My Ormary</a></li>
             <li><a href="#">My Wardrobe</a></li>
             <li><a href="#">My Fashionfeed</a></li>
-            <li>
-              <div class="sign_up">
-                <input type="text" placeholder="Sign up to newsletter" class="">
-                <input type="submit" value=" ">
-              </div>
-            </li>
           </ul>
         </div>
       </div>
