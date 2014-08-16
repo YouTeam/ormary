@@ -90,6 +90,26 @@ $(document).ready(function(){
 		$('.add_to_cart_popup, .popup').hide();
 	});
 
+	/* Product share with a friend popup */
+
+	$('.open_share_with_friend').click(function(event){
+		event.preventDefault();
+		$('.popup, .share_with_friend_popup').show();
+		var topDistance = $(window).scrollTop();
+		var popupHeight = $('.share_with_friend_popup').height()/2;
+		var popupPosition = $(window).height()/2;
+		$('.share_with_friend_popup').css('top',topDistance + popupPosition - popupHeight);
+		if (popupHeight > popupPosition) {
+			$('.share_with_friend_popup').css('maxHeight',popupPosition*2).css('overflow','auto').css('top',topDistance);
+		}
+	});
+	$('.share_with_friend_popup').click(function(event){
+		event.stopPropagation();
+	});
+	$('.popup, .close_popup').click(function(){
+		$('.share_with_friend_popup, .popup').hide();
+	});
+
 	/* Wardrobe create collection popup */
 
 	$('.open_create_collection').click(function(event){

@@ -1463,6 +1463,82 @@ a.add_to_my_wardrobe:hover {
 	display: none;
 }
 
+.share_with_friend_popup {
+	width: 880px;
+	background: #ffffff;
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	margin-left: -440px;
+	z-index: 999;
+	display: none;
+}
+
+.share_with_friend_popup .sub_caption {
+	font-size: 14px;
+	padding: 20px 15px 0px;
+	color: #999;
+}
+
+.share_with_friend_popup .inputs label {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.share_with_friend_popup .inputs {
+	padding: 30px 0 10px;
+	font-size: 14px;
+}
+
+.share_with_friend_popup .inputs label > span {
+	display: inline-block;
+	width: 180px;
+	padding: 0 10px;
+	text-align: right;
+	float: left;
+	line-height: 30px;
+}
+
+.share_with_friend_popup label input {
+	width: 260px;
+	height: 30px;
+	border: 1px solid #cccccc;
+	padding: 0 10px;
+}
+
+.share_with_friend_popup label textarea {
+	width: 260px;
+	height: 100px;
+	border: 1px solid #cccccc;
+	padding: 10px;
+	resize: none;
+}
+
+.share_with_friend_popup .one_more_friend {
+	display: block;
+	margin-left: 180px;
+	margin-top: -10px;
+	margin-bottom: 10px;
+	padding-left: 18px;
+	background: url(../images/aomf.png) no-repeat 0 2px;
+	color: #000000;
+}
+
+.share_with_friend_popup .swf_product_img {
+	padding: 30px 40px;
+}
+
+.share_with_friend_popup .swf_product_img img {
+	width: 100%;
+}
+
+.share_with_friend_popup a.dark_btn {
+	width: 184px;
+	margin: 0 auto;
+	margin-bottom: 30px;
+	margin-top: 10px;
+}
+
 .shipping_address {
 	width: 600px;
 	background: #ffffff;
@@ -1486,7 +1562,7 @@ a.add_to_my_wardrobe:hover {
 }
 
 label .required {
-	color: #ff0f0f;
+	color: #0f0f0f;
 }
 
 .shipping_address .inputs label > span {
@@ -1703,11 +1779,13 @@ label .required {
 .interested_in .caption,
 .do_you_like .caption,
 .you_are_following .caption,
-.shipping_address .caption {
+.shipping_address .caption,
+.share_with_friend_popup .caption {
 	font-size: 16px;
 	line-height: 50px;
 	border-bottom: 1px solid #dedede;
 	position: relative;
+	font-family:"Optima LT W01 Demi Bold";
 }
 
 .remove_collection .caption {
@@ -4376,6 +4454,35 @@ display: block;
 	.my_ormary_page .aside {
 		margin-bottom: 15px;
 		padding: 0;
+	}
+
+	/* Share with a friend popup adaptation */
+
+	.share_with_friend_popup {
+		width: 94%;
+		left: 0;
+		margin: 0 3%;
+	}
+
+	.share_with_friend_popup .inputs label {
+		margin-bottom: 5px;
+	}
+
+	.share_with_friend_popup .inputs label > span {
+		display: block;
+		float: none;
+		text-align: left;
+		padding: 0;
+	}
+
+	.share_with_friend_popup .one_more_friend {
+		margin-left: 0;
+		margin-top: 0;
+	}
+
+	.share_with_friend_popup label input,
+	.share_with_friend_popup label textarea {
+		width: 100%;
 	}
 
 	/**/
