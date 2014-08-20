@@ -333,7 +333,7 @@ select {
 
 .product div {
 	font-size: 14px;
-	padding-top: 5px;
+	padding-top: 0px;
 	text-align: center;
 	text-transform: uppercase;
 	font-family:"Optima LT W01 Roman";
@@ -343,6 +343,21 @@ select {
 .product div.designer_name {
 	padding-top: 10px;
 	font-family:"Didot W01 Roman";
+        line-height: 15px;
+}
+
+.product div.prod_name {
+	padding-top: 1px;
+            letter-spacing: initial;
+            text-transform: capitalize;
+            
+}
+
+.product div.price {
+	padding-top: 1px;
+            letter-spacing: initial;
+            text-transform: capitalize;
+            
 }
 
 .content .criteria {
