@@ -1160,7 +1160,7 @@ if ( typeof Object.create !== 'function' ) {
 				var newImg = new Image(); 
 
 				if(self.options.loadingIcon){
-					self.spinner = $('<div style="background: url(\''+self.options.loadingIcon+'\') no-repeat center;height:'+self.nzHeight+'px;width:'+self.nzWidth+'px;z-index: 2000;position: absolute; background-position: center center;"></div>');
+					self.spinner = $('<div style="background: url(\''+self.options.loadingIcon+'\') no-repeat center;height:'+self.nzHeight+'px;width:'+self.nzWidth+'px;z-index: 2000;position: absolute; background-position: center center; margin-top: -120%"></div>');
 					self.$elem.after(self.spinner);
 				}
 
