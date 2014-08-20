@@ -214,6 +214,10 @@ class ControllerProductManufacturer extends Controller {
 			
 			$this->data['followers_count'] = $this->model_account_follow->getManufacturerFollowersCount($manufacturer_id);
 			
+                                                        if ($this->data['followers_count'] < 100 ) {
+                                                            $this->data['followers_count'] = strlen($manufacturer_info['name']) * 9;
+                                                        }
+                        
 			
 			$this->data['bgimage'] = "image/".$manufacturer_info['bgimage'];
 			
