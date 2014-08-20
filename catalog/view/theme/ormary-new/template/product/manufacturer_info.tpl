@@ -11,7 +11,7 @@
     <style>
 	.orm_designer_info_wrap 
 	{
-		background: url('<?php print $this->url->img_link($bgimage);?>') no-repeat 0 0;;
+		background: url('<?php echo $bgimage;?>') no-repeat 0 0;
 	}
 	@media screen and (max-width: 991px){
 		.orm_designer_info_wrap 
