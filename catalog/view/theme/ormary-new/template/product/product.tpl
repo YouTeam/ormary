@@ -13,8 +13,8 @@
 	<div class="clearfix">
 		<div class="col-lg-6 col-md-6 col-sm-6">
             <div class="product_image">
-            	<img src="<?php echo $thumb; ?>" data-zoom-image="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" id="zoom">
-                <div class="scroll_cap" id="open_zoom"></div>
+            	<img src="<?php echo $mainimage; ?>" data-zoom-image="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" id="zoom">
+               <div class="scroll_cap" id="open_zoom"></div>
                 <a href="#" class="close_zoom" id="close_zoom">
                 	<img src="catalog/view/theme/ormary-new/images/close_popup.png" alt="">
                 </a>
@@ -23,7 +23,7 @@
                 <div class="product_thumbnails clearfix" id="product_thumbs">
                 	<a href="#" data-image="<?php echo $thumb; ?>" data-zoom-image="<?php echo $thumb; ?>"><img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>"></a>
                     <?php foreach ($images as $image) { ?>
-                    	<a href="#" data-image="<?php echo $image['popup']; ?>" data-zoom-image="<?php echo $image['popup']; ?>"><img src="<?php echo $image['thumb']; ?>" alt="<?php echo $heading_title; ?>"></a>
+                    	<a href="#" data-image="<?php echo $image['mainimage']; ?>" data-zoom-image="<?php echo $image['popup']; ?>"><img src="<?php echo $image['thumb']; ?>" alt="<?php echo $heading_title; ?>"></a>
                     <?php } ?>
                 </div>
             <?php } ?>
