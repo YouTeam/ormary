@@ -1154,6 +1154,7 @@ a.clear_filter_btn {
 	width: 100%;
 	margin-bottom: 20px;
 	text-align: left;
+        padding-left: 0px;
 }
 
 .breadcrumbs ul {
@@ -1163,7 +1164,7 @@ a.clear_filter_btn {
 
 .breadcrumbs ul li {
 	list-style: none;
-	margin-right: 13px;
+	margin-right: 3px;
 	display: inline-block;
 }
 
@@ -1178,11 +1179,13 @@ a.clear_filter_btn {
 .breadcrumbs ul li a {
 	color: #9f9f9f;
 	text-decoration: none;
-	padding-right: 17px;
+	padding-right: 10px;
 	background: url(../images/bc_punct.png) no-repeat right center;
 	text-transform: uppercase;
 	text-align: center;
+        letter-spacing: 1px;
 }
+
 
 .breadcrumbs ul li a:hover {
 	text-decoration: underline;
@@ -1255,10 +1258,11 @@ a.clear_filter_btn {
 	display: inline-block;
 	text-transform: uppercase;
 	font-size: 20px;
-	margin-bottom: 5px;
+	margin-bottom: 0px;
 	color: #000000;
 	font-family:"Didot W01 Roman";
 	letter-spacing: 2px;
+        line-height: 20px;
 }
 
 .product_sub_title {
@@ -1268,7 +1272,7 @@ a.clear_filter_btn {
 
 .product_sub_title + .price {
 	font-size: 14px;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 	font-family:"Didot W01 Bold";
 }
 
