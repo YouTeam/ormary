@@ -76,10 +76,12 @@
                     <div class="row">
                         <div class="all_des_caption"><?php print $manufacturers_numbers['letter']; ?></div>
                         <div class="col-md-4 col-sm-4 col-xs-6">
-                            <ul>
+                            
+                             <ul>
                                 <?php
                                 foreach($manufacturers_numbers['manufacturers'] as $m)
                                 {
+                               
                                     print '<li><a href="index.php?route=product/manufacturer/info&manufacturer_id='.$m['manufacturer_id'].'">'.$m['name'].'</a></li>';
                                 }
                                 ?>
@@ -101,7 +103,8 @@
                             print '<div class="col-md-4 col-sm-4 col-xs-6"><ul>';
                             for($i=0; $i<ceil($count/3); $i++)
                             {
-                            	print '<li><a href="index.php?route=product/manufacturer/info&manufacturer_id='.$m['manufacturers'][$i]['manufacturer_id'].'">'.$m['manufacturers'][$i]['name'].'</a></li>';
+                          
+                            	print '<li><a href="'.$m['manufacturers'][$i]['manufacturer_link'].'">'.$m['manufacturers'][$i]['name'].'</a></li>';
                             }
 	                     	print '</ul></div>';
                             
