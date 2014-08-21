@@ -59,14 +59,14 @@
     </div> 
 	
     <div class="col-md-10 clearfix nopadding">
-    	<div class="row">
+    	<!--<div class="row">
     		<form action="" id="designer_search">
                 <div class="designer-search-wrap">
                 	<input name="designer_name" type="text" placeholder="Type designer name or first letters">
                 </div>
             </form>
     	</div>
-       
+       -->
         <div id="designers-byname-list-wrap"></div>
         <div id="designers-list-wrap">
         	<?php 
