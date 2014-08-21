@@ -95,8 +95,8 @@
         <span class="total ">Grand Total : <span><?php echo $total_cart_price; ?></span></span>
     </div>
     <div class="bottom_btns">
-        <a href="<?php echo $checkout; ?>" class="dark_btn open_shipping_address">PROCEED</a>
-        <a href="<?php echo $continue; ?>" class="light_btn">CONTINUE SHOPPING</a>
+        <a href="<?php echo $checkout; ?>" class="dark_btn open_shipping_address">PROCEED TO CHECKOUT</a>
+        <a href="<?php echo $continue; ?>" class="light_btn continue_shopping">CONTINUE SHOPPING</a>
     </div>
 </div>
 
