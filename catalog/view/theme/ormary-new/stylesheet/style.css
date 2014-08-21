@@ -484,7 +484,7 @@ select {
 footer {
 	background: #ffffff;
 	color: #000000;
-	margin-top: -312px
+	margin-top: -220px
 }
 
 .footer_top {
@@ -2980,9 +2980,14 @@ a.step.active {
 }
 
 .table_footer .total {
-	float: right;
-	font-size: 14px;
-	font-family:"Optima LT W01 Demi Bold";
+        float: right;
+font-size: 18px;
+margin-top: 15px;
+margin-right: 40px;
+font-family:"Didot W01 Roman";
+	text-transform: uppercase;
+	letter-spacing: 2px;
+        font-weight: bold;
 }
 
 .table_footer .total span {
@@ -2990,6 +2995,12 @@ a.step.active {
 
 .bottom_btns a {
 	float: right;
+}
+
+.bottom_btns {
+    position: relative;
+top: 25px;
+clear: both;
 }
 
 a.dark_btn {
@@ -5335,3 +5346,14 @@ display: block;
 }
 
 
+
+
+
+.continue_shopping {
+    float: left !important;
+}
+
+.open_shipping_address {
+    letter-spacing: 2px;
+    margin-right: 40px;
+}
