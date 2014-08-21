@@ -23,10 +23,10 @@
 		<a href="javascript:void(0)" class="step step3"><span>Step 3:</span> Place Order</a>
 	</div>
 	<div class="table_head clearfix">
-		<div class="first_title">Added</div>
+		<div class="first_title">Item</div>
         <div>Quantity</div>
         <div>Price</div>
-        <div>Edit</div>
+        <div>&nbsp;</div>
         <div class="subtotal">Subtotal</div>
 	</div>
     
@@ -43,8 +43,8 @@
             </div>
             <div class="product_info">
                 <ul>
-                    <li><?php echo $product['manufacturer']; ?></li>
-                    <li><?php echo $product['name']; ?></li>
+                    <li class="cart_designer_name"><?php echo $product['manufacturer']; ?></li>
+                    <li class="cart_product_name"><?php echo $product['name']; ?></li>
                     
                     <?php foreach ($product['option'] as $option) { ?>
                 <li><span class="greytext"><?php echo $option['name']; ?>: </span><?php echo $option['value']; ?>

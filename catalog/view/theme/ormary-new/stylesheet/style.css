@@ -2868,21 +2868,32 @@ a.step.active {
 	font-family:"Optima LT W01 Demi Bold";
 }
 
+.cart_designer_name {
+    padding-top: 10px;
+font-family: "Didot W01 Roman";
+line-height: 13px;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+
 .table_head {
 	border-top: 1px solid #cecece;
 	border-bottom: 1px solid #cecece;
-	padding-left: 60px;
+	padding-left: 10px;
 }
 
 .table_head div {
 	float: left;
-	line-height: 30px;
-	width: 175px;
+	line-height: 37px;
+	width: 170px;
 	text-align: center;
+font-family:"Didot W01 Roman";
+	text-transform: uppercase;
+	letter-spacing: 2px;
 }
 
 .table_head div.first_title {
-	width: 400px;
+	width: 465px;
 	text-align: left;
 }
 
@@ -2901,7 +2912,7 @@ a.step.active {
 .table_row .checkbox {
 	width: 40px;
 	margin-top: 40px;
-	margin-left: 20px;
+	margin-left: 8px;
 }
 
 .table_row .checkbox input {
@@ -2919,7 +2930,7 @@ a.step.active {
 }
 
 .table_row .product_info {
-	width: 290px;
+	width: 300px;
 	margin-left: 20px;
 	font-size: 14px;
 }
@@ -5356,4 +5367,6 @@ display: block;
 .open_shipping_address {
     letter-spacing: 2px;
     margin-right: 40px;
+    height: 41px !important;
+line-height: 41px !important;
 }
