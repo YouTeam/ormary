@@ -1248,12 +1248,12 @@ a.clear_filter_btn {
 }
 
 .product_thumbnails a {
-	width: 76px;
-	height: 76px;
+	width: 89px;
+	height: 89px;
 	display: block;
 	float: left;
-	margin-right: 11px;
-	margin-bottom: 12px;
+	margin-right: 1px;
+	margin-bottom: 1px;
 	overflow: hidden;
 }
 
