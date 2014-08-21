@@ -47,9 +47,9 @@
             </tr>
             <tr>
               <td>Left Block Image</td>
-              <td><div class="image"><img src="<?php echo $block1_thumb; ?>" alt="" id="thumb" /><br />
-                  <input type="hidden" name="block1_image" value="<?php echo $block1_image; ?>" id="image" />
-                  <a onclick="image_upload('image', 'thumb');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb').attr('src', '<?php echo $no_image; ?>'); $('#image').attr('value', '');"><?php echo $text_clear; ?></a></div></td>
+              <td><div class="image"><img src="<?php echo $block1_thumb; ?>" alt="" id="thumb1" /><br />
+                  <input type="hidden" name="block1_image" value="<?php echo $block1_image; ?>" id="image1" />
+                  <a onclick="image_upload('image1', 'thumb1');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb1').attr('src', '<?php echo $no_image; ?>'); $('#image1').attr('value', '');"><?php echo $text_clear; ?></a></div></td>
             </tr>
             
             <tr>
@@ -84,9 +84,9 @@
             </tr>
             <tr>
               <td>Middle Top Block Image</td>
-              <td><div class="image"><img src="<?php echo $block2_thumb; ?>" alt="" id="thumb" /><br />
-                  <input type="hidden" name="block2_image" value="<?php echo $block2_image; ?>" id="image" />
-                  <a onclick="image_upload('image', 'thumb');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb').attr('src', '<?php echo $no_image; ?>'); $('#image').attr('value', '');"><?php echo $text_clear; ?></a></div></td>
+              <td><div class="image"><img src="<?php echo $block2_thumb; ?>" alt="" id="thumb2" /><br />
+                  <input type="hidden" name="block2_image" value="<?php echo $block2_image; ?>" id="image2" />
+                  <a onclick="image_upload('image2', 'thumb2');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb2').attr('src', '<?php echo $no_image; ?>'); $('#image2').attr('value', '');"><?php echo $text_clear; ?></a></div></td>
             </tr>
             
             
@@ -123,9 +123,9 @@
             </tr>
             <tr>
               <td>Right Top Block Image</td>
-              <td><div class="image"><img src="<?php echo $block3_thumb; ?>" alt="" id="thumb" /><br />
-                  <input type="hidden" name="block3_image" value="<?php echo $block3_image; ?>" id="image" />
-                  <a onclick="image_upload('image', 'thumb');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb').attr('src', '<?php echo $no_image; ?>'); $('#image').attr('value', '');"><?php echo $text_clear; ?></a></div></td>
+              <td><div class="image"><img src="<?php echo $block3_thumb; ?>" alt="" id="thumb3" /><br />
+                  <input type="hidden" name="block3_image" value="<?php echo $block3_image; ?>" id="image3" />
+                  <a onclick="image_upload('image3', 'thumb3');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb3').attr('src', '<?php echo $no_image; ?>'); $('#image3').attr('value', '');"><?php echo $text_clear; ?></a></div></td>
             </tr>
             
             
@@ -162,9 +162,9 @@
             </tr>
             <tr>
               <td>Right Bottom Block Image</td>
-              <td><div class="image"><img src="<?php echo $block4_thumb; ?>" alt="" id="thumb" /><br />
-                  <input type="hidden" name="block4_image" value="<?php echo $block4_image; ?>" id="image" />
-                  <a onclick="image_upload('image', 'thumb');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb').attr('src', '<?php echo $no_image; ?>'); $('#image').attr('value', '');"><?php echo $text_clear; ?></a></div></td>
+              <td><div class="image"><img src="<?php echo $block4_thumb; ?>" alt="" id="thumb4" /><br />
+                  <input type="hidden" name="block4_image" value="<?php echo $block4_image; ?>" id="image4" />
+                  <a onclick="image_upload('image4', 'thumb4');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb4').attr('src', '<?php echo $no_image; ?>'); $('#image4').attr('value', '');"><?php echo $text_clear; ?></a></div></td>
             </tr>
             
           </table>

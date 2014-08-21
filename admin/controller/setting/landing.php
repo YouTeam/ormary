@@ -85,6 +85,7 @@ class ControllerSettingLanding extends Controller {
 				$this->data['block'.$i.'_image'] = '';
 			}
 		}
+		$this->data['no_image'] = $this->model_tool_image->resize('no_image.jpg', 100, 100);
 		
 		$this->template = 'setting/landing.tpl';
 		$this->children = array(
