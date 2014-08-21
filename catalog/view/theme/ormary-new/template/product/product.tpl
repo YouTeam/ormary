@@ -33,12 +33,14 @@
 			<div class="product_sub_title"><?php echo $heading_title; ?></div>
 			<div class="price"><?php print str_replace("£", "&pound;", $price); ?></div>
             <div class="product_description"><?php echo $description; ?></div>
-			<div class="available clearfix">
+			
+                    <form action=""  id="orm_product">
+                        <?php if(isset($options['14'])){?>
+<div class="available clearfix">
           
             
 				<div class="available_sizes">
-                    <form action=""  id="orm_product">
-                        <?php if(isset($options['14'])){?>
+
                             <select name="option[<?php print $options['14']['product_option_id']?>]" id="size" class="form-control">
                             <option value="">Choose your size</option>
                                 <?php
@@ -48,15 +50,20 @@
                                     }
                                 ?>
                             </select>
+
+
+                    <div class="alert_error" style="display:none;">Please, select a size first</div>
+                    <a href="#" class="size_guide">Size Guide</a>
+	</div>
+			</div>
+
                          <?php }?> 
                     	<input type="hidden" value="<?php print $product_id;?>" name="product_id">
                         <input type="hidden" value="1" name="quantity">  
                         <input type="hidden" value="<?php if(isset($options['13']['option_value'][0]['product_option_value_id'])){ print $options['13']['option_value'][0]['product_option_value_id'];}?>" id="color" name="option[<?php if(isset($options['13']['option_value'][0]['product_option_value_id'])){ print $options['13']['product_option_id'];}?>]" title="<?php if(isset($options['13']['option_value'][0]['product_option_value_id'])){ print $options['13']['option_value'][0]['name'];}?>"> 
                     </form>
-                    <div class="alert_error" style="display:none;">Please, select a size first</div>
-                    <a href="#" class="size_guide">Size Guide</a>
-				</div>
-			</div>
+
+			
 			<div class="buttons_pannel clearfix">                
                 <a href="#" class="add_to_cart open_add_to_cart_popup">Add to bag</a>
                 <a href="javascript:void(0)" class="add_to_my_wardrobe" onclick="addToWishList('<?php echo $product_id; ?>');"> + My wardrobe</a>
