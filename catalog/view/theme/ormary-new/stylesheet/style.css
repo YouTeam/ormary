@@ -2909,8 +2909,8 @@ a.step.active {
 }
 
 .table_row .product_img {
-	width: 100px;
-	height: 100px;
+	width: 150px;
+	height: 150px;
 }
 
 .table_row .product_img img {
@@ -2919,7 +2919,7 @@ a.step.active {
 }
 
 .table_row .product_info {
-	width: 340px;
+	width: 290px;
 	margin-left: 20px;
 	font-size: 14px;
 }
