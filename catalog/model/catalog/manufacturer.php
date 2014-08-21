@@ -159,6 +159,8 @@ class ModelCatalogManufacturer extends Model {
 			$designers_list[$key]['manufacturers'][] = array(
 				'name' => $result['name'],
 				'manufacturer_id' => $result['manufacturer_id'],
+                                                                            'manufacturer_link' => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $result['manufacturer_id'])
+		
 			);
 		}
 
