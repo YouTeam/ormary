@@ -92,7 +92,7 @@
         <label><input type="checkbox" id="cart_select_all">Select all</label>
         <a href="<?php echo $action;?>" id="cart_remove_selected">Remove selected</a>
         <a href="<?php echo $action;?>" id="cart_move_to_wardrobe_selected">Move to Wardrobe</a>
-        <span class="total ">Total for goods <span><?php echo $total_cart_price; ?></span></span>
+        <span class="total ">Grand Total : <span><?php echo $total_cart_price; ?></span></span>
     </div>
     <div class="bottom_btns">
         <a href="<?php echo $checkout; ?>" class="dark_btn open_shipping_address">PROCEED</a>
