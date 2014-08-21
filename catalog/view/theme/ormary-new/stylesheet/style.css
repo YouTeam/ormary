@@ -1295,6 +1295,7 @@ a.clear_filter_btn {
 	font-size: 14px;
 	line-height: 24px;
 	margin-bottom: 30px;
+        padding-right: 20%;
 }
 
 .available {
@@ -2230,8 +2231,16 @@ label .required {
 .orm_designer_info_wrap .orm_designer_info .orm_designer_content .orm_designer_name {
 	font-size: 24px;
 	margin-bottom: 15px;
+        font-weight: bold;
 }
 
+
+.orm_designer_name {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+   
+font-family: "Didot W01 Roman";
+}
 .orm_designer_info_wrap .orm_designer_info .orm_designer_content .orm_designer_about {
 	font-size: 14px;
 }
