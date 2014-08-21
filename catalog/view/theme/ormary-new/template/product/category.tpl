@@ -27,7 +27,8 @@
         <div class="wrap_pagination">
         	<?php echo $pagination; ?>
         </div>
-        <div class="wrap_items_on_page">
+      <!--
+  <div class="wrap_items_on_page">
             <form action="" id="orm_count_filter">
                 <span class="">Items on page</span>
                 <select name="limit" id="" class="items_on_page form-control"> 
@@ -41,6 +42,7 @@
                 </select>
             </form>
         </div>
+-->
 	</div>
 	<a href="javascript:void(0);" class="sort_by">Sort by</a>
   
@@ -89,6 +91,9 @@
                     </div>
                 </div>
             <?php } ?>
+        </div>
+        <div class="wrap_pagination">
+        	<?php echo $pagination; ?>
         </div>
     </div>
 </div>
