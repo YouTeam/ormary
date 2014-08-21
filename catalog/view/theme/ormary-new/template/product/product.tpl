@@ -13,7 +13,7 @@
 	<div class="clearfix">
 		<div class="col-lg-6 col-md-6 col-sm-6">
             <div class="product_image">
-            	<img src="<?php echo $mainimage; ?>" data-zoom-image="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" id="zoom">
+            	<img src="<?php echo $mainimage; ?>" data-zoom-image="<?php echo $zoom; ?>" alt="<?php echo $heading_title; ?>" id="zoom">
                <div class="scroll_cap" id="open_zoom"></div>
                 <a href="#" class="close_zoom" id="close_zoom">
                 	<img src="catalog/view/theme/ormary-new/images/close_popup.png" alt="">
