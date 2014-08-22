@@ -52,11 +52,12 @@
 			<?php print $filter_options['sizes_list'];?>
         </ul>
     </fieldset>
+    <input type="hidden" name="page" id="page" value="catalog"/>
     <?php
     if(isset($filter_options['featured']))
     {
     ?>
-    	<input type="hidden" name="featured" value="1"/>
+    	<input type="hidden" name="featured" value="1"/>        
     <?php
    	}
     ?>

@@ -821,15 +821,15 @@ $(document).ready(function(){
 		var filter = $( "#orm_filter" ).serialize();
 		var sort_filter = $( "#orm_sort_filter" ).serialize();
 		var word_filter = $( "#orm_search_word" ).serialize();
-                var count_filter = $( "#orm_count_filter" ).serialize();
+        var count_filter = $( "#orm_count_filter" ).serialize();
 		sort_filter = sort_filter.replace("-", "&order="); 
 
-		if(window.location.search.toLowerCase().search( 'product/category' ) != -1)
-                {
+		if(window.location.search.toLowerCase().search( 'product/category' ) != -1 || $("#orm_filter #page").val() == 'catalog')
+         {
 			window.location.href = "index.php?route=product/category&".concat(filter, "&", word_filter, "&", count_filter); //sort_filter, "&",
 		}
 		
-		if(window.location.search.toLowerCase().search( 'product/manufacturer/info' ) != -1)
+		if(window.location.search.toLowerCase().search( 'product/manufacturer/info' ) != -1 || $("#orm_filter #page").val() == 'manufacturer')
 		{
 			window.location.href = "index.php?route=product/manufacturer/info&".concat(filter, "&",  sort_filter, "&", count_filter);
 		}
