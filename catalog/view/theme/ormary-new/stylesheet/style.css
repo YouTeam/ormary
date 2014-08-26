@@ -341,7 +341,7 @@ select {
 }
 
 .product div.designer_name {
-	padding-top: 10px;
+	padding-top: 20px;
 	font-family:"Didot W01 Roman";
         line-height: 15px;
 }
@@ -357,7 +357,7 @@ select {
 	padding-top: 1px;
             letter-spacing: initial;
             text-transform: capitalize;
-            
+            padding-bottom: 30px;
 }
 
 .content .criteria {
@@ -1474,11 +1474,13 @@ a.add_to_my_wardrobe:hover {
 }
 
 .related_goods .caption {
-	font-size: 14px;
+    margin-top: 30px;
+	font-size: 16px;
 	text-transform: uppercase;
-	font-family: Georgia;
-	padding: 30px 0 20px;
+	font-family:  "Didot W01 Roman";
+	padding: 30px 0 10px;
 	margin: 0 15px 10px;
+        letter-spacing: 2px;
 	border-bottom: 1px solid #e5e5e5;
 }
 
@@ -1486,7 +1488,10 @@ a.add_to_my_wardrobe:hover {
 	width: 20%;
 	float: left;
 }
-
+div.related_goods {
+    clear: both;
+    margin-top: 30px;
+}
 /* All Popups */
 
 .popup {

@@ -21,7 +21,7 @@
             </div>
             <?php if ($images) { ?>
                 <div class="product_thumbnails clearfix" id="product_thumbs">
-                	<a href="#" data-image="<?php echo $thumb; ?>" data-zoom-image="<?php echo $thumb; ?>"><img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>"></a>
+                	<a href="#" data-image="<?php echo $mainimage; ?>" data-zoom-image="<?php echo $zoom; ?>"><img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>"></a>
                     <?php foreach ($images as $image) { ?>
                     	<a href="#" data-image="<?php echo $image['mainimage']; ?>" data-zoom-image="<?php echo $image['popup']; ?>"><img src="<?php echo $image['thumb']; ?>" alt="<?php echo $heading_title; ?>"></a>
                     <?php } ?>
@@ -100,7 +100,7 @@
 	</div>
 	<div class="related_goods hidden-xs clearfix">
 		<div class="caption text-center">
-        	Related goods
+        	We Recommend
         </div>
 		<div class="clearfix">
         	<?php 

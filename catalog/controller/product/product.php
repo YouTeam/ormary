@@ -309,8 +309,10 @@ $this->data['share_prod_friend']=$this->url->link('product/product/emailshare', 
 
 			if ($product_info['image']) {
 				$this->data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+                                
                                 $this->data['zoom'] = "image/".$product_info['image'];
-                                                                            $this->data['mainimage'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height'));
+                                
+                                $this->data['mainimage'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height'));
 			} else {
 				$this->data['thumb'] = $this->model_tool_image->resize('no_image.png', $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height'));
 			}

@@ -470,13 +470,26 @@ class ModelCatalogProduct extends Model {
 	}
 
 	public function getProductRelated($product_id) {
+            $limit = 5;
 		$product_data = array();
 
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_related pr LEFT JOIN " . DB_PREFIX . "product p ON (pr.related_id = p.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) LEFT JOIN " . DB_PREFIX . "manufacturer m ON (m.manufacturer_id = p.manufacturer_id) WHERE pr.product_id = '" . (int)$product_id . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'");
 
-		foreach ($query->rows as $result) { 
+                foreach ($query->rows as $result) { 
 			$product_data[$result['related_id']] = $this->getProduct($result['related_id']);
 		}
+                
+                
+  if ( count ($query->rows) == 0) {
+                                         $query = $this->db->query("SELECT p.product_id FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' ORDER BY RAND() DESC LIMIT " . (int)$limit);   
+
+                                         foreach ($query->rows as $result) { 
+			$product_data[$result['product_id']] = $this->getProduct($result['product_id']);
+		}
+                                         
+                                        }                                      
+     
+		
 
 		return $product_data;
 	}

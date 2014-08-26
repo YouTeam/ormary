@@ -26,7 +26,7 @@
                     <ul>
                     	<li class="caption"><a href="<?php echo $home; ?>">Ormary.com</a></li>
                     	<li><a href="<?php echo $informations[4]['href'];?>">About</a></li>
-                        <li>Blog</li>
+                        <li><a href="/blog">Blog</a></li>
                         <li><a href="<?php echo $informations[3]['href'];?>">Privacy Policy</a></li>
                         <li><a href="<?php echo $informations[5]['href'];?>">Terms and Conditions</a></li>
                         <li><a href="<?php echo $sitemap; ?>">Sitemap</a></li>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-md-3 col-sm-3">
                     <ul>
-                        <li class="caption">Shopping</li>
+                        <li class="caption"><a href="/index.php?route=product/category&path=0&featured=1">Shopping</a></li>
                         <?php
                         foreach($categories as $c)
                         {                        
