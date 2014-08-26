@@ -1,0 +1,269 @@
+@import "compass/css3";
+
+$bodyColour : 'red'; 
+$topNavFontColour : 'green';
+
+/*
+ Theme Name:     twentythirteen Child Theme
+ Theme URI:      
+ Description:    twentythirteen Child Theme
+ Author:         Andrew Johnson
+ Author URI:     http://www.elegantthemes.com
+ Template:       twentythirteen
+ Version:        1.0.0
+*/
+ 
+@import url("../twentythirteen/style.css");
+ 
+/* =Theme customization starts here
+------------------------------------------------------- */
+
+.seriffontfamily {
+    font-family: didot;
+
+}
+
+.bodyfont {
+    font-family: optima;
+
+}
+
+
+.body {
+@extend .bodyfont
+}
+
+.mainheaders {
+text-transform: uppercase;
+letter-spacing: 1px;
+
+}
+
+a {
+color: #141412 !important;
+
+}
+.site {
+    max-width: 1170px;
+}
+
+iframe.fromstore {
+    width: 100%;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+} 
+
+
+iframe.headerfromstore {
+    @extend iframe.fromstore;
+    height: 100px;
+}
+
+iframe.footerfromstore {
+    @extend iframe.fromstore;
+    height: 200px;
+}
+
+
+h2.blogmainheader {
+    font-family: optima;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: bold;
+letter-spacing: 1px;
+margin-bottom: 30px;
+
+}
+
+.sidebar .entry-header {
+padding: 0 376px 0 0px;
+}
+
+.entry-header {
+margin: 0px;
+}
+
+.hentry {
+padding-top: 10px;
+}
+
+.entry-meta {
+    width: 61px;
+float: left;
+display: inline;
+background-image:url('images/datebgfull.gif');
+background-position: top right;
+background-repeat: no-repeat;
+padding: 0px !important;
+overflow: hidden;
+
+}
+
+.blogrollcontent {
+display: inline;
+float: left;
+padding-left: 50px;
+margin-bottom: 80px;
+}
+
+.entry-title {
+margin-top: -4px;
+font-family: didot;
+font-weight: bold;
+letter-spacing: 2px;
+font-size: 25px;
+text-transform: uppercase;
+
+}
+
+.site-main .sidebar-inner {
+margin: 0 auto;
+max-width: none;
+}
+
+.categories-links {
+}
+
+.screen-offset, 
+.categories-links
+{
+    background: transparent!important;
+    display: block!important;
+    line-height: 0!important;
+    margin: 0!important;
+    padding: 0!important;
+    position: fixed!important;
+    text-indent: -15000px!important;
+    top: -15000px!important;
+    width: 1px!important;
+}
+
+.entry-meta .date a:before {
+content: "";
+}
+
+
+.entry-meta > span{
+color: #697E88;
+float: left;
+padding: 10px;
+display: block;
+text-align: center;
+line-height: 19px;
+width: 61px;
+height: 78px;
+
+}
+
+.entry-meta > span a{ 
+color: #697E88;
+}
+
+.home .entry-meta {
+min-height: 200px;
+}
+
+.sidebar .entry-content {
+padding-left: 0px;}
+
+.comments-link a:before {
+content: "";
+}
+.daynumber {
+font-size: 22px;
+}
+.entry-date .month 
+{
+    text-transform: uppercase;
+}
+.entry-date .year 
+{
+font-size: 13px;
+}
+
+.entry-date div {
+    display: inline-block; 
+    
+}
+
+.entry-meta a:hover {
+color: #697E88;    
+}
+
+.entry-meta {
+    height: 320px;
+}
+.meta-number-of-comments {
+    clear: both;
+width: 35px;
+display: block;
+height: 40px;
+margin-left: 10px;
+background-image:url('images/numberofcommentsbg.gif');
+background-repeat: no-repeat;
+text-align: center;
+padding-top: 5px;
+position: relative;
+top: 20px;
+}
+
+.entry-title a {
+
+ @extend .seriffontfamily;
+ @extend .mainheaders;
+font-weight: normal;
+
+}
+
+.rollauthor {
+}
+
+.entry-thumbnail img {
+display: inline;
+float: left;
+}
+
+.entry-thumbnail {
+padding-top: 20px;
+padding-bottom: 10px;
+}
+
+.sidebar .entry-content {
+clear: both;
+padding-top: 20px;
+
+}
+
+div.read-more {
+display: inline;
+}
+
+
+div.read-more a {
+font-weight: bold;
+}
+
+
+
+
+.widget {
+background-color: white;}
+
+.widget .widget-title {
+@extend .bodyfont;
+border-bottom: 1px solid #C0C0C0;
+font-style: normal;
+font-size: 15px;
+line-height: 28px;
+}
+
+.site-main .widget-area {
+width: 250px;
+
+}
+.widget_categories a {
+text-transform: uppercase;}
+
+.site {
+border: none;}

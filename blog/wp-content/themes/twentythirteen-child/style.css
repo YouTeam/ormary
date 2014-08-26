@@ -1,0 +1,273 @@
+@import url("../twentythirteen/style.css");
+/*
+ Theme Name:     twentythirteen Child Theme
+ Theme URI:      
+ Description:    twentythirteen Child Theme
+ Author:         Andrew Johnson
+ Author URI:     http://www.elegantthemes.com
+ Template:       twentythirteen
+ Version:        1.0.0
+*/
+/* =Theme customization starts here
+------------------------------------------------------- */
+/* line 21, scss/style.scss */
+.seriffontfamily, .entry-title a {
+  font-family: didot;
+}
+
+/* line 26, scss/style.scss */
+.bodyfont, .body, .widget .widget-title {
+  font-family: optima;
+}
+
+/* line 36, scss/style.scss */
+.mainheaders, .entry-title a {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* line 42, scss/style.scss */
+a {
+  color: #141412 !important;
+}
+
+/* line 46, scss/style.scss */
+.site {
+  max-width: 1170px;
+}
+
+/* line 50, scss/style.scss */
+iframe.fromstore, iframe.headerfromstore, iframe.footerfromstore {
+  width: 100%;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* line 58, scss/style.scss */
+iframe.headerfromstore {
+  height: 100px;
+}
+
+/* line 63, scss/style.scss */
+iframe.footerfromstore {
+  height: 200px;
+}
+
+/* line 69, scss/style.scss */
+h2.blogmainheader {
+  font-family: optima;
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+}
+
+/* line 79, scss/style.scss */
+.sidebar .entry-header {
+  padding: 0 376px 0 0px;
+}
+
+/* line 83, scss/style.scss */
+.entry-header {
+  margin: 0px;
+}
+
+/* line 87, scss/style.scss */
+.hentry {
+  padding-top: 10px;
+}
+
+/* line 91, scss/style.scss */
+.entry-meta {
+  width: 61px;
+  float: left;
+  display: inline;
+  background-image: url("images/datebgfull.gif");
+  background-position: top right;
+  background-repeat: no-repeat;
+  padding: 0px !important;
+  overflow: hidden;
+}
+
+/* line 103, scss/style.scss */
+.blogrollcontent {
+  display: inline;
+  float: left;
+  padding-left: 50px;
+  margin-bottom: 80px;
+}
+
+/* line 110, scss/style.scss */
+.entry-title {
+  margin-top: -4px;
+  font-family: didot;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+/* line 120, scss/style.scss */
+.site-main .sidebar-inner {
+  margin: 0 auto;
+  max-width: none;
+}
+
+/* line 130, scss/style.scss */
+.screen-offset,
+.categories-links {
+  background: transparent!important;
+  display: block!important;
+  line-height: 0!important;
+  margin: 0!important;
+  padding: 0!important;
+  position: fixed!important;
+  text-indent: -15000px !important;
+  top: -15000px !important;
+  width: 1px!important;
+}
+
+/* line 142, scss/style.scss */
+.entry-meta .date a:before {
+  content: "";
+}
+
+/* line 147, scss/style.scss */
+.entry-meta > span {
+  color: #697E88;
+  float: left;
+  padding: 10px;
+  display: block;
+  text-align: center;
+  line-height: 19px;
+  width: 61px;
+  height: 78px;
+}
+
+/* line 159, scss/style.scss */
+.entry-meta > span a {
+  color: #697E88;
+}
+
+/* line 163, scss/style.scss */
+.home .entry-meta {
+  min-height: 200px;
+}
+
+/* line 167, scss/style.scss */
+.sidebar .entry-content {
+  padding-left: 0px;
+}
+
+/* line 170, scss/style.scss */
+.comments-link a:before {
+  content: "";
+}
+
+/* line 173, scss/style.scss */
+.daynumber {
+  font-size: 22px;
+}
+
+/* line 177, scss/style.scss */
+.entry-date .month {
+  text-transform: uppercase;
+}
+
+/* line 181, scss/style.scss */
+.entry-date .year {
+  font-size: 13px;
+}
+
+/* line 185, scss/style.scss */
+.entry-date div {
+  display: inline-block;
+}
+
+/* line 190, scss/style.scss */
+.entry-meta a:hover {
+  color: #697E88;
+}
+
+/* line 194, scss/style.scss */
+.entry-meta {
+  height: 320px;
+}
+
+/* line 197, scss/style.scss */
+.meta-number-of-comments {
+  clear: both;
+  width: 35px;
+  display: block;
+  height: 40px;
+  margin-left: 10px;
+  background-image: url("images/numberofcommentsbg.gif");
+  background-repeat: no-repeat;
+  text-align: center;
+  padding-top: 5px;
+  position: relative;
+  top: 20px;
+}
+
+/* line 211, scss/style.scss */
+.entry-title a {
+  font-weight: normal;
+}
+
+/* line 222, scss/style.scss */
+.entry-thumbnail img {
+  display: inline;
+  float: left;
+}
+
+/* line 227, scss/style.scss */
+.entry-thumbnail {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+/* line 232, scss/style.scss */
+.sidebar .entry-content {
+  clear: both;
+  padding-top: 20px;
+}
+
+/* line 238, scss/style.scss */
+div.read-more {
+  display: inline;
+}
+
+/* line 243, scss/style.scss */
+div.read-more a {
+  font-weight: bold;
+}
+
+/* line 250, scss/style.scss */
+.widget {
+  background-color: white;
+}
+
+/* line 253, scss/style.scss */
+.widget .widget-title {
+  border-bottom: 1px solid #C0C0C0;
+  font-style: normal;
+  font-size: 15px;
+  line-height: 28px;
+}
+
+/* line 261, scss/style.scss */
+.site-main .widget-area {
+  width: 250px;
+}
+
+/* line 265, scss/style.scss */
+.widget_categories a {
+  text-transform: uppercase;
+}
+
+/* line 268, scss/style.scss */
+.site {
+  border: none;
+}

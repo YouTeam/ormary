@@ -1,0 +1,58 @@
+Thank you for being a customer!
+
+This is an INVOICE for your Basecamp Classic account
+discoveredd.basecamphq.com
+
+SUMMARY
+Your credit card (XXXX-XXXX-XXXX-6322) has been charged $49.
+This charge covers your account until May 20, 2013. You will
+be billed again at that time for the next month.
+
+Andrew Johnson is the owner on your account. Change the
+account owner at:
+https://discoveredd.basecamphq.com/account.
+
+============================================================
+INVOICE
+2013-04-20                                Invoice #: 5422439
+............................................................
+
+IMPORTANT NOTE: This charge will appear on your credit card
+statement as "37s*Basecamp 1508181".
+
+37signals, LLC.
+30 N Racine
+Suite 200
+Chicago, IL 60607 USA
+
+Bill to:
+Andrew Johnson
+Discoveredd
+
+Quantity     Description                               Price
+------------------------------------------------------------
+1 month      Basecamp Classic Plus Plan               $49.00
+             From Apr 20 2013 to May 20 2013.               
+
+                                       =====================
+                                         Amount PAID: $49.00
+                     Credit card billed: XXXX-XXXX-XXXX-6322
+============================================================
+
+WANT TO UPGRADE, DOWNGRADE, OR CANCEL YOUR ACCOUNT?
+You can upgrade, downgrade, or cancel at:
+https://discoveredd.basecamphq.com/account
+
+QUESTIONS ABOUT REFUNDS?
+Please review our refund policy:
+http://37signals.com/refund
+
+QUESTIONS OR CONCERNS?
+Our customer service and support team is here to help you
+any way we can. To get in touch, please visit:
+https://37signals.com/billing
+
+THANK YOU
+Thanks again for your business!
+http://37signals.com
+............................................................
