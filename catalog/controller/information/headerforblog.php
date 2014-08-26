@@ -10,7 +10,7 @@ class ControllerInformationHeaderforblog extends Controller {
         }
         
             $this->children = array(
-				'common/header'
+				'common/headerforblog'
 				);
         $this->response->setOutput($this->render());
     }

@@ -17,4 +17,4 @@ $(document).ready( function () {
 })
 
 </script>
-<?php echo $header; ?>
+<?php echo $headerforblog; ?>
