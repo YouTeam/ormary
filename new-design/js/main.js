@@ -1,5 +1,14 @@
 $(document).ready(function(){
 
+	/* Bag review textarea */
+
+	$('#gift').click(function(event){
+		event.preventDefault();
+		$(this).siblings('#gift-ta').slideToggle();
+	});
+
+	/* Iscroll Fix */
+
 	$('.sort_by').click(function(){
 		$(this).next('.clothing_aside').slideToggle();
 		iScrollInit();
@@ -278,22 +287,42 @@ $(document).ready(function(){
 
 	/* Add your shipping address popup */
 
-	$('.open_shipping_address').click(function(event){
+	$('#open_add_shipping_address').click(function(event){
 		event.preventDefault();
-		$('.shipping_address, .popup').show();
+		$('#add_shipping_address, .popup').show();
 		var topDistance = $(window).scrollTop();
-		var popupHeight = $('.shipping_address').height()/2;
+		var popupHeight = $('#add_shipping_address').height()/2;
 		var popupPosition = $(window).height()/2;
-		$('.shipping_address').css('top',topDistance + popupPosition - popupHeight);
+		$('#add_shipping_address').css('top',topDistance + popupPosition - popupHeight);
 		if (popupHeight > popupPosition) {
-			$('.shipping_address').css('maxHeight',popupPosition*2).css('overflow','auto').css('top',topDistance);
+			$('#add_shipping_address').css('maxHeight',popupPosition*2).css('overflow','auto').css('top',topDistance);
 		}
 	});
-	$('.shipping_address').click(function(event){
+	$('#add_shipping_address').click(function(event){
 		event.stopPropagation();
 	});
 	$('.popup').click(function(){
-		$('.popup, .shipping_address').hide();
+		$('.popup, #add_shipping_address').hide();
+	});
+
+	/* Edit shipping address popup */
+
+	$('#open_edit_shipping_address').click(function(event){
+		event.preventDefault();
+		$('#edit_shipping_address, .popup').show();
+		var topDistance = $(window).scrollTop();
+		var popupHeight = $('#edit_shipping_address').height()/2;
+		var popupPosition = $(window).height()/2;
+		$('#edit_shipping_address').css('top',topDistance + popupPosition - popupHeight);
+		if (popupHeight > popupPosition) {
+			$('#edit_shipping_address').css('maxHeight',popupPosition*2).css('overflow','auto').css('top',topDistance);
+		}
+	});
+	$('#edit_shipping_address').click(function(event){
+		event.stopPropagation();
+	});
+	$('.popup').click(function(){
+		$('.popup, #edit_shipping_address').hide();
 	});
 
 
