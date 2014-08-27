@@ -195,7 +195,7 @@ class ControllerApiProduct extends Controller {
         foreach ($products as $product) {
 
             if ($product['image']) {
-                $image = $this->model_tool_image->resize($product['image'], 300 , 500);
+                $image = $this->model_tool_image->resize($product['image'], 200 , 228);
             } else {
                 $image = false;
             }
@@ -208,7 +208,7 @@ class ControllerApiProduct extends Controller {
        } else {
            $manufacturer = '';
        }
-       
+       $url = '';
             
             $json['products'][] = array(
                 'id' => $product['product_id'],
@@ -216,6 +216,7 @@ class ControllerApiProduct extends Controller {
                 'manufacturer' => $manufacturer,
                 'price' => $this->currency->format($this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax'))),
                 'thumb' => $image,
+                	'href'      => $this->url->link('product/product', $url . '&product_id=' . $product['product_id'])
             );
         }
                 

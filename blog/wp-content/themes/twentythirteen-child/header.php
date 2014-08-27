@@ -32,10 +32,15 @@
 
 <body <?php body_class(); ?>>
                 <iframe class="headerfromstore" src="http://www.ormary.com/index.php?route=information/headerforblog"  scrolling="no"></iframe>
+               
+                <?php if ( is_single() ) : ?>
+                <a href="http://www.ormary.com/blog" class="back-to-blog-home">x Back to blog home</a>	
+                
+<?php endif; // is_single() ?>
 	<div id="page" class="hfeed site">
             
 
             
             <div id="main" class="site-main">
                 
-                <h2 class="blogmainheader">Blog</h2>
+                <h2 class="blogmainheader"><a href="http://www.ormary.com/blog">The Ormary Blog</a></h2>

@@ -61,7 +61,7 @@ if (!class_exists('OpencartProductsViaAPI_Widget')) :
 
 
 
-            if (!file_exists($cachefile) || (file_exists($cachefile) && (filemtime($cachefile) + $interval) < time()) || 1 == 1) :
+            if (!file_exists($cachefile) || (file_exists($cachefile) && (filemtime($cachefile) + $interval) < time()) || 1==1) :
                 
             
             
@@ -95,7 +95,7 @@ if (!class_exists('OpencartProductsViaAPI_Widget')) :
                     $price = $price[0];
 
 
-                    $li = "<li ><a href='/index.php?route=product/product&product_id=" . $product['id'] . "'><img src='" . $product['thumb'] . "'/></a><h3>" . $product->name . "</h3><h4>" . $price . "</h4></li>";
+                    $li = "<li ><a href='" . $product['href'] . "'><img src='" . $product['thumb'] . "'/></a><h3>" . $product->name . "</h3><h4>" . $price . "</h4></li>";
                     $list .= $li;
                 }
 
@@ -106,7 +106,7 @@ if (!class_exists('OpencartProductsViaAPI_Widget')) :
 
 
                 // Save updated feed to cache file
-           //     @file_put_contents($cachefile, $list);
+              @file_put_contents($cachefile, $list);
 
             else:
 
@@ -116,6 +116,9 @@ if (!class_exists('OpencartProductsViaAPI_Widget')) :
 
             endif;
 
+
+            $header = "<h3 class='widget-title'>What's New</h3>";
+            
             $button = "<div class='shop-now-btn'><a class='' id='shop-now' href='".$link_to."'><span class='screen-offset'>Register</span></a></div>";
 $flexslider =  '<script src="/blog/wp-content/themes/twentythirteen/js/jquery.flexslider-min.js"></script>';
                            $script = "<script type='text/javascript' charset='utf-8'>";
@@ -135,7 +138,7 @@ $flexslider =  '<script src="/blog/wp-content/themes/twentythirteen/js/jquery.fl
 
 
 
-            
+            echo $header;
             echo $list;
             echo $button;
             echo $flexslider;

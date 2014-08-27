@@ -11,13 +11,13 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	
+
     
     <div class="entry-meta">
 			<?php ormary_entry_date(); ?>
 			
         
-                        <?php ormary_entry_number_of_comments(); ?>
+                        <?php /* ormary_entry_number_of_comments(); */ ?>
 			  
         
 
@@ -52,8 +52,11 @@
                 </div>
 		<?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
 		<div class="entry-thumbnail">
-			<?php the_post_thumbnail(); ?>
-		</div>
+                    
+                    <?php
+echo                     "<img src='".wp_get_attachment_url( get_post_thumbnail_id($post->ID) )."'  class='attachment-post-thumbnail wp-post-image' />";
+?>		
+</div>
 		<?php endif; ?>
 		
 	</header><!-- .entry-header -->
@@ -64,8 +67,29 @@
 	</div><!-- .entry-summary -->
 	<?php else : ?>
 	<div class="entry-content">
-		<?php get_the_ormary_excerpt() ; ?>... <div class="read-more"><a href="<?php echo  get_permalink()  ?>">Read More</a></div>
+            <?php if ( is_single() ) : ?><?php
+            		the_content( __( '' ) );
+?>
+            
+            <?php
+
+  $custom_fields = get_post_custom($post->ID);
+  $my_custom_field = $custom_fields['SHOP THE COLLECTION'];
+  foreach ( $my_custom_field as $key => $value ) {
+      
+      echo "<a href='/".$value."' class='post-shop-the-collection' >SHOP THE COLLECTION</a>";
+      
+  }
+
+?>
+            
+            <?php else: ?>
+            
+            
+		<?php get_the_ormary_excerpt() ; ?>... <div class="read-more"><a href="<?php echo  get_permalink()  ?>">Read sMore</a></div>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentythirteen' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
+                
+                	<?php endif; // is_single() ?>
 	</div><!-- .entry-content -->
 	<?php endif; ?>
 
