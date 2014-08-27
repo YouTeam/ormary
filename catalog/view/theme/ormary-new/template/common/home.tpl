@@ -4,7 +4,7 @@
     <div class="container">
         <span>
         Get your personal style magazine, new designers alerts
-        & acces to EXCLUSIVE member offers
+        & access to EXCLUSIVE member offers
         </span>
         <a href="#" class="dark_btn open_ormary">Join now</a>
     </div>
