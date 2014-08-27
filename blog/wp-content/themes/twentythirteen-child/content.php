@@ -86,7 +86,7 @@ echo                     "<img src='".wp_get_attachment_url( get_post_thumbnail_
             <?php else: ?>
             
             
-		<?php get_the_ormary_excerpt() ; ?>... <div class="read-more"><a href="<?php echo  get_permalink()  ?>">Read sMore</a></div>
+		<?php get_the_ormary_excerpt() ; ?>... <div class="read-more"><a href="<?php echo  get_permalink()  ?>">Read More</a></div>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentythirteen' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
                 
                 	<?php endif; // is_single() ?>
