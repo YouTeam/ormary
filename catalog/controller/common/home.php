@@ -158,11 +158,11 @@ class ControllerCommonHome extends Controller {
 			{
 				if ($result['image']) 
 				{
-					$image = $this->model_tool_image->resize($result['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+					$image = $this->model_tool_image->resize($result['image'], $this->config->get('config_image_compare_width'), $this->config->get('config_image_compare_height'));
 				} 
 				else 
 				{
-					$image = $this->model_tool_image->resize("no_image.png", $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height')); 
+					$image = $this->model_tool_image->resize("no_image.png", $this->config->get('config_image_thumb_width'), $this->config->get('config_image_compare_height')); 
 				}
 				
 				if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
