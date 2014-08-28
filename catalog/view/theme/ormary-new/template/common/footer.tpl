@@ -88,7 +88,7 @@
 
 		<script src="catalog/view/javascript/ormary-js/iscroll.js"></script>
         <script type="text/javascript" src="catalog/view/javascript/common.js"></script>    
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
         <script src="catalog/view/javascript/ormary-js/jquery-ui-1.10.4.custom.js"></script>
         <script src="catalog/view/javascript/ormary-js/bootstrap.min.js"></script>
         <script src="catalog/view/javascript/ormary-js/bootstrap-hover-dropdown.js"></script>

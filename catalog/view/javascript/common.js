@@ -27,6 +27,7 @@ $(document).ready(function() {
 	});
 	
 	/* Ajax Cart */
+        if ($('#cart > .heading a').length > 0) {
 	$('#cart > .heading a').live('click', function() {
 		$('#cart').addClass('active');
 		
@@ -36,6 +37,7 @@ $(document).ready(function() {
 			$(this).removeClass('active');
 		});
 	});
+        }
 	
 	/* Mega Menu */
 	$('#menu ul > li > a + div').each(function(index, element) {
@@ -59,6 +61,7 @@ $(document).ready(function() {
 	});
 
 	// IE6 & IE7 Fixes
+        if ($.browser) {
 	if ($.browser.msie) {
 		if ($.browser.version <= 6) {
 			$('#column-left + #column-right + #content, #column-left + #content').css('margin-left', '195px');
@@ -84,6 +87,7 @@ $(document).ready(function() {
 			$(this).remove();
 		});
 	});	
+        }
 });
 
 function getURLVar(key) {
