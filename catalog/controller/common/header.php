@@ -65,6 +65,8 @@ class ControllerCommonHeader extends Controller {
 		
 
 		$this->data['home'] = $this->url->link('common/home');
+                
+		$this->data['feed'] = $this->url->link('common/feed');
 		$this->data['wishlist'] = $this->url->link('account/wishlist', '', 'SSL');
 		$this->data['logged'] = $this->customer->isLogged();
 		$this->data['account'] = $this->url->link('account/account', '', 'SSL');

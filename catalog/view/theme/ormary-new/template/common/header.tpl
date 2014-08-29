@@ -190,7 +190,7 @@ on orders £125+<br>
                                         </li>
                                     <?php } else { ?>
                                         <li>
-                                            <a href="<?php echo $account; ?>" class="account dropdown-toggle" data-toggle="dropdown">
+                                            <a href="<?php echo $feed; ?>" class="account dropdown-toggle">
                                                 <div class="account_avatar">
                                                 	<img src="<?php echo $this->customer->getProfileImgURL();?>" alt="<?php echo $account_firstname ?>">
                                                 </div>
@@ -199,7 +199,7 @@ on orders £125+<br>
                                             </a>
                                             <ul class="dropdown-menu submenu">
                                                 <li>
-                                                	<a href="<?php echo $home; ?>">Fashionfeed</a>
+                                                	<a href="<?php echo $feed; ?>">Fashionfeed</a>
                                                 </li>
                                                 <li>
                                                 	<a href="<?php echo $wishlist; ?>">Wardrobe</a>

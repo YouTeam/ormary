@@ -1,5 +1,23 @@
 <?php echo $header; ?>
+<?php
 
+if (  $logged ) {
+
+?>
+
+<div class="container-fluid top-banner clearfix">
+    <div class="container">
+        <span>
+               You have new recommendations just for you in your<br>Ormary Fashion Feed
+        </span>
+        <a href="#" class="dark_btn loggedin">My Fashion Feed</a>
+    </div>
+</div>
+<?php
+
+}else {
+
+?>
 <div class="container-fluid top-banner clearfix">
     <div class="container">
         <span>
@@ -9,7 +27,7 @@
         <a href="#" class="dark_btn open_ormary">Join now</a>
     </div>
 </div>
-
+<?php } ?>
 
 <?php echo $content_top; ?>
 
@@ -81,7 +99,7 @@
     
     <div class="swiper-container orm_newest_carousel">
     	<div class="swiper-wrapper">
-    		<?php foreach($featured_products as $p){?>
+    		<?php foreach($featured_products as $p){ ?>
             
             <div class="clearfix swiper-slide">
     			<div class="product_wrap">
@@ -98,14 +116,30 @@
 	</div>
 </div>
    
+
+
+<?php
+
+if (  $logged ) {
+
+?>
+
+<div class="container bottom-banner">
+    <a href="/index.php?route=common/feed">
+    	<img src="catalog/view/theme/ormary-new/images/bottom-banner-loggedin.png" alt="Join now">
+    </a>
+</div>
+<?php
+
+}else {
+
+?>
 <div class="container bottom-banner">
     <a href="#" class="open_ormary">
     	<img src="catalog/view/theme/ormary-new/images/bottom-banner.png" alt="Join now">
     </a>
 </div>
-
-
-
+<?php } ?>
 
 <?php echo $content_bottom; ?>
 <?php echo $footer; ?>

@@ -86,7 +86,7 @@
             </div>
         </footer>
 
-		<script src="catalog/view/javascript/ormary-js/iscroll.js"></script>
+	
         <script type="text/javascript" src="catalog/view/javascript/common.js"></script>    
 
         <script src="catalog/view/javascript/ormary-js/jquery-ui-1.10.4.custom.js"></script>
