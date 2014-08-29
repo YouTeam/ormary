@@ -1068,15 +1068,19 @@ class ModelCatalogProduct extends Model {
 	public function addToWishListCollection($product_id, $collection_id = 0)
 	{
 		//if($this->checkWishListCollection($product_id, $collection_id))
-		if($this->checkWishListCollection($product_id))
+		/*if($this->checkWishListCollection($product_id))
 		{
 			$this->db->query("UPDATE " . DB_PREFIX . "wishlist_product_to_collection SET collection_id=".(int)$collection_id." WHERE customer_id =".(int)$this->customer->getId()." AND product_id=".(int)$product_id);
 		}
 		else
 		{
+                 * */
+                 
 			$this->db->query("INSERT INTO " . DB_PREFIX . "wishlist_product_to_collection SET customer_id =".(int)$this->customer->getId().", product_id=".(int)$product_id.", collection_id=".(int)$collection_id);
 		
-		}
+	/*
+         	}
+         */
 			
 		/*if($collection_id !=0)
 		{
@@ -1114,7 +1118,7 @@ class ModelCatalogProduct extends Model {
 	{
 		$result = $this->db->query("SELECT * FROM " . DB_PREFIX . "wishlist_collection WHERE customer_id =".(int)$this->customer->getId()); 
 		
-		$result->rows['unsorted'] = array('collection_id' => 0, 'customer_id' => (int)$this->customer->getId(), 'collection_name' => 'Unsorted goods');
+		$result->rows['unsorted'] = array('collection_id' => 0, 'customer_id' => (int)$this->customer->getId(), 'collection_name' => 'Everything');
 		foreach($result->rows as &$cl)
 		{
 			$cl['count'] = $this->getWishListCollectionProductsCount($cl['collection_id']);
