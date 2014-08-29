@@ -289,6 +289,10 @@ select {
 	max-width: 287px;
 }
 
+.product a{
+	color: black;
+}
+
 .product a:first-child > img {
 	width: 100%;
 	height: auto;
@@ -3098,11 +3102,15 @@ a.light_btn:hover {
 	z-index: 999;
 	background: #ffffff;
 	border: 1px solid rgba(0,0,0,.15);
-	-webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
-	box-shadow: 0 6px 12px rgba(0,0,0,.175);
+	-webkit-box-shadow: 0 0px 3px rgba(0,0,0,.175);
+	box-shadow: 0 0px 3px rgba(0,0,0,.175);
 	overflow: hidden;
 }
-
+.dropdown-menu
+{
+	-webkit-box-shadow: 0 0px 3px rgba(0,0,0,.175);
+	box-shadow: 0 0px 3px rgba(0,0,0,.175)
+}
 .cart_dropdown ul {
 	padding: 15px;
 	padding-bottom: 0;

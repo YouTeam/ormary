@@ -59,16 +59,18 @@
                     <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
                         <div class="product_wrap">
                             <div class="product">
+ 	<a href="<?php print $product['href']; ?>">
                             	<?php if ($product['thumb']) { ?>
-                                	<a href="<?php print $product['href']; ?>">
+                               
                                     	<img class="swapimg" src="<?php print $product['thumb']; ?>" alt="<?php print $product['name']; ?>" title="<?php print $product['name']; ?>" data-swap="<?php print $product['extraimage']; ?>" />
-                                    </a>
+                                    
                                 <?php } ?>    
                                 <div class="designer_name"><?php print $product['manufacturer_name'];?></div>
                                 <div class="prod_name"><?php print $product['name']; ?></div>
                                 <?php if ($product['price']) { ?>
                                 	<div class="price"><?php print str_replace("£", "&pound;", $product['price']); ?></div>
                                 <?php } ?>
+</a>
                                 <a href="javascript:void(0)" class="add_to_wardrobe" onclick="addToWishList('<?php echo $product['product_id']; ?>');">
                                 	+ My Wardrobe
                                 </a>

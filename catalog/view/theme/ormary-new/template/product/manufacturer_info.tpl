@@ -135,15 +135,17 @@
              ?>           
                     <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
                     	<div class="product_wrap">
-                    		<div class="product">                    			
+                    		<div class="product">                    	
+                                           	<a href="<?php print $product['href']; ?>">
                                 <?php if ($product['thumb']) { ?>
-                                	<a href="<?php print $product['href']; ?>">
-                                		<img src="<?php print $product['thumb']; ?>" title="<?php print $product['name']; ?>" alt="<?php echo $product['name']; ?>" />
-                                	</a>
+                         
+                                		<img src="<?php print $product['thumb']; ?>" title="<?php print $product['name']; ?>" alt="<?php echo $product['name']; ?>" data-swap="<?php print $product['extraimage']; ?>" />
+                                	
                                 <?php } ?>
                     			<div class="designer_name"><?php print $heading_title; ?></div>
                     			<div class="prod_name "><?php print $product['name']; ?></div>
                     			<div class="price"><?php print str_replace("£", "&pound;", $product['price']); ?></div>
+                                        </a>
                                 <a href="javascript:void(0)" class="add_to_wardrobe" onclick="addToWishList('<?php echo $product['product_id']; ?>');">
                                     + My Wardrobe
                                 </a>
@@ -190,10 +192,6 @@
 	  fadeScrollbars: false
 	});
 
-  }
-
-  if (window.screen.width > 991) {
-	iScrollInit();
   }
 
 </script>
