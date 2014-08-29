@@ -252,10 +252,17 @@ class ModelCatalogProduct extends Model {
 			$result['customer_group_id'] = $customer_group_id; 
 			if($this->filterProduct($result, $data))
 			{
-				$product_data[$result['product_id']] = $this->getProduct($result['product_id']);
+                            
+                                                                            $proddata = $this->getProduct($result['product_id']);
+                                                                            $prod_images = $this->getProductImages(  $proddata['product_id']);
+                                                                            $proddata['extraimages'] = $prod_images;
+				$product_data[$result['product_id']] = $proddata;
+                         
 			}
 			// - New code
 		}
+                
+                
 
 		return $product_data;
 	}

@@ -328,13 +328,13 @@ class ControllerProductCategory extends Controller {
 			$this->data['total_products'] = $product_total;
 						
 			$results = $this->model_catalog_product->getProducts($data);
-			
+	
 			foreach ($results as $result) {
 				
 				if ($result['image']) {
-					$image = $this->model_tool_image->resize($result['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+					$image = $this->model_tool_image->resize($result['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
 				} else {
-					$image = $this->model_tool_image->resize("no_image.png", $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height')); //"catalog/view/theme/ormary/images/no_image.png";//
+					$image = $this->model_tool_image->resize("no_image.png", $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height')); //"catalog/view/theme/ormary/images/no_image.png";//
 				}
 				
 				if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
@@ -364,6 +364,10 @@ class ControllerProductCategory extends Controller {
 				$this->load->model('catalog/manufacturer');
 				$manufacturer_info = $this->model_catalog_manufacturer->getManufacturer($result['manufacturer_id']);
 
+                                                                        
+                                
+                                $swapimage = $this->model_tool_image->resize($result['extraimages'][count($result['extraimages'])-1]['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
+                                
 				$this->data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
@@ -375,6 +379,8 @@ class ControllerProductCategory extends Controller {
 					'rating'      => $result['rating'],
 					'reviews'     => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
 					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url),
+                                    
+                                    'extraimage' => $swapimage,
 					'manufacturer_name'	=>	$manufacturer_info['name'],
 				);
 			}

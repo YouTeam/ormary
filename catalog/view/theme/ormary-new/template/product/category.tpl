@@ -53,13 +53,15 @@
     <div class="col-md-10 clearfix nopadding">
     	<div class="section clearfix">
     		<?php if ($products) { ?>
+
             	<?php foreach ($products as $product) { ?>
+
                     <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
                         <div class="product_wrap">
                             <div class="product">
                             	<?php if ($product['thumb']) { ?>
                                 	<a href="<?php print $product['href']; ?>">
-                                    	<img src="<?php print $product['thumb']; ?>" alt="<?php print $product['name']; ?>" title="<?php print $product['name']; ?>" />
+                                    	<img class="swapimg" src="<?php print $product['thumb']; ?>" alt="<?php print $product['name']; ?>" title="<?php print $product['name']; ?>" data-swap="<?php print $product['extraimage']; ?>" />
                                     </a>
                                 <?php } ?>    
                                 <div class="designer_name"><?php print $product['manufacturer_name'];?></div>
@@ -225,9 +227,7 @@ if (view) {
 
   }
 
-  if (window.screen.width > 991) {
-	iScrollInit();
-  }
+
 
 
   /* Items counter */

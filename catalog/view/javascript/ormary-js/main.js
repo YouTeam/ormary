@@ -892,6 +892,28 @@ $(document).ready(function(){
 		var imgsource = $(this).children().children().attr('src');
 		$('.product_image img').attr('src',imgsource);
 	});
+        
+        
+        if($('.product').length > 0 ) {
+           $('.product').hover (
+               function() {
+               var _this= $(this).find('img');
+               var cururl = _this.attr('src');
+               var newurl = _this.attr('data-swap');
+               _this.attr('src' , newurl)
+               _this.attr('data-swap' , cururl)
+                },
+                function() {
+                 var _this= $(this).find('img');
+               var cururl = _this.attr('src');
+               var newurl = _this.attr('data-swap');
+               _this.attr('src' , newurl)
+               _this.attr('data-swap' , cururl)
+                } 
+                )
+        } 
+        
+        
 });
 
 /* Designer goods slider */
