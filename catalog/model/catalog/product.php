@@ -1075,9 +1075,20 @@ class ModelCatalogProduct extends Model {
 		else
 		{
                  * */
-                 
-			$this->db->query("INSERT INTO " . DB_PREFIX . "wishlist_product_to_collection SET customer_id =".(int)$this->customer->getId().", product_id=".(int)$product_id.", collection_id=".(int)$collection_id);
-		
+            
+                 $r = $this->db->query("SELECT * FROM " . DB_PREFIX . "wishlist_product_to_collection WHERE customer_id=".(int)$this->customer->getId()." AND collection_id='".(int)$collection_id."' AND product_id=".(int)$product_id.""); 
+                        if (count ( $r->row) > 0) {
+                            return false;
+                        } else {
+            		$this->db->query("INSERT INTO " . DB_PREFIX . "wishlist_product_to_collection SET customer_id =".(int)$this->customer->getId().", product_id=".(int)$product_id.", collection_id=".(int)$collection_id);
+  
+                            }
+                        
+            
+
+	
+                        
+                        
 	/*
          	}
          */
@@ -1309,6 +1320,17 @@ class ModelCatalogProduct extends Model {
 	
 		return $products;
 	}
-	
+        
+        
+        public function checkIfProductAlreadyInCollection ($product_id, $collection_id = 0) {
+                        $r = $this->db->query("SELECT * FROM " . DB_PREFIX . "wishlist_product_to_collection WHERE customer_id=".(int)$this->customer->getId()." AND collection_id='".(int)$collection_id."' AND product_id=".(int)$product_id.""); 
+                        if (count ( $r->row) > 0) {
+                            return 1;
+                        } else {
+                            return 0;
+                        }
+                        
+          
+        }
 }
 ?>

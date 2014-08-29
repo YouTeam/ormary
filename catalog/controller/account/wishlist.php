@@ -106,9 +106,9 @@ class ControllerAccountWishList extends Controller {
 	
 				if ($product_info) { 
 					if ($product_info['image']) {
-						$image = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+						$image = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
 					} else {
-						$image = $this->model_tool_image->resize("no_image.png", $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+						$image = $this->model_tool_image->resize("no_image.png", $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
 					}
 	
 					if ($product_info['quantity'] <= 0) {
@@ -257,8 +257,15 @@ class ControllerAccountWishList extends Controller {
 			}
 			
 			$this->load->model('catalog/product');
-			$this->model_catalog_product->addToWishListCollection($product_id, $collection_id);
-		}
+                        
+                        
+                                   	$this->model_catalog_product->addToWishListCollection($product_id, $collection_id);
+                                   
+                        
+                                                 
+                                    
+         
+                                                        }
 	}
 	
 	public function addCollection() 
@@ -335,5 +342,7 @@ class ControllerAccountWishList extends Controller {
 		$this->response->setOutput(json_encode($json));
 	}
 	
+        
+        
 }
 ?>
