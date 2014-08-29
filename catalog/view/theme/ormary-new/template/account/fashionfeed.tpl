@@ -9,15 +9,17 @@
 <div class="success"><?php echo $success; ?></div>
 <?php } ?>
 
-    <h4>MY FASHIONFEED</h4>
+    <h4 class="myfashionfeed">MY FASHIONFEED</h4>
     <div class="col-md-10 clearfix nopadding">
+        <!--
     	<div class="criteria clearfix">
-            <a href="<?php print $this->url->link('common/home', 'filter=all', 'SSL') ?>" class="<?php print $active_link['all'];?>">All</a>
-            <a href="<?php print $this->url->link('common/home', 'filter=new', 'SSL') ?>" class="<?php print $active_link['new'];?>">New from designers</a>
-            <a href="<?php print $this->url->link('common/home', 'filter=recomended', 'SSL') ?>" class="<?php print $active_link['recomended'];?>">Recommended for wardrobe</a>
-            <!--<a href="<?php print $this->url->link('account/fashionfeed', 'filter=featured', 'SSL') ?>" class="<?php print $active_link['featured'];?>">Featured</a>-->
-        </div>
+            <a href="<?php print $this->url->link('common/feed', 'filter=all', 'SSL') ?>" class="<?php print $active_link['all'];?>">All</a>
+            <a href="<?php print $this->url->link('common/feed', 'filter=new', 'SSL') ?>" class="<?php print $active_link['new'];?>">New from designers</a>
+            <a href="<?php print $this->url->link('common/feed', 'filter=recomended', 'SSL') ?>" class="<?php print $active_link['recomended'];?>">Recommended for wardrobe</a>
+            <a href="<?php print $this->url->link('account/fashionfeed', 'filter=featured', 'SSL') ?>" class="<?php print $active_link['featured'];?>">Featured</a>
+        </div>-->
     	<div class="section clearfix">
+            
             <?php
                 foreach($products as $p)
                 {
@@ -44,7 +46,7 @@
     <div class="col-md-2 clearfix aside">
     	<div class="my_wardrobe">
     		<img class="wardrobe_icon" src="catalog/view/theme/ormary-new/images/i.png" alt="i">
-    		<span class="in_my_wardrobe">IN MY WARDROBE</span>
+    		<span class="in_my_wardrobe"><a href="/index.php?route=account/wishlist">IN MY WARDROBE</a></span>
             <div class="scroll-area">
                 <ul>
                     <?php
@@ -56,7 +58,7 @@
                             <li>
                                 <a href="<?php print $this->url->link('product/product', 'product_id='.$wp['product_id'], 'SSL') ?>" class="wardrobe_product">
                                     <img src="<?php print $wp['image']; ?>" alt="<?php print $wp['name']; ?>">
-                                    <div class="hover-info">
+                                    <div class="">
                                     	<div class="designer_name"><?php print $wp['designer']; ?></div>
                                     	<div class="prod_name"><?php print $wp['name']; ?></div>
                                     	<div class="price"><?php print str_replace("£", "&pound;", $wp['price']); ?></div>

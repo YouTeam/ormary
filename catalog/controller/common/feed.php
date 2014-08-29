@@ -23,7 +23,10 @@ class ControllerCommonFeed extends Controller {
 			$my_followers = $this->model_account_follow->getMyFollows();
 			
 			$this->data['follows_count'] = $my_followers->num_rows;
-			
+                                                        
+                                              
+                        
+                        
 			$this->data['my_follows'] = $my_followers->rows;
 			
 			
@@ -61,12 +64,12 @@ class ControllerCommonFeed extends Controller {
 				if($p['image'] !="")
 				{
 					//print_r("--".$p['image']."--");
-					$p['image'] = $this->model_tool_image->resize($p['image'], $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+					$p['image'] = $this->model_tool_image->resize($p['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
 				}
 				else
 				{
 					
-					$p['image'] = $this->model_tool_image->resize('no_image.png', $this->config->get('config_image_thumb_width'), $this->config->get('config_image_thumb_height'));
+					$p['image'] = $this->model_tool_image->resize('no_image.png', $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
 				}
 				$p['price']  = $this->currency->format($p['price'], $p['tax_class_id'], $this->config->get('config_tax'));
 			}

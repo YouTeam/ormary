@@ -429,11 +429,17 @@ select {
 	margin: 0 auto;
 	display: block;
 }
-
+.in_my_wardrobe  a {
+    color: black;
+}
 .aside .my_wardrobe .scroll-area ul li:last-child .wardrobe_product {
 	padding-bottom: 0;
 }
-
+h4.myfashionfeed {
+    border-bottom: 1px solid #e5e5e5;
+padding-bottom: 12px;
+margin-bottom: 35px;
+}
 .aside .my_wardrobe .wardrobe_product img {
 	width: 100%;
 	height: auto;
@@ -442,15 +448,20 @@ select {
 
 .aside .my_wardrobe .wardrobe_product .designer_name,
 .aside .my_wardrobe .wardrobe_product .price {
-	text-align: left;
+	text-align: center;
 	color: #000000;
 	line-height: 20px;
 
 }
 
+.aside .my_wardrobe .wardrobe_product .designer_name {
+    text-transform: uppercase;
+    line-height: 11px;
+}
+
 .aside .my_wardrobe .wardrobe_product .prod_name {
 	color: #808080;
-	text-align: left;
+	text-align: center;
 	line-height: 20px;
 
 	text-decoration: none !important;
