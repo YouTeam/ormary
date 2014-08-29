@@ -52,7 +52,7 @@
                 <span class="">Total </span><span id="cart_price"><?php echo str_replace('£', '&pound', $total_price); ?></span>
             </span>
             <div class=" emptybag">
-                <a href="<?php print $this->url->link('checkout/cart');?>">Checkout</a>
+                <a class="minicartcheckout" href="<?php print $this->url->link('checkout/cart');?>">Checkout</a>
                 <!--<a href="<?php print $this->url->link('checkout/checkout');?>">Shipping and  Payment</a>-->
             </div>
         </div>
