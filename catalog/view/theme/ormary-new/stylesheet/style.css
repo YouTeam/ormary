@@ -3035,8 +3035,9 @@ a.dark_btn {
 	border: 1px solid #000000;
 }
 
-a.dark_btn:hover {
-	color: #000000;
+a.dark_btn:hover,
+.emptybag a:hover{
+	color: #000000 !important;
 	background: #ffffff;
 	border: 1px solid #000000;
 }
@@ -5374,4 +5375,35 @@ display: block;
     margin-right: 40px;
     height: 41px !important;
 line-height: 41px !important;
+}
+
+.emptybag h3 {
+    text-transform: uppercase;
+	font-size: 20px;
+	font-family:"Didot W01 Roman";
+	letter-spacing: 2px;
+	text-align: center;
+	margin-bottom: 0;
+}
+
+
+.emptybag a {
+    display: block;
+padding: 0 30px;
+height: 32px;
+line-height: 32px;
+text-align: center;
+font-size: 14px;
+text-transform: uppercase;
+text-decoration: none;
+position: relative;
+color: #ffffff;
+background: #000000;
+border: none;
+letter-spacing: 2px;
+height: 41px !important;
+line-height: 41px !important;
+padding-bottom: 30px;
+margin-bottom: 18px;
+margin-top: 30px;
 }

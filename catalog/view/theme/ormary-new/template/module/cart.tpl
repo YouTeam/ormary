@@ -29,18 +29,34 @@
                 </li>
 			<?php 
             		}
-            	}
+            	} else {
+              
+                ?>
+                <div class="emptybag">
+                <h3 >Your Bag Is Empty.<br><br>:(</h3>
+                
+                <a href="/index.php?route=product/category&path=0&featured=1">SHOP WHATS NEW</a>
+                </div>
+                <?php
+                
+                
+                }
                 ?>   
         </ul>
+        <?php
+        	if($products)
+                {
+                ?>
         <div class="cart_dropdown_bottom">
             <span class="total">
-                <span class="">Total for goods </span><span id="cart_price"><?php echo str_replace('£', '&pound', $total_price); ?></span>
+                <span class="">Total </span><span id="cart_price"><?php echo str_replace('£', '&pound', $total_price); ?></span>
             </span>
-            <div class="links">
-                <a href="<?php print $this->url->link('checkout/cart');?>">View bag</a>
+            <div class=" emptybag">
+                <a href="<?php print $this->url->link('checkout/cart');?>">Checkout</a>
                 <!--<a href="<?php print $this->url->link('checkout/checkout');?>">Shipping and  Payment</a>-->
             </div>
         </div>
     </div>
+    <?php } ?>
 </li>
 
