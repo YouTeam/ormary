@@ -35,7 +35,7 @@
                 <div class="emptybag">
                 <h3 >Your Bag Is Empty.<br><br>:(</h3>
                 
-                <a href="/index.php?route=product/category&path=0&featured=1">SHOP WHATS NEW</a>
+                <a href="/index.php?route=product/category&path=0&featured=1">SHOP WHAT'S NEW</a>
                 </div>
                 <?php
                 
