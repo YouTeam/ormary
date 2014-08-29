@@ -392,7 +392,7 @@ class ControllerAccountRegister extends Controller {
 		$this->session->data['designers'] = $this->model_catalog_manufacturer->getPopularManufacturersList();
 		
 		$first_designer = current($this->session->data['designers']);
-		$this->session->data['designers_style_count'] = 0;
+		$this->session->data['designers_style_count'] = $first_designer['style'];
 		$this->session->data['designers_liked_count'] = 0;
 		
 		$this->data['first_designer_order_id'] = 0;
@@ -419,105 +419,116 @@ class ControllerAccountRegister extends Controller {
 	public function getNextDesigner()
 	{
 		$designer = $json = array();
-
+	
+		$change_style = false;
+		$new_des_id = -1;
+		
 		if(isset($this->request->post['designer_id']))
-		{
-			$first_designer_order_id = (int)$this->request->post['designer_id'];
+		{	
 			if($this->request->post['like'] == "yes")
-			{
-				$this->session->data['designers'][$first_designer_order_id]['liked'] = true;
-				$this->session->data['designers_liked_count'] += 1;
-				
-				if($this->session->data['designers_style_count'] == 0)
+			{	
+				$this->session->data['designers'][$this->request->post['designer_id']]['liked'] = "yes";
+				if($this->session->data['designers_style_count'] == $this->session->data['designers'][$this->request->post['designer_id']]['style'])
 				{
-					$this->session->data['designers_style_count'] += 1;
+					$this->session->data['designers_liked_count'] += 1;					
 				}
 				else
 				{
-					$this->session->data['designers_style_count'] = 0;
+					$this->session->data['designers_liked_count'] = 1;	
 				}
 				
+				if($this->session->data['designers_liked_count'] >= 2)
+				{
+					$change_style = true;
+					$this->session->data['designers_liked_count'] = 0;
+				}
 			}
-			elseif($this->request->post['like'] == "no")
+			else
 			{
-				$this->session->data['designers_style_count'] = 0;	
+				$this->session->data['designers'][$this->request->post['designer_id']]['liked'] = "no";
+				$this->session->data['designers_liked_count'] = 0;	
+				$change_style = true;	
 			}
 			
-		}
-
-		
-		$new_des_id = -1;
-		for($i=$first_designer_order_id+1; $i<count($this->session->data['designers']); $i++)
-		{
-			if($this->session->data['designers'][$i]['style'] == $this->session->data['designers'][$first_designer_order_id]['style'] && $this->request->post['like'] == "yes" && $this->session->data['designers_style_count'] < 2 && $this->session->data['designers'][$i]['liked'] != true)
-			{
-				$new_des_id = $i;
-				$json['test'] = "1";
-				break; 
-			}
+			$this->session->data['designers_style_count'] = $this->session->data['designers'][$this->request->post['designer_id']]['style'];
 			
-			if($this->session->data['designers'][$i]['style'] != $this->session->data['designers'][$first_designer_order_id]['style'] && $this->request->post['like'] == "no" && $this->session->data['designers'][$i]['liked'] != true)
-			{
-				//$this->session->data['designers_style_count'] = 0;
-				$new_des_id = $i;
-				$json['test'] = "2";
-				break;
-			}
-
-			if($this->session->data['designers'][$i]['style'] != $this->session->data['designers'][$first_designer_order_id]['style'] && $this->request->post['like'] == "yes" && $this->session->data['designers_style_count'] == 2 && $this->session->data['designers'][$i]['liked'] != true)
-			{
-				$new_des_id = $i;
-				$json['test'] = "3";
-				break; 
-			}
 			
-		}
-		
-		if($new_des_id == -1)
-		{
-			for($i=0; $i<=$first_designer_order_id; $i++)
+			if($this->request->post['designer_id'] < count($this->session->data['designers'])-1)
 			{
-				
-				if($this->session->data['designers'][$i]['style'] == $this->session->data['designers'][$first_designer_order_id]['style'] && $this->request->post['like'] == "yes" && $this->session->data['designers_style_count'] < 2 && $this->session->data['designers'][$i]['liked'] != true)
+				for($i=$this->request->post['designer_id']+1; $i < count($this->session->data['designers']); $i++)
 				{
-					$new_des_id = $i;
-					$json['test'] = "4";
-					break; 
-				}
-				
-				if($this->session->data['designers'][$i]['style'] != $this->session->data['designers'][$first_designer_order_id]['style'] && $this->request->post['like'] == "no" && $this->session->data['designers'][$i]['liked'] != true)
-				{
-					//$this->session->data['designers_style_count'] = 0;
-					$new_des_id = $i;
-					$json['test'] = "5";
-					break;
-				}
-				
-				
-				if($this->session->data['designers'][$i]['style'] != $this->session->data['designers'][$first_designer_order_id]['style'] && $this->request->post['like'] == "yes" && $this->session->data['designers_style_count'] == 2 && $this->session->data['designers'][$i]['liked'] != true)
-				{
-					$new_des_id = $i;
-					$json['test'] = "6";
-					break; 
-				}
-				
-			}
-		}
-		
-		if($new_des_id == -1)
-		{
-			for($i=0; $i<count($this->session->data['designers']); $i++)
-			{
-				if($this->session->data['designers'][$i]['liked'] != true)
-				{
-					$this->session->data['designers_style_count'] = 0;
-					$json['test'] = "7";
-					$new_des_id = $i;
-					break;
+					if($this->session->data['designers'][$i]['liked'] == "yes" || $this->session->data['designers'][$i]['liked'] == "no")
+					{
+						continue;	
+					}
+					
+					if($change_style == true)
+					{
+						if($this->session->data['designers'][$i]['style'] != $this->session->data['designers_style_count'])	
+						{
+							$new_des_id = $i;
+							break;
+						}
+					}
+					else
+					{
+						if($this->session->data['designers'][$i]['style'] == $this->session->data['designers_style_count'])	
+						{
+							$new_des_id = $i;
+							break;
+						}
+					}
 				}
 			}
+			else
+			{
+				for($i=0; $i < count($this->session->data['designers']); $i++)
+				{
+					if($this->session->data['designers'][$i]['liked'] == "yes" || $this->session->data['designers'][$i]['liked'] == "no")
+					{
+						continue;	
+					}
+					
+					if($change_style == true)
+					{
+						if($this->session->data['designers'][$i]['style'] != $this->session->data['designers_style_count'])	
+						{
+							$new_des_id = $i;
+							break;
+						}
+					}
+					else
+					{
+						if($this->session->data['designers'][$i]['style'] == $this->session->data['designers_style_count'])	
+						{
+							$new_des_id = $i;
+							break;
+						}
+					}
+				}
+			}			
+			
+			if($new_des_id == -1)
+			{
+				$change_style = true;	
+				$this->session->data['designers_liked_count'] = 0;
+				$this->session->data['designers_style_count'] = 0;
+				
+				for($i=0; $i < count($this->session->data['designers']); $i++)
+				{
+					if($this->session->data['designers'][$i]['liked'] == "yes" || $this->session->data['designers'][$i]['liked'] == "no")
+					{
+						continue;	
+					}
+					else
+					{
+						$new_des_id = $i;
+						break;	
+					}					
+				}
+			}			
 		}
-
+			
 		if($new_des_id == -1)
 		{
 			$json['all_designers'] = true;
