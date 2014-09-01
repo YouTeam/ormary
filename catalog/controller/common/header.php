@@ -58,7 +58,7 @@ class ControllerCommonHeader extends Controller {
 		
 		
 		$this->data['account_firstname'] = $this->customer->getFirstName();
-		$this->data['account_firstname'] .= " ".$this->customer->getLastName();
+	//	$this->data['account_firstname'] .= " ".$this->customer->getLastName();
 		
 		$this->data['account_id'] = $this->customer->getId();
 		$this->data['account_email'] = $this->customer->getEmail();
