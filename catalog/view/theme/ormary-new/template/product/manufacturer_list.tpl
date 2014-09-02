@@ -4,7 +4,9 @@
 
   
 <div class="container content all_designers_page">
+    <div class="top_panel">
     <h4>All Designers</h4>
+</div>
     <a href="javascript:void(0)" class="sort_by">Sort by</a>
     <div class="col-md-2 clearfix aside clothing_aside">
         <form action="" id="orm_des_filter">

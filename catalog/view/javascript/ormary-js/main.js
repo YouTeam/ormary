@@ -900,16 +900,21 @@ $(document).ready(function(){
                var _this= $(this).find('img');
                var cururl = _this.attr('src');
                var newurl = _this.attr('data-swap');
+               if (newurl != '') {
                _this.attr('src' , newurl)
                _this.attr('data-swap' , cururl)
-                },
+               }
+                   },
                 function() {
                  var _this= $(this).find('img');
                var cururl = _this.attr('src');
                var newurl = _this.attr('data-swap');
+               
+                    if (newurl != '') {
                _this.attr('src' , newurl)
                _this.attr('data-swap' , cururl)
                 } 
+                }
                 )
         } 
         

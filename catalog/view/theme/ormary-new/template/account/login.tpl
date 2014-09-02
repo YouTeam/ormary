@@ -6,28 +6,33 @@
 <div class="warning"><?php echo $error_warning; ?></div>
 <?php }*/ ?>-->
 <div id="content"class="container content all_designers_page"><?php echo $content_top; ?>
-  <h4><?php echo $heading_title; ?></h4>
-  <div class="login-content">
-    <div class="right">
-      <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
-        <div class="content">
-          <b><?php echo $entry_email; ?></b><br />
-          <input type="text" name="email" value="<?php echo $email; ?>" />
-          <br />
-          <br />
-          <b><?php echo $entry_password; ?></b><br />
-          <input type="password" name="password" value="<?php echo $password; ?>" />
-          <br />
-          <a href="<?php echo $forgotten; ?>"><?php echo $text_forgotten; ?></a><br />
-          <br />
-          <input type="submit" value="<?php echo $button_login; ?>" class="button" />
-          <?php if ($redirect) { ?>
-          <input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />
-          <?php } ?>
+
+  
+  
+  <div class="wrap_sign_in standalone">
+	<div class="sign_in_popup" style="display: block">
+		<div class="caption">
+            <span>SHOP THE WORLD’S</span>
+            <span>NEWEST FASHION</span>
         </div>
-      </form>
-    </div>
-  </div>
+		<div class="form">
+            <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="module_login"> 
+            <input type="text" name="email" placeholder="E-mail"/></span>
+            <input type="password" name="password" placeholder="Password"/>
+            <div class="forgotps">
+            <a href="<?php print $this->url->link('account/forgotten', '', 'SSL');?>">Forgot your password?</a>
+            </div>
+            <input type="submit" value="LOGIN" class="open_wizard" onclick="loginClick()">
+            </form>
+		</div>
+        
+		<div class="facebook">
+			<div>
+            	 <a id="login_fb" href="javascript:void(0);" style="cursor:pointer;" onclick="Login('')"><img src="catalog/view/theme/ormary/images/facebook_gag.png" alt=""></a>            	
+            </div>
+		</div>
+	</div>
+</div>
   <?php echo $content_bottom; ?></div>
 <script type="text/javascript"><!--
 $('#login input').keydown(function(e) {
