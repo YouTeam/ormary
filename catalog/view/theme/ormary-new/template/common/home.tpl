@@ -10,7 +10,7 @@ if (  $logged ) {
         <span>
                You have new recommendations just for you in your<br>Ormary Fashion Feed
         </span>
-        <a href="#" class="dark_btn loggedin">My Fashion Feed</a>
+        <a href="/index.php?route=common/feed" class="dark_btn loggedin">My Fashion Feed</a>
     </div>
 </div>
 <?php
