@@ -164,10 +164,10 @@ on orders £125+<br>
                                 <li class="">
                                 <h3>WE HAVE A SIMPLE RETURNS POLICY</h3>
                                 
-                                <p>If for any reason, you are not happy with your, we will refund it, no questions asked. All you have to do is let us know and return it to us within 14 days of receiving it.</p>
+                                <p>If for any reason, you are not happy with your purchase from Ormary, we will refund it, no questions asked. All you have to do is let us know and return it to us within 14 days of receiving it.</p>
                                 <p>We will, of course, exchange the item for you if you prefer. Note Earrings are non-refundable.</p>
                                 <p>If you'd like some personal shopping assistance choosing something else call us on 020 3222 2029, we'd love to help.</p>
-                                <p class=bottomcta><a href="" >CLICK HERE to Return an item</a></p>
+                                <p class=bottomcta><a href="/returns-and-exchanges" >CLICK HERE to Return an item</a></p>
                                 </li>
                                 
                             </ul>

@@ -160,6 +160,10 @@ select {
 	position: absolute;
 	top: 8px;
 }
+.account-header {
+    font-size: 16px;
+    
+}
 
 .top_bar .right_side ul li a.account span {
 	margin-left: 40px;
@@ -871,6 +875,11 @@ a.sort_by:after {
 	border-bottom: 1px solid #e5e5e5;
 	padding-bottom: 12px;
 	margin-bottom: 8px;
+}
+.content .top_panel_margin {
+	border-bottom: 1px solid #e5e5e5;
+	padding-bottom: 12px;
+	margin-bottom: 25px;
 }
 
 .caption_with_counter {
@@ -3448,7 +3457,13 @@ a.light_btn:hover {
 	width: 204px;
 }
 
-.disable_my_account {
+h2.account-header{
+	font-family: "Optima LT W01 Demi Bold";
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding-bottom: 15px;
+}
+        .disable_my_account {
 	margin-top: 80px;
 	float: none !important;
 }
@@ -4170,6 +4185,7 @@ display: block;
 .top-shipping table {
 	width: 100%;
 	border-bottom: 1px solid black;
+        color: white;
 }
 
 .top-shipping table.last {
@@ -5371,8 +5387,65 @@ display: block;
 .error, .thanks {
 	display: none;
 }
+.required-error {
+     color: red;
+     display: block;
+}
+.twocol-formelement {
+    display: inline-block;
+    float: left;
+    width: 300px;
+    clear: left;
+}
 
+.twocol-formelement.last {
+    display: block;
+    clear: none;
+    padding-bottom: 22px;
+}
+.return-reason label {
+    margin-bottom: 0px;
+/* line-height: 20px; */
+position: relative;
+top: 2px;
 
+}
+
+.return-reason tr {
+    height: 30px;
+
+}
+.twocol-formelement input[type=text],
+.twocol-formelement input[type=submit],
+.twocol-formelement select
+
+{
+    line-height: 34px;
+width: 270px;
+height: 34px;
+padding-left: 0px;
+	font-size: 12px;
+	font-family:"Optima LT W01 Roman";
+text-transform: uppercase;
+color: #333333;
+padding-left: 10px;
+letter-spacing: 1px;
+}
+.twocol-formelement input[type=submit]
+{
+    background-color: black;
+color: white;
+border: none;
+font-size: 15px;
+margin-top: 10px;
+}
+
+.twocol-formelement input:focus,
+.twocol-formelement select:focus
+
+{
+    color: black;
+}
 /**/
 
 .form-control {
@@ -5462,3 +5535,48 @@ margin-top: 30px;
 .overimage {
     display: none;
 }
+
+
+.screen-offset{
+    background: transparent;
+    display: block;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    text-indent: -15000px;
+    top: -15000px;
+    width: 1px;
+}
+
+.wrap_sign_in.standalone .sign_in_popup{
+width: 462px;
+position: initial;
+left: 50%;
+margin: 0px auto;
+z-index: 9999;
+display: none;
+margin-top: 50px;
+}
+
+.wrap_sign_in.standalone .sign_in_popup .caption span{
+color: #333333;
+text-align: center;
+
+}
+
+
+
+.wrap_sign_in.standalone .sign_in_popup .caption {
+color: #333333;
+text-align: center;
+
+}
+
+.about h7 {
+    font-size: 16px;
+    padding-top: 15px;
+    display: block;
+    font-weight: bold;
+}
+

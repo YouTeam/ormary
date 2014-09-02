@@ -1,8 +1,8 @@
 <?php echo $header; ?>
 <div id="content"><?php echo $content_top; ?>
  
-  <div class="container content my_ormary_profile_page" style="margin-top:150px;">
-  <h4><?php echo $heading_title; ?></h4>
+  <div class="container content my_ormary_profile_page" style="margin-top:120px;">
+  <div class="top_panel"><h4><?php echo $heading_title; ?></h4></div>
   <div class="col-md-12 clearfix nopadding about">
   <?php if (strlen(stristr($heading_title,'about us')) > 0){?>
           <h5>The Team</h5>

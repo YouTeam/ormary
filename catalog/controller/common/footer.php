@@ -32,7 +32,7 @@ class ControllerCommonFooter extends Controller {
 		}
 
 		$this->data['contact'] = $this->url->link('information/contact');
-		$this->data['return'] = $this->url->link('account/return/insert', '', 'SSL');
+		$this->data['return'] = '/returns-and-exchanges';
 		$this->data['sitemap'] = $this->url->link('information/sitemap');
 		
 		//$this->data['sitemap'] = $this->url->link('feed/google_sitemap', '', 'SSL'); 

@@ -4,7 +4,7 @@
 	<div class="sign_in_popup">
 		<div class="caption">
             <span>SHOP THE WORLD’S</span>
-            <span>NEWEST FASHION HERE</span>
+            <span>NEWEST FASHION</span>
         </div>
 		<div class="form">
             <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="module_login"> 
