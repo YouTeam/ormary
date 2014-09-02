@@ -92,7 +92,7 @@
                     <ul role="navigation" class="nav">
                        
                         <li class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">FREE UK DELIVERY ON ORDERS £150+</b></a>
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">FREE UK DELIVERY ON ORDERS £125+</b></a>
                             <ul class="dropdown-menu top-shipping">
                                 <li>
                                   <table cellpadding=0 cellspacing=0 border=0>
