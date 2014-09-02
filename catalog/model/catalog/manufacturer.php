@@ -74,6 +74,19 @@ class ModelCatalogManufacturer extends Model {
 									</li>';	
 			}
 		}
+		else
+		{
+			$designers = $this->db->query("SELECT * FROM " . DB_PREFIX . "manufacturer m ORDER BY name");
+			foreach($designers->rows as $d)
+			{
+				$designers_list .='<li class="light_font">
+										<input type="radio" name="designer" id="d'.$d['manufacturer_id'].'" value="'.$d['manufacturer_id'].'">
+										<label class="filter-label" for="d'.$d['manufacturer_id'].'">
+											'.$d['name'].'
+										</label>
+									</li>';	
+			}
+		}
 		
 		return $designers_list;
 	}

@@ -62,4 +62,36 @@
    	}
     ?>
     <a href="<?php print $filter_options['clear_filter'];?>" class="dark_btn clear_filter_btn">Clear  all filters</a>
+	 <script>
+
+      /* Custom scroll */
+
+      function iScrollInit(){
+
+        var myScroll;
+
+
+        myScroll = new IScroll('.scrollable-area', {
+          scrollbars: true,
+          mouseWheel: true,
+          interactiveScrollbars: true,
+          shrinkScrollbars: 'scale',
+          fadeScrollbars: false
+        });
+
+      }
+
+      if (window.screen.width > 991) {
+        iScrollInit();
+      }
+
+
+      /* Items counter */
+
+      var $i= $('.product_wrap').length;
+
+      $('.count_items .number').text($i);
+
+    </script>
+	
 </form>

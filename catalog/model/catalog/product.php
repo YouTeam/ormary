@@ -857,20 +857,21 @@ class ModelCatalogProduct extends Model {
 		$options['designers_list'] = "";
 		
 		 
-		if(isset($this->request->get['designer_name']) && $this->request->get['designer_name'] != '')
+		if(isset($this->request->get['designer']) && $this->request->get['designer'] != '')
 		{
-			$designers = $this->db->query("SELECT * FROM " . DB_PREFIX . "manufacturer m WHERE name LIKE '".$this->db->escape($this->request->get['designer_name'])."%' ORDER by name");//manufacturer_id = ".(int)$this->request->get['designer']);
+			$designers = $this->db->query("SELECT * FROM " . DB_PREFIX . "manufacturer m ORDER by name");//WHERE name LIKE '".$this->db->escape($this->request->get['designer_name'])."%'
 			foreach($designers->rows as $d)
 			{
 				if(isset($this->request->get['designer']) && $d['manufacturer_id'] == (int)$this->request->get['designer'])
 				{
 					$checked = 'checked="checked"';	
+					$options['designer_name'] = $d['name'];
 				}
 				else
 				{
 						$checked = '';
 				}
-				$options['designers_list'] .='<li class="light_font">
+				$options['designers_list'] .='<li class="">
 										<input type="radio" name="designer" id="d'.$d['manufacturer_id'].'" value="'.$d['manufacturer_id'].'" '.$checked.'>
 										<label class="filter-label" for="d'.$d['manufacturer_id'].'">
 											'.$d['name'].'
@@ -879,16 +880,27 @@ class ModelCatalogProduct extends Model {
 				
 			}
 		}
+		else
+		{
+			$designers = $this->db->query("SELECT * FROM " . DB_PREFIX . "manufacturer m ORDER by name");
+			foreach($designers->rows as $d)
+			{
+				$options['designers_list'] .='<li class="">
+										<input type="radio" name="designer" id="d'.$d['manufacturer_id'].'" value="'.$d['manufacturer_id'].'">
+										<label class="filter-label" for="d'.$d['manufacturer_id'].'">
+											'.$d['name'].'
+										</label>
+									</li>';	
+				
+			}
+			$options['designer_name'] = "";	 
+		}
 		
-		if(isset($this->request->get['designer_name']))
+		if(isset($this->request->get['designer_name']) && !isset($options['designer_name']))
 		{
 			$options['designer_name'] = $this->request->get['designer_name'];
 		}
-		else
-		{
-			$options['designer_name'] = "";	 
-		}
-	
+			
 
 		$option_colors = $this->db->query("SELECT * FROM " . DB_PREFIX . "option_value ov LEFT JOIN " . DB_PREFIX . "option_value_description ovd ON (ov.option_value_id = ovd.option_value_id) WHERE ov.option_id = '13' ORDER BY ov.sort_order ASC");
 

@@ -1,9 +1,9 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://ormary.com/');
+define('HTTP_SERVER', 'http://www.ormary.com/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://ormary.com/');
+define('HTTPS_SERVER', 'http://www.ormary.com/');
 
 // DIR
 define('DIR_APPLICATION', '/var/www/catalog/');
