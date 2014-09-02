@@ -4,8 +4,12 @@
 
   
 <div class="container content all_designers_page">
-    <div class="top_panel">
+    <div class="top_panel caption_with_counter">
     <h4>All Designers</h4>
+    <span class="count_items">
+        		<span class="number"><?php echo $manufacturers_count; ?></span> 
+        		designers
+        	</span>
 </div>
     <a href="javascript:void(0)" class="sort_by">Sort by</a>
     <div class="col-md-2 clearfix aside clothing_aside">

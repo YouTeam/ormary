@@ -61,8 +61,8 @@ class ControllerProductManufacturer extends Controller {
 		}*/
 				
 		$manufacturers = $this->model_catalog_manufacturer->getManufacturersList($this->request->get);
-		
-		if(isset($manufacturers['0-9']))
+		           $manufacturers_count  = 0;
+     		if(isset($manufacturers['0-9']))
 		{
 			$this->data['manufacturers_numbers'] = $manufacturers['0-9'];
 			unset($manufacturers['0-9']);
@@ -81,6 +81,7 @@ class ControllerProductManufacturer extends Controller {
 			{
 				//print_r($mf);
 				$manufacturers_rows[$j]['manufacturers'][]= $mf;
+                                $manufacturers_count++;
 			}
 			if(($i+1)%3 == 0)
 			{
@@ -91,6 +92,7 @@ class ControllerProductManufacturer extends Controller {
 		//print_r($manufacturers_rows);
 		
 		$this->data['manufacturers_list']  = $manufacturers_rows;
+     $this->data['manufacturers_count']  = $manufacturers_count;
 
 		$this->data['continue'] = $this->url->link('common/home');
 
@@ -409,8 +411,11 @@ class ControllerProductManufacturer extends Controller {
 				} else {
 					$rating = false;
 				}
-
+if (count($result['extraimages']) > 1) {
                                       $swapimage = $this->model_tool_image->resize($result['extraimages'][count($result['extraimages'])-1]['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
+} else {
+    $swapimage = '';    
+}
                                 
 				$this->data['products'][] = array(
 					'product_id'  => $result['product_id'],
