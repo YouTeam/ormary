@@ -9,7 +9,7 @@ class ControllerCommonSeoUrl extends Controller {
 		// Decode URL
 		if (isset($this->request->get['_route_'])) {
 			$parts = explode('/', $this->request->get['_route_']);
-			
+		
 			foreach ($parts as $part) {
 				$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE keyword = '" . $this->db->escape($part) . "'");
 				
@@ -34,7 +34,22 @@ class ControllerCommonSeoUrl extends Controller {
 					
 					if ($url[0] == 'information_id') {
 						$this->request->get['information_id'] = $url[1];
+					}
+                                        			if ($url[0] == 'index.php?route') {
+                                                                    
+                                                                                                 $query->row['query'] = str_replace("index.php?", "", $query->row['query']);
+                                                                                                    $params = explode('&', $query->row['query']);
+                                                                                                    
+                                                                                                    foreach ($params as $param) {
+                                                                                                        $bits = explode('=' , $param);
+                                                                                                        $this->request->get[$bits[0]] = $bits[1];
+                                                                                                    }
+                                                                                                   
+                                                                                        
+                                                                                                        $this->forward( $this->request->get['route']);
 					}	
+		
+                                        
 				} else {
 					$this->request->get['route'] = 'error/not_found';	
 				}
@@ -52,6 +67,9 @@ class ControllerCommonSeoUrl extends Controller {
 			
 			if (isset($this->request->get['route'])) {
 				return $this->forward($this->request->get['route']);
+                                            
+                                    
+                                
 			}
 		}
 	}
