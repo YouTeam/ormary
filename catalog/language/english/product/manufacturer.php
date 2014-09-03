@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']     = 'Find Your Favorite Brand';
+$_['heading_title']     = 'All Designers';
 
 // Text
 $_['text_brand']        = 'Brand';

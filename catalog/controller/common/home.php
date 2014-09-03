@@ -132,8 +132,12 @@ class ControllerCommonHome extends Controller {
 		}
 		else
 		{
-			$this->document->setTitle($this->config->get('config_title'));
-			$this->document->setDescription($this->config->get('config_meta_description'));
+                    
+                    $this->language->load('common/home');
+	
+			$this->document->setTitle($this->language->get('title'));
+	
+
 	
 			$this->data['heading_title'] = $this->config->get('config_title');
 			

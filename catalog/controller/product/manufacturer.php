@@ -6,8 +6,12 @@ class ControllerProductManufacturer extends Controller {
 		$this->load->model('catalog/manufacturer');
 
 		$this->load->model('tool/image');		
-
-		$this->document->setTitle($this->language->get('heading_title'));
+                
+                                    $popular_designer_names = $this->model_catalog_manufacturer->getPopularManufacturersNames();
+                                     $popular_designer_names = implode(', ' ,  $popular_designer_names);
+                                     
+                                     $page_title = $this->language->get('heading_title') . ' | ' .$popular_designer_names . ' | Ormary.com'; 
+		$this->document->setTitle( $page_title);
 
 		$this->data['heading_title'] = $this->language->get('heading_title');
 
@@ -170,7 +174,7 @@ class ControllerProductManufacturer extends Controller {
 		$manufacturer_info = $this->model_catalog_manufacturer->getManufacturer($manufacturer_id);
 
 		if ($manufacturer_info) {
-			$this->document->setTitle($manufacturer_info['name']);
+			$this->document->setTitle($manufacturer_info['name'] . ' | Ormary.com');
 			$this->document->addScript('catalog/view/javascript/jquery/jquery.total-storage.min.js');
 
 			$url = '';

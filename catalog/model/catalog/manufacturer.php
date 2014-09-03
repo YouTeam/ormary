@@ -322,6 +322,21 @@ class ModelCatalogManufacturer extends Model {
                                     }	
 		return $designers;
 	}
+        
+        
+        public function getPopularManufacturersNames()
+	{
+		
+		$result = $this->db->query("SELECT m.*, 2*(SELECT COUNT(f.mid) as c FROM " . DB_PREFIX ."follows as f WHERE f.mid=m.manufacturer_id ) as count FROM " . DB_PREFIX ."manufacturer as m ORDER BY count DESC, m.style_id ASC");
+		
+                                    $designers = array();
+		
+		foreach($result->rows as $des)
+		{
+                                        array_push($designers,$des['name']);
+                                    }	
+		return $designers;
+	}
 		
 }
 ?>
