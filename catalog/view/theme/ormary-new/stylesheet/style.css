@@ -1824,6 +1824,19 @@ label .required {
 	margin-right: 20px;
 }
 
+.you_are_following .des_following .des-img img{
+	width: 100%;
+}
+.not_now {
+    display: inline;
+float: left;
+color: black;
+text-transform: uppercase;
+margin: 17px;
+position: absolute;
+z-index: 999999;
+}
+
 .you_are_following .bottom_btn {
 	text-align: center;
 	padding-bottom: 20px;
@@ -1906,20 +1919,40 @@ label .required {
 }
 
 .do_you_like .designer {
-	width: 86px;
+	width: 400px;
 	margin: 0 auto;
-	height: 130px;
+	height: 150px;
 	display: block;
-	text-align: center;
+	text-align: center; 
 	color: #000000;
 	line-height: 20px;
-	margin-top: 20px;
+	margin-top: 10px;
+}
+
+.do_you_like .des-details {
+    float: left;
+    margin-top: 25px;
+    margin-left: 10px;
+}
+.do_you_like #designer_name {
+            text-transform: uppercase;
+        letter-spacing: 2px;
+   
+font-family: "Didot W01 Roman";
+    font-size: 14px;
 }
 
 .do_you_like .designer .des-img {
 	margin: 0 auto 10px;
-	width: 60px;
-	height: 60px;
+	width: 120px;
+float: left;
+}
+
+.do_you_like h3 {
+text-align: center;
+text-transform: uppercase;
+letter-spacing: 1px;
+font-size: 16px;
 }
 
 .do_you_like .designer .des-img img {
@@ -1939,6 +1972,7 @@ label .required {
 
 .do_you_like .designer_goods .swiper-slide {
 	height: 212px;
+        width: 150px !important;
 }
 
 .do_you_like .designer_goods a.des_slider_left,

@@ -614,6 +614,14 @@ $(document).ready(function(){
 		$('#registration-first-form').submit();
 		
 	});
+        
+        
+                $('.not_now').click(function(event){
+		event.preventDefault();
+                console.log('ok');
+		$('#registration-first-form').submit();
+		
+	});
 		
 	$('.open_wizard3').click(function(event){
 		event.preventDefault();

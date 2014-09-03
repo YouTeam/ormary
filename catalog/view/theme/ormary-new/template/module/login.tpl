@@ -55,8 +55,8 @@
             </div>
         </div>
     	<div class="terms">
-        	<input type="checkbox" name="terms" value="0" > I agree to Ormary.com <a href="">Terms and conditions</a> and <a href="">Privacy Policy</a>
-            <div class="alert_error" style="display:none;" id="terms-error">To complete registration, you must agree to Ormary Terms and Conditions and Privacy Policy </div>
+        	<input type="checkbox" name="terms" value="0" id=terms> <label for="terms">I agree to Ormary.com <a href="">Terms and conditions</a> and <a href="">Privacy Policy</a></label>
+            <div class="alert_error" style="display:none;" id="terms-error">To complete registration, you must agree to Ormary Terms and Conditions and Privacy Policy</div>
         </div>
         
     </form>
@@ -75,16 +75,20 @@
     -->
 <div class="wrap_do_you_like">
 	<div class="do_you_like">
+               <a href="#" class='not_now' >Not Now</a>
+	
 		<div class="caption text-center">
-			You need to select at least three designers
+	Please tell us at least 3 designers you love.
 			<a href="#" class='open_wizard3' style="display:none;">Done</a>
-		</div>
+                     	</div>
+            <h3>Do you like</h3>
 		<a href="#" class="designer" id="0">
             <div class="des-img" id="">
                 <img src="" alt="" id="designer_image"> 
             </div>
+                    <div class="des-details">
         	<span id="designer_name"></span>
-        	<span class="light_font">Designer</span>
+                </div>
         </a>
 		<div class="designer_goods">
             <a href="#" class="des_slider_left">

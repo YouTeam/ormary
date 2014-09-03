@@ -267,11 +267,11 @@ class ModelCatalogManufacturer extends Model {
 			$designers[$des['manufacturer_id']]['style'] = $des['style_id'];	
 			if($des['image'] !="")
 			{
-				$designers[$des['manufacturer_id']]['image'] = $this->model_tool_image->resize($des['image'], 60, 60);
+				$designers[$des['manufacturer_id']]['image'] = $this->model_tool_image->resize($des['image'], 215, 218);
 			}
 			else
 			{
-				$designers[$des['manufacturer_id']]['image'] = $this->model_tool_image->resize("no_image.png", 60, 60);
+				$designers[$des['manufacturer_id']]['image'] = $this->model_tool_image->resize("no_image.png", 215, 218);
 			}
 			
 			$designers[$des['manufacturer_id']]['liked'] = false;	
@@ -305,6 +305,21 @@ class ModelCatalogManufacturer extends Model {
 		}
 		array_multisort($volume, SORT_DESC, $edition, SORT_ASC, $designers);
 		
+		return $designers;
+	}
+        
+        
+        public function getPopularManufacturersIds()
+	{
+		
+		$result = $this->db->query("SELECT m.*, 2*(SELECT COUNT(f.mid) as c FROM " . DB_PREFIX ."follows as f WHERE f.mid=m.manufacturer_id ) as count FROM " . DB_PREFIX ."manufacturer as m ORDER BY count DESC, m.style_id ASC");
+		
+                                    $designers = array();
+		
+		foreach($result->rows as $des)
+		{
+                                        array_push($designers,$des['manufacturer_id']);
+                                    }	
 		return $designers;
 	}
 		

@@ -3,16 +3,19 @@ class ControllerAccountRegister extends Controller {
 	private $error = array();
 
 	public function index() {
-		
+	
 		if(isset($this->request->post['userid']))
 		{
 			$this->load->model('account/follow');
-			
+			echo $this->request->post['following_designers'];
+                   
 			$this->model_account_follow->saveUserFollows(explode(',', $this->request->post['following_designers']));
 			unset($this->session->data['designers']);
 			$this->language->load('account/success');
 			$this->session->data['success']  = $this->language->get('text_message');
+
 			$this->redirect($this->url->link('common/home'));
+                        
 		}
 		
 		
@@ -45,7 +48,23 @@ class ControllerAccountRegister extends Controller {
 			unset($this->session->data['guest']);
 			$this->load->model('account/follow');
 			
-			$this->model_account_follow->saveUserFollows(explode(',', $this->request->post['following_designers']));
+                        
+                                                        $users_to_follow = explode(',', $this->request->post['following_designers']);
+                                                        
+                                                        if (count ($users_to_follow) < 3) {
+                                                          
+                                                            $this->load->model('catalog/manufacturer');
+		
+		
+                                                            $auto_follow_users =  $this->model_catalog_manufacturer->getPopularManufacturersIds();
+                                                            array_merge($users_to_follow, $auto_follow_users);
+                                                                  
+                                                        }
+                        
+			$this->model_account_follow->saveUserFollows($users_to_follow);
+                        
+                        
+                    
 			unset($this->session->data['designers']);
 /*			// Default Shipping Address
 			if ($this->config->get('config_tax_customer') == 'shipping') {
@@ -61,7 +80,7 @@ class ControllerAccountRegister extends Controller {
 			}*/
 			$this->language->load('account/success');
 			$this->session->data['success']  = $this->language->get('text_message');
-			$this->redirect($this->url->link('common/home'));
+			$this->redirect($this->url->link('common/feed'));
 		}
 
 		$this->data['breadcrumbs'] = array();

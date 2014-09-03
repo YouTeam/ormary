@@ -367,6 +367,8 @@ class ControllerProductCategory extends Controller {
                                                                         
                                 if (count($result['extraimages']) > 1) {
                                 $swapimage = $this->model_tool_image->resize($result['extraimages'][count($result['extraimages'])-1]['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
+                                } else {
+                                    $swapimage = '';
                                 }
                                 
                                 

@@ -1,7 +1,20 @@
 <?php  
 class ControllerCommonHome extends Controller {
 	public function index() {
-		if ($this->customer->isLogged()) {
+            
+
+            
+                        $this->data['logged'] = $this->customer->isLogged();
+            
+                            if (isset($_REQUEST['feed'])) { 
+                                
+                                $feed = $_REQUEST['feed'];
+                            } else {
+                                $feed = false;
+                            }
+                        
+                        
+		if ($this->customer->isLogged() && $feed == true) {
 				
 			if (isset($this->session->data['success'])) {
 			$this->data['success'] = $this->session->data['success'];
