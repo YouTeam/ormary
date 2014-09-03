@@ -35,7 +35,9 @@ if (  $logged ) {
 
 <div class="container shop_collections">
     <div class="col-md-4 shop_collection">
+          <a href="<?php print $blocks[1]['link'];?>">
     	<img src="<?php print $blocks[1]['image'];?>" alt="">
+        </a>
         <a href="<?php print $blocks[1]['link'];?>">
     		<div class="collection_name">
             	<?php print $blocks[1]['text_top'];?>
@@ -47,7 +49,9 @@ if (  $logged ) {
     </div>
     <div class="col-md-8 shop_collection">
     	<div class="col-md-6 shop_collection">
+                <a href="<?php print $blocks[2]['link'];?>">
         	<img src="<?php print $blocks[2]['image'];?>" alt="">
+                </a>
             <a href="<?php print $blocks[2]['link'];?>">
             	<div class="collection_name">
             		<?php print $blocks[2]['text_top'];?>
@@ -58,7 +62,9 @@ if (  $logged ) {
             </a>
     	</div>
     	<div class="col-md-6 shop_collection">
+              <a href="<?php print $blocks[3]['link'];?>">
         	<img src="<?php print $blocks[3]['image'];?>" alt="">
+                </a>
             <a href="<?php print $blocks[3]['link'];?>">
             	<div class="collection_name">
             		<?php print $blocks[3]['text_top'];?>
@@ -69,7 +75,8 @@ if (  $logged ) {
             </a>            
     	</div>
     	<div class="col-md-12 shop_collection">
-        	<img src="<?php print $blocks[4]['image'];?>" alt="">
+                        <a href="<?php print $blocks[4]['link'];?>">
+        	<img src="<?php print $blocks[4]['image'];?>" alt=""></a>
             <a href="<?php print $blocks[4]['link'];?>">
             	<div class="collection_name">
                         <?php print $blocks[4]['text_top'];?>
