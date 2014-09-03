@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ORMARY - Clothing</title>
+    <title>ORMARY - Search</title>
     <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -145,7 +145,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="responsive_menu">
                   <ul class="nav navbar-nav navbar-left">
-                    <li><a href="#">Whats new</a></li>
+                    <li><a href="#">What's new</a></li>
                     <li><a href="#">DESIGNERS</a></li>
                     <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">CLOTHING <b class="caret"></b></a>
                       <ul class="dropdown-menu orm_sub_dropdown-menu">
@@ -319,20 +319,16 @@
           </div>
         </div>
       </header>
-      <div class="container content search_page">
-        <h4>
-          Search for: 
-          <div class="search_span">
-            <span>badge</span>
-            <a href="#" class="open_search_input">
-              <img src="images/pencil.png" alt="Edit">
-            </a>
+      <div class="container content">
+        <div class="top_panel clearfix">
+          <div class="caption_with_counter">
+            <h4>SEARCH FOR: <span>BADGE</span></h4>
           </div>
-          <div class="search_input">
-            <input type="text" class="light_font s_input">
-            <input type="submit" value="">
+          <div class="wrap_pagination">
+       
           </div>
-        </h4>
+        </div>
+
         <a href="#" class="sort_by">Sort by</a>
         <div class="col-md-2 clearfix aside clothing_aside">
           <form action="" id="orm_filter">
@@ -715,22 +711,24 @@
             <a href="#" class="dark_btn clear_filter_btn">Clear  all filters</a>
           </form>
         </div>
-        <div class="col-md-9 clearfix nopadding">
-          <div class="no_results">
-            <div class="caption">
-              Sorry, no results matched your search request.
-            </div>
-            <div class="suggestions light_font">
-              <p>Suggestions:</p>
-              <p>1. Make sure all words are spelled correctly.</p>
-              <p>2. Reduce filter condition for more results.</p>
-              <p>3. Try other keywords.</p>
+        <div class="col-md-10 clearfix nopadding">
+          <div class="section clearfix">
+            <div class="no_results">
+              <div class="caption">
+                Sorry, no results matched your search request.
+              </div>
+              <div class="suggestions light_font">
+                <p>Suggestions:</p>
+                <p>1. Make sure all words are spelled correctly.</p>
+                <p>2. Reduce filter condition for more results.</p>
+                <p>3. Try other keywords.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    
+
     <footer>
       <div class="container-fluid footer_top">
         <div class="container">
@@ -823,31 +821,29 @@
     <script src="js/iscroll.js"></script>
     <script src="js/main.js"></script>
     <script>
-      var myScroll;
+
+    /* Custom scroll */
+
+    var myScroll;
 
 
-      myScroll = new IScroll('.scrollable-area', {
-        scrollbars: true,
-        mouseWheel: true,
-        interactiveScrollbars: true,
-        shrinkScrollbars: 'scale',
-        fadeScrollbars: false
-      });
+    myScroll = new IScroll('.scrollable-area', {
+      scrollbars: true,
+      mouseWheel: true,
+      interactiveScrollbars: true,
+      shrinkScrollbars: 'scale',
+      fadeScrollbars: false
+    });
 
 
-      document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-    </script>
-    <script>
-      $(document).ready(function(){
-        $('.open_search_input').on('click',function(){
+    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 
-          var valueResult = $(this).siblings('span').text();
+    /* Items counter */
 
-          $(this).parent().hide();
-          $(this).parent().siblings('.search_input').show().css('display','inline-block');
-          $(this).parent().siblings('.search_input').children('.s_input').attr('value', valueResult);
-        });
-      });
+    var $i= $('.product_wrap').length;
+
+    $('.count_items .number').text($i);
+
     </script>
   </body>
 </html>

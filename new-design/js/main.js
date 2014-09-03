@@ -1,3 +1,24 @@
+/* Payment animation */
+
+jQuery(document).ready(function(){
+
+	$('.choose_payment .csa').click(function(){
+		$(this).children('.csa-payment').children('.payment-type').addClass('active');
+		$(this).siblings().children('.csa-payment').children('.payment-type').removeClass('active');
+		
+		$(this).children('.csa-payment').children('.payment-type.active').next().slideDown();
+		$(this).siblings().children('.csa-payment').children('.payment-type').next().slideUp();
+
+		if ($('.creditcard-payment').hasClass('active')) {
+			$('.creditcard-payment-info').slideDown();
+		}
+		else {
+			$('.creditcard-payment-info').slideUp();
+		}
+	});
+
+});
+
 $(document).ready(function(){
 
 	/* Bag review textarea */
@@ -325,6 +346,18 @@ $(document).ready(function(){
 		$('.popup, #edit_shipping_address').hide();
 	});
 
+	/* Size guide popup */
+
+	$('#openSizeGuide').click(function(event){
+		event.preventDefault();
+		$('#size_guide_popup, .popup').show();
+	});
+	$('#size_guide_popup').click(function(event){
+		event.stopPropagation();
+	});
+	$('.popup, .close_popup_big').click(function(){
+		$('.popup, #size_guide_popup').hide();
+	});
 
 });
 
@@ -358,9 +391,6 @@ $('.arrow-right').on('click', function(e){
 	mySwiper.swipeNext()
 })
 
-
-
-
 /* Newest products */
 
 	var newestCarousel = new Swiper('.orm_newest_carousel',{
@@ -380,7 +410,22 @@ $('.arrow-right').on('click', function(e){
 		newestCarousel.swipeNext()
 	})
 
+/* Thank you page slider */
 
+	var mySwiper4 = new Swiper('.thank_you_page_slider',{
+		paginationClickable: true,
+		slidesPerView: 4,
+		loop: true
+	})
+
+	 $('.thank_slider_left').on('click', function(e){
+		e.preventDefault()
+		mySwiper4.swipePrev()
+	})
+	$('.thank_slider_right').on('click', function(e){
+		e.preventDefault()
+		mySwiper4.swipeNext()
+	})
 
 $(document).ready(function(){
 	$('.orm_carousel_slide').click(function(){
@@ -432,6 +477,8 @@ $(function() {
 	});
 
 });
+
+
 
 
 

@@ -1551,17 +1551,22 @@ a.add_to_my_wardrobe:hover {
 }
 
 .add_shipping_address .cart_inputs {
-	padding: 25px 64px;
+	padding: 25px 0px;
+}
+
+.add_shipping_address .cart_inputs .inputs_group {
+	width: 548px;
+	margin: 0 auto 30px;
 }
 
 .add_shipping_address .cart_inputs .input_wrap {
-	margin: 0 8px;
+	margin: 0 7px;
 }
 
 .add_shipping_address .bottom_btn a {
 	width: 165px;
 	display: inline-block;
-	margin: 0 7px;
+	margin: 0 7px 10px;
 }
 
 .add_shipping_address .remove-addres {
@@ -1580,6 +1585,34 @@ a.add_to_my_wardrobe:hover {
 	position: relative;
 	left: 5px;
 	top: -3px;
+}
+
+@media screen and (max-width: 700px){
+
+	.add_shipping_address {
+		width: 90%;
+		background: #ffffff;
+		position: absolute;
+		top: 10%;
+		left: 0%;
+		margin-left: 0px;
+		margin: 0 5%;
+		z-index: 999;
+		display: none;
+	}
+
+	.add_shipping_address .cart_inputs .inputs_group {
+		width: 100%;
+	}
+
+	.add_shipping_address .cart_inputs .input_wrap {
+		margin: 0;
+	}
+
+	.add_shipping_address .cart_inputs {
+		padding: 25px 15px;
+	}
+
 }
 
 label .required {
@@ -2116,6 +2149,109 @@ label .required {
 	background: url(../images/close_popup.png) no-repeat 0 0;
 	width: 18px;
 	height: 18px;
+}
+
+.size_guide_popup {
+	width: 940px;
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	margin-left: -470px;
+	display: none;
+	z-index: 9999;
+}
+
+@media screen and (max-width: 940px){
+	.size_guide_popup {
+		width: 100%;
+		margin: 0;
+		left: 0;
+	}
+
+	.table-responsive {
+		width: 100%;
+		overflow-y: hidden;
+		overflow-x: scroll;
+		-ms-overflow-style: -ms-autohiding-scrollbar;
+		-webkit-overflow-scrolling: touch;
+	}
+}
+
+.close_popup_big {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.size_guide_popup .caption {
+	color: #FFF;
+	font-family: "Theano Didot";
+	font-size: 42px;
+	font-weight: 400;
+}
+
+.size_guide_popup .tables table {
+	background: #f5f5f5;
+	table-layout:fixed;
+	width: 940px;
+}
+
+.size_guide_popup .tables table tr td {
+	height: 54px;
+	font-size: 14px;
+	border: 1px dashed #cacaca;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.size_guide_popup .tables .clothing-siglesize tr td {
+	font-size: 13px;
+}
+
+.size_guide_popup .tables table tr td .colspan2 {
+	width: 130px;
+}
+
+.size_guide_popup .tables table tr .text-left {
+	text-align: left;
+}
+
+.size_guide_popup .tables table tr .table_title {
+	color: #878787;
+	display: block;
+	font-size: 15px
+}
+
+.size_guide_popup .tables table tr .table_title.first_col {
+	margin: 0 10px;
+}
+
+.clothing-siglesize {
+	margin-bottom: 15px;
+}
+
+.clothing-conversion, .clothing-siglesize2 {
+	margin-bottom: 50px;
+}
+
+@media screen and (max-width: 940px){
+	.size_guide_popup {
+		width: 100%;
+		margin: 0;
+		left: 0;
+	}
+	
+	.table-responsive {
+		width: 100%;
+		overflow-y: hidden;
+		overflow-x: scroll;
+		-ms-overflow-style: -ms-autohiding-scrollbar;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.size_guide_popup .caption {
+		font-size: 38px;
+	}
 }
 
 /* Designer page */
@@ -2934,7 +3070,7 @@ a.unfollow:hover {
 	float: left;
 }
 
-.csa .csa-address .edit_btn {
+a.edit_btn {
 	display: block;
 	width: 50px;
 	line-height: 23px;
@@ -2945,7 +3081,7 @@ a.unfollow:hover {
 	text-decoration: none;
 }
 
-.csa .csa-address .edit_btn:hover {
+.edit_btn:hover {
 	background: #000;
 	color: #fff;
 }
@@ -2956,6 +3092,16 @@ a.unfollow:hover {
 
 .csa .csa-payment .creditcard-payment {
 	margin-bottom: 30px;
+}
+
+.creditcard-payment-info {
+	width: 100%;
+}
+
+@media screen and (max-width: 767px){
+	.creditcard-payment-info {
+		width: auto;
+	}
 }
 
 .csa .csa-payment .paypal-payment img,
@@ -2974,6 +3120,7 @@ a.unfollow:hover {
 .csa .csa-payment .pay-with-paypal {
 	margin-top: 20px;
 	font-size: 16px;
+	display: none;
 }
 
 .csa .csa-payment .pay-with-paypal .dark_btn {
@@ -3698,6 +3845,21 @@ a.black_btn:hover {
 	margin-left: 165px;
 }
 
+/* ADRESS INFORMATION */
+
+.address_info_block {
+	font-size: 14px;
+	line-height: 22px;
+	margin-bottom: 15px;
+}
+
+.address_info_block .title {
+	font-size: 16px;
+	border-bottom: 1px solid #cdcdcd;
+	padding-bottom: 5px;
+	margin-bottom: 15px;
+}
+
 /* JOIN popups */
 
 .top_bar .right_side > div.join {
@@ -4189,6 +4351,73 @@ a.black_btn:hover {
 	position: absolute;
 	right: 0;
 	top: 10px;
+}
+
+/* Thank you page */
+
+.thank_you_page .aside {
+	border-right: 1px solid #dedede;
+	text-align: center;
+	margin-top: 10px;
+}
+
+@media screen and (max-width: 991px){
+	.thank_you_page .aside {
+		border: none;
+	}
+}
+
+.thank_you_page .content {
+	margin-top: 10px;
+}
+
+.thank_you_page h2 {
+	font-size: 20px;
+	text-transform: uppercase;
+	font-family:"Didot W01 Roman";
+	margin: 0;
+	letter-spacing: 1px;
+}
+
+.thank_you_page h2 .big {
+	font-size: 25px;
+}
+
+.thank_you_page .aside span {
+	font-size: 14px;
+	font-family:"Didot W01 Bold";
+}
+
+.thank_you_page .aside .order {
+	margin: 30px 0;
+}
+
+.thank_you_page .title {
+	margin: 0 auto;
+}
+
+.thank_you_page .title .tell_us {
+	margin-top: 20px;
+	margin-bottom: 3px;
+	padding-bottom: 50px;
+	background: url(../images/tell_us.png) no-repeat center bottom;
+}
+
+.thank_you_page .do_you_like {
+	position: static;
+	margin: 0 auto;
+	border: 1px solid #dedede;
+	padding: 20px;
+	z-index: 1;
+}
+
+.thank_you_page .do_you_like .bottom_btn a {
+	z-index: 1;
+}
+
+.thank_you_page .do_you_like a.thank_slider_left,
+.thank_you_page .do_you_like a.thank_slider_right {
+	z-index: 2;
 }
 
 /* SHIPPING AND REFUNDS STARTS */
@@ -5041,6 +5270,12 @@ display: block;
 		text-align: center;
 	}
 
+	.table_footer .total {
+		float: none;
+		display: block;
+		text-align: center;
+	}
+
 }
 
 @media screen and (max-width: 545px) {
@@ -5236,6 +5471,39 @@ display: block;
 		margin-top: 0;
 		background: none;
 	}
+
+	.cart h5 a {
+		float: none;
+		display: block;
+		margin: 10px 0 5px;
+	}
+
+	.csa .csa-checkbox {
+		float: none;
+		text-align: left;
+	}
+
+	.flat_rate_shipping {
+		margin-bottom: 0;
+	}
+
+	.choose_payment .csa .csa-checkbox input {
+		top: -10px;
+		left: 0;
+	}
+
+	.csa .csa-payment {
+		float: none;
+	}
+
+	.csa .csa-payment .pay-with-paypal {
+		text-align: center;
+	}
+
+	.csa .csa-payment .pay-with-paypal .dark_btn {
+		margin-top: 10px;
+	}
+
 }
 
 @media screen and (max-width: 440px){
@@ -5275,6 +5543,10 @@ display: block;
 		width: 100%;
 		height: auto;
 	}
+
+	.csa .csa-payment .paypal-payment span, .csa .csa-payment .creditcard-payment span {
+		padding-left: 10px;
+	}
 }
 
 /* CLEARFIX */
@@ -5289,6 +5561,10 @@ display: block;
 
 .error, .thanks {
 	display: none;
+}
+
+.clear-left {
+	clear: left;
 }
 
 

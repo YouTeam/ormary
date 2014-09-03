@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ORMARY - Clothing</title>
+    <title>ORMARY - Search</title>
     <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -145,7 +145,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="responsive_menu">
                   <ul class="nav navbar-nav navbar-left">
-                    <li><a href="#">Whats new</a></li>
+                    <li><a href="#">What's new</a></li>
                     <li><a href="#">DESIGNERS</a></li>
                     <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">CLOTHING <b class="caret"></b></a>
                       <ul class="dropdown-menu orm_sub_dropdown-menu">
@@ -319,20 +319,47 @@
           </div>
         </div>
       </header>
-      <div class="container content search_page">
-        <h4>
-          Search for: 
-          <div class="search_span">
-            <span>badge</span>
-            <a href="#" class="open_search_input">
-              <img src="images/pencil.png" alt="Edit">
-            </a>
+      <div class="container content">
+        <div class="top_panel clearfix">
+          <div class="caption_with_counter">
+            <h4>SEARCH FOR: <span>BADGE</span></h4>
+            <span class="count_items">
+              Found 
+              <span class="number">130 </span> 
+               items
+            </span>
           </div>
-          <div class="search_input">
-            <input type="text" class="light_font s_input">
-            <input type="submit" value="">
+          <div class="wrap_pagination">
+            <ul class="pagination">
+              <li>
+                <a href="#" class="pag_arrow">
+                  <img src="images/pag-arrow-left.png" alt="">
+                </a>
+              </li>
+              <li><a href="#" class="active">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li>
+                <a href="#" class="pag_arrow">
+                  <img src="images/pag-arrow-right.png" alt="">
+                </a>
+              </li>
+            </ul>
           </div>
-        </h4>
+          <div class="wrap_items_on_page">
+            <form action="">
+              <span class="">Items on page</span>
+              <select name="" id="" class="items_on_page form-control">
+                <option value="">60</option>
+                <option value="">30</option>
+                <option value="">15</option>
+              </select>
+            </form>
+          </div>
+        </div>
+
         <a href="#" class="sort_by">Sort by</a>
         <div class="col-md-2 clearfix aside clothing_aside">
           <form action="" id="orm_filter">
@@ -715,39 +742,17 @@
             <a href="#" class="dark_btn clear_filter_btn">Clear  all filters</a>
           </form>
         </div>
-        <div class="col-md-9 clearfix nopadding">
-          <div class="clothing_top_panel search_results_panel clearfix">
-            <div class="col-md-6 clearfix">
-              <div class="quantity_elements light_font">
-                <span>30</span> items found
-              </div>
-            </div>
-            <div class="col-md-6 clearfix">
-              <div class="wrap_sort_by_newest">
-                <form action="">
-                  <select name="" id="" class="sort_by_newest form-control">
-                    <option value="">Sort by newest</option>
-                    <option value="">test1</option>
-                    <option value="">test2</option>
-                    <option value="">test3</option>
-                  </select>
-                </form>
-              </div>
-            </div>
-          </div>
-          <div class="section">
+        <div class="col-md-10 clearfix nopadding">
+          <div class="section clearfix">
             <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
                 <div class="product_wrap">
                   <div class="product">
                     <a href="#"><img src="images/test-img1.png" alt="1"></a>
-                    <div class="designer_name">Designer Name Designer Name Designer Name Designer Name Designer Name Designer Name Designer Name</div>
-                    <div class="prod_name light_font">Product name</div>
+                    <div class="designer_name">Designer Name</div>
+                    <div class="prod_name ">Product name</div>
                     <div class="price">£ 30</div>
-                    <a href="#" class="pin">
-                      <img src="images/pin.png" alt="pin it">
-                    </a>
                     <a href="#" class="add_to_wardrobe">
-                      <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
+                      + My Wardrobe
                     </a>
                   </div>
                 </div>
@@ -757,13 +762,10 @@
                   <div class="product">
                     <a href="#"><img src="images/test-img2.png" alt="2"></a>
                     <div class="designer_name">Designer Name</div>
-                    <div class="prod_name light_font">Product name</div>
+                    <div class="prod_name ">Product name</div>
                     <div class="price">£ 99</div>
-                    <a href="#" class="pin">
-                      <img src="images/pin.png" alt="pin it">
-                    </a>
                     <a href="#" class="add_to_wardrobe">
-                      <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
+                      + My Wardrobe
                     </a>
                   </div>
                 </div>
@@ -773,13 +775,10 @@
                   <div class="product">
                     <a href="#"><img src="images/test-img3.png" alt="3"></a>
                     <div class="designer_name">Designer Name</div>
-                    <div class="prod_name light_font">Product name</div>
+                    <div class="prod_name ">Product name</div>
                     <div class="price">£ 300</div>
-                    <a href="#" class="pin">
-                      <img src="images/pin.png" alt="pin it">
-                    </a>
                     <a href="#" class="add_to_wardrobe">
-                      <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
+                      + My Wardrobe
                     </a>
                   </div>
                 </div>
@@ -789,13 +788,10 @@
                   <div class="product">
                     <a href="#"><img src="images/test-img1.png" alt="1"></a>
                     <div class="designer_name">Designer Name</div>
-                    <div class="prod_name light_font">Product name</div>
+                    <div class="prod_name ">Product name</div>
                     <div class="price">£ 30</div>
-                    <a href="#" class="pin">
-                      <img src="images/pin.png" alt="pin it">
-                    </a>
                     <a href="#" class="add_to_wardrobe">
-                      <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
+                      + My Wardrobe
                     </a>
                   </div>
                 </div>
@@ -805,13 +801,10 @@
                   <div class="product">
                     <a href="#"><img src="images/test-img2.png" alt="2"></a>
                     <div class="designer_name">Designer Name</div>
-                    <div class="prod_name light_font">Product name</div>
+                    <div class="prod_name ">Product name</div>
                     <div class="price">£ 99</div>
-                    <a href="#" class="pin">
-                      <img src="images/pin.png" alt="pin it">
-                    </a>
                     <a href="#" class="add_to_wardrobe">
-                      <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
+                      + My Wardrobe
                     </a>
                   </div>
                 </div>
@@ -821,13 +814,23 @@
                   <div class="product">
                     <a href="#"><img src="images/test-img3.png" alt="3"></a>
                     <div class="designer_name">Designer Name</div>
-                    <div class="prod_name light_font">Product name</div>
+                    <div class="prod_name ">Product name</div>
                     <div class="price">£ 300</div>
-                    <a href="#" class="pin">
-                      <img src="images/pin.png" alt="pin it">
-                    </a>
                     <a href="#" class="add_to_wardrobe">
-                      <img src="images/add_to_wardrobe.png" alt="+ wardrobe">
+                      + My Wardrobe
+                    </a>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
+                <div class="product_wrap">
+                  <div class="product">
+                    <a href="#"><img src="images/test-img3.png" alt="3"></a>
+                    <div class="designer_name">Designer Name</div>
+                    <div class="prod_name ">Product name</div>
+                    <div class="price">£ 300</div>
+                    <a href="#" class="add_to_wardrobe">
+                      + My Wardrobe
                     </a>
                   </div>
                 </div>
@@ -836,7 +839,7 @@
         </div>
       </div>
     </div>
-    
+
     <footer>
       <div class="container-fluid footer_top">
         <div class="container">
@@ -929,31 +932,29 @@
     <script src="js/iscroll.js"></script>
     <script src="js/main.js"></script>
     <script>
-      var myScroll;
+
+    /* Custom scroll */
+
+    var myScroll;
 
 
-      myScroll = new IScroll('.scrollable-area', {
-        scrollbars: true,
-        mouseWheel: true,
-        interactiveScrollbars: true,
-        shrinkScrollbars: 'scale',
-        fadeScrollbars: false
-      });
+    myScroll = new IScroll('.scrollable-area', {
+      scrollbars: true,
+      mouseWheel: true,
+      interactiveScrollbars: true,
+      shrinkScrollbars: 'scale',
+      fadeScrollbars: false
+    });
 
 
-      document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-    </script>
-    <script>
-      $(document).ready(function(){
-        $('.open_search_input').on('click',function(){
+    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 
-          var valueResult = $(this).siblings('span').text();
+    /* Items counter */
 
-          $(this).parent().hide();
-          $(this).parent().siblings('.search_input').show().css('display','inline-block');
-          $(this).parent().siblings('.search_input').children('.s_input').attr('value', valueResult);
-        });
-      });
+    var $i= $('.product_wrap').length;
+
+    $('.count_items .number').text($i);
+
     </script>
   </body>
 </html>
