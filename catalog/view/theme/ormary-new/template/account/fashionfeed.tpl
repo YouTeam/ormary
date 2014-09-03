@@ -27,7 +27,7 @@
                     <div class="col-md-4 col-sm-4 col-xs-6 clearfix">
                         <div class="product_wrap">
                             <div class="product">
-                                <a href="<?php print $this->url->link('product/product', 'product_id='.$p['product_id'], 'SSL') ?>" class="link_to_product"><img src="<?php print $p['image'];?>" alt="<?php print $p['name'];?>"></a>
+                                <a href="<?php print $this->url->link('product/product', 'product_id='.$p['product_id'], 'SSL') ?>" class="link_to_product"><img src="<?php print $p['image'];?>" alt="<?php print $p['name'];?>"  data-swap="<?php print $p['extraimage']; ?>"></a>
                                 <div class="designer_name"><?php print $p['manufacturer'];?></div>
                                 <div class="prod_name light_font"><?php print $p['name'];?></div>
                                 <div class="price"><?php print str_replace("£", "&pound;", $p['price']);?></div>

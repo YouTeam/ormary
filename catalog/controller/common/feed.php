@@ -71,6 +71,14 @@ class ControllerCommonFeed extends Controller {
 					
 					$p['image'] = $this->model_tool_image->resize('no_image.png', $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
 				}
+                                
+                                
+                                                         if (count($p['extraimages']) > 1) {
+                                $p['extraimage'] = $this->model_tool_image->resize($p['extraimages'][count($p['extraimages'])-1]['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
+                                } else {
+                                    $p['extraimage'] = '';
+                                }
+                           
 				$p['price']  = $this->currency->format($p['price'], $p['tax_class_id'], $this->config->get('config_tax'));
 			}
 			/*elseif($filter == "featured")
