@@ -250,8 +250,8 @@ on orders £125+<br>
                                 </div>
                                 <div class="collapse navbar-collapse" id="responsive_menu">
                                     <ul class="nav navbar-nav navbar-left">
-                                        <li><a href="<?php echo $this->url->link('product/category', 'path=0');?>&featured=1">What's new</a></li>
-                                        <li><a href="<?php echo $this->url->link('product/manufacturer');?>">DESIGNERS</a></li>
+                                        <li><a href="/new">What's new</a></li>
+                                        <li><a href="/designers">DESIGNERS</a></li>
                                         
                                         <?php if ($categories) { ?>
                                             <?php foreach ($categories as $category) { ?>
