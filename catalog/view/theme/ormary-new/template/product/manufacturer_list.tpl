@@ -4,9 +4,7 @@
 
   
 <div class="container content all_designers_page">
-    <div class="top_panel">
     <h4>All Designers</h4>
-</div>
     <a href="javascript:void(0)" class="sort_by">Sort by</a>
     <div class="col-md-2 clearfix aside clothing_aside">
         <form action="" id="orm_des_filter">
@@ -84,7 +82,8 @@
                                 foreach($manufacturers_numbers['manufacturers'] as $m)
                                 {
                                
-                                    print '<li><a href="index.php?route=product/manufacturer/info&manufacturer_id='.$m['manufacturer_id'].'">'.$m['name'].'</a></li>';
+                                   // print '<li><a href="index.php?route=product/manufacturer/info&manufacturer_id='.$m['manufacturer_id'].'">'.$m['name'].'</a></li>';
+								    print '<li><a href="'.$m['manufacturer_link'].'">'.$m['name'].'</a></li>';
                                 }
                                 ?>
                             </ul>
@@ -115,7 +114,8 @@
                      			print '<div class="col-md-4 col-sm-4 col-xs-6"><ul>';
                                 for($i= ceil($count/3); $i<ceil(2*$count/3); $i++)
                                 {
-                                    print '<li><a href="index.php?route=product/manufacturer/info&manufacturer_id='.$m['manufacturers'][$i]['manufacturer_id'].'">'.$m['manufacturers'][$i]['name'].'</a></li>';
+                                    //print '<li><a href="index.php?route=product/manufacturer/info&manufacturer_id='.$m['manufacturers'][$i]['manufacturer_id'].'">'.$m['manufacturers'][$i]['name'].'</a></li>';
+									print '<li><a href="'.$m['manufacturers'][$i]['manufacturer_link'].'">'.$m['manufacturers'][$i]['name'].'</a></li>';
                                 }
 	                     		print '</ul></div>';
                             }
@@ -125,7 +125,8 @@
                             	print '<div class="col-md-4 col-sm-4 col-xs-6"><ul>';
                                 for($i=ceil(2*$count/3); $i<$count; $i++)
                                 {
-                                    print '<li><a href="index.php?route=product/manufacturer/info&manufacturer_id='.$m['manufacturers'][$i]['manufacturer_id'].'">'.$m['manufacturers'][$i]['name'].'</a></li>';
+                                    //print '<li><a href="index.php?route=product/manufacturer/info&manufacturer_id='.$m['manufacturers'][$i]['manufacturer_id'].'">'.$m['manufacturers'][$i]['name'].'</a></li>';
+									print '<li><a href="'.$m['manufacturers'][$i]['manufacturer_link'].'">'.$m['manufacturers'][$i]['name'].'</a></li>';
                                 }
 	                     		print '</ul></div>';
                            	}
