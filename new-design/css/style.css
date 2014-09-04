@@ -1198,8 +1198,8 @@ a.clear_filter_btn {
 }
 
 .product_image .close_zoom {
-	width: 40px;
-	height: 40px;
+	width: 32px;
+	height: 32px;
 	position: absolute;
 	top: 10px;
 	right: 10px;
@@ -1260,7 +1260,17 @@ a.clear_filter_btn {
 .product_description {
 	font-size: 14px;
 	line-height: 24px;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
+}
+
+.product_custom_message {
+	font-size: 13px;
+	color: #8d8d8d;
+	padding: 10px 0 10px 50px;
+	background: url(../images/custom-massage-icon.png) no-repeat 12px center;
+	border-top: 1px solid #cecece;
+	border-bottom: 1px solid #cecece;
+	margin-bottom: 20px;
 }
 
 .available {
@@ -5361,10 +5371,12 @@ display: block;
 	.available_sizes {
 		float: none;
 		margin: 0 auto;
+		width: 100%;
 	}
 
-	.available + .available + .available {
-		margin-bottom: 0;
+	.buttons_pannel a.add_to_cart,
+	.buttons_pannel a.add_to_my_wardrobe {
+		width: 100%;
 	}
 
 	.available .size_guide {
