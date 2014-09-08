@@ -1,6 +1,6 @@
 
 <li class="open_cart_dropdown">
-    <a href="index.php?route=checkout/cart" class="cart">
+    <a href="<?php print $this->url->link('checkout/cart', '', 'SSL');?>" class="cart">
         <span>BAG</span>
         <span class="number total" id="cart_header_price"><?php echo str_replace('£', '&pound', $total_price); ?></span>
         <b class="caret"></b>
@@ -35,7 +35,7 @@
                 <div class="emptybag">
                 <h3 >Your Bag Is Empty.<br><br>:(</h3>
                 
-                <a href="/index.php?route=product/category&path=0&featured=1">SHOP WHAT'S NEW</a>
+                <a href="/new">SHOP WHAT'S NEW</a>
                 </div>
                 <?php
                 
@@ -52,7 +52,7 @@
                 <span class="">Total </span><span id="cart_price"><?php echo str_replace('£', '&pound', $total_price); ?></span>
             </span>
             <div class=" emptybag">
-                <a class="minicartcheckout" href="<?php print $this->url->link('checkout/cart');?>">Checkout</a>
+                <a class="minicartcheckout" href="<?php print $this->url->link('checkout/cart', '', 'SSL');?>">Checkout</a>
                 <!--<a href="<?php print $this->url->link('checkout/checkout');?>">Shipping and  Payment</a>-->
             </div>
         </div>

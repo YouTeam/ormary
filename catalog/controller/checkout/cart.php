@@ -38,7 +38,7 @@ class ControllerCheckoutCart extends Controller {
 			unset($this->session->data['payment_methods']); 
 			unset($this->session->data['reward']);  
 
-			$this->redirect($this->url->link('checkout/cart'));
+			$this->redirect($this->url->link('checkout/cart', '', 'SSL'));
 		}
 
 		// Coupon    
@@ -47,7 +47,7 @@ class ControllerCheckoutCart extends Controller {
 
 			$this->session->data['success'] = $this->language->get('text_coupon');
 
-			$this->redirect($this->url->link('checkout/cart'));
+			$this->redirect($this->url->link('checkout/cart', '', 'SSL'));
 		}
 
 		// Voucher
@@ -56,7 +56,7 @@ class ControllerCheckoutCart extends Controller {
 
 			$this->session->data['success'] = $this->language->get('text_voucher');
 
-			$this->redirect($this->url->link('checkout/cart'));
+			$this->redirect($this->url->link('checkout/cart', '', 'SSL'));
 		}
 
 		// Reward
@@ -65,7 +65,7 @@ class ControllerCheckoutCart extends Controller {
 
 			$this->session->data['success'] = $this->language->get('text_reward');
 
-			$this->redirect($this->url->link('checkout/cart'));
+			$this->redirect($this->url->link('checkout/cart', '', 'SSL'));
 		}
 
 		// Shipping
@@ -76,7 +76,7 @@ class ControllerCheckoutCart extends Controller {
 
 			$this->session->data['success'] = $this->language->get('text_shipping');
 
-			$this->redirect($this->url->link('checkout/cart'));
+			$this->redirect($this->url->link('checkout/cart', '', 'SSL'));
 		}
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -179,7 +179,7 @@ class ControllerCheckoutCart extends Controller {
 				$this->data['success'] = '';
 			}
 
-			$this->data['action'] = $this->url->link('checkout/cart');   
+			$this->data['action'] = $this->url->link('checkout/cart', '', 'SSL');   
 
 			if ($this->config->get('config_cart_weight')) {
 				$this->data['weight'] = $this->weight->format($this->cart->getWeight(), $this->config->get('config_weight_class_id'), $this->language->get('decimal_point'), $this->language->get('thousand_point'));
