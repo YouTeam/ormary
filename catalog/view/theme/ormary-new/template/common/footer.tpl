@@ -30,6 +30,7 @@
                         <li><a href="<?php echo $informations[3]['href'];?>">Privacy Policy</a></li>
                         <li><a href="<?php echo $informations[5]['href'];?>">Terms and Conditions</a></li>
                         <li><a href="<?php echo $sitemap; ?>">Sitemap</a></li>
+                   
                     </ul>
                 </div>
                 <div class="col-md-3 col-sm-3">
@@ -41,6 +42,9 @@
                             print '<li><a href="'.$c['href'].'">'.$c['name'].'</a></li>';
                         }
                         ?>
+                       <li><a href="/new">What's New</a></li>
+                       <li><a href="/desginers">Designers</a></li>
+
                     </ul>
                 </div>
                 <div class="col-md-3 col-sm-3">
@@ -51,6 +55,7 @@
                         <li><a href="<?php echo $return; ?>">Returns and Exchanges</a></li>
                         <li>Payment Security</li>
                         <li>FAQs</li>
+                       
                     </ul>
                 </div>
                 <div class="col-md-3 col-sm-3">
@@ -64,23 +69,20 @@
                             <li><a href="<?php echo $wishlist; ?>">My Wardrobe</a></li>
                             <li><a href="<?php echo $home; ?>">My Fashionfeed</a></li>
                         <?php } ?>     
-                        <li>
-<!--                            <div class="sign_up">
-                            	<input type="text" placeholder="Sign up to newsletter" class="">
-                            	<input type="submit" value=" ">
-                            </div>-->
-                        </li>
+                               <li style="padding-top: 15px;">
+                        	<!-- Begin DigiCert site seal HTML and JavaScript -->
+<div id="DigiCertClickID_2r7W4-aT" data-language="en_US" style="float: left">
+	<a href="https://www.digicert.com/ev-ssl-certification.htm">EV SSL</a>
+</div>
+<script type="text/javascript">
+var __dcid = __dcid || [];__dcid.push(["DigiCertClickID_2r7W4-aT", "10", "s", "black", "2r7W4-aT"]);(function(){var cid=document.createElement("script");cid.async=true;cid.src="//seal.digicert.com/seals/cascade/seal.min.js";var s = document.getElementsByTagName("script");var ls = s[(s.length - 1)];ls.parentNode.insertBefore(cid, ls.nextSibling);}());
+</script>
+<!-- End DigiCert site seal HTML and JavaScript -->
+       </li>
                     </ul>
                 </div>
         	</div>
-            <div class="container footer_bottom text-center">
-            	<a href="#">
-            		<img src="catalog/view/theme/ormary-new/images/pay1.png" alt="">
-            	</a>
-            	<a href="#">
-            		<img src="catalog/view/theme/ormary-new/images/pay2.png" alt="">
-            	</a>
-            </div>
+         
         	<div class="copyright  text-center">
             	©2014 Ormary  All rights reserved
             </div>
