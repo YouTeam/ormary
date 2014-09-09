@@ -111,7 +111,7 @@ class ControllerProductCategory extends Controller {
 		}
 			
 		if ($category_info || $category_id == 0) {
-			$this->document->setTitle($category_info['name']);
+			$this->document->setTitle($category_info['name'] . ' | Ormary.com');
 			$this->document->setDescription($category_info['meta_description']);
 			$this->document->setKeywords($category_info['meta_keyword']);
 			$this->document->addScript('catalog/view/javascript/jquery/jquery.total-storage.min.js');
