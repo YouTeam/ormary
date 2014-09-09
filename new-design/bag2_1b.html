@@ -359,102 +359,130 @@
 				Choose your payment method
 			</h5>
 			<form action="">
-				<label class="csa clearfix">
-					<div class="csa-checkbox">
-						<input type="radio" id="firstPayment" name="choose_payment">
-					</div>
-					<div class="csa-payment">
-						<div class="paypal-payment payment-type clearfix">
-							<img src="images/paypal.png" alt="PayPal">
-							<span>Pay Pal</span>
+				<div class="csa clearfix">
+					<label class="csa-label clearfix">
+						<div class="csa-checkbox">
+							<input type="radio" id="firstPayment" name="choose_payment">
 						</div>
-						<div class="pay-with-paypal">
-							<span>To pay with PayPal, simply click</span> 
-							<a href="#" class="dark_btn">Next step</a>
-						</div>
-					</div>
-				</label>
-				<label class="csa clearfix">
-					<div class="csa-checkbox">
-						<input type="radio" id="secondPayment" name="choose_payment" checked>
-					</div>
-					<div class="csa-payment">
-						<div class="creditcard-payment payment-type clearfix active">
-							<img src="images/credit_card.png" alt="PayPal">
-							<span>Credit Card</span>
-						</div>
-					</div>
-					<div class="creditcard-payment-info row clear-left clearfix">
-						<div class="col-sm-4">
-							<div class="billing_address">
-								<div class="caption text-center">
-									<span>
-										<img src="./images/billing.png" alt="">
-									</span>
-									Billing address
-								</div>
-								<div class="content">
-									Address Line 1 <br>
-									Address Line 2 <br>
-									Address Line 3 <br>
-									City <br>
-									State <br>
-									Postcode <br>
-									Country <br>
-								</div>
-								<a href="#" class="edit-btn">Edit</a>
+						<div class="csa-payment">
+							<div class="paypal-payment payment-type clearfix">
+								<img src="images/paypal.png" alt="PayPal">
+								<span>PAY PAL</span>
 							</div>
 						</div>
-						<div class="col-sm-4">
-							<div class="cart_inputs card_type">
-								<div class="inputs_group">
-									<div class="inputs_row clearfix">
-										<div class="input_wrap">
-											<label>
-												<span>Card type</span>
-												<select name="" id="" class="form-control">
-													<option value="">Visa</option>
-													<option value="">Visa</option>
-													<option value="">Visa</option>
-												</select>
-											</label>
-										</div>
-										<div class="input_wrap">
-											<label>
-												<span>Name on card</span>
-												<input type="text">
-											</label>
-										</div>
-										<div class="input_wrap">
-											<label>
-												<span>Card number</span>
-												<input type="text">
-											</label>
-										</div>
-										<div class="input_wrap">
-											<label>
-												<span>Expiry date</span>
-												<input type="text">
-											</label>
-										</div>
-										<div class="input_wrap">
-											<label>
-												<span>Security code</span>
-												<input type="text">
-											</label>
-										</div>
-									</div>
+					</label>
+					<div class="pay-with-paypal">
+						<span>To pay with PayPal, simply click</span> 
+						<a href="#" class="dark_btn">Next step</a>
+					</div>
+				</div>
+				<div class="csa clearfix">
+					<label class="csa-label clearfix">
+						<div class="csa-checkbox">
+							<input type="radio" id="secondPayment" name="choose_payment" checked>
+						</div>
+						<div class="csa-payment">
+							<div class="creditcard-payment payment-type active clearfix">
+								<img src="images/credit_card.png" alt="PayPal">
+								<span>CREDIT CARD</span>
+							</div>
+						</div>
+					</label>
+					<div class="cart_inputs csa-inputs clearfix">
+						<div class="inputs_group">
+							<div class="inputs_row clearfix">
+								<div class="input_wrap">
+									<label>
+										<span>First name</span>
+										<input type="text">
+									</label>
+								</div>
+								<div class="input_wrap">
+									<label>
+										<span>Last name</span>
+										<input type="text">
+									</label>
+								</div>
+							</div>
+							<div class="inputs_row clearfix">
+								<div class="input_wrap">
+									<label>
+										<span>Country</span>
+										<select name="" id="" class="form-control">
+											<option value="">Select a country</option>
+											<option value="">UK</option>
+											<option value="">USA</option>
+										</select>
+									</label>
 								</div>
 							</div>
 						</div>
+						<div class="inputs_group">
+							<div class="inputs_row clearfix">
+								<div class="input_wrap">
+									<label>
+										<span>Address 1</span>
+										<input type="text">
+									</label>
+								</div>
+								<div class="input_wrap">
+									<label>
+										<span>Address 2</span>
+										<input type="text">
+									</label>
+								</div>
+							</div>
+							<div class="inputs_row clearfix">
+								<div class="input_wrap">
+									<label>
+										<span>Address 3</span>
+										<input type="text">
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="inputs_group">
+							<div class="inputs_row clearfix">
+								<div class="input_wrap">
+									<label>
+										<span>City</span>
+										<input type="text">
+									</label>
+								</div>
+								<div class="input_wrap">
+									<label>
+										<span>State</span>
+										<input type="text">
+									</label>
+								</div>
+							</div>
+							<div class="inputs_row clearfix">
+								<div class="input_wrap">
+									<label>
+										<span>Postcode or ZIP</span>
+										<input type="text">
+									</label>
+								</div>
+								<div class="input_wrap">
+									<label>
+										<span>Mobile</span>
+										<input type="tel">
+									</label>
+								</div>
+							</div>
+						</div>
+						<label class="basas">
+							<input type="checkbox">
+							Billing address same as shipping
+						</label>
+						<div class="clearfix">
+							<div class="bag-bottom clearfix">
+								<a href="#" class="dark_btn">next step</a>
+							</div>
+						</div>
 					</div>
-				</label>
+				</div>
 			</form>
-		</div>
-		<div class="clearfix">
-			<div class="bag-bottom clearfix">
-				<a href="#" class="dark_btn">next step</a>
-			</div>
 		</div>
 	  </div>
 	</div>

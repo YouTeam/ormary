@@ -2,19 +2,12 @@
 
 jQuery(document).ready(function(){
 
-	$('.choose_payment .csa').click(function(){
-		$(this).children('.csa-payment').children('.payment-type').addClass('active');
-		$(this).siblings().children('.csa-payment').children('.payment-type').removeClass('active');
-		
-		$(this).children('.csa-payment').children('.payment-type.active').next().slideDown();
-		$(this).siblings().children('.csa-payment').children('.payment-type').next().slideUp();
+	$('.csa-label').click(function(){
 
-		if ($('.creditcard-payment').hasClass('active')) {
-			$('.creditcard-payment-info').slideDown();
-		}
-		else {
-			$('.creditcard-payment-info').slideUp();
-		}
+		$(this).next().slideDown();
+
+		$(this).parent().siblings().children('.csa-label').next().slideUp();
+
 	});
 
 });

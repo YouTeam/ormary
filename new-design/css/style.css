@@ -14,6 +14,7 @@ textarea:focus { outline: none; }
 
 label {
 	font-weight: normal;
+	cursor: pointer;
 }
 
 body {
@@ -3049,7 +3050,12 @@ a.unfollow:hover {
 	border-bottom: 1px dashed #d0d0d0;
 	margin: 0;
 	font-size: 14px;
+	position: relative;
+}
+
+.csa .csa-label {
 	cursor: pointer;
+	margin: 0;
 }
 
 .csa:last-child {
@@ -3127,13 +3133,15 @@ a.edit_btn {
 	padding-left: 20px;
 }
 
-.csa .csa-payment .pay-with-paypal {
-	margin-top: 20px;
+.pay-with-paypal {
 	font-size: 16px;
+	clear: left;
+	margin: 0px 0 0 63px;
+	padding-top: 20px;
 	display: none;
 }
 
-.csa .csa-payment .pay-with-paypal .dark_btn {
+.pay-with-paypal .dark_btn {
 	display: inline-block;
 }
 
@@ -3182,6 +3190,7 @@ a.edit_btn {
 
 .card_type .input_wrap {
 	width: 100%;
+	margin: 0;
 }
 
 .card_type .input_wrap label {
@@ -3190,6 +3199,22 @@ a.edit_btn {
 
 .billing_address .edit-btn:hover {
 	background: #000;
+}
+
+.csa .csa-inputs .inputs_group {
+	margin-left: 63px;
+}
+
+.basas {
+	position: absolute;
+	top: 30px;
+	right: 0;
+}
+
+.basas input {
+	position: relative;
+	top: 2px;
+	left: 0;
 }
 
 .bag-bottom {
@@ -3868,6 +3893,11 @@ a.black_btn:hover {
 	border-bottom: 1px solid #cdcdcd;
 	padding-bottom: 5px;
 	margin-bottom: 15px;
+}
+
+a.add_address_btn {
+	display: inline-block;
+	margin: 50px 0 0;
 }
 
 /* JOIN popups */
@@ -5142,9 +5172,34 @@ display: block;
 
 	.cart_inputs .input_wrap {
 		float: left;
-		width: 50%;
 		width: 100%;
 		margin-right: 10px;
+	}
+
+	.csa .csa-inputs .inputs_group {
+		margin-left: 0;
+	}
+
+	.pay-with-paypal {
+		margin: 0;
+	}
+
+	.pay-with-paypal span { 
+		display: block;
+	}
+
+	.pay-with-paypal .dark_btn {
+		margin: 10px 0;
+		clear: left;
+	}
+
+	.csa .csa-payment .paypal-payment span, .csa .csa-payment .creditcard-payment span {
+		display: none;
+	}
+
+	.basas {
+		position: static;
+		display: block;
 	}
 
 }
