@@ -203,11 +203,11 @@
                 <span>Your email <span class="required">*</span></span>
                 <input type="text" required value="<?php print $user_email;?>" name="myemail">
               </label>
-              <label>
+              <label id="friendsEmail">
                 <span>Your friend email <span class="required">*</span></span>
-                <input type="text" required name="femail">
+                <input type="text" required name="femail[]">
               </label>
-              <a href="#" class="one_more_friend">Add one more friend </a>
+              <a href="javascript:void(0)" onclick="addEmail()" class="one_more_friend">Add one more friend </a>
               <label>
                 <span>Subject <span class="required">*</span></span>
                 <input type="text" required value="<?php echo $heading_title; ?>" name="subject">
@@ -242,6 +242,12 @@
           loadingIcon : '/catalog/view/theme/ormary-new/images/productloading.gif'
         }); 
       }).resize();
+	  
+	  function addEmail()
+	  {
+		$('#friendsEmail').append ('<br><br><span>&nbsp;</span><input type="text" required="" name="femail[]">');
+	  }
+	  
 
     </script>
 

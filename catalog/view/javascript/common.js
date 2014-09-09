@@ -157,7 +157,7 @@ function addToWishList(product_id) {
 				
 				$('#wishlist-total').html(json['total']);
 				
-				$('html, body').animate({ scrollTop: 0 }, 'slow');
+				//$('html, body').animate({ scrollTop: 0 }, 'slow');
 			}	
 		}
 	});
