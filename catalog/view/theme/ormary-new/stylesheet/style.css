@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Lora);
+@import url(//fonts.googleapis.com/css?family=Lora);
 
 /* CUSTOM STYLES */
 
@@ -295,6 +295,11 @@ select {
 
 .product a{
 	color: black;
+}
+
+
+.product a:hover{
+	text-decoration: none;
 }
 
 .product a:first-child > img {
@@ -3105,7 +3110,8 @@ a.dark_btn {
 
 a.dark_btn:hover,
 .emptybag a:hover,
-a.minicartcheckout:hover{
+a.minicartcheckout:hover,
+a.empty_whatsnew:hover{
 	color: #000000 !important;
 	background: #ffffff;
 	border: 1px solid #000000;
@@ -5523,7 +5529,7 @@ line-height: 41px !important;
 }
 
 
-.emptybag a {
+.emptybag a{
     display: block;
 padding: 0 30px;
 height: 32px;
@@ -5543,6 +5549,33 @@ padding-bottom: 30px;
 margin-bottom: 18px;
 margin-top: 30px;
 }
+
+
+a.empty_whatsnew{
+    display: block;
+padding: 0 30px;
+height: 32px;
+line-height: 32px;
+text-align: center;
+font-size: 14px;
+text-transform: uppercase;
+text-decoration: none;
+position: relative;
+color: #ffffff;
+background: #000000;
+border: none;
+letter-spacing: 2px;
+height: 41px !important;
+line-height: 41px !important;
+padding-bottom: 30px;
+margin-bottom: 18px;
+margin-top: 30px;
+color: white;
+    width: 300px;
+margin-left: auto;
+margin-right: auto;
+}
+
 
  a.minicartcheckout {
     display: block;
