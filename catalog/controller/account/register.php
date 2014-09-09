@@ -394,6 +394,7 @@ class ControllerAccountRegister extends Controller {
 		$first_designer = current($this->session->data['designers']);
 		$this->session->data['designers_style_count'] = $first_designer['style'];
 		$this->session->data['designers_liked_count'] = 0;
+		$this->session->data['designers_liked_summary'] = 0;
 		
 		$this->data['first_designer_order_id'] = 0;
 		
@@ -427,6 +428,7 @@ class ControllerAccountRegister extends Controller {
 		{	
 			if($this->request->post['like'] == "yes")
 			{	
+				$this->session->data['designers_liked_summary'] += 1;
 				$this->session->data['designers'][$this->request->post['designer_id']]['liked'] = "yes";
 				if($this->session->data['designers_style_count'] == $this->session->data['designers'][$this->request->post['designer_id']]['style'])
 				{
@@ -554,7 +556,7 @@ class ControllerAccountRegister extends Controller {
 				}
 			}
 		}
-		
+		$json['designers_liked_summary'] = $this->session->data['designers_liked_summary'];
 		$this->response->setOutput(json_encode($json));		
 	}
 	

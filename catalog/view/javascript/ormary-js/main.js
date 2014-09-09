@@ -989,7 +989,7 @@ function getNextDesigner(mid, action)
 				$('.wrap_do_you_like .des-img ').attr('id', json['designer']['mid']);
 				$('.wrap_do_you_like .designer_goods_slider .swiper-wrapper').html(json['designer']['image_list']);	
 				designerGoods();
-				if(json['designers_liked_count'] >=3)
+				if(json['designers_liked_summary'] >=3)
 				{
 					$('.wrap_do_you_like .open_wizard3').show();
 				}
