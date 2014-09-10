@@ -210,3 +210,50 @@ function addToCompare(product_id) {
 		}
 	});
 }
+ 
+  function validateLogin()
+  {
+		$.ajax({
+			url: 'index.php?route=account/login/ajaxValidate',
+			type: 'post',
+			data: $('#module_login input[type=\'text\'], #module_login input[type=\'password\']'),
+			dataType: 'json',
+			success: function(json) {
+				if (json['error'].length != 0) 
+				{					
+					if(json['error']['email'])
+					{
+						$('#module_login #email-error').show();	
+					}
+					else
+					{
+						$('#module_login #email-error').hide();
+					}
+					
+					if(json['error']['password'])
+					{
+						$('#module_login #pass-error').show();	
+					}
+					else
+					{
+						$('#module_login #pass-error').hide();
+					}
+					
+					if(json['error']['incorrect'])
+					{
+						$('#module_login #login-error').show();	
+					}
+					else
+					{
+						$('#module_login #login-error').hide();
+					}
+					
+				} 
+				else
+				{
+					$('.sign_up_popup').hide();
+					$('#module_login').submit();
+				}	
+			}
+			});
+  }

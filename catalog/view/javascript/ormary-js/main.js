@@ -900,21 +900,24 @@ $(document).ready(function(){
                var _this= $(this).find('img');
                var cururl = _this.attr('src');
                var newurl = _this.attr('data-swap');
-               if (newurl != '') {
-               _this.attr('src' , newurl)
-               _this.attr('data-swap' , cururl)
-               }
-                   },
+			   if (_this.length > 1 ){
+			   _this = _this[0];
+			   }
+               _this.attr('src' , newurl);
+               _this.attr('data-swap' , cururl);
+                },
                 function() {
                  var _this= $(this).find('img');
                var cururl = _this.attr('src');
                var newurl = _this.attr('data-swap');
-               
-                    if (newurl != '') {
-               _this.attr('src' , newurl)
-               _this.attr('data-swap' , cururl)
+			   var attr = _this.attr('alt');
+			   if (_this.length > 1 ){
+			   _this = _this[0];
+			   }
+               _this.attr('src' , newurl);
+               _this.attr('data-swap' , cururl);
+			   
                 } 
-                }
                 )
         } 
         

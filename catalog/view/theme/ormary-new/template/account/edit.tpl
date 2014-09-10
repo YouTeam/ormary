@@ -29,7 +29,7 @@
                 <div class="title">
                   First name*
                 </div>
-            	<input type="text" name="firstname" value="<?php echo $firstname; ?>" />
+            	<input type="text" name="firstname" value="<?php echo $firstname; ?>" required/>
                 <?php if ($error_firstname) { ?>
                     <span style="font-size:10px;float:right"><?php echo $error_firstname; ?></span>
                 <?php } ?>
@@ -38,14 +38,14 @@
                 <div class="title">
                   Last name*
                 </div>
-            	<input type="text" name="lastname" value="<?php echo $lastname; ?>" />
+            	<input type="text" name="lastname" value="<?php echo $lastname; ?>" required/>
                 <?php if ($error_lastname) { ?>
                 	<span style="font-size:10px;float:right"><?php echo $error_lastname; ?></span>
                 <?php } ?>
             </div>       
     		<div class="wrap_input clearfix">
                 <div class="title">
-                	User name*
+                	User name
                 </div>
             	<span>http://www.ormary.com/</span>
             	 <input type="text" class="user_name" name="user_link" value="<?php print $user_link;?>">
@@ -71,7 +71,7 @@
                 <div class="title">
                 Your email*
                 </div>
-            	<input type="text" name="email" value="<?php echo $email; ?>" />
+            	<input type="text" name="email" value="<?php echo $email; ?>" required>
                 <?php if ($error_email) { ?>
                     <span style="font-size:10px;float:right"><?php echo $error_email; ?></span>
                 <?php } ?>
@@ -82,7 +82,7 @@
 			</div>
             <div class="wrap_input clearfix">
                 <div class="title">
-                	Phone number*
+                	Phone number
                 </div>
                 <input type="text" name="telephone" value="<?php echo $telephone; ?>" />
                 <?php if ($error_telephone) { ?>
@@ -102,9 +102,10 @@
                 <textarea name="biography" placeholder='Tell about yourself'><?php echo $biography; ?></textarea>
 			</div>
             <input type="hidden" name="fax" value="" />
+			<input type="submit" style="display:none" id="submitProfile">
         </form>
         <div class="wrap_link">
-           <a href="javascript::void(0)" onclick="$('#account_form').submit();" class="black_btn">Save profile</a>
+           <a href="javascript:void(0)" onclick="$('#submitProfile').click();" class="black_btn">Save profile</a>
         </div>
         <div class="disable_my_account">
             <div class="caption">Account disabling</div>

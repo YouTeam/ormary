@@ -23,7 +23,7 @@
                 <div class="title">
                   Address*
                 </div>
-                <input type="text" name="address_1" value="<?php echo $address_1; ?>" />
+                <input type="text" name="address_1" value="<?php echo $address_1; ?>" required/>
                 <?php if ($error_address_1) { ?>
                 <span class="error"><?php echo $error_address_1; ?></span>
                 <?php } ?>
@@ -38,7 +38,7 @@
                 <div class="title">
                   City*
                 </div>
-                <input type="text" name="city" value="<?php echo $city; ?>" />
+                <input type="text" name="city" value="<?php echo $city; ?>" required/>
                 <?php if ($error_city) { ?>
                 <span class="error"><?php echo $error_city; ?></span>
                 <?php } ?>
@@ -47,14 +47,14 @@
                 <div class="title">
                   Post code*
                 </div>
-                <input type="text" name="postcode" value="<?php echo $postcode; ?>" />
+                <input type="text" name="postcode" value="<?php echo $postcode; ?>" required/>
                 <?php if ($error_postcode) { ?>
                 <span class="error"><?php echo $error_postcode; ?></span>
                 <?php } ?>
             </div>
             <div class="wrap_select country_select">
                 <div class="title">Country*</div>
-                <select name="country_id">
+                <select name="country_id" required>
                   <option value=""><?php echo $text_select; ?></option>
                   <?php foreach ($countries as $country) { ?>
                   <?php if ($country['country_id'] == $country_id) { ?>
@@ -98,9 +98,10 @@
                 <span class="error"><?php echo $error_lastname; ?></span>
                 <?php } ?>
             </div> 
+			<input type="submit" style="display:none" id="submitAddress">
         </form> 
         <div class="wrap_link">
-           <a href="javascript::void(0)" onclick="$('#account_addr_form').submit();" class="black_btn">Save profile</a>
+           <a href="javascript:void(0)" onclick="$('#submitAddress').click();" class="black_btn">Save profile</a>
         </div>   
 	</div>
 

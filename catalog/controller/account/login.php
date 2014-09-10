@@ -214,5 +214,32 @@ class ControllerAccountLogin extends Controller {
 			return false;
 		}
 	}
+	
+	public function ajaxValidate() 
+	{
+		$json = array();
+		$error =array();
+		
+		if ((utf8_strlen($this->request->post['email']) > 96) || !preg_match('/^[^\@]+@.*\.[a-z]{2,6}$/i', $this->request->post['email'])) {
+			$error['email'] = $this->language->get('error_email');
+		}
+		
+		elseif ((utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20)) {
+			$error['password'] = $this->language->get('error_password');
+		}
+		
+		elseif (!$this->customer->login($this->request->post['email'], $this->request->post['password']))
+		{
+			$error['incorrect'] = $this->language->get('error_email');;	
+		}
+		
+		if($error != '')
+		{
+			$json['error'] = $error;
+		}
+		
+		
+		$this->response->setOutput(json_encode($json));	
+	}
 }
 ?>
