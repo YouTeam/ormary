@@ -132,6 +132,7 @@
   function loginClick()
   {
   $('#module_login').submit();
+
   }
   //--></script>
 <?php } ?>
