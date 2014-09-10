@@ -776,7 +776,9 @@ $(document).ready(function(){
 			$( "ul.filter-designers" ).html('');
 			$('#orm_filter input[type="hidden"]').trigger('change');
 		}
-		$.get("index.php?route=module/category/getDesignersByName", { dname : name}, function(data){ 
+		catId = $('#catId').val();
+		
+		$.get("index.php?route=module/category/getDesignersByNameAndCategory", { dname : name, category:catId}, function(data){ 
 			$( "ul.filter-designers" ).html(data); 
 	
 			$( "ul.filter-designers" ).find("input[type=radio]").change(function(){

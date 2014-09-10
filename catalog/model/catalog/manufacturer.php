@@ -95,6 +95,44 @@ class ModelCatalogManufacturer extends Model {
 		return $designers_list;
 	}
 	
+	public function getManufacturersByNameAndCategory($name, $category) 
+	{
+		$designers_list = '';
+
+		if($name != "")
+		{
+			$designers = $this->db->query("SELECT * FROM " . DB_PREFIX . "manufacturer m WHERE name LIKE '".$this->db->escape($name)."%' and m.manufacturer_id in (select p.manufacturer_id from ".DB_PREFIX."product p left join ".DB_PREFIX."product_to_category ptc on p.product_id = ptc.product_id WHERE ptc.category_id = ".$category.") ORDER BY name");
+			foreach($designers->rows as $d)
+			{
+				$designers_list .='<li class="light_font">
+										<input type="radio" name="designer" id="d'.$d['manufacturer_id'].'" value="'.$d['manufacturer_id'].'">
+										<label class="filter-label" for="d'.$d['manufacturer_id'].'">
+											'.$d['name'].'
+										</label>
+									</li>';	
+			}
+		}
+		else
+		{
+			$designers = $this->db->query("SELECT * FROM " . DB_PREFIX . "manufacturer m WHERE m.manufacturer_id in (select p.manufacturer_id from ".DB_PREFIX."product p left join ".DB_PREFIX."product_to_category ptc on p.product_id = ptc.product_id WHERE ptc.category_id = ".$category.")  ORDER BY name");
+			$designers_list .='<li class="light_font">
+										<input type="radio" name="designer" id="dalldesigners" value="-1">
+										<label class="filter-label" for="dalldesigners">All designers</label>
+									</li>';	
+			foreach($designers->rows as $d)
+			{
+				$designers_list .='<li class="light_font">
+										<input type="radio" name="designer" id="d'.$d['manufacturer_id'].'" value="'.$d['manufacturer_id'].'">
+										<label class="filter-label" for="d'.$d['manufacturer_id'].'">
+											'.$d['name'].'
+										</label>
+									</li>';	
+			}
+		}
+		
+		return $designers_list;
+	}
+	
 	
 	public function getManufacturersList($params = array()) 
 	{

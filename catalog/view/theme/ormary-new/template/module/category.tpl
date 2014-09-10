@@ -53,6 +53,7 @@
         </ul>
     </fieldset>
     <input type="hidden" name="page" id="page" value="catalog"/>
+	<input type="hidden" id="catId" value="<?php print $filter_options['category_id'];?>"/>
     <?php
     if(isset($filter_options['featured']))
     {
