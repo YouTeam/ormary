@@ -77,6 +77,10 @@ class ModelCatalogManufacturer extends Model {
 		else
 		{
 			$designers = $this->db->query("SELECT * FROM " . DB_PREFIX . "manufacturer m ORDER BY name");
+			$designers_list .='<li class="light_font">
+										<input type="radio" name="designer" id="dalldesigners" value="-1">
+										<label class="filter-label" for="dalldesigners">All designers</label>
+									</li>';	
 			foreach($designers->rows as $d)
 			{
 				$designers_list .='<li class="light_font">
