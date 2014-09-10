@@ -111,7 +111,7 @@ class ControllerProductCategory extends Controller {
 		}
 			
 		if ($category_info || $category_id == 0) {
-			$this->document->setTitle($category_info['name']);
+			$this->document->setTitle($category_info['name'] . ' | Ormary.com');
 			$this->document->setDescription($category_info['meta_description']);
 			$this->document->setKeywords($category_info['meta_keyword']);
 			$this->document->addScript('catalog/view/javascript/jquery/jquery.total-storage.min.js');
@@ -365,9 +365,12 @@ class ControllerProductCategory extends Controller {
 				$this->load->model('catalog/manufacturer');
 				$manufacturer_info = $this->model_catalog_manufacturer->getManufacturer($result['manufacturer_id']);
 
-                                                                        
-                             if(isset($result['extraimages'][count($result['extraimages'])-1]) )
-                                $swapimage = $this->model_tool_image->resize($result['extraimages'][count($result['extraimages'])-1]['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
+                             if (count($result['extraimages']) > 1) {                                           
+								if(isset($result['extraimages'][count($result['extraimages'])-1]) )
+									$swapimage = $this->model_tool_image->resize($result['extraimages'][count($result['extraimages'])-1]['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
+							} else {
+								$swapimage = '';
+							}
                                 
 				$this->data['products'][] = array(
 					'product_id'  => $result['product_id'],
