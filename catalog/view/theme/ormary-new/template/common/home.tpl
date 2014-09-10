@@ -1,7 +1,7 @@
 <?php echo $header; ?>
 <?php
 
-if (  $logged ) {
+if (  $this->customer->isLogged() ) {
 
 ?>
 
@@ -127,7 +127,7 @@ if (  $logged ) {
 
 <?php
 
-if (  $logged ) {
+if (  $this->customer->isLogged() ) {
 
 ?>
 
