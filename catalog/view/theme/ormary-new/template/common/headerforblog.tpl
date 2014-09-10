@@ -76,7 +76,7 @@
             			<div class="col-lg-3 col-md-2 left_side clearfix">
             				<?php if ($logo) { ?>
             					<div id="logo" class="logo">
-						 			<a href="<?php echo $home; ?>">
+						 			<a href="/">
                                     	<img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" />
                                     </a>
                                 </div>
