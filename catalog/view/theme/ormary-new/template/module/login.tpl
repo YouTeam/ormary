@@ -9,11 +9,14 @@
 		<div class="form">
             <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="module_login"> 
             <input type="text" name="email" placeholder="E-mail"/></span>
+			<div class="alert_error" style="display:none;" id="email-error">Please enter a valid email address</div>
             <input type="password" name="password" placeholder="Password"/>
+			<div class="alert_error" style="display:none;" id="pass-error">Please enter your password</div>
+            <div class="alert_error" style="display:none;" id="login-error">Your email and password does not match any registered account</div>
             <div class="forgotps">
             <a href="<?php print $this->url->link('account/forgotten', '', 'SSL');?>">Forgot your password?</a>
             </div>
-            <input type="submit" value="LOGIN" class="open_wizard" onclick="loginClick()">
+            <input type="submit" value="LOGIN" class="open_wizard" >
             </form>
 		</div>
         
@@ -124,15 +127,22 @@
  
  
   <script type="text/javascript"><!--
+  $('.open_wizard').click(function(event){
+		event.preventDefault();
+		validateLogin();
+		});
+  
   $('#module_login input').keydown(function(e) {
 	  if (e.keyCode == 13) {
-		  $('#module_login').submit();
+		  validateLogin();
 	  }
   });
-  function loginClick()
+
+function loginClick()
   {
   $('#module_login').submit();
 
   }
+
   //--></script>
 <?php } ?>

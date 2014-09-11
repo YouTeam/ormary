@@ -784,7 +784,9 @@ $(document).ready(function(){
 			$( "ul.filter-designers" ).html('');
 			$('#orm_filter input[type="hidden"]').trigger('change');
 		}
-		$.get("index.php?route=module/category/getDesignersByName", { dname : name}, function(data){ 
+		catId = $('#catId').val();
+		
+		$.get("index.php?route=module/category/getDesignersByNameAndCategory", { dname : name, category:catId}, function(data){ 
 			$( "ul.filter-designers" ).html(data); 
 	
 			$( "ul.filter-designers" ).find("input[type=radio]").change(function(){
@@ -908,21 +910,24 @@ $(document).ready(function(){
                var _this= $(this).find('img');
                var cururl = _this.attr('src');
                var newurl = _this.attr('data-swap');
-               if (newurl != '') {
-               _this.attr('src' , newurl)
-               _this.attr('data-swap' , cururl)
-               }
-                   },
+			   if (_this.length > 1 ){
+			   _this = _this[0];
+			   }
+               _this.attr('src' , newurl);
+               _this.attr('data-swap' , cururl);
+                },
                 function() {
                  var _this= $(this).find('img');
                var cururl = _this.attr('src');
                var newurl = _this.attr('data-swap');
-               
-                    if (newurl != '') {
-               _this.attr('src' , newurl)
-               _this.attr('data-swap' , cururl)
+			   var attr = _this.attr('alt');
+			   if (_this.length > 1 ){
+			   _this = _this[0];
+			   }
+               _this.attr('src' , newurl);
+               _this.attr('data-swap' , cururl);
+			   
                 } 
-                }
                 )
         } 
         
@@ -997,7 +1002,7 @@ function getNextDesigner(mid, action)
 				$('.wrap_do_you_like .des-img ').attr('id', json['designer']['mid']);
 				$('.wrap_do_you_like .designer_goods_slider .swiper-wrapper').html(json['designer']['image_list']);	
 				designerGoods();
-				if(json['designers_liked_count'] >=3)
+				if(json['designers_liked_summary'] >=3)
 				{
 					$('.wrap_do_you_like .open_wizard3').show();
 				}

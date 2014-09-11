@@ -1,11 +1,11 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://ormary.com/admin/');
-define('HTTP_CATALOG', 'http://ormary.com/');
+define('HTTP_SERVER', 'http://www.ormary.com/admin/');
+define('HTTP_CATALOG', 'http://www.ormary.com/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://ormary.com/admin/');
-define('HTTPS_CATALOG', 'http://ormary.com/');
+define('HTTPS_SERVER', 'http://www.ormary.com/admin/');
+define('HTTPS_CATALOG', 'http://www.ormary.com/');
 
 // DIR
 define('DIR_APPLICATION', '/var/www/admin/');

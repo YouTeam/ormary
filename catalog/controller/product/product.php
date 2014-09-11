@@ -630,7 +630,15 @@ $this->data['share_prod_friend']=$this->url->link('product/product/emailshare', 
 	{
 		$url = $this->url->link('product/product', 'product_id=' . $this->request->get['product_id']);
 		$email_message = file_get_contents('./emails/share_template.html', FILE_USE_INCLUDE_PATH);
-		$email = $this->request->post['femail'];
+		$email = '';
+		foreach($this->request->post['femail'] as $e)
+		{
+			if(strlen(trim($e)) > 0){
+				if (strlen($email)> 0)$email .= ',';
+				$email .= trim($e);
+			}
+		}
+		
 		$msg = $this->request->post['msg'];
 		$subj = $this->request->post['subject'];
 		

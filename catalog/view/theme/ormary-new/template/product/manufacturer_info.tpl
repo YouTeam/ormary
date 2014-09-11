@@ -124,6 +124,7 @@
            			<input type="hidden" value="<?php print $filter_options['price']['max_price'];?>" id="sliderMaxPrice">
                 </div>
             </fieldset>
+			<input type="hidden" name="page" id="page" value="manufacturer"/>
             <a href="<?php echo $this->url->link('product/manufacturer/info', 'manufacturer_id='.$this->request->get['manufacturer_id']);?>" class="dark_btn clear_filter_btn">Clear  all filters</a>
         </form>
     </div>

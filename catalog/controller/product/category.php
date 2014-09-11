@@ -115,6 +115,7 @@ class ControllerProductCategory extends Controller {
 			$this->document->setDescription($category_info['meta_description']);
 			$this->document->setKeywords($category_info['meta_keyword']);
 			$this->document->addScript('catalog/view/javascript/jquery/jquery.total-storage.min.js');
+			$this->document->addScript('catalog/view/javascript/ormary-js/iscroll.js');
 			$this->data['heading_title'] = $category_info['name'];
 			$this->data['text_refine'] = $this->language->get('text_refine');
 			$this->data['text_empty'] = $this->language->get('text_empty');			
@@ -371,6 +372,7 @@ class ControllerProductCategory extends Controller {
                                     $swapimage = '';
                                 }
                                 
+
                                 
 				$this->data['products'][] = array(
 					'product_id'  => $result['product_id'],

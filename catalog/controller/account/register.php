@@ -50,6 +50,7 @@ class ControllerAccountRegister extends Controller {
 			
                         
                                                         $users_to_follow = explode(',', $this->request->post['following_designers']);
+
                                                         
                                                         if (count ($users_to_follow) < 3) {
                                                           
@@ -62,9 +63,12 @@ class ControllerAccountRegister extends Controller {
                                                         }
                         
 			$this->model_account_follow->saveUserFollows($users_to_follow);
+<<<<<<< HEAD
                         
                         
                     
+=======
+>>>>>>> 105045b5e5de5a6fdaca9ddd2d1f5871d829d1ff
 			unset($this->session->data['designers']);
 /*			// Default Shipping Address
 			if ($this->config->get('config_tax_customer') == 'shipping') {
@@ -413,6 +417,7 @@ class ControllerAccountRegister extends Controller {
 		$first_designer = current($this->session->data['designers']);
 		$this->session->data['designers_style_count'] = $first_designer['style'];
 		$this->session->data['designers_liked_count'] = 0;
+		$this->session->data['designers_liked_summary'] = 0;
 		
 		$this->data['first_designer_order_id'] = 0;
 		
@@ -446,6 +451,7 @@ class ControllerAccountRegister extends Controller {
 		{	
 			if($this->request->post['like'] == "yes")
 			{	
+				$this->session->data['designers_liked_summary'] += 1;
 				$this->session->data['designers'][$this->request->post['designer_id']]['liked'] = "yes";
 				if($this->session->data['designers_style_count'] == $this->session->data['designers'][$this->request->post['designer_id']]['style'])
 				{
@@ -573,7 +579,7 @@ class ControllerAccountRegister extends Controller {
 				}
 			}
 		}
-		
+		$json['designers_liked_summary'] = $this->session->data['designers_liked_summary'];
 		$this->response->setOutput(json_encode($json));		
 	}
 	

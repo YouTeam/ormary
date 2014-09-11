@@ -120,5 +120,28 @@ class ControllerAccountPassword extends Controller {
 			return false;
 		}
 	}
+	
+	public function ajaxValidate() {
+		$json = array();
+		$error =array();
+		
+		if ((utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20)) {
+			$error['password'] = $this->language->get('error_password');
+		}
+		elseif ($this->request->post['confirm'] != $this->request->post['password']) {
+			$error['confirm'] = $this->language->get('error_confirm');
+		}
+		elseif (!$this->customer->isCorrectPassword( $this->request->post['old_password']))
+		{
+			$error['incorrect'] = $this->language->get('error_email');;	
+		}
+
+		if($error != '')
+		{
+			$json['error'] = $error;
+		}
+		
+		$this->response->setOutput(json_encode($json));	
+	}
 }
 ?>

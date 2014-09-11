@@ -67,7 +67,7 @@ class ControllerModuleCategory extends Controller {
 			}	
 			
 					
-			$this->data['filter_options'] = $this->model_catalog_product->getFilterOptions();
+			$this->data['filter_options'] = $this->model_catalog_product->getFilterOptions($this->data['category_id']);
 		}
 
 
@@ -85,6 +85,19 @@ class ControllerModuleCategory extends Controller {
 	{
 		$this->load->model('catalog/manufacturer');
 		if(isset($this->request->get['dname']))
+		{
+			print $this->model_catalog_manufacturer->getManufacturersByName($this->request->get['dname']);
+		}
+	}
+	
+	public function getDesignersByNameAndCategory() 
+	{
+		$this->load->model('catalog/manufacturer');
+		if(isset($this->request->get['dname']) && isset($this->request->get['category']))
+		{
+			print $this->model_catalog_manufacturer->getManufacturersByNameAndCategory($this->request->get['dname'], $this->request->get['category']);
+		}
+		elseif (isset($this->request->get['dname']))
 		{
 			print $this->model_catalog_manufacturer->getManufacturersByName($this->request->get['dname']);
 		}

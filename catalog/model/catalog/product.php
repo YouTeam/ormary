@@ -753,7 +753,7 @@ class ModelCatalogProduct extends Model {
 			}
 		}
 		
-		if(!empty($data['designer']))
+		if(!empty($data['designer']) && $data['designer'] > -1)
 		{
 			$result = $this->db->query("SELECT p.* FROM " . DB_PREFIX ."product as p LEFT JOIN  " . DB_PREFIX ."manufacturer as m ON p.manufacturer_id  = m.manufacturer_id WHERE m.manufacturer_id = ".(int)$data['designer']." AND p.product_id = ".$product_info['product_id']);
 			//m.name LIKE '".$data['dname']."' AND p.product_id = ".$product_info['product_id']);
@@ -765,7 +765,7 @@ class ModelCatalogProduct extends Model {
 		}
 		
 		
-		if(!empty($data['color']))
+		if(!empty($data['color']) && $data['color'] > -1)
 		{
 			$result = $this->db->query("SELECT p.* FROM " . DB_PREFIX ."product as p LEFT JOIN  " . DB_PREFIX ."product_option_value as o ON p.product_id  = o.product_id WHERE o.option_value_id = '".$data['color']."' AND p.product_id = ".$product_info['product_id']);
 			
@@ -775,7 +775,7 @@ class ModelCatalogProduct extends Model {
 			}
 		}
 		
-		if(!empty($data['size']))
+		if(!empty($data['size']) && $data['size'] > -1)
 		{
 			$result = $this->db->query("SELECT p.* FROM " . DB_PREFIX ."product as p LEFT JOIN  " . DB_PREFIX ."product_option_value as o ON p.product_id  = o.product_id WHERE o.option_value_id = '".$data['size']."' AND p.product_id = ".$product_info['product_id']);
 			
@@ -794,7 +794,13 @@ class ModelCatalogProduct extends Model {
 		return $result->row['price'];			
 	}
 	
-	public function getFilterOptions()
+	public function getMaxProductPriceByCategory($catId)
+	{
+		$result = $this->db->query("SELECT MAX(price) as price FROM " . DB_PREFIX ."product p where p.product_id in (select ptc.product_id from ".DB_PREFIX."product_to_category ptc Where ptc.category_id = ".$catId.")");
+		return $result->row['price'];			
+	}
+	
+	public function getFilterOptions($category_id = 0)
 	{
 		$options = array('price' => '', 'month_list' => '', 'years_list' => '', 'colors_list' => '', 'sizes_list' => '' );
 		
@@ -804,7 +810,7 @@ class ModelCatalogProduct extends Model {
 		}
 		else
 		{
-			$options['price']['price_top'] = ceil($this->getMaxProductPrice());
+			$options['price']['price_top'] = ceil($this->getMaxProductPriceByCategory($category_id));
 		}
 		if (isset($this->request->get['price_low'])) 
 		{
@@ -815,7 +821,7 @@ class ModelCatalogProduct extends Model {
 			$options['price']['price_low'] = 0;
 		}
 		
-		$options['price']['max_price'] = ceil($this->getMaxProductPrice());
+		$options['price']['max_price'] = ceil($this->getMaxProductPriceByCategory($category_id));
 		
 		
 		
@@ -856,21 +862,35 @@ class ModelCatalogProduct extends Model {
 
 		$options['designers_list'] = "";
 		
-		 
-		if(isset($this->request->get['designer_name']) && $this->request->get['designer_name'] != '')
+		$designers = $this->db->query("SELECT m.* FROM " . DB_PREFIX . "manufacturer m WHERE m.manufacturer_id in (select p.manufacturer_id from ".DB_PREFIX."product p left join ".DB_PREFIX."product_to_category ptc on p.product_id = ptc.product_id WHERE ptc.category_id = ".$category_id.") ORDER by name");//WHERE name LIKE '".$this->db->escape($this->request->get['designer_name'])."%'
+		
+		if(isset($this->request->get['designer']) && $this->request->get['designer'] != '')
 		{
-			$designers = $this->db->query("SELECT * FROM " . DB_PREFIX . "manufacturer m WHERE name LIKE '".$this->db->escape($this->request->get['designer_name'])."%' ORDER by name");//manufacturer_id = ".(int)$this->request->get['designer']);
+			
+			
+			if( $this->request->get['designer'] == -1){
+				$options['designers_list'] .='<li class="">
+										<input type="radio" name="designer" id="dalldesigners" value="-1" checked="checked">
+										<label class="filter-label" for="dalldesigners">All designers</label></li>';
+										$options['designer_name'] = "";	 
+										}
+			else
+				$options['designers_list'] .='<li class="">
+										<input type="radio" name="designer" id="dalldesigners" value="-1" >
+										<label class="filter-label" for="dalldesigners">All designers</label></li>';
+			
 			foreach($designers->rows as $d)
 			{
 				if(isset($this->request->get['designer']) && $d['manufacturer_id'] == (int)$this->request->get['designer'])
 				{
 					$checked = 'checked="checked"';	
+					$options['designer_name'] = $d['name'];
 				}
 				else
 				{
 						$checked = '';
 				}
-				$options['designers_list'] .='<li class="light_font">
+				$options['designers_list'] .='<li class="">
 										<input type="radio" name="designer" id="d'.$d['manufacturer_id'].'" value="'.$d['manufacturer_id'].'" '.$checked.'>
 										<label class="filter-label" for="d'.$d['manufacturer_id'].'">
 											'.$d['name'].'
@@ -879,19 +899,47 @@ class ModelCatalogProduct extends Model {
 				
 			}
 		}
+		else
+		{
+			//$designers = $this->db->query("SELECT * FROM " . DB_PREFIX . "manufacturer m ORDER by name");
+			$options['designers_list'] .='<li class="">
+										<input type="radio" name="designer" id="dalldesigners" value="-1" checked="checked">
+										<label class="filter-label" for="dalldesigners">All designers</label></li>';	
+										
+			foreach($designers->rows as $d)
+			{
+				$options['designers_list'] .='<li class="">
+										<input type="radio" name="designer" id="d'.$d['manufacturer_id'].'" value="'.$d['manufacturer_id'].'">
+										<label class="filter-label" for="d'.$d['manufacturer_id'].'">
+											'.$d['name'].'
+										</label>
+									</li>';	
+				
+			}
+			$options['designer_name'] = "";	 
+		}
 		
-		if(isset($this->request->get['designer_name']))
+		if(isset($this->request->get['designer_name']) && !isset($options['designer_name']))
 		{
 			$options['designer_name'] = $this->request->get['designer_name'];
 		}
+			
+
+		$option_colors = $this->db->query("SELECT * FROM " . DB_PREFIX . "option_value ov LEFT JOIN " . DB_PREFIX . "option_value_description ovd ON (ov.option_value_id = ovd.option_value_id) WHERE ov.option_id = '13' and ov.option_value_id in (select option_value_id from ".DB_PREFIX."product_option_value pov1 INNER JOIN ".DB_PREFIX."product_to_category ptc1 on pov1.product_id = ptc1.product_id WHERE pov1.option_id = '13' and pov1.quantity > 0 and ptc1.category_id = ".$category_id.") ORDER BY ov.sort_order ASC");
+
+		if (isset($this->request->get['color']) &&  $this->request->get['color'] >= 0){
+		$options['colors_list'] .= '<li class="light_font"> 
+								<input type="radio" name="color" id="clallcolors" value="-1">
+								<label class="filter-label" for="clallcolors">All colors</label>
+							</li>';
+		}
 		else
 		{
-			$options['designer_name'] = "";	 
+		$options['colors_list'] .= '<li class="light_font"> 
+								<input type="radio" name="color" id="clallcolors" checked="checked" value="-1">
+								<label class="filter-label" for="clallcolors">All colors</label>
+							</li>';
 		}
-	
-
-		$option_colors = $this->db->query("SELECT * FROM " . DB_PREFIX . "option_value ov LEFT JOIN " . DB_PREFIX . "option_value_description ovd ON (ov.option_value_id = ovd.option_value_id) WHERE ov.option_id = '13' ORDER BY ov.sort_order ASC");
-
 		foreach ($option_colors->rows as $option_value) 
 		{
 			if (isset($this->request->get['color']) && (int)$this->request->get['color'] == $option_value['option_value_id'] )
@@ -928,8 +976,22 @@ class ModelCatalogProduct extends Model {
 
 		
 		
-		$option_sizes = $this->db->query("SELECT * FROM " . DB_PREFIX . "option_value ov LEFT JOIN " . DB_PREFIX . "option_value_description ovd ON (ov.option_value_id = ovd.option_value_id) WHERE ov.option_id = '14' ORDER BY ov.sort_order ASC");
+		$option_sizes = $this->db->query("SELECT * FROM " . DB_PREFIX . "option_value ov LEFT JOIN " . DB_PREFIX . "option_value_description ovd ON (ov.option_value_id = ovd.option_value_id) WHERE ov.option_id = '14' and ov.option_value_id in (select option_value_id from ".DB_PREFIX."product_option_value pov1 INNER JOIN ".DB_PREFIX."product_to_category ptc1 on pov1.product_id = ptc1.product_id WHERE pov1.option_id = '14' and pov1.quantity > 0 and ptc1.category_id = ".$category_id.") ORDER BY ov.sort_order ASC");
 
+		if (isset($this->request->get['size']) &&  $this->request->get['size'] >= 0){
+		$options['sizes_list'] .= '<li class="light_font"> 
+								<input type="radio" name="size" id="szallsizes" value="-1">
+								<label class="filter-label" for="szallsizes">All sizes</label>
+							</li>';
+		}
+		else
+		{
+		$options['sizes_list'] .= '<li class="light_font"> 
+								<input type="radio" name="size" id="szallsizes" checked="checked" value="-1">
+								<label class="filter-label" for="szallsizes">All sizes</label>
+							</li>';
+		}
+		
 		foreach ($option_sizes->rows as $option_value) 
 		{
 			if (isset($this->request->get['size']) && (int)$this->request->get['size'] == $option_value['option_value_id'] )
@@ -1044,6 +1106,7 @@ class ModelCatalogProduct extends Model {
 		}
 		
 		$options['categories_list'] = $categories_list;
+		$options['category_id'] = $category_id;
 
 
 		if(isset($this->request->get['featured']))
