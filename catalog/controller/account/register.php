@@ -63,12 +63,7 @@ class ControllerAccountRegister extends Controller {
                                                         }
                         
 			$this->model_account_follow->saveUserFollows($users_to_follow);
-<<<<<<< HEAD
-                        
-                        
-                    
-=======
->>>>>>> 105045b5e5de5a6fdaca9ddd2d1f5871d829d1ff
+
 			unset($this->session->data['designers']);
 /*			// Default Shipping Address
 			if ($this->config->get('config_tax_customer') == 'shipping') {
