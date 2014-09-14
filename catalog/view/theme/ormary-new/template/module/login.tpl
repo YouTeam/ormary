@@ -58,7 +58,7 @@
             </div>
         </div>
     	<div class="terms">
-        	<input type="checkbox" name="terms" value="0" id=terms> <label for="terms">I agree to Ormary.com <a href="">Terms and conditions</a> and <a href="">Privacy Policy</a></label>
+        	<input type="checkbox" name="terms" value="0" id=terms> <label for="terms">I agree to Ormary.com <a href="/terms_and_conditions">Terms and conditions</a> and <a href="/privacy_policy">Privacy Policy</a></label>
             <div class="alert_error" style="display:none;" id="terms-error">To complete registration, you must agree to Ormary Terms and Conditions and Privacy Policy</div>
         </div>
         

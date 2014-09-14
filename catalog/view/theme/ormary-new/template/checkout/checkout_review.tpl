@@ -139,23 +139,27 @@
     <div class="gift">
         <a href="#" id="gift">Is the a gift? Write a personal message</a>
         <div id="gift-ta">
-            <textarea name=""></textarea>
+            <textarea name="comment"></textarea>
         </div>
     </div>
 
     <div class="clearfix">
+    	<div style="float:left; font-size:15px; margin-top:20px;">
+        	<input type="checkbox" id="terms" value="0" name="terms"> <label for="terms">I agree to Ormary.com <a href="/terms_and_conditions">Terms and conditions</a> and <a href="/privacy_policy">Privacy Policy</a></label>
+            <div id="terms-error" style="display: none;" class="alert_error">To complete registration, you must agree to Ormary Terms and Conditions and Privacy Policy</div>
+        </div>
         <div class="bag-bottom clearfix">
         	<?php
             if($payment_method == 'card')
             {
             ?>
-				<a href="javascript:void(0)" onclick="$('#card_form').submit()" class="dark_btn">CONFIRM AND PAY</a>
+				<a href="javascript:void(0)" class="dark_btn" id="pay_card">CONFIRM AND PAY</a><!--onclick="$('#card_form').submit();" -->
             <?php
             }
             elseif($payment_method == 'paypal')
             {
             ?>
-				<a href="javascript:void(0)"  onclick="$('#paypal_form').submit();" class="dark_btn">CONFIRM AND PAY</a>
+				<a href="javascript:void(0)" class="dark_btn" id="pay_paypal">CONFIRM AND PAY</a><!-- onclick="$('#paypal_form').submit();"-->
             <?php
             }
             ?>            

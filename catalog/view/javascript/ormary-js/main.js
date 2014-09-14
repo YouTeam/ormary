@@ -18,6 +18,43 @@ $(document).ready(function(){
 		$(this).siblings('#gift-ta').slideToggle();
 	});
 
+
+	$('#pay_card, #pay_paypal').click(function(event){
+		event.preventDefault();
+		
+		
+		if($('#terms').prop("checked"))
+		{
+			var id = $(this).attr("id");	
+			$.ajax({
+				url: 'index.php?route=checkout/checkout_review/updateOrder',
+				type: 'post',
+				data: $('textarea[name="comment"]'),
+				dataType: 'json',
+				success: function(json) {		
+									
+					if(id == 'pay_card')
+					{
+						$('#card_form').submit();
+					}
+					else
+					{
+						if(id == 'pay_paypal')	
+						{
+							$('#paypal_form').submit();	
+						}
+					}	
+					
+				}
+			});
+		}
+		else
+		{
+			$('#terms-error').show();
+		}	
+	});	
+	
+	
 	/* Iscroll Fix */
 	$('.sort_by').click(function(){
 		$(this).next('.clothing_aside').slideToggle();

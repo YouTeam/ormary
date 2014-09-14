@@ -685,5 +685,11 @@ class ModelCheckoutOrder extends Model {
 			}
 		}
 	}
+	
+	public function updateComment($order_id, $comment = '')
+	{
+		$this->db->query("UPDATE `" . DB_PREFIX . "order` SET comment = '" . $this->db->escape($comment) . "' WHERE order_id = '" . (int)$order_id . "'");	
+	}
+	
 }
 ?>

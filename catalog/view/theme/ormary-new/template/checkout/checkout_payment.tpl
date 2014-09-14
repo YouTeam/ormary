@@ -35,7 +35,20 @@
                 </label>
                 <div class="pay-with-paypal" <?php if($payment_method == 'paypal'){ print 'style="display:block;"';}?>>
                     <span>To pay with PayPal, simply click</span> 
-                    <a href="javascript:void(0)" onclick="$('#payment_form').submit();" class="dark_btn">Next step</a>
+                    <?php                    
+                    if($show_card_form)
+                	{
+                    ?>
+                    	<a href="javascript:void(0)" onclick="$( '#submit' ).trigger( 'click' );" class="dark_btn">Next step</a>
+                    <?php
+                    }
+                    else
+                    {
+                    ?>
+                    	<a href="javascript:void(0)" onclick="$('#payment_form').submit();" class="dark_btn">Next step</a>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
             <div class="csa clearfix">
@@ -245,58 +258,6 @@
                                                     <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_code;?></div>
 												</label>
 											</div>
-											<!--<div class="input_wrap">
-												<label>
-													<span>Card type</span>
-													<select class="form-control" name="card_type">
-                                                    	<option value=""><?php echo $text_select; ?></option>
-														<?php
-                                                        foreach($card_types as $key => $type)
-                                                        {
-                                                        	if($key == $card_type)
-                                                            {
-                                                            	print '<option value="'.$key.'" selected="selected">'.$type.'</option>';
-                                                            }
-                                                            else
-                                                            {
-                                                            	print '<option value="'.$key.'">'.$type.'</option>';
-                                                            }
-                                                       	}
-                                                        ?>
-													</select>
-                                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_type;?></div>
-												</label>
-											</div>
-											<div class="input_wrap">
-												<label>
-													<span>Name on card</span>
-													<input type="text" name="card_name" value="<?php print $card_name;?>">
-                                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_name;?></div>
-												</label>
-											</div>
-											<div class="input_wrap">
-												<label>
-													<span>Card number</span>
-													<input type="text"  name="card_number" value="<?php print $card_number;?>" maxlength="16">
-                                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_number;?></div>
-												</label>
-											</div>
-                                            <input type="text" value="<?php print $card_number;?>" data-braintree-name="number">
-                                            <input type="text" value="<?php print $card_date;?>" data-braintree-name="expiration_date">
-											<div class="input_wrap">
-												<label>
-													<span>Expiry date</span>
-													<input type="text"  name="card_date" value="<?php print $card_date;?>" maxlength="5">
-                                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_date;?></div>
-												</label>
-											</div>
-											<div class="input_wrap">
-												<label>
-													<span>Security code</span>
-													<input type="text"  name="card_code" value="<?php print $card_code;?>" maxlength="3">
-                                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_code;?></div>
-												</label>
-											</div>-->
 										</div>
 									</div>
 								</div>

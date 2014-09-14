@@ -467,8 +467,8 @@ class ControllerCheckoutCheckoutReview extends Controller {
 
 		if($this->session->data['payment_method'] == 'paypal')
 		{
-			//$this->data['payment_paypal_form'] = $this->getChild('payment/pp_standard');	
-			$this->data['payment_paypal_form'] = $this->getChild('payment/pp_express');			
+			$this->data['payment_paypal_form'] = $this->getChild('payment/pp_standard');	
+			//$this->data['payment_paypal_form'] = $this->getChild('payment/pp_express');			
 		}
 		elseif($this->session->data['payment_method'] == 'card')
 		{
@@ -498,11 +498,13 @@ class ControllerCheckoutCheckoutReview extends Controller {
 
 	public function updateOrder()
 	{
+		$json = array();
 		$this->load->model('checkout/order');
 
-		$this->model_checkout_order->update($this->session->data['order_id'], 1, $this->request->post['comment'], false);	
+		$this->model_checkout_order->updateComment($this->session->data['order_id'], $this->request->post['comment']);	
+		$json['success'] = 'Success!';
 		
-		
+		$this->response->setOutput(json_encode($json));
 	}
 	
 }

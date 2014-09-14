@@ -22,7 +22,7 @@ class ControllerCheckoutCheckoutPayment extends Controller {
 			$this->request->post['type'] = "select_address";
 		}*/
 
-
+		$this->data['show_card_form'] = false;
 
 
 		$this->data['payment_method'] = 'card';	
@@ -371,7 +371,8 @@ class ControllerCheckoutCheckoutPayment extends Controller {
 			$country = $this->model_localisation_country->getCountry($this->request->post['country_id']);
 			$this->data['country_name'] = $country['name'];
 		}
-		elseif(isset($this->session->data['billing_address']['country'])) {
+		elseif(isset($this->session->data['billing_address']['country']) && $this->session->data['billing_address']['country'] != '') 
+		{
 			$this->data['country'] = $this->session->data['billing_address']['country'];
 			$country = $this->model_localisation_country->getCountry($this->session->data['billing_address']['country']);
 			$this->data['country_name'] = $country['name'];
@@ -387,7 +388,7 @@ class ControllerCheckoutCheckoutPayment extends Controller {
 			$zone = $this->model_localisation_zone->getZone($this->request->post['zone_id']);	
 			$this->data['zone_name'] = $zone['name'];
 		}
-		elseif(isset($this->session->data['billing_address']['zone'])) {
+		elseif(isset($this->session->data['billing_address']['zone']) && $this->session->data['billing_address']['zone'] != '') {
 			$this->data['zone'] = $this->session->data['billing_address']['zone'];
 			$zone = $this->model_localisation_zone->getZone($this->session->data['billing_address']['zone']);	
 			$this->data['zone_name'] = $zone['name'];
