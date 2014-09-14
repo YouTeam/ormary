@@ -1402,5 +1402,18 @@ class ModelCatalogProduct extends Model {
                         
           
         }
+		public function getManufacturerId($product_id)
+		{
+			 $manufacturer = $this->db->query("SELECT manufacturer_id FROM " . DB_PREFIX . "product WHERE product_id=".(int)$product_id); 
+			 if ($manufacturer->num_rows)
+			 {
+			 	return $manufacturer->row['manufacturer_id'];
+			 }
+			 else
+			 {
+				return false; 
+			 }
+		}
+		
 }
 ?>

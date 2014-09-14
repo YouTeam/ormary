@@ -23,7 +23,7 @@ class ControllerCheckoutCart extends Controller {
             unset($this->session->data['payment_methods']);
             unset($this->session->data['reward']);
 
-            $this->redirect($this->url->link('checkout/cart'));
+			$this->redirect($this->url->link('checkout/cart', '', 'SSL'));  
         }
 
         // Remove
@@ -428,7 +428,14 @@ class ControllerCheckoutCart extends Controller {
 
             $this->data['continue'] = $this->url->link('common/home');
 
-            $this->data['checkout'] = $this->url->link('checkout/checkout', '', 'SSL');
+			if ($this->customer->isLogged())
+			{
+				$this->data['checkout'] = $this->url->link('checkout/checkout_shipping', '', 'SSL');
+			}
+			else
+			{
+				$this->data['checkout'] = $this->url->link('checkout/checkout_login', '', 'SSL');
+			}
 
             $this->load->model('setting/extension');
 
@@ -438,25 +445,28 @@ class ControllerCheckoutCart extends Controller {
 
             $this->data['total_cart_price'] = $this->currency->format($this->data['total_cart_price']);
 
-            if ($this->customer->isLogged()) {
-                $this->load->model('account/address');
-                $addr_res = $this->model_account_address->getAddresses();
-                foreach ($addr_res as $res) {
-                    $this->data['address']['firstname'] = $this->customer->getFirstName();
-                    $this->data['address']['lastname'] = $this->customer->getLastName();
-                    $this->data['address']['country'] = $res['country'];
-                    $this->data['address']['zone'] = $res['zone'];
-                    $this->data['address']['postcode'] = $res['postcode'];
-                    $this->data['address']['city'] = $res['city'];
-                    $this->data['address']['address_1'] = $res['address_1'];
-                    $this->data['address']['address_2'] = $res['address_2'];
-                }
-
-                $this->data['address']['email'] = $this->customer->getEmail();
-                $this->data['address']['phone'] = $this->customer->getTelephone();
-            } else {
-                $this->data['address'] = array('firstname' => "", 'lastname' => "", 'country' => "", 'zone' => "", 'postcode' => "", 'city' => "", 'address_1' => "", 'address_2' => "", 'email' => "", 'phone' => "");
-            }
+			if ($this->customer->isLogged()) 
+			{
+				$this->load->model('account/address');
+				$addr_res = $this->model_account_address->getAddresses();
+				foreach ($addr_res as $res) {
+					$this->data['address']['firstname'] =  $this->customer->getFirstName();
+					$this->data['address']['lastname'] = $this->customer->getLastName();
+					$this->data['address']['country'] = $res['country'];
+					$this->data['address']['zone'] = $res['zone'];
+					$this->data['address']['postcode'] = $res['postcode'];
+					$this->data['address']['city'] = $res['city'];
+					$this->data['address']['address_1'] = $res['address_1'];
+					$this->data['address']['address_2'] = $res['address_2'];
+				}
+	
+				$this->data['address']['email'] = $this->customer->getEmail();
+				$this->data['address']['phone'] = $this->customer->getTelephone();
+			}
+			else
+			{
+				$this->data['address'] = array('firstname'=> "", 'lastname' =>"", 'country' => "", 'zone' => "", 'postcode' => "", 'city' => "", 'address_1' => "", 'address_2' => "", 'email' => "", 'phone' => "");	
+			}
 
 
 

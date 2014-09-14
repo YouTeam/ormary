@@ -13,20 +13,12 @@
 
 
 <div class="container cart">
-	<h3 class="text-center">Bag</h3>
-	<div class="steps clearfix">
-		<div class="progress">
-			<div class="progress-bar"></div>
-		</div>
-		<a href="javascript:void(0)" class="step step1 active"><span>Step 1:</span> Bag</a>
-		<a href="javascript:void(0)" class="step step2"><span>Step 2:</span> Payment & Shipping</a>
-		<a href="javascript:void(0)" class="step step3"><span>Step 3:</span> Place Order</a>
-	</div>
+	<h3 class="text-center">BAG</h3>
 	<div class="table_head clearfix">
-		<div class="first_title">Item</div>
+		<div class="first_title">Added</div>
         <div>Quantity</div>
         <div>Price</div>
-        <div>&nbsp;</div>
+        <div>Edit</div>
         <div class="subtotal">Subtotal</div>
 	</div>
     
@@ -47,11 +39,10 @@
                     <li class="cart_product_name"><?php echo $product['name']; ?></li>
                     
                     <?php foreach ($product['option'] as $option) { ?>
-                <li><span class="greytext"><?php echo $option['name']; ?>: </span><?php echo $option['value']; ?>
-                </li><?php } ?>
-                
-                    <li><span class="greytext">Color: </span>White</li>
-                    <li><span class="greytext">Size: </span>XXXS</li>
+                        <li>
+                        	<span class="greytext"><?php echo $option['name']; ?>: </span><?php echo $option['value']; ?>
+                        </li>
+                	<?php } ?>    
                 </ul>
             </div>
             <div class="quantity">
@@ -95,7 +86,7 @@
         <span class="total ">Grand Total : <span><?php echo $total_cart_price; ?></span></span>
     </div>
     <div class="bottom_btns">
-        <a href="<?php echo $checkout; ?>" class="dark_btn open_shipping_address">PROCEED TO CHECKOUT</a>
+        <a href="<?php echo $checkout; ?>" class="dark_btn">PROCEED TO CHECKOUT</a>
         <a href="<?php echo $continue; ?>" class="light_btn continue_shopping">CONTINUE SHOPPING</a>
     </div>
 </div>

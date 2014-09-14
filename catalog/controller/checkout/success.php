@@ -43,10 +43,33 @@ class ControllerCheckoutSuccess extends Controller {
 		$mail->sendNotificationEmail($order['email'], '', $email_message, 'ORMARY order confirmation');
 		
 		$this->load->model('checkout/order');
-
+		
 		$this->model_checkout_order->confirm($this->session->data['order_id'], 2, '', false);
 		$this->model_checkout_order->update($this->session->data['order_id'], 2, '', false);
+		
+		
+			//print_r($this->session->data);
+			$order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
+			//print_r($order_info);
+			
+			$this->load->model('tool/image');
 
+			$this->data['products'] = array();
+
+			$this->data['products'] = $this->cart->getProducts();
+			foreach ($this->data['products'] as &$product) 
+			{
+				$product_total = 0;
+				if ($product['image']) 
+				{
+					$product['image'] = $this->model_tool_image->resize($product['image'], 200, 230);
+				} 
+				else 
+				{
+					$product['image'] = '';
+				}
+				$product['href'] = $this->url->link('product/product', 'product_id=' . $product['product_id']);
+			}
 			
 			$this->cart->clear();
 
@@ -106,11 +129,27 @@ class ControllerCheckoutSuccess extends Controller {
 
 		$this->data['continue'] = $this->url->link('common/home');
 
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/success.tpl')) {
-			$this->template = $this->config->get('config_template') . '/template/common/success.tpl';
+
+		
+		
+
+
+		
+
+
+
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout_thankyou.tpl')) {
+			$this->template = $this->config->get('config_template') . '/template/checkout/checkout_thankyou.tpl';
 		} else {
 			$this->template = 'default/template/common/success.tpl';
 		}
+
+
+/*		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/success.tpl')) {
+			$this->template = $this->config->get('config_template') . '/template/common/success.tpl';
+		} else {
+			$this->template = 'default/template/common/success.tpl';
+		}*/
 
 		$this->children = array(
 			'common/column_left',

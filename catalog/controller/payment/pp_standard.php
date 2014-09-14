@@ -56,7 +56,7 @@ class ControllerPaymentPPStandard extends Controller {
 			$this->data['discount_amount_cart'] = 0;
 
 			$total = $this->currency->format($order_info['total'] - $this->cart->getSubTotal(), $order_info['currency_code'], false, false);
-
+/*
 			//if ($total > 0) {
 				$this->data['products'][] = array(
 					'name'     => "Flat Rate Shipping",
@@ -66,9 +66,23 @@ class ControllerPaymentPPStandard extends Controller {
 					'option'   => array(),
 					'weight'   => 0
 				);	
-			/*} else {
+			} else {
 				$this->data['discount_amount_cart'] -= $total;
 			}*/
+
+
+			if ($total > 0) {
+				$this->data['products'][] = array(
+					'name'     => $this->language->get('text_total'),
+					'model'    => '',
+					'price'    => $total,
+					'quantity' => 1,
+					'option'   => array(),
+					'weight'   => 0
+				);	
+			} else {
+				$this->data['discount_amount_cart'] -= $total;
+			}
 
 			$this->data['currency_code'] = $order_info['currency_code'];
 			$this->data['first_name'] = html_entity_decode($order_info['payment_firstname'], ENT_QUOTES, 'UTF-8');	

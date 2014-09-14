@@ -1,0 +1,716 @@
+<?php echo $header; ?>
+<?php echo $content_top; ?>
+
+<div class="container cart">
+    <h3 class="text-center">BAG</h3>
+    <div class="steps clearfix">
+        <div class="col-xs-4 wrap-step">
+            <a href="<?php print $shipping_link;?>" class="step">1. shipping</a>
+        </div>
+        <div class="col-xs-4 wrap-step active">
+            <a href="javascript:void(0)" class="step">2. payment</a>
+        </div>
+        <div class="col-xs-4 wrap-step">
+            <a href="javascript:void(0)" class="step">3. review</a>
+        </div>
+    </div>
+    
+    <div class="choose_payment clearfix">
+        <h5>
+            Choose your payment method
+        </h5>
+        <form action="<?php print $form_action;?>" method="post" id="payment_form">
+        	 <input type="hidden" name="type" value="paypal" />
+            <div class="csa clearfix">
+                <label class="csa-label clearfix">
+                    <div class="csa-checkbox">
+                        <input type="radio" id="firstPayment" name="choose_payment" value="paypal" <?php if($payment_method == 'paypal'){ print 'checked';}?>/>
+                    </div>
+                    <div class="csa-payment">
+                        <div class="paypal-payment payment-type <?php if($payment_method == 'paypal'){ print 'active';}?> clearfix">
+                            <img src="catalog/view/theme/ormary-new/images/paypal.png" alt="PayPal">
+                            <span>PAY PAL</span>
+                        </div>
+                    </div>
+                </label>
+                <div class="pay-with-paypal" <?php if($payment_method == 'paypal'){ print 'style="display:block;"';}?>>
+                    <span>To pay with PayPal, simply click</span> 
+                    <a href="javascript:void(0)" onclick="$('#payment_form').submit();" class="dark_btn">Next step</a>
+                </div>
+            </div>
+            <div class="csa clearfix">
+                <label class="csa-label clearfix">
+                    <div class="csa-checkbox">
+                        <input type="radio" id="secondPayment" name="choose_payment" <?php if($payment_method != 'paypal'){ print 'checked';}?> value="card" />
+                    </div>
+                    <div class="csa-payment">
+                        <div class="creditcard-payment payment-type <?php if($payment_method != 'paypal'){ print 'active';}?> clearfix">
+                            <img src="catalog/view/theme/ormary-new/images/credit_card.png" alt="Credit card">
+                            <span>CREDIT CARD</span>
+                        </div>
+                    </div>
+                </label>
+                <?php 
+                if(isset($show_billing_form) && $show_billing_form == true)
+                {
+                ?>                	
+                    <div class="cart_inputs csa-inputs clearfix" <?php if($payment_method == 'paypal'){ print 'style="display:none;"';}?> >
+                        <div class="inputs_group">
+                            <div class="inputs_row clearfix">
+                                <div class="input_wrap">
+                                    <label>
+                                        <span>First name</span>
+                                        <input type="text" name="firstname" value="<?php print $firstname;?>"> 
+                                        <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_firstname;?></div>
+                                    </label>
+                                </div>
+                                <div class="input_wrap">
+                                    <label>
+                                        <span>Last name</span>
+                                        <input type="text" name="lastname" value="<?php print $lastname;?>">
+                                        <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_lastname;?></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="inputs_row clearfix">
+                                <div class="input_wrap">
+                                    <label>
+                                        <span>Country</span>
+                                        <select name="country_id"  class="form-control">
+                                            <option value=""><?php echo $text_select; ?></option>
+                                            <?php foreach ($countries as $c) { 
+                                            	if(isset($country) && $country == $c['country_id'])
+                                                {
+                                            ?>
+                                            		<option value="<?php echo $c['country_id']; ?>" selected="selected"><?php echo $c['name']; ?></option>
+                                            <?php
+                                            	}
+                                            	else
+                                                {
+                                            ?>
+                                            		<option value="<?php echo $c['country_id']; ?>"><?php echo $c['name']; ?></option>
+                                            <?php 
+                                            	}
+                                            } 
+                                            ?>
+                                        </select>
+                                        <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_country;?></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inputs_group">
+                            <div class="inputs_row clearfix">
+                                <div class="input_wrap">
+                                    <label>
+                                        <span>Address 1</span>
+                                        <input type="text" name="address_1" value="<?php print $address_1;?>">
+                                        <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_address_1;?></div>
+                                    </label>
+                                </div>
+                                <div class="input_wrap">
+                                    <label>
+                                        <span>Address 2</span>
+                                        <input type="text" name="address_2" value="<?php print $address_2;?>">
+                                        <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_address_2;?></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inputs_group">
+                            <div class="inputs_row clearfix">
+                                <div class="input_wrap">
+                                    <label>
+                                        <span>City</span>
+                                        <input type="text" name="city" value="<?php print $city;?>">
+                                        <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_city;?></div>
+                                    </label>
+                                </div>
+                                <div class="input_wrap">
+                                    <label>
+                                        <span>State</span>
+                                        <select name="zone_id">
+                                        </select>
+                                        <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_zone;?></div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="inputs_row clearfix">
+                                <div class="input_wrap">
+                                    <label>
+                                        <span>Postcode or ZIP</span>
+                                        <input type="text" name="postcode" value="<?php print $postcode;?>">
+                                        <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_postcode;?></div>
+                                    </label>
+                                </div>
+                                <div class="input_wrap">
+                                    <label>
+                                        <span>Mobile</span>
+                                        <input type="text" name="phone" value="<?php print $phone;?>">
+                                        <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_phone;?></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <label class="basas">
+                            <input type="checkbox" name="use_shipping_address">
+                            Billing address same as shipping
+                        </label>
+                        <div class="clearfix">
+                            <div class="bag-bottom clearfix">
+                                <a href="javascript:void(0)" onclick="$('#payment_form').submit();" class="dark_btn">next step</a>
+                            </div>
+                        </div>
+                        <input type="hidden" name="action" value="save_billing_address"/>
+                    </div>
+                <?php
+                }
+                elseif($show_card_form)
+                {
+                ?>                	
+                	<div class="creditcard-payment-info row clear-left clearfix" <?php if($payment_method == 'paypal'){ print 'style="display:none;"';}?>>
+						<div class="clearfix">
+							<div class="col-sm-4">
+								<div class="billing_address">
+									<div class="caption text-center">
+										<span>
+											<img src="catalog/view/theme/ormary-new/images/billing.png" alt="">
+										</span>
+										Billing address
+									</div>
+									<div class="content">
+                                    	<?php 
+                                            print $firstname.' '.$lastname.'<br/>';
+                                            print $country_name.', '.$zone_name.' '.$city.'<br/>';
+                                            print $address_1.'<br/>';
+                                            print $address_2.'<br/>';
+                                            print $postcode.'<br/>';
+                                            print $phone.'<br/>';
+                                        ?>
+									</div>
+									<a href="javascript:void(0)" onclick="$('#edit_billing_address').submit();" class="edit-btn">Edit</a>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="cart_inputs card_type">
+									<div class="inputs_group">
+										<div class="inputs_row clearfix">
+                                        	<div class="input_wrap">
+												<label>
+													<span>Card type</span>
+													<select class="form-control" name="card_type">
+                                                    	<option value=""><?php echo $text_select; ?></option>
+														<?php
+                                                        foreach($card_types as $key => $type)
+                                                        {
+                                                        	if($key == $card_type)
+                                                            {
+                                                            	print '<option value="'.$key.'" selected="selected">'.$type.'</option>';
+                                                            }
+                                                            else
+                                                            {
+                                                            	print '<option value="'.$key.'">'.$type.'</option>';
+                                                            }
+                                                       	}
+                                                        ?>
+													</select>
+                                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_type;?></div>
+												</label>
+											</div>
+											<div class="input_wrap">
+												<label>
+													<span>Name on card</span>
+													<input type="text" name="card_name" value="<?php print $card_name;?>" data-braintree-name="cardholder_name">
+                                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_name;?></div>
+												</label>
+											</div>
+											<div class="input_wrap">
+												<label>
+													<span>Card number</span>
+													<input type="text"  name="card_number" value="<?php print $card_number;?>" maxlength="16"  data-braintree-name="number">
+                                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_number;?></div>
+												</label>
+											</div>
+											<div class="input_wrap">
+												<label>
+													<span>Expiry date</span>
+													<input type="text"  name="card_date" value="<?php print $card_date;?>" maxlength="5" data-braintree-name="expiration_date">
+                                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_date;?></div>
+												</label>
+											</div>
+											<div class="input_wrap">
+												<label>
+													<span>Security code</span>
+													<input type="text"  name="card_code" value="<?php print $card_code;?>" maxlength="3" data-braintree-name="cvv">
+                                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_code;?></div>
+												</label>
+											</div>
+											<!--<div class="input_wrap">
+												<label>
+													<span>Card type</span>
+													<select class="form-control" name="card_type">
+                                                    	<option value=""><?php echo $text_select; ?></option>
+														<?php
+                                                        foreach($card_types as $key => $type)
+                                                        {
+                                                        	if($key == $card_type)
+                                                            {
+                                                            	print '<option value="'.$key.'" selected="selected">'.$type.'</option>';
+                                                            }
+                                                            else
+                                                            {
+                                                            	print '<option value="'.$key.'">'.$type.'</option>';
+                                                            }
+                                                       	}
+                                                        ?>
+													</select>
+                                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_type;?></div>
+												</label>
+											</div>
+											<div class="input_wrap">
+												<label>
+													<span>Name on card</span>
+													<input type="text" name="card_name" value="<?php print $card_name;?>">
+                                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_name;?></div>
+												</label>
+											</div>
+											<div class="input_wrap">
+												<label>
+													<span>Card number</span>
+													<input type="text"  name="card_number" value="<?php print $card_number;?>" maxlength="16">
+                                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_number;?></div>
+												</label>
+											</div>
+                                            <input type="text" value="<?php print $card_number;?>" data-braintree-name="number">
+                                            <input type="text" value="<?php print $card_date;?>" data-braintree-name="expiration_date">
+											<div class="input_wrap">
+												<label>
+													<span>Expiry date</span>
+													<input type="text"  name="card_date" value="<?php print $card_date;?>" maxlength="5">
+                                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_date;?></div>
+												</label>
+											</div>
+											<div class="input_wrap">
+												<label>
+													<span>Security code</span>
+													<input type="text"  name="card_code" value="<?php print $card_code;?>" maxlength="3">
+                                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_code;?></div>
+												</label>
+											</div>-->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="clearfix">
+							<div class="bag-bottom clearfix">
+								<a href="javascript:void(0)" onclick="$( '#submit' ).trigger( 'click' );" class="dark_btn">next step</a>
+                                <input type="submit" id="submit" value="Pay" class="dark_btn" style="display:none;"> 
+							</div>
+						</div>
+                        <input type="hidden" name="action" value="save_card_info"/>
+					</div>
+                <?php
+                }
+                ?>
+            </div>
+        </form>
+         
+        <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+        
+<!--        <form id="checkout" action="<?php print $form_action;?>" method="post" style="">
+          <input data-braintree-name="number" value="1111111111111111">
+          <input data-braintree-name="expiration_date" value="12/20">
+          <input name="choose_payment" value="card" type="hidden" />
+          <input type="submit" id="submit" value="Pay" class="dark_btn"> 
+        </form>-->
+        
+        <script>
+			//braintree.setup("<?php print $clientToken;?>", "custom", {id: "checkout"});
+			braintree.setup("<?php print $clientToken;?>", "custom", {id: "payment_form"});			
+		</script>
+                
+        <form action="<?php print $form_action;?>" method="post" id="edit_billing_address">
+        	<input type="hidden" name="choose_payment" value="card"/>
+            <input type="hidden" name="action" value="edit_billing_address"/>            
+        </form>
+    </div>
+</div>   
+    
+    
+    
+    
+   <!-- <div class="choose_payment clearfix">
+        <h5>
+            Choose your payment method
+        </h5>
+        <form action="<?php print $form_action;?>" method="post" id="payment_form">
+            <label class="csa clearfix">
+                <div class="csa-checkbox">
+                    <input type="radio" id="firstPayment" name="choose_payment" value="paypal" />
+                </div>
+                <div class="csa-payment">
+                    <div class="paypal-payment payment-type clearfix">
+                        <img src="catalog/view/theme/ormary-new/images/paypal.png" alt="PayPal">
+                        <span>Pay Pal</span>
+                    </div>
+                    <div class="pay-with-paypal">
+                        <span>To pay with PayPal, simply click</span> 
+                        <a href="javascript:void(0)" onclick="$('#payment_form').submit();" class="dark_btn">Next step</a>
+                    </div>
+                </div>
+            </label>
+            <label class="csa clearfix">
+                <div class="csa-checkbox">
+                    <input type="radio" id="secondPayment" name="choose_payment" checked  value="card" />
+                </div>
+                <div class="csa-payment">
+                    <div class="creditcard-payment payment-type active clearfix">
+                        <img src="catalog/view/theme/ormary-new/images/credit_card.png" alt="Credit Card">
+                        <span>Credit Card</span>
+                    </div>
+                    
+                    <?php 
+                    if(isset($show_billing_form) && $show_billing_form == true)
+                    {
+                    ?>
+                        <div class="cart_inputs">
+                            <div class="inputs_group">
+                                <div class="inputs_row clearfix">
+                                    <div class="input_wrap">
+                                        <label>
+                                            <span>First name</span>
+                                            <input type="text">
+                                        </label>
+                                    </div>
+                                    <div class="input_wrap">
+                                        <label>
+                                            <span>Last name</span>
+                                            <input type="text">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="inputs_row clearfix">
+                                    <div class="input_wrap">
+                                        <label>
+                                            <span>Country</span>
+                                            <select name="country_id" id="" class="form-control">
+                                                <option value=""><?php echo $text_select; ?></option>
+                                                <?php foreach ($countries as $country) { ?>
+                                                        <option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="inputs_group">
+                                <div class="inputs_row clearfix">
+                                    <div class="input_wrap">
+                                        <label>
+                                            <span>Address 1</span>
+                                            <input type="text">
+                                        </label>
+                                    </div>
+                                    <div class="input_wrap">
+                                        <label>
+                                            <span>Address 2</span>
+                                            <input type="text">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="inputs_row clearfix">
+                                    <div class="input_wrap">
+                                        <label>
+                                            <span>Address 3</span>
+                                            <input type="text">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="inputs_group">
+                                <div class="inputs_row clearfix">
+                                    <div class="input_wrap">
+                                        <label>
+                                            <span>City</span>
+                                            <input type="text">
+                                        </label>
+                                    </div>
+                                    <div class="input_wrap">
+                                        <label>
+                                            <span>State</span>
+                                            <input type="text">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="inputs_row clearfix">
+                                    <div class="input_wrap">
+                                        <label>
+                                            <span>Postcode or ZIP</span>
+                                            <input type="text">
+                                        </label>
+                                    </div>
+                                    <div class="input_wrap">
+                                        <label>
+                                            <span>Mobile</span>
+                                            <input type="tel">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="type" value="save_billing_address">
+                    <?php
+                    }
+                    elseif($show_card_form)
+                    {
+                    ?>
+                        <div class="creditcard-payment-info row clear-left clearfix">
+                            <div class="col-sm-4">
+                                <div class="billing_address">
+                                    <div class="caption text-center">
+                                        <span>
+                                            <img src="./images/billing.png" alt="">
+                                        </span>
+                                        Billing address
+                                    </div>
+                                    <div class="content">
+                                        Address Line 1 <br>
+                                        Address Line 2 <br>
+                                        Address Line 3 <br>
+                                        City <br>
+                                        State <br>
+                                        Postcode <br>
+                                        Country <br>
+                                    </div>
+                                    <a href="#" class="edit-btn">Edit</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="cart_inputs card_type">
+                                    <div class="inputs_group">
+                                        <div class="inputs_row clearfix">
+                                            <div class="input_wrap">
+                                                <label>
+                                                    <span>Card type</span>
+                                                    <select name="" id="" class="form-control">
+                                                        <option value="">Visa</option>
+                                                        <option value="">Visa</option>
+                                                        <option value="">Visa</option>
+                                                    </select>
+                                                </label>
+                                            </div>
+                                            <div class="input_wrap">
+                                                <label>
+                                                    <span>Name on card</span>
+                                                    <input type="text">
+                                                </label>
+                                            </div>
+                                            <div class="input_wrap">
+                                                <label>
+                                                    <span>Card number</span>
+                                                    <input type="text">
+                                                </label>
+                                            </div>
+                                            <div class="input_wrap">
+                                                <label>
+                                                    <span>Expiry date</span>
+                                                    <input type="text">
+                                                </label>
+                                            </div>
+                                            <div class="input_wrap">
+                                                <label>
+                                                    <span>Security code</span>
+                                                    <input type="text">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="type" value="save_card_info">
+                    <?php
+                    }
+                    ?>
+                </div>
+            </label>
+        </form>
+    </div>
+    <div class="clearfix">
+        <div class="bag-bottom clearfix">
+            <a href="javascript:void(0)" class="dark_btn" id="payment_submit">next step</a>
+        </div>
+    </div>
+</div>-->
+
+<!--
+
+<div class="container cart">
+		<h3 class="text-center">BAG</h3>
+		<div class="steps clearfix">
+			<div class="col-xs-4 wrap-step">
+				<a href="#" class="step">1. shipping</a>
+			</div>
+			<div class="col-xs-4 wrap-step active">
+				<a href="#" class="step">2. payment</a>
+			</div>
+			<div class="col-xs-4 wrap-step">
+				<a href="#" class="step">3. review</a>
+			</div>
+		</div>
+		<div class="choose_payment clearfix">
+			<h5>
+				Choose your payment method
+			</h5>
+			<form action="">
+				<label class="csa clearfix">
+					<div class="csa-checkbox">
+						<input type="radio" id="firstPayment" name="choose_payment">
+					</div>
+					<div class="csa-payment">
+						<div class="paypal-payment payment-type clearfix">
+							<img src="images/paypal.png" alt="PayPal">
+							<span>Pay Pal</span>
+						</div>
+						<div class="pay-with-paypal">
+							<span>To pay with PayPal, simply click</span> 
+							<a href="#" class="dark_btn">Next step</a>
+						</div>
+					</div>
+				</label>
+				<label class="csa clearfix">
+					<div class="csa-checkbox">
+						<input type="radio" id="secondPayment" name="choose_payment" checked>
+					</div>
+					<div class="csa-payment">
+						<div class="creditcard-payment payment-type clearfix active">
+							<img src="images/credit_card.png" alt="PayPal">
+							<span>Credit Card</span>
+						</div>
+					</div>
+					<div class="creditcard-payment-info row clear-left clearfix">
+						<div class="col-sm-4">
+							<div class="billing_address">
+								<div class="caption text-center">
+									<span>
+										<img src="./images/billing.png" alt="">
+									</span>
+									Billing address
+								</div>
+								<div class="content">
+									Address Line 1 <br>
+									Address Line 2 <br>
+									Address Line 3 <br>
+									City <br>
+									State <br>
+									Postcode <br>
+									Country <br>
+								</div>
+								<a href="#" class="edit-btn">Edit</a>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="cart_inputs card_type">
+								<div class="inputs_group">
+									<div class="inputs_row clearfix">
+										<div class="input_wrap">
+											<label>
+												<span>Card type</span>
+												<select name="" id="" class="form-control">
+													<option value="">Visa</option>
+													<option value="">Visa</option>
+													<option value="">Visa</option>
+												</select>
+											</label>
+										</div>
+										<div class="input_wrap">
+											<label>
+												<span>Name on card</span>
+												<input type="text">
+											</label>
+										</div>
+										<div class="input_wrap">
+											<label>
+												<span>Card number</span>
+												<input type="text">
+											</label>
+										</div>
+										<div class="input_wrap">
+											<label>
+												<span>Expiry date</span>
+												<input type="text">
+											</label>
+										</div>
+										<div class="input_wrap">
+											<label>
+												<span>Security code</span>
+												<input type="text">
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</label>
+			</form>
+		</div>
+		<div class="clearfix">
+			<div class="bag-bottom clearfix">
+				<a href="#" class="dark_btn">next step</a>
+			</div>
+		</div>
+	  </div>
+
+-->
+
+
+<?php echo $content_bottom; ?>
+<?php echo $footer; ?>
+<script type="text/javascript">
+
+$('select[name=\'country_id\']').bind('change', function() {
+
+	$.ajax({
+		url: 'index.php?route=account/address/country&country_id=' + this.value,
+		dataType: 'json',
+		beforeSend: function() {
+			/*$('select[name=\'country_id\']').after('<span class="wait">&nbsp;<img src="catalog/view/theme/default/image/loading.gif" alt="" /></span>');*/
+		},		
+		complete: function() {
+			$('.wait').remove();
+		},			
+		success: function(json) {
+			if (json['postcode_required'] == '1') {
+				$('#postcode-required').show();
+			} else {
+				$('#postcode-required').hide();
+			}
+		
+			html = '<option value=""><?php echo $text_select; ?></option>';
+			
+			if (json['zone'] != '') {
+				for (i = 0; i < json['zone'].length; i++) {
+        			html += '<option value="' + json['zone'][i]['zone_id'] + '"';
+	    			
+					if (json['zone'][i]['zone_id'] == '<?php echo $zone_id; ?>') {
+	      				html += ' selected="selected"';
+	    			}
+	
+	    			html += '>' + json['zone'][i]['name'] + '</option>';
+				}
+			} else {
+				html += '<option value="0" selected="selected"><?php echo $text_none; ?></option>';
+			}
+			
+			$('select[name=\'zone_id\']').html(html);
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+	});
+});
+
+$('select[name=\'country_id\']').trigger('change');
+</script> 
