@@ -3360,21 +3360,32 @@ a.edit_btn {
 	float: right;
 }
 
+.cart_designer_name {
+    padding-top: 10px;
+font-family: "Didot W01 Roman";
+line-height: 13px;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+
 .table_head {
 	border-top: 1px solid #cecece;
 	border-bottom: 1px solid #cecece;
-	padding-left: 60px;
+	padding-left: 10px;
 }
 
 .table_head div {
 	float: left;
-	line-height: 30px;
-	width: 175px;
+	line-height: 37px;
+	width: 170px;
 	text-align: center;
+	font-family:"Didot W01 Roman";
+	text-transform: uppercase;
+	letter-spacing: 2px;
 }
 
 .table_head div.first_title {
-	width: 400px;
+	width: 465px;
 	text-align: left;
 }
 
@@ -3393,7 +3404,7 @@ a.edit_btn {
 .table_row .checkbox {
 	width: 40px;
 	margin-top: 40px;
-	margin-left: 20px;
+	margin-left: 8px;
 }
 
 .table_row .checkbox input {
@@ -3411,7 +3422,7 @@ a.edit_btn {
 }
 
 .table_row .product_info {
-	width: 340px;
+	width: 300px;
 	margin-left: 20px;
 	font-size: 14px;
 }
@@ -3453,6 +3464,12 @@ a.edit_btn {
 	border-top: 1px solid #cecece;
 	padding: 10px 0;
 }
+
+.cart .table_footer
+{
+	height:60px;
+}
+
 
 .table_footer label {
 	cursor: pointer;
@@ -3528,6 +3545,32 @@ a.light_btn {
 a.light_btn:hover {
 	color: #ffffff;
 	background: #000000;
+}
+
+
+.cart .grand_total
+{
+	font-family: "Didot W01 Roman";
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;	
+	margin:10px 40px 10px 0;
+}
+
+
+.cart .table_row .quantity,
+.cart .table_row .price,
+.cart .table_row .edit,
+.cart .table_row .total-price
+{
+	text-align:center;
+}
+
+.cart .table_row .quantity form
+{
+	margin-left:auto;
+	margin-right:auto;
+	width:60px;
 }
 
 .top_bar .right_side ul li {
@@ -5883,7 +5926,7 @@ margin-top: 10px;
     letter-spacing: 2px;
     margin-right: 40px;
     height: 41px !important;
-line-height: 41px !important;
+	line-height: 41px !important;
 }
 
 .emptybag h3 {

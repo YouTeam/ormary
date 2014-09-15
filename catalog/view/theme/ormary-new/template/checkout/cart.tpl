@@ -15,10 +15,10 @@
 <div class="container cart">
 	<h3 class="text-center">BAG</h3>
 	<div class="table_head clearfix">
-		<div class="first_title">Added</div>
+		<div class="first_title">Item</div>
         <div>Quantity</div>
         <div>Price</div>
-        <div>Edit</div>
+        <div>&nbsp;</div>
         <div class="subtotal">Subtotal</div>
 	</div>
     
@@ -83,10 +83,10 @@
         <label><input type="checkbox" id="cart_select_all">Select all</label>
         <a href="<?php echo $action;?>" id="cart_remove_selected">Remove selected</a>
         <a href="<?php echo $action;?>" id="cart_move_to_wardrobe_selected">Move to Wardrobe</a>
-        <span class="total ">Grand Total : <span><?php echo $total_cart_price; ?></span></span>
+        <span class="total grand_total">Grand Total : <span><?php echo $total_cart_price; ?></span></span>
     </div>
     <div class="bottom_btns">
-        <a href="<?php echo $checkout; ?>" class="dark_btn">PROCEED TO CHECKOUT</a>
+        <a href="<?php echo $checkout; ?>" class="dark_btn open_shipping_address">PROCEED TO CHECKOUT</a>
         <a href="<?php echo $continue; ?>" class="light_btn continue_shopping">CONTINUE SHOPPING</a>
     </div>
 </div>
@@ -96,65 +96,7 @@
 
 
 
-	<div class="popup"></div>
-    <div class="shipping_address">
-      <div class="caption text-center">Add your shipping address</div>
-      <div class="inputs">
-      	<form id="save_address_form">
-        <label>
-          <span>First name <span class="required">*</span></span>
-          <input type="text" name="firstname" required value="<?php print $address['firstname'];?>">
-           <div class="alert_error" style="display:none;" id="firstname-error">Provide a password</div>
-        </label>
-        <label>
-          <span>Last name <span class="required">*</span></span>
-          <input type="text" name="lastname" required value="<?php print $address['lastname'];?>">
-        </label>
-        <label>
-          <span>E-mail address <span class="required">*</span></span>
-          <input type="text" name="email" required value="<?php print $address['email'];?>">
-        </label>
-        <label>
-          <span>Address line 1 <span class="required">*</span></span>
-          <input type="text" name="address_1" required value="<?php print $address['address_1'];?>">
-        </label>
-        <label>
-          <span>Address line 2</span>
-          <input type="text" name="address_2" value="<?php print $address['address_2'];?>">
-        </label>
-        <label>
-          <span>Country / Region <span class="required">*</span></span>
-          <select name="country_id" id="" class="form-control">
-            <?php foreach ($countries as $country) { ?>
-                <?php if ($country['country_id'] == $country_id) { ?>
-                	<option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
-                <?php } else { ?>
-                	<option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
-                <?php } ?>
-            <?php } ?>
-          </select>
-        </label>
-        <label>
-          <span>States</span>
-          <select type="text" name="zone_id">
-          </select>
-        </label>
-        <label>
-          <span>City <span class="required">*</span></span>
-          <input type="text" name="city" required value="<?php print $address['city'];?>">
-        </label>
-        <label>
-          <span>Phone number <span class="required">*</span></span>
-          <input type="text" name="phone" required value="<?php print $address['phone'];?>">
-        </label>
-        <label>
-          <span>ZIP/Postal Code <span class="required">*</span></span>
-          <input type="text" name="postcode" required value="<?php print $address['postcode'];?>">
-        </label>
-        </form>
-      </div>
-      <a href="<?php echo $checkout;?>" class="dark_btn save_address">PROCEED</a>
-    </div>
+	
 
 
   
