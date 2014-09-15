@@ -26,13 +26,13 @@ class ControllerCheckoutSuccess extends Controller {
 		{
 		
 			$products_html .= '<table width="500" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff"><tr><td width="20"></td>
-								<td width="105"><img src="http://ORMARY_SERVER/image/'.$order_product['image'].'" alt="Product" width="105" height="129"></td>
-								<td valign="top" width="225"><font color="#000000" size="2"> '.$order_product['name'].' <br></font>
-									<font color="#000000" size="2">'.strip_tags (html_entity_decode($order_product['description'])).' <br></font></td>
+								<td width="105"><img src="http://ORMARY_SERVER/image/'.$order_product['image'].'" alt="'.$order_product['name'].'" width="105" height="129"></td>
+								<td valign="top" width="225"><font color="#000000" size="2"> '.$order_product['name'].' <br></font></td>
 								<td valign="top" width="65"><font color="#000000" size="2">'.$order_product['product_quantity'].'</font></td>
 								<td valign="top"><font color="#000000" size="2">'.(double)((int)$order_product['product_quantity']*(double)$order_product['product_price']).'</font></td>
 							</tr><tr><td height="20"></td></tr></table>';
 		}
+		
 		$email_message = str_ireplace("TABLE_PRODUCTS", $products_html, $email_message);
 		
 		$email_message = str_ireplace("SHIPPING_COUNTRY",$order['payment_zone'].", ".$order['payment_country'], $email_message);
