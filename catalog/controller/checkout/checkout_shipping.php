@@ -33,11 +33,11 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 				$products = $this->cart->getProducts();				
 				
 				$this->load->model('catalog/product');
-				//print_r($products);
+
 				foreach($products as $product)
 				{
 					$manufacturer_id = $this->model_catalog_product->getManufacturerId($product['product_id']);
-					//print_r("--".$manufacturer_id."--");
+
 					if($manufacturer_id)
 					{
 						$manufacturers[] = $manufacturer_id ;
@@ -45,10 +45,54 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 				}
 				
 				$this->load->model('account/follow');
-				//print_r($manufacturers);
+
 				$this->model_account_follow->saveUserFollows($manufacturers);
 				
 				unset($this->session->data['guest']);
+				
+				
+				$address_id = $this->customer->getAddressId();
+				
+				$shipping_address =  $this->model_account_address->getAddress($address_id);
+	
+				$this->data['products_total_price'] = $this->cart->getTotal();
+				
+				$eu_countries = array(14, 21, 33, 84, 57, 67, 103, 67, 105, 55, 117, 123, 124, 132, 150, 81, 170, 171, 175, 189, 190, 97, 72, 74, 53, 56, 203);
+
+				if($shipping_address['country_id'] == 222)
+				{
+					//GB
+					if($this->data['products_total_price'] >= 125)
+					{
+						$this->data['shipping_price'] = 0;
+					}
+					else
+					{
+						$this->data['shipping_price'] = 5;
+					}
+				}
+				elseif($shipping_address['country_id'] == 223 || $shipping_address['country_id'] == 38)
+				{
+					//USA and Canada
+					$this->data['shipping_price'] = 20;	
+				}
+				elseif(in_array($shipping_address['country_id'], $eu_countries))
+				{
+					//EU
+					$this->data['shipping_price'] = 10;	
+				}
+				else
+				{
+					//World
+					$this->data['shipping_price'] = 30;	
+				}				
+				
+				$this->session->data['shipping_price'] = $this->data['shipping_price'] ;
+				
+				$this->session->data['shipping_address_id'] = $address_id ;
+				
+				
+				$this->redirect($this->url->link('checkout/checkout_payment', '', 'SSL'));
 			}
 			else
 			{	
@@ -94,7 +138,7 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 						$this->session->data['shipping_price'] = $this->data['shipping_price'] ;
 						
 						$this->session->data['shipping_address_id'] = $this->request->post['address_id'] ;
-						//print_r($shipping_address['country_id']);
+
 						$this->redirect($this->url->link('checkout/checkout_payment', '', 'SSL'));
 					}
 				}
