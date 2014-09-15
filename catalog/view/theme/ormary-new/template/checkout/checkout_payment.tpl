@@ -194,9 +194,13 @@
 									<div class="content">
                                     	<?php 
                                             print $firstname.' '.$lastname.'<br/>';
-                                            print $country_name.', '.$zone_name.' '.$city.'<br/>';
                                             print $address_1.'<br/>';
-                                            print $address_2.'<br/>';
+                                            if(isset($address_2) && $address_2 != '')
+                                            {
+                                            	print $address_2.'<br/>';
+                                            }
+                                            print $city.', '.$zone_name.' '.$country_name.'<br/>';                                           
+                                            
                                             print $postcode.'<br/>';
                                             print $phone.'<br/>';
                                         ?>
