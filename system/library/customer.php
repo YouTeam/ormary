@@ -59,14 +59,17 @@ class Customer {
 
 			if ($customer_query->row['cart'] && is_string($customer_query->row['cart'])) {
 				$cart = unserialize($customer_query->row['cart']);
-
-				foreach ($cart as $key => $value) {
-					if (!array_key_exists($key, $this->session->data['cart'])) {
-						//$this->session->data['cart'][$key] = $value;
-					} else {
-						//$this->session->data['cart'][$key] += $value;
-					}
-				}			
+				
+				if(count($this->session->data['cart']) == 0)
+				{
+					foreach ($cart as $key => $value) {
+						if (!array_key_exists($key, $this->session->data['cart'])) {
+							$this->session->data['cart'][$key] = $value;
+						} else {
+							$this->session->data['cart'][$key] += $value;
+						}
+					}	
+				}
 			}
 
 			if ($customer_query->row['wishlist'] && is_string($customer_query->row['wishlist'])) {
