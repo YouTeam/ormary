@@ -3,7 +3,7 @@
 
 
 <div class="container cart review">
-    <h3 class="text-center">BAG</h3>
+    <h3 class="text-center">CHECKOUT</h3>
     <div class="steps clearfix">
         <div class="col-xs-4 wrap-step">
         	<a href="<?php print $shipping_link;?>" class="step">1. shipping</a>
