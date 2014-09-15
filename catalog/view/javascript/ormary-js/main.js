@@ -1,7 +1,6 @@
 /* Payment animation */
 
 jQuery(document).ready(function(){
-
 		
 	$('.csa-label').click(function(){	
 		$(this).next().slideDown();	
@@ -1062,6 +1061,25 @@ $(document).ready(function(){
 		}
 		
 	});
+	
+	/*------Thank you page------*/
+	$('.payment_like_designer').click(function (){
+		manufacture_id = $('.do_you_like .des-img ').attr("id");
+		
+		action = $(this).attr("id");
+		mid = $('.do_you_like .designer').attr("id");
+		
+		if(action == "yes")
+		{
+			$.get("index.php", { route : 'account/follow/changeFollow', st : "follow", mid : manufacture_id}, function(){});
+		}
+		
+		getNextDesignerForRegistered(mid, action);
+		
+		
+		
+	});
+	
 
 });
 
@@ -1108,23 +1126,6 @@ $('.arrow-right').on('click', function(e){
 	$('.newest_carousel_next').on('click', function(e){
 		e.preventDefault()
 		newestCarousel.swipeNext()
-	})
-
-/* Thank you page slider */
-
-	var mySwiper4 = new Swiper('.thank_you_page_slider',{
-		paginationClickable: true,
-		slidesPerView: 4,
-		loop: true
-	})
-
-	 $('.thank_slider_left').on('click', function(e){
-		e.preventDefault()
-		mySwiper4.swipePrev()
-	})
-	$('.thank_slider_right').on('click', function(e){
-		e.preventDefault()
-		mySwiper4.swipeNext()
 	})
 
 $(document).ready(function(){
@@ -1242,4 +1243,51 @@ function getNextDesigner(mid, action)
 			
 		}
 	});	
+}
+/* Thank you page follow */
+function getNextDesignerForRegistered(mid, action)
+{
+	$.ajax({
+		url: 'index.php?route=account/register/getNextDesigner',
+		type: 'post',
+		data: {designer_id: mid, like: action },
+		dataType: 'json',
+		success: function(json) {
+			
+			if(json['all_designers'] == true)
+			{
+				window.location.href = "index.php?route=common/home";
+			}
+			else
+			{
+				$('.thank_you_page .do_you_like .designer').attr('id', json['designer']['id']);
+				$('.thank_you_page .do_you_like #designer_name').html(json['designer']['name']);
+				$('.thank_you_page .do_you_like #designer_image').attr('src', json['designer']['image']);
+				$('.thank_you_page .do_you_like #designer_image').attr('alt', json['designer']['name']);
+				$('.thank_you_page .do_you_like .des-img ').attr('id', json['designer']['mid']);
+				$('.thank_you_page .do_you_like .thank_you_page_slider .swiper-wrapper').html(json['designer']['image_list']);	
+				purchaseSuccessSlider();
+			}			
+		}
+	});	
+}
+/* Thank you page slider */
+function purchaseSuccessSlider()
+{
+
+
+	var mySwiper4 = new Swiper('.thank_you_page_slider',{
+		paginationClickable: true,
+		slidesPerView: 4,
+		loop: true
+	})
+
+	 $('.thank_slider_left').on('click', function(e){
+		e.preventDefault()
+		mySwiper4.swipePrev()
+	})
+	$('.thank_slider_right').on('click', function(e){
+		e.preventDefault()
+		mySwiper4.swipeNext()
+	})	
 }

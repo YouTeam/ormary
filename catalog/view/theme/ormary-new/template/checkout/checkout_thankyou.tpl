@@ -34,74 +34,41 @@
     		<div class="caption text-center">
             Do you like?
             </div>
-    		<a href="#" class="designer">
-                <div class="des-img">
-                	<img src="images/regina.png" alt="regina">
+    		<a href="#" class="designer" style="width:86px;" id="<?php print $designer['id'];?>">
+                <div class="des-img" style="float:none; width:60px; height:60px;" id="<?php print $designer['mid'];?>">
+                	<img src="<?php print $designer['image'];?>" alt="<?php print $designer['name'];?>" id="designer_image">
                 </div>
-                <span>Rejina PYO</span>
+                <span id="designer_name"><?php print $designer['name'];?></span>
                 <span>Designer</span>
             </a>
     		<div class="designer_goods">
                 <a href="#" class="des_slider_left thank_slider_left">
-                	<img src="images/des_slider_left.png" alt="">
+                	<img src="catalog/view/theme/ormary-new/images/des_slider_left.png" alt="">
                 </a>
                 <a href="#" class="des_slider_right thank_slider_right">
-               		<img src="images/des_slider_right.png" alt="">
+               		<img src="catalog/view/theme/ormary-new/images/des_slider_right.png" alt="">
                 </a>
     			<div class="swiper-container thank_you_page_slider">
-    				<div class="swiper-wrapper" style="width: 2100px; height: 212px; transform: translate3d(-600px, 0px, 0px); -webkit-transform: translate3d(-600px, 0px, 0px); transition: 0s; -webkit-transition: 0s;">
-                        <div class="swiper-slide" style="width: 150px; height: 212px;">
-                            <img src="images/des_goods3.png" alt="">
-                        </div>
-                        <div class="swiper-slide" style="width: 150px; height: 212px;">
-                            <img src="images/des_goods1.png" alt="">
-                        </div>
-                        <div class="swiper-slide" style="width: 150px; height: 212px;">
-                            <img src="images/des_goods2.png" alt="">
-                        </div>
-                        <div class="swiper-slide" style="width: 150px; height: 212px;">
-                            <img src="images/des_goods3.png" alt="">
-                        </div>
-                        <div class="swiper-slide swiper-slide-visible swiper-slide-active" style="width: 150px; height: 212px;">
-                            <img src="images/des_goods1.png" alt="">
-                        </div>
-                        <div class="swiper-slide swiper-slide-visible" style="width: 150px; height: 212px;">
-                            <img src="images/des_goods2.png" alt="">
-                        </div>
-                        <div class="swiper-slide swiper-slide-visible" style="width: 150px; height: 212px;">
-                            <img src="images/des_goods3.png" alt="">
-                        </div>
-                        <div class="swiper-slide swiper-slide-visible" style="width: 150px; height: 212px;">
-                            <img src="images/des_goods1.png" alt="">
-                        </div>
-                        <div class="swiper-slide" style="width: 150px; height: 212px;">
-                            <img src="images/des_goods2.png" alt="">
-                        </div>
-                        <div class="swiper-slide" style="width: 150px; height: 212px;">
-                            <img src="images/des_goods3.png" alt="">
-                        </div>
-                        <div class="swiper-slide" style="width: 150px; height: 212px;">
-                            <img src="images/des_goods1.png" alt="">
-                        </div>
-                        <div class="swiper-slide" style="width: 150px; height: 212px;">
-                            <img src="images/des_goods2.png" alt="">
-                        </div>
-                        <div class="swiper-slide" style="width: 150px; height: 212px;">
-                            <img src="images/des_goods3.png" alt="">
-                        </div>
-                        <div class="swiper-slide" style="width: 150px; height: 212px;">
-                            <img src="images/des_goods1.png" alt="">
-                        </div>
+    				<div class="swiper-wrapper">
+                        <?php print $designer['image_list'];?>                        
     				</div>
     			</div>
     		</div>
-            <div class="bottom_btn">
-                <a href="#" class="light_btn">no</a>
-                <a href="#" class="light_btn">yes</a>
+            <div class="bottom_btn" id="purchase_foollow_designer">
+                <a href="javascript:void(0)" class="light_btn payment_like_designer" id="no">no</a>
+                <a href="javascript:void(0)" class="light_btn payment_like_designer" id="yes">yes</a>
             </div>
         </div>
     </div>
 </div>
-    
+
+<script>
+
+	$(document).ready(function(){
+		purchaseSuccessSlider();
+	});
+
+</script> 
+
 <?php echo $content_bottom; ?>
 <?php echo $footer; ?>

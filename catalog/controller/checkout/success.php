@@ -130,12 +130,31 @@ class ControllerCheckoutSuccess extends Controller {
 		$this->data['continue'] = $this->url->link('common/home');
 
 
+
+		/*----------Who to follow wizard------------*/
+		$this->load->model('catalog/manufacturer');
+		$this->session->data['designers'] = $this->model_catalog_manufacturer->getPopularManufacturersList();
+		
+		$first_designer = current($this->session->data['designers']);
+		$this->session->data['designers_style_count'] = $first_designer['style'];
+		$this->session->data['designers_liked_count'] = 0;
+		$this->session->data['designers_liked_summary'] = 0;
+		
+		$this->data['first_designer_order_id'] = 0;
 		
 		
-
-
+		$json = array();
 		
-
+		$this->data['designer']['id'] = 0;
+		$this->data['designer']['mid'] = $first_designer['mid'];
+		$this->data['designer']['name'] = $first_designer['name'];
+		$this->data['designer']['image'] = $first_designer['image'];
+		$this->data['designer']['image_list'] = '';
+		foreach($first_designer['images'] as $img)
+		{
+			$this->data['designer']['image_list'] .= '<div class="swiper-slide"><img src="'.$img.'"></div>';
+		}
+		
 
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout_thankyou.tpl')) {
