@@ -148,7 +148,7 @@
                     			<div class="price"><?php print str_replace("£", "&pound;", $product['price']); ?></div>
                                         </a>
                                 <a href="javascript:void(0)" class="add_to_wardrobe" onclick="addToWishList('<?php echo $product['product_id']; ?>');">
-                                    + My Wardrobe
+                              <img src="/image/data/ormary/wardrobesmall.png" />
                                 </a>
                    			</div>
                     	</div>
