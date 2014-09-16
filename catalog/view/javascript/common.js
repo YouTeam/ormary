@@ -1,3 +1,5 @@
+var msgtimeout;
+
 $(document).ready(function() {
 	/* Search */
 	$('.button-search').bind('click', function() {
@@ -142,7 +144,11 @@ function addToCart(product_id, quantity) {
 	});
 }
 function addToWishList(product_id) {
+    
+    window.clearTimeout(msgtimeout)
+    
 	$.ajax({
+            
 		url: 'index.php?route=account/wishlist/add',
 		type: 'post',
 		data: 'product_id=' + product_id,
@@ -151,12 +157,12 @@ function addToWishList(product_id) {
 			$('.success, .warning, .attention, .information').remove();
 						
 			if (json['success']) {
-				$('#notification').html('<div class="success" style="display: none;">' + json['success'] + '</div>').delay( 4000 ).fadeOut( 400 );
+				$('#notification').html('<div class="success" style="display: none;">' + json['success'] + '</div>')
 			
-				$('.success').fadeIn('slow');				
+				$('.success').fadeIn('fast');				
 				$('#wishlist-total').html(json['total']);
 			
-                                                                            
+                                                                      msgtimeout = window.setInterval( function () {$('.success').fadeOut('fast');},4000);
                         
 				//$('html, body').animate({ scrollTop: 0 }, 'slow');
 			}	
