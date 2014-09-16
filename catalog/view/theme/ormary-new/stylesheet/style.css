@@ -377,11 +377,13 @@ select {
             padding-bottom: 30px;
 }
 
-#notification {
+#notification.container {
     width: 100%;
     text-align: center;
     font-size: 12px;
     background-color: #eef99d;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 a.underlined {
@@ -6085,6 +6087,22 @@ background-color: #eef99d;
 
 .success a{
    color: black;
+}
+
+
+
+.attention {
+    width: 100%;
+padding: 7px;
+text-transform: uppercase;
+letter-spacing: 1px;
+background-color: #ff3bb9;
+color: white;
+}
+
+
+.attention a{
+   color: white;
 }
 
 

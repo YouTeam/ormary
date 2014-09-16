@@ -144,9 +144,48 @@ function addToCart(product_id, quantity) {
 	});
 }
 function addToWishList(product_id) {
-    
+     
     window.clearTimeout(msgtimeout)
     
+    if (product_id === 'false') {
+         $('#notification').html('<div class="attention" style="display: none;">Join Ormary To Create Your Wardrobe.<br><a  href="https://www.ormary.com/index.php?route=account/register" class="open_ormary underlined">JOIN NOW</a></div>')
+	$('.attention').fadeIn('fast');
+        
+        
+        $('.attention .open_ormary').click(function(event){
+		event.preventDefault();
+		$('.sign_up_popup, .popup').show();
+		var topDistance = $(window).scrollTop();
+		var popupHeight = $('.sign_up_popup').height()/2;
+		var popupPosition = $(window).height()/2;
+		$('.sign_up_popup').css('top',topDistance + popupPosition - popupHeight);
+		if (popupHeight > popupPosition) {
+			$('.sign_up_popup').css('maxHeight',popupPosition*2).css('overflow','auto').css('top',topDistance);
+		}
+		
+		
+		$.ajax({
+			url: 'index.php?route=account/register/designersList',
+			type: 'post',
+			data: {designer_id: 1},
+			dataType: 'json',
+			success: function(json) {
+				$('.wrap_do_you_like .designer').attr('id', json['designer']['id']);
+				$('.wrap_do_you_like #designer_name').html(json['designer']['name']);
+				$('.wrap_do_you_like #designer_image').attr('src', json['designer']['image']);
+				$('.wrap_do_you_like #designer_image').attr('alt', json['designer']['name']);
+				$('.wrap_do_you_like .des-img ').attr('id', json['designer']['mid']);
+				$('.wrap_do_you_like .designer_goods_slider .swiper-wrapper').html(json['designer']['image_list']);	
+				designerGoods();
+			}
+		});
+		
+		
+	});
+        msgtimeout = window.setInterval( function () {$('.attention').fadeOut('fast');},4000);
+    
+    }  else {
+   
 	$.ajax({
             
 		url: 'index.php?route=account/wishlist/add',
@@ -168,6 +207,8 @@ function addToWishList(product_id) {
 			}	
 		}
 	});
+        
+    }
 }
 
 

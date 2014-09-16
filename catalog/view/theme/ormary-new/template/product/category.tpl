@@ -71,7 +71,15 @@
                                 	<div class="price"><?php print str_replace("£", "&pound;", $product['price']); ?></div>
                                 <?php } ?>
 </a>
-                                <a href="javascript:void(0)" class="add_to_wardrobe" onclick="addToWishList('<?php echo $product['product_id']; ?>');">
+
+<?php 
+    $flag = 'false';
+if ( $this->customer->isLogged() == true  ) {
+        $flag = $product['product_id'];        
+                }
+?>
+                                <a href="javascript:void(0)" class="add_to_wardrobe" onclick="addToWishList('<?php echo $flag; ?>');">
+<img src="/image/data/ormary/wardrobesmall.png" />
                                 	+ My Wardrobe
                                 </a>
                             </div>
