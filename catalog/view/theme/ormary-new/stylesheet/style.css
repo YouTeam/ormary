@@ -327,16 +327,19 @@ select {
 	right: 30px;
 	top: 282px;
 	display: none;
-	width: 132px;
+	width: 30px;
 	height: 30px;
 	line-height: 30px;
 	text-align: center;
 	text-decoration: none;
-	background: #000;
+	background: transparent;
 	color: #fff;
 	margin: 0 auto;
-	font-size: 14px;
-	font-family:"Optima LT W01 Demi Bold";
+
+}
+
+.product .add_to_wardrobe img {
+	height: 30px;
 }
 
 .product:hover .pin,
