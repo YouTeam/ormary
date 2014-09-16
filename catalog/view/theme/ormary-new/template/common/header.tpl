@@ -446,7 +446,7 @@ on orders £125+<br>
   <?php } ?> 
                 
                 <?php if ($error) { ?>
-                    <div class="warning"><?php echo $error ?><img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>
+                    <div class="warning"><?php echo $error ?></div>
                 <?php } ?>
             
                 <div id="notification" class="container"></div>

@@ -377,6 +377,17 @@ select {
             padding-bottom: 30px;
 }
 
+#notification {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    background-color: #eef99d;
+}
+
+a.underlined {
+    text-decoration: underline;
+}
+
 .content .criteria {
 	border-bottom: 1px solid #bfbfbf;
 	width: 100%;
@@ -6017,7 +6028,10 @@ margin-top: 30px;
 }
 
 
-.screen-offset{
+.screen-offset,
+#notification .close
+
+{
     background: transparent;
     display: block;
     line-height: 0;
@@ -6062,10 +6076,27 @@ text-align: center;
 
 .success {
     width: 100%;
-padding: 20px;
-background-color: #e5e5e5;
-font-size: 13px;
+padding: 7px;
 text-transform: uppercase;
 letter-spacing: 1px;
 
+}
+
+
+.success a{
+   color: black;
+}
+
+
+.mini-cart-msg {
+    width: 100%;
+text-align: center;
+padding: 7px 0px;
+background-color: #eef99d;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+.forceshow {
+    display: block;
 }

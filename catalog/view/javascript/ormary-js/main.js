@@ -217,7 +217,8 @@ $(document).ready(function(){
 
 	$('.open_add_to_cart_popup').click(function(event){
 		event.preventDefault();
-
+ 
+                $('.mini-cart-msg').remove();
 		if($("#orm_product select").val() == "")
 		{
 			$("#orm_product select").addClass("not_filled");	
@@ -227,6 +228,8 @@ $(document).ready(function(){
 		{
 			$("#orm_product select").removeClass("not_filled");
 			$(".available_sizes div.alert_error").hide();
+                                                        $('.cart_dropdown').addClass('forceshow');
+                                                        $('.cart_dropdown').prepend('<p class="mini-cart-msg">Adding item....</p>');
 		$.ajax({
 			url: 'index.php?route=checkout/cart/add',
 			type: 'post',
@@ -250,7 +253,12 @@ $(document).ready(function(){
 				
 				if (json['success']) {
 					
-					$('#cart').load('index.php?route=module/cart #cart > *', function(){ $('.open_cart_dropdown #cart_header_price').html($('#cart span.total #cart_price').html());});
+					$('#cart').load('index.php?route=module/cart #cart > *', function(){ $('.open_cart_dropdown #cart_header_price').html($('#cart span.total #cart_price').html());
+     $('.cart_dropdown').prepend('<p class="mini-cart-msg">Item Added :)</p>');                                    
+                                
+                                         var minicarttimer = window.setTimeout( function () {$('.cart_dropdown').removeClass('forceshow')} , 3000);
+                                        
+                                        });
 					
 					$('#cart_items_in_cart').html(json['total']['items_count']);
 					$('#cart_subtotal').html(json['total']['subtotal_price']);
@@ -270,12 +278,16 @@ $(document).ready(function(){
 		if(qty == 1)
 		{
 			$('#cart_popup_header').html("1 item");
-		}
+		
+                      
+			
+                            }
 		else
 		{
-			$('#cart_popup_header').html(qty + " items");	
+	//		$('#cart_popup_header').html(qty + " items");	
+                       //      $('.cart_dropdown').prepend('<p class="mini-cart-msg">'+qty +' items added.</p>');
 		}
-		
+	//	$('.mini-cart-msg').html(qty+'Item Added');
 		//$('#cart_product_color').html($("#orm_product .filter-colors span.selected").attr('title'));
 		$('#cart_product_color').html($("#orm_product #color").attr('title'));
 		$('#cart_product_size').html($("#orm_product select#size option:selected").text());
@@ -289,14 +301,14 @@ $(document).ready(function(){
 		$('#cart_product_price_total').html('&pound;' + total_price.toFixed(2));
 
 		
-		$('.popup, .add_to_cart_popup').show();
-		var topDistance = $(window).scrollTop();
-		var popupHeight = $('.add_to_cart_popup').height()/2;
-		var popupPosition = $(window).height()/2;
-		$('.add_to_cart_popup').css('top',topDistance + popupPosition - popupHeight);
-		if (popupHeight > popupPosition) {
-			$('.add_to_cart_popup').css('maxHeight',popupPosition*2).css('overflow','auto').css('top',topDistance);
-		}
+	//	$('.popup, .add_to_cart_popup').show();
+	//	var topDistance = $(window).scrollTop();
+	//	var popupHeight = $('.add_to_cart_popup').height()/2;
+	//	var popupPosition = $(window).height()/2;
+	//	$('.add_to_cart_popup').css('top',topDistance + popupPosition - popupHeight);
+	//	if (popupHeight > popupPosition) {
+	//		$('.add_to_cart_popup').css('maxHeight',popupPosition*2).css('overflow','auto').css('top',topDistance);
+	//	}
 		}
 	});
 	$('.add_to_cart_popup').click(function(event){
@@ -670,6 +682,13 @@ $(document).ready(function(){
 		
 	});
 		
+                $('.not_now').click(function(event){
+		event.preventDefault();
+          
+		$('#registration-first-form').submit();
+		
+	});
+ 		
 	$('.open_wizard3').click(function(event){
 		event.preventDefault();
 		$('.you_are_following, .popup').show();
@@ -1140,7 +1159,7 @@ $(document).ready(function(){
         if($('.product').length > 0 ) {
            $('.product').hover (
                function() {
-               var _this= $(this).find('img');
+               var _this= $(this).find('img.swapimg');
                var cururl = _this.attr('src');
                var newurl = _this.attr('data-swap');
 			   if (_this.length > 1 ){
@@ -1150,7 +1169,7 @@ $(document).ready(function(){
                _this.attr('data-swap' , cururl);
                 },
                 function() {
-                 var _this= $(this).find('img');
+                 var _this= $(this).find('img.swapimg');
                var cururl = _this.attr('src');
                var newurl = _this.attr('data-swap');
 			   var attr = _this.attr('alt');

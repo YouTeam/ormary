@@ -151,12 +151,13 @@ function addToWishList(product_id) {
 			$('.success, .warning, .attention, .information').remove();
 						
 			if (json['success']) {
-				$('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
-				
-				$('.success').fadeIn('slow');
-				
+				$('#notification').html('<div class="success" style="display: none;">' + json['success'] + '</div>').delay( 4000 ).fadeOut( 400 );
+			
+				$('.success').fadeIn('slow');				
 				$('#wishlist-total').html(json['total']);
-				
+			
+                                                                            
+                        
 				//$('html, body').animate({ scrollTop: 0 }, 'slow');
 			}	
 		}
