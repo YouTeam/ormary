@@ -15,7 +15,7 @@ class ModelSettingLanding extends Model {
 	
 	public function updateLanding($data)
 	{
-		for($i=1; $i<5; $i++)	
+		for($i=1; $i<6; $i++)	
 		{
 			$this->db->query("UPDATE " . DB_PREFIX . "landing_page SET text_top = '".$data['block'.$i.'_text1']."', text_bottom = '".$data['block'.$i.'_text2']."', link = '".$data['block'.$i.'_link']."' WHERE id = '" .$i. "'");	
 			

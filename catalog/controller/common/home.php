@@ -168,6 +168,11 @@ class ControllerCommonHome extends Controller {
 				{
 					$b['image'] = $this->model_tool_image->resize($b['image'], 754, 423);		
 				}
+                                elseif($b['id'] == 5)
+				{
+					$b['image'] = $this->model_tool_image->resize($b['image'], 1140, 600);		
+				}
+                                
 			}
 			$this->data['featured_products']  = array();
 			$results = $this->model_catalog_product->getProducts($data); 

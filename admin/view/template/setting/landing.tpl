@@ -20,6 +20,49 @@
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form">
         <div id="tab-general">
           <table class="form">
+              
+              
+              
+                        	<tr>
+              <td><strong>Top Banner </strong></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><span class="required">*</span>Top Banner Text Top</td>
+              <td><input type="text" name="block5_text1" value="<?php echo $block5_text1; ?>" size="40" />
+                <?php if ($error_name) { ?>
+                <span class="error"><?php echo $error_name; ?></span>
+                <?php } ?></td>
+            </tr>
+			<tr>
+              <td><span class="required">*</span>Top Banner Text bottom</td>
+              <td><input type="text" name="block5_text2" value="<?php echo $block5_text2; ?>" size="40" />
+                <?php if ($error_name) { ?>
+                <span class="error"><?php echo $error_name; ?></span>
+                <?php } ?></td>
+            </tr>
+            <tr>
+              <td><span class="required">*</span>Top Banner Link</td>
+              <td><input type="text" name="block5_link" value="<?php echo $block5_link; ?>" size="40" />
+                <?php if ($error_name) { ?>
+                <span class="error"><?php echo $error_name; ?></span>
+                <?php } ?></td>
+            </tr>
+            <tr>
+              <td>Top Banner Image</td>
+              <td><div class="image"><img src="<?php echo $block5_thumb; ?>" alt="" id="thumb5" /><br />
+                  <input type="hidden" name="block5_image" value="<?php echo $block5_image; ?>" id="image5" />
+                  <a onclick="image_upload('image5', 'thumb5');"><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('#thumb5').attr('src', '<?php echo $no_image; ?>'); $('#image5').attr('value', '');"><?php echo $text_clear; ?></a></div></td>
+            </tr>
+            
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+              
+              
+              
+              
           	<tr>
               <td><strong>Left Block </strong></td>
               <td></td>

@@ -46,7 +46,7 @@ class ControllerSettingLanding extends Controller {
 		
 		
 		// --- Block #1 Left side
-		for($i=1; $i<5; $i++)
+		for($i=1; $i<6; $i++)
 		{
 			if (isset($this->request->post['block'.$i.'_text1'])) {
 				$this->data['block'.$i.'_text'] = $this->request->post['block'.$i.'_text1'];

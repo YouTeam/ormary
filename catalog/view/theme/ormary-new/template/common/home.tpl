@@ -29,11 +29,28 @@ if (  $this->customer->isLogged() ) {
 </div>
 <?php } ?>
 
-<?php echo $content_top; ?>
+
+
+
+
 
 
 
 <div class="container shop_collections">
+     <div class="mainpromo shop_collection">
+          <a href="<?php print $blocks[5]['link'];?>">
+    	<img src="<?php print $blocks[5]['image'];?>" alt="<?php print $blocks[5]['text_top'];?>">
+        </a>
+        <a href="<?php print $blocks[5]['link'];?>" class='linkdown'>
+    		<div class="collection_name">
+            	<?php print $blocks[5]['text_top'];?>
+            </div>
+            <div class="collection_title" >
+            	<?php print $blocks[5]['text_bottom'];?>
+            </div>
+    	</a>
+    </div>
+    <div class=clearfix></div>
     <div class="col-md-4 shop_collection">
           <a href="<?php print $blocks[1]['link'];?>">
     	<img src="<?php print $blocks[1]['image'];?>" alt="">

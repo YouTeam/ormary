@@ -2,7 +2,7 @@
 <html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
     <head>
                 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-                <script type="text/javascript" src="/catalog/view/javascript/modernizr.js"></script>
+                <script type="text/javascript" src="catalog/view/javascript/jquery/modernizr.js"></script>
                 
     	<meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -57,6 +57,8 @@
         
         <?php if ($stores) { ?>
 			<script type="text/javascript"><!--
+                            
+                     
                 $(document).ready(function() {
                 <?php foreach ($stores as $store) { ?>
                 $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></iframe>');
@@ -66,6 +68,8 @@
         <?php } ?>
         
     	<?php echo $google_analytics; ?>
+        
+        
     </head>
 
 
@@ -85,7 +89,9 @@
                                 </div>
 							<?php } ?>
             			</div>
-                        
+                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#responsive_menu">
+                                      SHOP
+                                    </button>
                         <!-- SHIPPING AND REFUNDS STARTS -->
                         
               <div class="navbar navbar-static" id="shipping-refunds">
@@ -244,11 +250,7 @@ on orders £125+<br>
                         <div class="navbar navbar-default main_menu">
                             <div class="container">
                                 <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#responsive_menu">
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>
+                                   
                                 </div>
                                 <div class="collapse navbar-collapse" id="responsive_menu">
                                     <ul class="nav navbar-nav navbar-left">
