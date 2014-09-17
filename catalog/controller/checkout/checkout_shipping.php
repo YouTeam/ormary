@@ -52,11 +52,18 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 				
 				$address_id = $this->customer->getAddressId();
 				
+				
 				$shipping_address =  $this->model_account_address->getAddress($address_id);
 	
 				$this->data['products_total_price'] = $this->cart->getTotal();
 				
-				$eu_countries = array(14, 21, 33, 84, 57, 67, 103, 67, 105, 55, 117, 123, 124, 132, 150, 81, 170, 171, 175, 189, 190, 97, 72, 74, 53, 56, 203);
+				
+				$this->load->model('shipping/custom_flatrate_shipping');
+
+				$shipping_price = $this->model_shipping_custom_flatrate_shipping->getShippingPrice($shipping_address['country_id'], $this->data['products_total_price']);
+				$this->session->data['shipping_price'] = $shipping_price['price'];
+				
+/*				$eu_countries = array(14, 21, 33, 84, 57, 67, 103, 67, 105, 55, 117, 123, 124, 132, 150, 81, 170, 171, 175, 189, 190, 97, 72, 74, 53, 56, 203);
 
 				if($shipping_address['country_id'] == 222)
 				{
@@ -86,7 +93,7 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 					$this->data['shipping_price'] = 30;	
 				}				
 				
-				$this->session->data['shipping_price'] = $this->data['shipping_price'] ;
+				$this->session->data['shipping_price'] = $this->data['shipping_price'] ;*/
 				
 				$this->session->data['shipping_address_id'] = $address_id ;
 				
@@ -104,7 +111,13 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 						
 						$this->data['products_total_price'] = $this->cart->getTotal();
 						
-						$eu_countries = array(14, 21, 33, 84, 57, 67, 103, 67, 105, 55, 117, 123, 124, 132, 150, 81, 170, 171, 175, 189, 190, 97, 72, 74, 53, 56, 203);
+						
+						$this->load->model('shipping/custom_flatrate_shipping');
+
+						$shipping_price = $this->model_shipping_custom_flatrate_shipping->getShippingPrice($shipping_address['country_id'], $this->data['products_total_price']);
+										
+						$this->session->data['shipping_price'] = $shipping_price['price'];
+/*						$eu_countries = array(14, 21, 33, 84, 57, 67, 103, 67, 105, 55, 117, 123, 124, 132, 150, 81, 170, 171, 175, 189, 190, 97, 72, 74, 53, 56, 203);
 
 						if($shipping_address['country_id'] == 222)
 						{
@@ -134,7 +147,7 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 							$this->data['shipping_price'] = 30;	
 						}				
 						
-						$this->session->data['shipping_price'] = $this->data['shipping_price'] ;
+						$this->session->data['shipping_price'] = $this->data['shipping_price'] ;*/
 						
 						$this->session->data['shipping_address_id'] = $this->request->post['address_id'] ;
 
@@ -341,23 +354,29 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 		
 		if($this->customer->isLogged()) 
 		{
-			
-			
-			
 			$this->load->model('account/address');
 			$addresses = $this->model_account_address->getAddresses();
 
 			$this->data['registered'] = true;
 						
 			if(isset($this->session->data['shipping_address_id']))
-			{
-				$this->data['selected_address']	= $this->session->data['shipping_address_id'];
+			{				
+				$this->data['selected_address']	= $this->session->data['shipping_address_id'];	
+				$shipping_address_info =  $this->model_account_address->getAddress($this->session->data['shipping_address_id']);	
+				$country_info = $this->model_localisation_country->getCountry($shipping_address_info['country_id']);
+				$this->load->model('shipping/custom_flatrate_shipping');
+				$shipping_info = $this->model_shipping_custom_flatrate_shipping->getShippingPrice($country_info['country_id'], $this->cart->getTotal());
+			
+				$this->data['shipping_price_message'] = $shipping_info['message'];	
 			}
 			else
 			{
 				$first_address = current($addresses);
 				$this->data['selected_address']	= $first_address['address_id'];
+				$shipping_address_info =  $this->model_account_address->getAddress($first_address['address_id']);	
+				$this->data['shipping_price_message'] = 'Please select your country below to calculate shipping costs';
 			}
+
 			
 			$this->data['looged_in'] = true;	
 					
@@ -522,6 +541,21 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 		} else {
 			return false;
 		}
+	}
+	
+	
+	public function ajaxGetShippingPriceMessage()
+	{
+		$json = array();	
+		
+		$this->load->model('shipping/custom_flatrate_shipping');
+
+		$shipping_price = $this->model_shipping_custom_flatrate_shipping->getShippingPrice($this->request->post['country_id'], $this->cart->getTotal());
+		
+		$json['message'] = $shipping_price['message']; 
+		
+		$this->response->setOutput(json_encode($json));	
+		
 	}
 	
 }

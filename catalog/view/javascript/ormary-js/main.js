@@ -221,11 +221,15 @@ $(document).ready(function(){
                 $('.mini-cart-msg').remove();
 		if($("#orm_product select").val() == "")
 		{
-			$("#orm_product select").addClass("not_filled");	
-			$(".available_sizes div.alert_error").show();
+			$("#orm_product select").addClass("not_filled");
+                            $('#notification').html('<div class="attention" style="display: none;">Select Your Size</div>')
+                        $('.attention').fadeIn('fast');
+		//	$(".available_sizes div.alert_error").show();
 		}
 		else
 		{
+                    $('.attention').fadeOut('fast');
+	
 			$("#orm_product select").removeClass("not_filled");
 			$(".available_sizes div.alert_error").hide();
                                                         $('.cart_dropdown').addClass('forceshow');
@@ -912,7 +916,21 @@ $(document).ready(function(){
 	$('.popup').click(function(){
 		$('.popup, #edit_shipping_address').hide();
 	});
-
+	
+	/*-----------Shipping addresses select------*/	
+	
+	$('#select_shipping_address input[type=radio]').change(function(){
+		
+		$.ajax({
+			url: 'index.php?route=checkout/checkout_shipping/ajaxGetShippingPriceMessage',
+			type: 'post',
+			data: {country_id : $(this).parent().attr('id')},
+			dataType: 'json',
+			success: function(json) {
+				$('#shipping_message').html(json['message']);	
+			}
+		});
+	});
 
 	/* Size guide popup */
 

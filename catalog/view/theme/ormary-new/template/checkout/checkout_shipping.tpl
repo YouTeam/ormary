@@ -22,11 +22,11 @@
     ?>
         <div class="choose_shipping_address clearfix">
             <h5>
-                Choose shipping address
+               Choose shipping address
                 <a href="javascript:void(0)" id="open_add_shipping_address">+ Add new address</a>
             </h5>
             <div class="flat_rate_shipping">
-                    Flat rate shipping
+                    <span id="shipping_message"><?php print $shipping_price_message;?></span>
                 </div>
                 <form action="<?php print $page_url;?>" method="post" id="select_shipping_address">
                 	<?php
@@ -34,7 +34,7 @@
                     {
                     ?>
                         <label class="csa clearfix">
-                            <div class="csa-checkbox text-center">
+                            <div class="csa-checkbox text-center" id="<?php print $addr['country_id'];?>">
                                 <input type="radio" id="" name="address_id" value="<?php print $addr['address_id'];?>" <?php if($selected_address == $addr['address_id']){ print "checked";}?> >
                             </div>
                             <div class="csa-address" id="<?php print $addr['address_id'];?>">
@@ -74,7 +74,7 @@
             <div class="add_shipping_information clearfix">
                 <h5>Add your shipping information</h5>
                 <div class="flat_rate_shipping">
-                    Flat rate shipping
+                    <span id="shipping_message">Please select your country below to calculate shipping costs</span>
                 </div>
                 <div class="cart_inputs">
                     <div class="inputs_group">
@@ -429,6 +429,16 @@ if($list_addresses)
 <script type="text/javascript">
 
 $('select[name=\'country_id\']').bind('change', function() {
+
+	$.ajax({
+		url: 'index.php?route=checkout/checkout_shipping/ajaxGetShippingPriceMessage',
+		type: 'post',
+		data: {country_id : this.value},
+		dataType: 'json',
+		success: function(json) {
+			$('#shipping_message').html(json['message']);	
+		}
+	});
 
 	$.ajax({
 		url: 'index.php?route=account/address/country&country_id=' + this.value,
