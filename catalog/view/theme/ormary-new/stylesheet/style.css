@@ -723,6 +723,10 @@ footer .copyright {
   z-index: 999;
 }
 
+.mainpromo {
+    margin-top: -30px;
+}
+
 .shop_collections {
 	margin-bottom: 50px;
 }
@@ -4926,9 +4930,18 @@ display: block;
 		width: 45%;
 	}
 
-	.table_head {
-		display: none;
+	.table_head div.first_title {
+		width: 365px;
 	}
+
+	.table_head div {
+		width: 130px;
+	}
+
+	.table_head div.subtotal {
+		width: 85px;
+	}
+
 
 	.available + .available + .available {
 		margin-bottom: 10px;
@@ -4944,6 +4957,18 @@ display: block;
 }
 
 @media screen and (max-width: 991px){
+	
+	.table_head div.first_title {
+		width: 315px;
+	}
+
+	.table_head div {
+		width: 96px;
+	}
+
+	.table_head div.subtotal {
+		width: 54px;
+	}
 
 	.top_bar .container {
 		padding: 0;
@@ -5246,6 +5271,10 @@ display: block;
 	
 @media screen and (max-width: 767px){
 	
+	.table_head {
+		display: none;
+	}
+
 	header {
 		position: static;
 	}
@@ -6117,4 +6146,66 @@ letter-spacing: 1px;
 
 .forceshow {
     display: block;
+}
+
+
+.mainpromo .linkdown {
+display: block;
+float: left;
+z-index: 99;
+position: relative;
+margin: 0px auto;
+margin-top: -150px;
+text-align: center;
+width: 100%;
+position: absolute;
+}
+
+.mainpromo .linkdown .collection_name {
+font-size: 14px;
+text-transform: uppercase;
+line-height: 26px;
+/* padding: 0 10px; */
+background: #000000;
+color: #ffffff;
+font-family: "Didot W01 Roman";
+position: relative;
+/* top: 0px; */
+/* left: 2px; */
+height: 68px;
+width: 453px;
+line-height: 68px;
+/* font-weight: bold; */
+margin: 0px auto;
+font-size: 28px;
+letter-spacing: 1px;
+}
+
+
+.mainpromo .linkdown .collection_title
+{
+font-size: 14px;
+text-transform: uppercase;
+text-decoration: none;
+line-height: 26px;
+padding: 0 10px;
+background: black;
+color: white;
+font-family: "Didot W01 Roman";
+position: relative;
+top: 3px;
+padding-left: 40px;
+padding-right: 40px;
+line-height: 68px;
+/* left: 2px; */
+margin: 0px auto;
+width: 391px;
+height: 68px;
+border: 1px solid black;
+margin: 0px auto;
+font-size: 28px;
+letter-spacing: 1px;
+}
+.mainpromo a:hover {
+    text-decoration: none;
 }
