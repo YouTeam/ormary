@@ -182,7 +182,8 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 			{
 				$this->data['customer_email'] = $this->customer->getEmail();
 			}
-		}		
+		}	
+		$this->data['text_none'] = 'No regions';
 
 		$this->load->model('localisation/country');
 		$this->data['countries'] = $this->model_localisation_country->getCountries();

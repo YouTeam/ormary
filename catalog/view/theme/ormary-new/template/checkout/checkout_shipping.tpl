@@ -480,5 +480,5 @@ $('select[name=\'country_id\']').bind('change', function() {
 	});
 });
 
-$('select[name=\'country_id\']').trigger('change');
+//$('select[name=\'country_id\']').trigger('change');
 </script> 
