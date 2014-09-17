@@ -1,4 +1,4 @@
-@import url(//fonts.googleapis.com/css?family=Lora);
+    @import url(//fonts.googleapis.com/css?family=Lora);
 
 /* CUSTOM STYLES */
 
@@ -726,6 +726,10 @@ footer .copyright {
 
 .mainpromo {
     margin-top: 2px;
+}
+
+.mainpromo {
+    margin-top: -30px;
 }
 
 .shop_collections {
@@ -4926,13 +4930,24 @@ a.add_address_btn {
         width: 45%;
     }
 
-    .table_head {
-        display: none;
-    }
 
-    .available + .available + .available {
-        margin-bottom: 10px;
-    }
+	.table_head div.first_title {
+		width: 365px;
+	}
+
+	.table_head div {
+		width: 130px;
+	}
+
+	.table_head div.subtotal {
+		width: 85px;
+	}
+
+
+	.available + .available + .available {
+		margin-bottom: 10px;
+	}
+
 
     /* My Ormary page adaptation */
 
@@ -4944,6 +4959,18 @@ a.add_address_btn {
 }
 
 @media screen and (max-width: 991px){
+	
+	.table_head div.first_title {
+		width: 315px;
+	}
+
+	.table_head div {
+		width: 96px;
+	}
+
+	.table_head div.subtotal {
+		width: 54px;
+	}
 
     .top_bar .container {
         padding: 0;
@@ -5245,6 +5272,17 @@ a.add_address_btn {
 
 
 @media screen and (max-width: 767px){
+<<<<<<< HEAD
+=======
+	
+	.table_head {
+		display: none;
+	}
+
+	header {
+		position: static;
+	}
+>>>>>>> 1bdd498c40a4884d823769fac8012772e7768257
 
     header {
         position: static;
@@ -6118,6 +6156,7 @@ a.minicartcheckout {
 
 
 .mainpromo .linkdown {
+<<<<<<< HEAD
     display: block;
     float: left;
     z-index: 99;
@@ -6200,6 +6239,21 @@ margin-bottom: 10px;
 
     .mainpromo .linkdown .collection_name {
         font-size: 14px;
+=======
+display: block;
+float: left;
+z-index: 99;
+position: relative;
+margin: 0px auto;
+margin-top: -150px;
+text-align: center;
+width: 100%;
+position: absolute;
+}
+
+.mainpromo .linkdown .collection_name {
+font-size: 14px;
+>>>>>>> 1bdd498c40a4884d823769fac8012772e7768257
 text-transform: uppercase;
 line-height: 26px;
 /* padding: 0 10px; */
@@ -6209,6 +6263,7 @@ font-family: "Didot W01 Roman";
 position: relative;
 /* top: 0px; */
 /* left: 2px; */
+<<<<<<< HEAD
 height: 40px;
 width: 90%;
 line-height: 40px;
@@ -6303,4 +6358,42 @@ margin-left: 15px;
 #cart_header_price {
     display: none;
 }
+=======
+height: 68px;
+width: 453px;
+line-height: 68px;
+/* font-weight: bold; */
+margin: 0px auto;
+font-size: 28px;
+letter-spacing: 1px;
+}
+
+
+.mainpromo .linkdown .collection_title
+{
+font-size: 14px;
+text-transform: uppercase;
+text-decoration: none;
+line-height: 26px;
+padding: 0 10px;
+background: black;
+color: white;
+font-family: "Didot W01 Roman";
+position: relative;
+top: 3px;
+padding-left: 40px;
+padding-right: 40px;
+line-height: 68px;
+/* left: 2px; */
+margin: 0px auto;
+width: 391px;
+height: 68px;
+border: 1px solid black;
+margin: 0px auto;
+font-size: 28px;
+letter-spacing: 1px;
+}
+.mainpromo a:hover {
+    text-decoration: none;
+>>>>>>> 1bdd498c40a4884d823769fac8012772e7768257
 }
