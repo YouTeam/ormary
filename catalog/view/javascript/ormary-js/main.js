@@ -916,7 +916,7 @@ $(document).ready(function(){
 	$('.popup').click(function(){
 		$('.popup, #edit_shipping_address').hide();
 	});
-	
+
 	/*-----------Shipping addresses select------*/	
 	
 	$('#select_shipping_address input[type=radio]').change(function(){
@@ -1099,6 +1099,67 @@ $(document).ready(function(){
 		
 	});
 	
+	/*---------------Payment page-------------------*/
+	$('#payment_form input[name="use_shipping_address"]').change(function(event){
+				
+		var aid = $(this).val();
+
+		if($(this).prop( "checked" ))
+		{
+			$.ajax({
+				url: 'index.php?route=account/address/getAddress',
+				type: 'post',
+				data: {address_id: aid},
+				dataType: 'json',
+				success: function(json) {
+					if (json['error'] != "") 
+					{	
+						alert("Error");
+					}
+					else
+					{
+						$('#payment_form input[name="firstname"]').val(json['address']['firstname']);
+						$('#payment_form input[name="lastname"]').val(json['address']['lastname']);
+						$('#payment_form select[name="country_id"]').val(json['address']['country_id']);
+						
+						$.ajax({
+							url: 'index.php?route=account/address/country&country_id=' +  json['address']['country_id'],
+							dataType: 'json',
+							success: function(json_zone) {
+								
+								html = '<option value=""><?php echo $text_select; ?></option>';
+								if (json_zone['zone'] != '') {
+									for (i = 0; i < json_zone['zone'].length; i++) {
+										html += '<option value="' + json_zone['zone'][i]['zone_id'] + '"';
+										
+										if (json_zone['zone'][i]['zone_id'] == json['address']['zone_id']) {
+											html += ' selected="selected"';
+										}
+						
+										html += '>' + json_zone['zone'][i]['name'] + '</option>';
+									}
+								} else {
+									html += '<option value="0" selected="selected">No regions</option>';
+								}
+								
+								$('#payment_form select[name=\'zone_id\']').html(html);
+							}
+						});					
+						
+						$('#payment_form input[name="address_1"]').val(json['address']['address_1']);
+						$('#payment_form input[name="address_2"]').val(json['address']['address_2']);
+						$('#payment_form input[name="postcode"]').val(json['address']['postcode']);
+						$('#payment_form input[name="city"]').val(json['address']['city']);
+	
+					}	
+				}
+			});
+		}
+
+	});
+	
+	
+	
 	/*------Thank you page------*/
 	$('.payment_like_designer').click(function (){
 		manufacture_id = $('.do_you_like .des-img ').attr("id");
@@ -1174,8 +1235,8 @@ $(document).ready(function(){
 	});
         
         
-        if($('.product').length > 0 ) {
-           $('.product').hover (
+        if($('.no-touch .product').length > 0 ) {
+           $('.no-touch .product').hover (
                function() {
                var _this= $(this).find('img.swapimg');
                var cururl = _this.attr('src');

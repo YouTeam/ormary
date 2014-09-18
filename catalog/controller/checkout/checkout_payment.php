@@ -16,12 +16,6 @@ class ControllerCheckoutCheckoutPayment extends Controller {
 			}	
 		}
 
-		
-		/*		if(!isset($this->request->post['type']))
-		{
-			$this->request->post['type'] = "select_address";
-		}*/
-
 		$this->data['show_card_form'] = false;
 
 
@@ -43,167 +37,43 @@ class ControllerCheckoutCheckoutPayment extends Controller {
 		{	
 			if($this->request->post['action'] == "save_billing_address")
 			{	
-				if(isset($this->request->post['use_shipping_address']))
+				if($this->validate_billing_address())
 				{
-						$this->data['show_card_form'] = true;	
-						
-						$this->load->model('account/address');
-						$shipping_address =  $this->model_account_address->getAddress($this->session->data['shipping_address_id']);
-						
-						$this->session->data['billing_address']['firstname'] = $shipping_address['firstname'];
-						$this->session->data['billing_address']['lastname'] = $shipping_address['lastname'];
-						$this->session->data['billing_address']['country'] = $shipping_address['country_id'];
-						$this->session->data['billing_address']['address_1'] = $shipping_address['address_1'];
-						$this->session->data['billing_address']['address_2'] = $shipping_address['address_2'];
-						$this->session->data['billing_address']['city'] = $shipping_address['city'];
-						$this->session->data['billing_address']['zone'] = $shipping_address['zone_id'];
-						$this->session->data['billing_address']['postcode'] = $shipping_address['postcode'];
-						$this->session->data['billing_address']['phone'] = "";	
+					$this->data['show_card_form'] = true;	
+					
+					$this->session->data['billing_address']['firstname'] = $this->request->post['firstname'];
+					$this->session->data['billing_address']['lastname'] = $this->request->post['lastname'];
+					$this->session->data['billing_address']['country'] = $this->request->post['country_id'];
+					$this->session->data['billing_address']['address_1'] = $this->request->post['address_1'];
+					$this->session->data['billing_address']['address_2'] = $this->request->post['address_2'];
+					$this->session->data['billing_address']['city'] = $this->request->post['city'];
+					$this->session->data['billing_address']['zone'] = $this->request->post['zone_id'];
+					$this->session->data['billing_address']['postcode'] = $this->request->post['postcode'];
+					$this->session->data['billing_address']['phone'] = $this->request->post['phone'];
+
 				}
 				else
 				{
-					if($this->validate_billing_address())
-					{
-						$this->data['show_card_form'] = true;	
-						
-						$this->session->data['billing_address']['firstname'] = $this->request->post['firstname'];
-						$this->session->data['billing_address']['lastname'] = $this->request->post['lastname'];
-						$this->session->data['billing_address']['country'] = $this->request->post['country_id'];
-						$this->session->data['billing_address']['address_1'] = $this->request->post['address_1'];
-						$this->session->data['billing_address']['address_2'] = $this->request->post['address_2'];
-						$this->session->data['billing_address']['city'] = $this->request->post['city'];
-						$this->session->data['billing_address']['zone'] = $this->request->post['zone_id'];
-						$this->session->data['billing_address']['postcode'] = $this->request->post['postcode'];
-						$this->session->data['billing_address']['phone'] = $this->request->post['phone'];
-						
-						if(isset($this->session->data['card_info']['card_name'])){
-							$this->data['card_name'] = $this->session->data['card_info']['card_name'];
-						}else{
-							$this->data['card_name'] = "";	
-						}
-						
-						if(isset($this->session->data['card_info']['card_name'])){
-							$this->data['card_type'] = $this->session->data['card_info']['card_type'];
-						}else{
-							$this->data['card_type'] = "";	
-						}
-						
-						if(isset($this->session->data['card_info']['card_name'])){
-							$this->data['card_number'] = $this->session->data['card_info']['card_number'];
-						}else{
-							$this->data['card_number'] = "";	
-						}
-						
-						if(isset($this->session->data['card_info']['card_name'])){
-							$this->data['card_date'] = $this->session->data['card_info']['card_date'];
-						}else{
-							$this->data['card_date'] = "";	
-						}
-												
-						if(isset($this->session->data['card_info']['card_name'])){
-							$this->data['card_code'] = $this->session->data['card_info']['card_code'];
-						}else{
-							$this->data['card_code'] = "";	
-						}
-																
-						$this->data['error_card_name'] = '';
-						$this->data['error_card_number'] = '';
-						$this->data['error_card_type'] = '';
-						$this->data['error_card_date'] = '';
-						$this->data['error_card_code'] = '';
-					}
-					else
-					{
-						$this->data['show_billing_form'] = true;						
-						
-						
-/*						$this->data['firstname'] = $this->session->data['billing_address']['firstname'];
-						$this->data['lastname'] = $this->session->data['billing_address']['lastname'];
-						$this->data['country'] = $this->session->data['billing_address']['country'];
-						$this->data['address_1'] = $this->session->data['billing_address']['address_1'];
-						$this->data['address_2'] = $this->session->data['billing_address']['address_2'];
-						$this->data['city'] = $this->session->data['billing_address']['city'];
-						$this->data['zone'] = $this->session->data['billing_address']['zone'];
-						$this->data['postcode'] = $this->session->data['billing_address']['postcode'];
-						$this->data['phone'] = $this->session->data['billing_address']['phone'];*/
-					}				
-				}
-				
+					$this->data['show_billing_form'] = true;						
+
+				}			
 			}
 			elseif(($this->request->server['REQUEST_METHOD'] == 'POST') && $this->request->post['action'] == "save_card_info")
-			{
-				//if($this->validate_card())
-				
-				
+			{				
 				if(isset($_POST["payment_method_nonce"]))
 				{
 					$this->session->data['payment_method'] = 'card';
-					/*$this->session->data['card_info']['card_name'] = $this->request->post['card_name'];
-					$this->session->data['card_info']['card_type'] = $this->request->post['card_type'];
-					$this->session->data['card_info']['card_number'] = $this->request->post['card_number'];
-					$this->session->data['card_info']['card_date'] = $this->request->post['card_date'];
-					$this->session->data['card_info']['card_code'] = $this->request->post['card_code'];*/
 					$this->session->data['card_info']['payment_method_nonce'] = $_POST["payment_method_nonce"];
 					$this->redirect($this->url->link('checkout/checkout_review', '', 'SSL'));
 				}
 				else
-				{
-					
+				{					
 					$this->data['show_card_form'] = true;	
-					
-					$this->data['card_name'] = $this->request->post['card_name'];
-					$this->data['card_type'] = $this->request->post['card_type'];
-					$this->data['card_number'] = $this->request->post['card_number'];
-					$this->data['card_date'] = $this->request->post['card_date'];
-					$this->data['card_code'] = $this->request->post['card_code'];
-					
-					
-					if (isset($this->error['card_name'])) {
-						$this->data['error_card_name'] = $this->error['card_name'];
-					} else {
-						$this->data['error_card_name'] = '';
-					}	
-			
-					if (isset($this->error['card_number'])) {
-						$this->data['error_card_number'] = $this->error['card_number'];
-					} else {
-						$this->data['error_card_number'] = '';
-					}	
-					
-					if (isset($this->error['card_type'])) {
-						$this->data['error_card_type'] = $this->error['card_type'];
-					} else {
-						$this->data['error_card_type'] = '';
-					}	
-					
-					if (isset($this->error['card_date'])) {
-						$this->data['error_card_date'] = $this->error['card_date'];
-					} else {
-						$this->data['error_card_date'] = '';
-					}	
-					
-					if (isset($this->error['card_code'])) {
-						$this->data['error_card_code'] = $this->error['card_code'];
-					} else {
-						$this->data['error_card_code'] = '';
-					}
 				}
 			}
 			elseif(($this->request->server['REQUEST_METHOD'] == 'POST') && $this->request->post['action'] == "edit_billing_address")
 			{
-				//print "666";
-				//print_r($this->session->data['billing_address']);
 				$this->data['show_billing_form'] = true;
-				
-/*				$this->data['firstname'] = $this->session->data['billing_address']['firstname'];
-				$this->data['lastname'] = $this->session->data['billing_address']['lastname'];
-				$this->data['country'] = $this->session->data['billing_address']['country'];
-				$this->data['address_1'] = $this->session->data['billing_address']['address_1'];
-				$this->data['address_2'] = $this->session->data['billing_address']['address_2'];
-				$this->data['city'] = $this->session->data['billing_address']['city'];
-				$this->data['zone'] = $this->session->data['billing_address']['zone'];
-				$this->data['postcode'] = $this->session->data['billing_address']['postcode'];
-				$this->data['phone'] = $this->session->data['billing_address']['phone'];*/
 			}
 			else
 			{
@@ -223,48 +93,7 @@ class ControllerCheckoutCheckoutPayment extends Controller {
 			
 			if(isset($this->session->data['billing_address']))	
 			{
-/*				$this->data['firstname'] = $this->session->data['billing_address']['firstname'];
-				$this->data['lastname'] = $this->session->data['billing_address']['lastname'];
-				$this->data['country'] = $this->session->data['billing_address']['country'];
-				$this->data['address_1'] = $this->session->data['billing_address']['address_1'];
-				$this->data['address_2'] = $this->session->data['billing_address']['address_2'];
-				$this->data['city'] = $this->session->data['billing_address']['city'];
-				$this->data['zone'] = $this->session->data['billing_address']['zone'];
-				$this->data['postcode'] = $this->session->data['billing_address']['postcode'];
-				$this->data['phone'] = $this->session->data['billing_address']['phone'];*/
-				
 				$this->data['show_card_form'] = true;
-				
-				if(isset($this->session->data['card_info']))	
-				{		
-					//print_r($this->session->data['card_info']);			
-					$this->data['card_name'] = "";//$this->session->data['card_info']['card_name'];
-					$this->data['card_type'] = "";//$this->session->data['card_info']['card_type'];
-					$this->data['card_number'] = "";//$this->session->data['card_info']['card_number'];
-					$this->data['card_date'] = "";//$this->session->data['card_info']['card_date'];
-					$this->data['card_code'] = "";//$this->session->data['card_info']['card_code'];
-										
-					$this->data['error_card_name'] = '';
-					$this->data['error_card_number'] = '';
-					$this->data['error_card_type'] = '';
-					$this->data['error_card_date'] = '';
-					$this->data['error_card_code'] = '';
-				}
-				else
-				{
-										
-					$this->data['card_name'] = "";
-					$this->data['card_type'] = "";
-					$this->data['card_number'] = "";
-					$this->data['card_date'] = "";
-					$this->data['card_code'] = "";
-										
-					$this->data['error_card_name'] = '';
-					$this->data['error_card_number'] = '';
-					$this->data['error_card_type'] = '';
-					$this->data['error_card_date'] = '';
-					$this->data['error_card_code'] = '';
-				}
 			}
 			else
 			{
@@ -273,7 +102,14 @@ class ControllerCheckoutCheckoutPayment extends Controller {
 			
 		}
 		
-
+		$this->data['error_card_name'] = '';
+		$this->data['error_card_number'] = '';
+		$this->data['error_card_type'] = '';
+		$this->data['error_card_date'] = '';
+		$this->data['error_card_code'] = '';
+		
+		$this->data['shipping_address_id'] = $this->session->data['shipping_address_id'];
+		
 		if($this->data['show_card_form'] == true)
 		{
 			require_once('./braintree/Braintree.php');
@@ -285,9 +121,6 @@ class ControllerCheckoutCheckoutPayment extends Controller {
     
 			$this->data['clientToken'] = Braintree_ClientToken::generate();	
 		}
-
-
-
 
 		$this->load->model('localisation/country');
 		$this->data['countries'] = $this->model_localisation_country->getCountries();
@@ -458,15 +291,6 @@ class ControllerCheckoutCheckoutPayment extends Controller {
 		}
 
 		$this->data['card_types'] = array(1 => 'Visa', 2 => 'MasterCard', 3 => 'American Express', 4 => 'JCB', 5 => 'Discover', 6 => 'Maestro', 6 => 'Maestro', 7 => 'UnionPay');
-/*		<option value="1">Visa</option>
-		<option value="2">MasterCard</option>
-		<option value="3">American Express</option>
-		<option value="4">JCB</option>
-		<option value="5">Discover</option>
-		<option value="6">Diners Club</option>	*/
-
-
-
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout_payment.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/checkout/checkout_payment.tpl';
@@ -535,9 +359,9 @@ class ControllerCheckoutCheckoutPayment extends Controller {
 			$this->error['zone'] = $this->language->get('error_zone');
 		}
 		
-		if ((utf8_strlen($this->request->post['phone']) > 17)) {
-			$this->error['phone'] = "Wrong phone number";
-		}
+		if ((utf8_strlen($this->request->post['phone']) < 3) || (utf8_strlen($this->request->post['phone']) > 32)) {
+				$this->error['phone'] = $this->language->get('error_telephone');
+			}
 
 		if (!$this->error) {
 			return true;
@@ -576,5 +400,4 @@ class ControllerCheckoutCheckoutPayment extends Controller {
 			return false;
 		}		
 	}
-	
 }
