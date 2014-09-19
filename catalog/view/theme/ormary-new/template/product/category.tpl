@@ -2,7 +2,7 @@
 <?php echo $content_top; ?>
 
 
-<div id="content" class="container content">
+<div id="content" class="container content <?php echo $bodyClass; ?>">
     <div class="top_panel clearfix">
         <div class="caption_with_counter">
         	<?php if($search_phrase == ""){?>

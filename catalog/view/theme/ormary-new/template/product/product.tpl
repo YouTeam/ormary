@@ -2,16 +2,16 @@
 <?php echo $content_top; ?>
 
 
-<div class="container content">
+<div class="container content <?php echo $bodyClass; ?>">
 	<div class="container breadcrumbs clearfix">
         <ul>
             <li><a href="<?php print $category_info['href'];?>"><?php print $category_info['text'];?></a></li>
-            <li><a href="<?php print $manufacturer_link; ?>"><?php echo $manufacturer; ?></a></li>
-            <li><a href="<?php print $product_href;?>" class="active"><?php echo $heading_title; ?></a></li>
+            <li><a href="<?php print $manufacturer_link; ?>" class="active"><?php echo $manufacturer; ?></a></li>
+          
         </ul>
     </div>
-	<div class="clearfix">
-		<div class="col-lg-6 col-md-6 col-sm-6">
+	<div class="clearfix swiper-container">
+		<div class="col-lg-6 col-md-6 col-sm-6 mainImageContainer">
             <div class="product_image">
             	<img src="<?php echo $mainimage; ?>" data-zoom-image="<?php echo $zoom; ?>" alt="<?php echo $heading_title; ?>" id="zoom">
                <div class="scroll_cap" id="open_zoom"></div>
@@ -28,10 +28,12 @@
                 </div>
             <?php } ?>
 		</div>
-		<div class="col-lg-6 col-md-6 col-sm-6">
+		<div class="col-lg-6 col-md-6 col-sm-6v textData ">
+                    <div class='topData'>
 			<div class="product_title"><a href="<?php print $manufacturer_link; ?>"><?php echo $manufacturer; ?></a></div>
 			<div class="product_sub_title"><?php echo $heading_title; ?></div>
 			<div class="price"><?php print str_replace("£", "&pound;", $price); ?></div>
+                        </div>
             <div class="product_description"><?php echo $description; ?></div>
 			
                     <form action=""  id="orm_product">
@@ -229,19 +231,7 @@
 
     <script>
 
-      $(window).resize(function(){
-
-        $('.zoomContainer').remove();
-
-        $('#zoom').elevateZoom({
-          gallery: "product_thumbs",
-          zoomType: "inner",
-          cursor: "crosshair",
-          zoomWindowFadeIn: 500,
-          zoomWindowFadeOut: 750,
-          loadingIcon : '/catalog/view/theme/ormary-new/images/productloading.gif'
-        }); 
-      }).resize();
+     
 	  
 	  function addEmail()
 	  {
@@ -250,5 +240,7 @@
 	  
 
     </script>
+    
+      <script type="text/javascript" src="catalog/view/javascript/ormary-js/OrmaryProductDetailsUI.js"></script>
 
 

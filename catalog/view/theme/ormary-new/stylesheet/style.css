@@ -1,4 +1,4 @@
-    @import url(//fonts.googleapis.com/css?family=Lora);
+@import url(//fonts.googleapis.com/css?family=Lora);
 
 /* CUSTOM STYLES */
 
@@ -305,7 +305,7 @@ select {
 }
 
 .product a:first-child > img {
-    width: 100%;
+    max-width: 251px;
     height: auto;
 }
 
@@ -325,17 +325,18 @@ select {
 
 .product .add_to_wardrobe {
     position: absolute;
-    right: 30px;
-    top: 282px;
+    right: 10px;
+    top: 10px;
     display: none;
     width: 30px;
-    height: 30px;
+    height: 34px;
     line-height: 30px;
     text-align: center;
     text-decoration: none;
     background: transparent;
     color: #fff;
     margin: 0 auto;
+    overflow: hidden;
 
 }
 
@@ -726,10 +727,6 @@ footer .copyright {
 
 .mainpromo {
     margin-top: 2px;
-}
-
-.mainpromo {
-    margin-top: -30px;
 }
 
 .shop_collections {
@@ -1273,7 +1270,7 @@ a.clear_filter_btn {
 }
 
 .breadcrumbs ul li a.active {
-    color: #000000;
+    color: #9f9f9f;
     padding-bottom: 4px;
     margin-bottom: -1px;
     display: block;
@@ -1362,6 +1359,10 @@ a.clear_filter_btn {
     line-height: 24px;
     margin-bottom: 20px;
     padding-right: 15%;
+}
+
+.topData.topcenter {
+    text-align: center;
 }
 
 .product_custom_message {
@@ -4537,7 +4538,7 @@ a.add_address_btn {
     z-index: 2;
     width: 13px;   
     height: 13px;  
-    background: url(../img/slider.png) no-repeat; /* картинка изображающая ползунок. Или можно залить цветом, задать бордюр и скругления */
+    background: url(../img/slider.png) no-repeat; /* –∫–∞—Ä—Ç–∏–Ω–∫–∞ –∏–∑–æ–±—Ä–∞–∂–∞—é—â–∞—è –ø–æ–ª–∑—É–Ω–æ–∫. –ò–ª–∏ –º–æ–∂–Ω–æ –∑–∞–ª–∏—Ç—å —Ü–≤–µ—Ç–æ–º, –∑–∞–¥–∞—Ç—å –±–æ—Ä–¥—é—Ä –∏ —Å–∫—Ä—É–≥–ª–µ–Ω–∏—è */
     cursor: pointer
 }
 
@@ -4877,7 +4878,7 @@ a.add_address_btn {
 
     .product .add_to_wardrobe,
     .product .view_recommended {
-        position: static;
+
         text-align: center;
         margin-top: 10px;
         display: block;
@@ -4930,24 +4931,13 @@ a.add_address_btn {
         width: 45%;
     }
 
+    .table_head {
+        display: none;
+    }
 
-	.table_head div.first_title {
-		width: 365px;
-	}
-
-	.table_head div {
-		width: 130px;
-	}
-
-	.table_head div.subtotal {
-		width: 85px;
-	}
-
-
-	.available + .available + .available {
-		margin-bottom: 10px;
-	}
-
+    .available + .available + .available {
+        margin-bottom: 10px;
+    }
 
     /* My Ormary page adaptation */
 
@@ -4959,18 +4949,6 @@ a.add_address_btn {
 }
 
 @media screen and (max-width: 991px){
-	
-	.table_head div.first_title {
-		width: 315px;
-	}
-
-	.table_head div {
-		width: 96px;
-	}
-
-	.table_head div.subtotal {
-		width: 54px;
-	}
 
     .top_bar .container {
         padding: 0;
@@ -5269,20 +5247,57 @@ a.add_address_btn {
         display: none;
     }
 }
-
+.product_details .product_description {
+   
+      text-align: justify;
+    text-justify: inter-word;
+}
 
 @media screen and (max-width: 767px){
-<<<<<<< HEAD
-=======
-	
-	.table_head {
-		display: none;
-	}
+    .product_details .product_description {
+    padding-right: 0px;
+     
+}
+    .navbar-collapse {
+        max-height: none;
+    }
+    
+    .nav>li>a {
+        padding: 5px;
+    }
+    .search input[type=text] {
+        height: 40px;
+    }
+    .topSearch {
+        padding-top: 15px;
+    }
+    .navbar-nav .force-open .dropdown-menu {
+        display: block;
+position: static;
+float: none;
+width: auto;
+margin-top: 0;
+background-color: transparent;
+border: 0;
+box-shadow: none;
+}
+    
+.product .add_to_wardrobe {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    display: none;
+    width: 30px;
+    height: 34px;
+    line-height: 30px;
+    text-align: center;
+    text-decoration: none;
+    background: transparent;
+    color: #fff;
+    margin: 0 auto;
+    overflow: hidden;
 
-	header {
-		position: static;
-	}
->>>>>>> 1bdd498c40a4884d823769fac8012772e7768257
+}
 
     header {
         position: static;
@@ -5455,8 +5470,40 @@ a.add_address_btn {
         position: static;
         display: block;
     }
+    
+    
+    .category .section {
+margin: 0 0px;
+}
 
+.category .col-md-4 {
+    padding: 0px;
+}
+.category .product {
+    max-width: none;
+    
+}
 
+.category .section .col-md-4:nth-child(2n+1),
+.category .section > div.col-md-4{
+    width: 50%;
+    float: left;
+}
+.category .product a:first-child > img {
+    max-width: 100%;
+    display: block;
+    margin: 0px auto;
+}
+
+.category .product {
+    padding: 0px;
+}
+
+.category .product .add_to_wardrobe {
+position: absolute;
+
+display: block;
+}
 }
 
 @media screen and (max-width: 650px) {
@@ -6127,7 +6174,7 @@ a.minicartcheckout {
 
 
 .attention {
-    width: 100%;
+    width: 100% !important;
     padding: 7px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -6156,7 +6203,6 @@ a.minicartcheckout {
 
 
 .mainpromo .linkdown {
-<<<<<<< HEAD
     display: block;
     float: left;
     z-index: 99;
@@ -6239,21 +6285,6 @@ margin-bottom: 10px;
 
     .mainpromo .linkdown .collection_name {
         font-size: 14px;
-=======
-display: block;
-float: left;
-z-index: 99;
-position: relative;
-margin: 0px auto;
-margin-top: -150px;
-text-align: center;
-width: 100%;
-position: absolute;
-}
-
-.mainpromo .linkdown .collection_name {
-font-size: 14px;
->>>>>>> 1bdd498c40a4884d823769fac8012772e7768257
 text-transform: uppercase;
 line-height: 26px;
 /* padding: 0 10px; */
@@ -6263,7 +6294,6 @@ font-family: "Didot W01 Roman";
 position: relative;
 /* top: 0px; */
 /* left: 2px; */
-<<<<<<< HEAD
 height: 40px;
 width: 90%;
 line-height: 40px;
@@ -6358,42 +6388,4 @@ margin-left: 15px;
 #cart_header_price {
     display: none;
 }
-=======
-height: 68px;
-width: 453px;
-line-height: 68px;
-/* font-weight: bold; */
-margin: 0px auto;
-font-size: 28px;
-letter-spacing: 1px;
-}
-
-
-.mainpromo .linkdown .collection_title
-{
-font-size: 14px;
-text-transform: uppercase;
-text-decoration: none;
-line-height: 26px;
-padding: 0 10px;
-background: black;
-color: white;
-font-family: "Didot W01 Roman";
-position: relative;
-top: 3px;
-padding-left: 40px;
-padding-right: 40px;
-line-height: 68px;
-/* left: 2px; */
-margin: 0px auto;
-width: 391px;
-height: 68px;
-border: 1px solid black;
-margin: 0px auto;
-font-size: 28px;
-letter-spacing: 1px;
-}
-.mainpromo a:hover {
-    text-decoration: none;
->>>>>>> 1bdd498c40a4884d823769fac8012772e7768257
 }

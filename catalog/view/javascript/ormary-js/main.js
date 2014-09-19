@@ -221,11 +221,16 @@ $(document).ready(function(){
                 $('.mini-cart-msg').remove();
 		if($("#orm_product select").val() == "")
 		{
-			$("#orm_product select").addClass("not_filled");	
-			$(".available_sizes div.alert_error").show();
+			$("#orm_product select").addClass("not_filled");
+                            $('#notification').html('<div class="attention" style="display: none;">Select Your Size</div>')
+                        $('.attention').fadeIn('fast');
+                        $('.attention').scrollToFixed();
+		//	$(".available_sizes div.alert_error").show();
 		}
 		else
 		{
+                    $('.attention').fadeOut('fast');
+	
 			$("#orm_product select").removeClass("not_filled");
 			$(".available_sizes div.alert_error").hide();
                                                         $('.cart_dropdown').addClass('forceshow');
@@ -1156,8 +1161,8 @@ $(document).ready(function(){
 	});
         
         
-        if($('.product').length > 0 ) {
-           $('.product').hover (
+        if($('.no-touch .product').length > 0 ) {
+           $('.no-touch .product').hover (
                function() {
                var _this= $(this).find('img.swapimg');
                var cururl = _this.attr('src');
