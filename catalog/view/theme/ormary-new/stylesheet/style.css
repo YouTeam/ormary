@@ -636,7 +636,7 @@ footer .copyright {
 .alert_error {
     display: none;
     z-index: 999;
-    color: red;
+    color: #ff3bb9;
     margin-top: 5px;
     font-family:"Optima LT W01 Demi Bold";
     font-size: 12px;
@@ -896,7 +896,8 @@ a.sort_by:after {
 }
 
 .content select.not_filled {
-    border-color: #ffa8a8;
+    
+    border-color: #ff3bb9;
 }
 
 .content .top_panel {
@@ -5931,7 +5932,7 @@ display: block;
 }
 
 .required-error {
-    color: red;
+    color: #ff3bb9;
     display: block;
 }
 .twocol-formelement {

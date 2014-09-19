@@ -1183,6 +1183,33 @@ class ModelCatalogProduct extends Model {
 		$this->db->query("INSERT INTO " . DB_PREFIX . "wishlist_collection SET customer_id =".(int)$this->customer->getId().", collection_name='".$this->db->escape($collection_name)."'"); 
 	}
 	
+        public function getProductCountByFeatured ($id) {
+       
+            $sql = "SELECT count(*) as c FROM " . DB_PREFIX . "product_to_category as pc";
+            $sql .= " LEFT JOIN " . DB_PREFIX . "product as p ON p.product_id = pc.product_id " ;
+            $sql .= " WHERE";
+
+            if ($id){
+            $sql .= " pc.category_id=".(int)$id." AND ";
+            }
+            $sql .= " p.status = 1";
+            $sql .= " AND p.featured = 1";
+            
+            $result = $this->db->query($sql); 
+		return $result->row['c'];
+        }
+        
+        public function getProductCountByCategory ($id) {
+            
+            $sql = "SELECT count(*) as c FROM " . DB_PREFIX . "product_to_category as pc";
+            $sql .= " LEFT JOIN " . DB_PREFIX . "product as p ON p.product_id = pc.product_id " ;
+            $sql .= " WHERE pc.category_id=".(int)$id." AND p.status = 1";
+            
+            $result = $this->db->query($sql); 
+		return $result->row['c'];
+            
+            return 20;
+        }
 	public function getWishListCollectionProductsCount($collection_id)
 	{
 		$result = $this->db->query("SELECT count(*) as c FROM " . DB_PREFIX . "wishlist_product_to_collection WHERE customer_id=".(int)$this->customer->getId()." AND collection_id='".(int)$collection_id."'"); 

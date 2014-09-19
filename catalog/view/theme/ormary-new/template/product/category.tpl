@@ -8,7 +8,7 @@
         	<?php if($search_phrase == ""){?>
         	<h4><?php print $heading_title; ?></h4>
         	<span class="count_items">
-        		<span class="number"><?php print $total_products;?></span> 
+        		<span class="totalnumber"><?php print $product_total_in_category;?></span> 
         		items
         	</span>
             <?php
@@ -241,9 +241,5 @@ if (view) {
 
 
   /* Items counter */
-
-  var $i= $('.product_wrap').length;
-
-  $('.count_items .number').text($i);
 
 </script>

@@ -39,6 +39,11 @@ class ControllerProductCategory extends Controller {
 			$limit = $this->config->get('config_catalog_limit');
 		}
 
+                $this->data['bodyClass'] = 'category';
+                
+                
+                
+                
 		$this->data['breadcrumbs'] = array();
 
 		$this->data['breadcrumbs'][] = array(
@@ -322,10 +327,14 @@ class ControllerProductCategory extends Controller {
 			if(isset($this->request->get['featured']))
 			{
 				$data['featured'] = 1;
-			}
+                                $product_total_in_category = $this->model_catalog_product->getProductCountByFeatured($category_id); 
+                        } else {
+                            $product_total_in_category = $this->model_catalog_product->getProductCountByCategory($category_id); 
+                        }
 			
 			$product_total = $this->model_catalog_product->getTotalProducts($data); 
-			
+                        
+			$this->data['product_total_in_category'] = $product_total_in_category;
 			$this->data['total_products'] = $product_total;
 						
 			$results = $this->model_catalog_product->getProducts($data);
