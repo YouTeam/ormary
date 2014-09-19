@@ -6159,16 +6159,18 @@ a.minicartcheckout {
 }
 
 .success {
-    width: 100%;
+    width: 100% !important;
     padding: 7px;
     text-transform: uppercase;
     letter-spacing: 1px;
     background-color: #eef99d;
+padding-right: 0px;
 }
 
 
 .success a{
     color: black;
+text-decoration: underline;
 }
 
 
