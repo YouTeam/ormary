@@ -289,7 +289,7 @@ select {
 
 .product {
     padding: 12px;
-    border: 1px solid #ffffff;
+
     display: block;
     position: relative;
     margin: 0 auto 10px;
@@ -1425,6 +1425,13 @@ a.add_to_my_wardrobe {
     margin-right: 10px;
     margin-bottom: 10px;
     position: relative;
+
+ -o-transition:.15s;
+    -ms-transition:.15s;
+    -moz-transition:.15s;
+    -webkit-transition:.15s;
+    /* ...and now for the proper property */
+    transition:.15s;
 }
 
 a.add_to_cart {
@@ -1658,6 +1665,13 @@ div.related_goods {
     margin: 0 auto;
     margin-bottom: 30px;
     margin-top: 10px;
+    
+     -o-transition:.15s;
+    -ms-transition:.15s;
+    -moz-transition:.15s;
+    -webkit-transition:.15s;
+    /* ...and now for the proper property */
+    transition:.15s;
 }
 
 .add_shipping_address {
@@ -3537,6 +3551,13 @@ a.dark_btn {
     color: #ffffff;
     background: #000000;
     border: 1px solid #000000;
+    
+     -o-transition:.15s;
+    -ms-transition:.15s;
+    -moz-transition:.15s;
+    -webkit-transition:.15s;
+    /* ...and now for the proper property */
+    transition:.15s;
 }
 
 a.dark_btn:hover,
@@ -3562,6 +3583,12 @@ a.light_btn {
     color: #000000;
     background: #ffffff;
     border: 1px solid #000000;
+     -o-transition:.15s;
+    -ms-transition:.15s;
+    -moz-transition:.15s;
+    -webkit-transition:.15s;
+    /* ...and now for the proper property */
+    transition:.15s;
 }
 
 a.light_btn:hover {
@@ -4950,7 +4977,26 @@ a.add_address_btn {
 }
 
 @media screen and (max-width: 991px){
-
+    .orm_designer_info_wrap {
+        padding-left: 10px;
+        width: 100%;
+        background-size: 100% !important;
+        height: initial;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    }
+    .orm_designer_content_inner {
+           background: transparent;
+    display: block;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    text-indent: -15000px;
+    top: -15000px;
+    width: 1px;
+    }
+    
     .top_bar .container {
         padding: 0;
     }
@@ -5063,11 +5109,7 @@ a.add_address_btn {
 
     /* designer page adaptation */
 
-    .orm_designer_info_wrap {
-        height: auto;
-        padding: 0;
-        background: none;
-    }
+
 
     .orm_designer_info_wrap .orm_designer_info .orm_designer_logo {
         height: auto;
@@ -5231,7 +5273,9 @@ a.add_address_btn {
     }
 
 }
-
+ .category .section {
+margin: 0 0px;
+}
 @media screen and (max-width: 850px){
 
     .related_popup {
@@ -5574,7 +5618,10 @@ display: block;
     /* designer page adaptation */
 
     .orm_designer_info_wrap .orm_designer_info .orm_designer_logo {
-        display: none;
+       display: inline;
+margin-top: -115px;
+position: absolute;
+width: 112px;
     }
 
     .orm_designer_info_wrap .orm_designer_info .orm_designer_content {
@@ -6057,6 +6104,13 @@ display: block;
     padding-bottom: 30px;
     margin-bottom: 18px;
     margin-top: 30px;
+    
+     -o-transition:.15s;
+    -ms-transition:.15s;
+    -moz-transition:.15s;
+    -webkit-transition:.15s;
+    /* ...and now for the proper property */
+    transition:.15s;
 }
 
 

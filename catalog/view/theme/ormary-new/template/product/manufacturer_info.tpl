@@ -1,6 +1,6 @@
 <?php echo $header; ?>
 
-<div class="container content orm_designer_page">
+<div class="container content orm_designer_page   ">
 	<div class="breadcrumbs container clearfix">
         <ul>
             <li><a href="<?php echo $this->url->link('product/manufacturer');?>">All designers</a></li>
@@ -13,14 +13,7 @@
 	{
 		background: url('<?php echo $bgimage;?>') no-repeat 0 0;
 	}
-	@media screen and (max-width: 991px){
-		.orm_designer_info_wrap 
-		{
-			height: auto;
-			padding: 0;
-			background: none;
-		}
-	}
+	
 	</style>
     
     <div class="orm_designer_info_wrap clearfix">
@@ -80,7 +73,7 @@
 		</div>
 	</div>
 </div>
-<div class="container content">
+<div class="container content <?php echo $bodyClass; ?>">
     <div class="top_panel clearfix">
     	<div class="wrap_pagination">
             <?php echo $pagination; ?>
@@ -194,5 +187,11 @@
 	});
 
   }
+  
+  $(document).ready ( function () {
+    var content = $('.orm_designer_info_wrap  > div').clone();
+    var logo 
+    $('.wrapper').append(content);
+})
 
 </script>

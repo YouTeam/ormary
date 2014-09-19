@@ -126,7 +126,7 @@ class ControllerProductManufacturer extends Controller {
 		$this->load->model('catalog/product');
 
 		$this->load->model('tool/image'); 
-
+$this->data['bodyClass'] = 'category';
 		if (isset($this->request->get['manufacturer_id'])) {
 			$manufacturer_id = (int)$this->request->get['manufacturer_id'];
 		} else {
