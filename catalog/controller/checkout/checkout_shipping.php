@@ -19,7 +19,6 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 			if(!$this->customer->isLogged())
 			{
 				$this->load->model('account/customer');
-				$this->request->post['telephone'] = "";
 				$this->request->post['fax'] = "";
 				$this->request->post['biography'] = "";
 				$this->request->post['company_id'] = "";
@@ -53,11 +52,18 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 				
 				$address_id = $this->customer->getAddressId();
 				
+				
 				$shipping_address =  $this->model_account_address->getAddress($address_id);
 	
 				$this->data['products_total_price'] = $this->cart->getTotal();
 				
-				$eu_countries = array(14, 21, 33, 84, 57, 67, 103, 67, 105, 55, 117, 123, 124, 132, 150, 81, 170, 171, 175, 189, 190, 97, 72, 74, 53, 56, 203);
+				
+				$this->load->model('shipping/custom_flatrate_shipping');
+
+				$shipping_price = $this->model_shipping_custom_flatrate_shipping->getShippingPrice($shipping_address['country_id'], $this->data['products_total_price']);
+				$this->session->data['shipping_price'] = $shipping_price['price'];
+				
+/*				$eu_countries = array(14, 21, 33, 84, 57, 67, 103, 67, 105, 55, 117, 123, 124, 132, 150, 81, 170, 171, 175, 189, 190, 97, 72, 74, 53, 56, 203);
 
 				if($shipping_address['country_id'] == 222)
 				{
@@ -87,7 +93,7 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 					$this->data['shipping_price'] = 30;	
 				}				
 				
-				$this->session->data['shipping_price'] = $this->data['shipping_price'] ;
+				$this->session->data['shipping_price'] = $this->data['shipping_price'] ;*/
 				
 				$this->session->data['shipping_address_id'] = $address_id ;
 				
@@ -95,7 +101,7 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 				$this->redirect($this->url->link('checkout/checkout_payment', '', 'SSL'));
 			}
 			else
-			{	
+			{				
 				if($this->request->post['type'] == "select_address")
 				{
 					if(isset($this->request->post['address_id']))
@@ -105,7 +111,13 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 						
 						$this->data['products_total_price'] = $this->cart->getTotal();
 						
-						$eu_countries = array(14, 21, 33, 84, 57, 67, 103, 67, 105, 55, 117, 123, 124, 132, 150, 81, 170, 171, 175, 189, 190, 97, 72, 74, 53, 56, 203);
+						
+						$this->load->model('shipping/custom_flatrate_shipping');
+
+						$shipping_price = $this->model_shipping_custom_flatrate_shipping->getShippingPrice($shipping_address['country_id'], $this->data['products_total_price']);
+										
+						$this->session->data['shipping_price'] = $shipping_price['price'];
+/*						$eu_countries = array(14, 21, 33, 84, 57, 67, 103, 67, 105, 55, 117, 123, 124, 132, 150, 81, 170, 171, 175, 189, 190, 97, 72, 74, 53, 56, 203);
 
 						if($shipping_address['country_id'] == 222)
 						{
@@ -135,7 +147,7 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 							$this->data['shipping_price'] = 30;	
 						}				
 						
-						$this->session->data['shipping_price'] = $this->data['shipping_price'] ;
+						$this->session->data['shipping_price'] = $this->data['shipping_price'] ;*/
 						
 						$this->session->data['shipping_address_id'] = $this->request->post['address_id'] ;
 
@@ -143,10 +155,14 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 					}
 				}
 				else
-				{
-					$this->model_account_address->editAddress($this->request->get['address_id'], $this->request->post);	
+				{							
+					$this->model_account_address->editAddress($this->customer->getAddressId(), $this->request->post);	
 				}	
 			}
+		}
+		else
+		{
+					
 		}
 		
 		
@@ -166,7 +182,8 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 			{
 				$this->data['customer_email'] = $this->customer->getEmail();
 			}
-		}		
+		}	
+		$this->data['text_none'] = 'No regions';
 
 		$this->load->model('localisation/country');
 		$this->data['countries'] = $this->model_localisation_country->getCountries();
@@ -243,6 +260,12 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 			$this->data['error_zone'] = '';
 		}
 		
+		if (isset($this->error['telephone'])) {
+			$this->data['error_telephone'] = $this->error['telephone'];
+		} else {
+			$this->data['error_telephone'] = '';
+		}
+		
 		if (isset($this->error['password'])) {
 			$this->data['error_password'] = $this->error['password'];
 		} else {
@@ -311,6 +334,12 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 			$this->data['postcode'] = '';
 		}
 		
+		if (isset($this->request->post['telephone'])) {
+			$this->data['telephone'] = $this->request->post['telephone'];
+		} else {
+			$this->data['telephone'] = '';
+		}
+		
 		if (isset($this->request->post['password'])) {
 			$this->data['password'] = $this->request->post['password'];
 		} else {
@@ -322,6 +351,7 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 		} else {
 			$this->data['confirm'] = '';
 		}
+		$this->data['looged_in'] = false;
 		
 		if($this->customer->isLogged()) 
 		{
@@ -331,36 +361,56 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 			$this->data['registered'] = true;
 						
 			if(isset($this->session->data['shipping_address_id']))
-			{
-				$this->data['selected_address']	= $this->session->data['shipping_address_id'];
+			{				
+				$this->data['selected_address']	= $this->session->data['shipping_address_id'];	
+				$shipping_address_info =  $this->model_account_address->getAddress($this->session->data['shipping_address_id']);	
+				$country_info = $this->model_localisation_country->getCountry($shipping_address_info['country_id']);
+				$this->load->model('shipping/custom_flatrate_shipping');
+				$shipping_info = $this->model_shipping_custom_flatrate_shipping->getShippingPrice($country_info['country_id'], $this->cart->getTotal());
+			
+				$this->data['shipping_price_message'] = $shipping_info['message'];	
 			}
 			else
 			{
 				$first_address = current($addresses);
 				$this->data['selected_address']	= $first_address['address_id'];
+				$shipping_address_info =  $this->model_account_address->getAddress($first_address['address_id']);	
+				$this->data['shipping_price_message'] = 'Please select your country below to calculate shipping costs';
 			}
-						
+
+			
+			$this->data['looged_in'] = true;	
+					
 			if(count($addresses) <= 1)
 			{
-				$this->data['list_addresses'] = true;
+				
 				$this->data['addresses'] = $addresses;
-				$this->data['address']['phone'] = "";
+				$first_address = current($this->data['addresses']);
 				 
-				if($this->validate($this->data['address']))
-				{
-					
-					//$this->data['next_step_link'] = $this->url->link('checkout/checkout_payment', '', 'SSL');		
+				if($this->validate($first_address))
+				{					
+					$this->data['list_addresses'] = true;
 				}
 				else
 				{
-					//$this->data['next_step_link'] = $this->url->link('checkout/checkout_shipping', '', 'SSL');	
+					$this->data['list_addresses'] = false;							
+					if(!$this->request->server['REQUEST_METHOD'] == 'POST')
+					{
+						$this->data['firstname'] = $first_address['firstname'];
+						$this->data['lastname'] = $first_address['lastname'];
+						$this->data['country_id'] = $first_address['country_id'];
+						$this->data['zone_id'] = $first_address['zone_id'];	
+						$this->data['city'] = $first_address['city'];
+						$this->data['address_1'] = $first_address['address_1'];
+						$this->data['address_2'] = $first_address['address_2'];
+						$this->data['postcode'] = $first_address['postcode'];				
+					}
 				}					
 			}
 			else
 			{
 				$this->data['list_addresses'] = true;
 				$this->data['addresses'] = $addresses;
-				//$this->data['next_step_link'] = $this->url->link('checkout/checkout_payment', '', 'SSL');
 			}
 			
 		}
@@ -370,33 +420,13 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 			{
 				$this->data['registered'] = false;
 				$this->data['list_addresses'] = false; 
-				
-				/*$this->data['address']['firstname'] = $this->request->post['firstname'];
-				$this->data['address']['lastname'] = $this->request->post['lastname'];
-				$this->data['address']['country'] = $this->request->post['country'];
-				$this->data['address']['region'] = $this->request->post['region'];	
-				$this->data['address']['city'] = $this->request->post['city'];
-				$this->data['address']['address_1'] = $this->request->post['address_1'];
-				$this->data['address']['address_2'] = $this->request->post['address_2'];
-				$this->data['address']['postcode'] = $this->request->post['postcode'];				
-				$this->data['address']['postcode'] = $this->request->post['postcode'];*/				
 			}
 			else
 			{
 				$this->data['registered'] = false;
 				$this->data['list_addresses'] = false; 
-				
-/*				$this->data['address']['firstname'] = "";
-				$this->data['address']['lastname'] = "";
-				$this->data['address']['country'] = 0;
-				$this->data['address']['region'] = 0;	
-				$this->data['address']['city'] = "";
-				$this->data['address']['address_1'] = "";
-				$this->data['address']['address_2'] = "";
-				$this->data['address']['postcode'] = "";*/
 			}
-			
-			//$this->data['next_step_link'] = $this->url->link('checkout/checkout_payment', '', 'SSL');
+
 		}
 	
 	
@@ -424,91 +454,109 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 	
 	protected function validate($address = array())
 	{	
-		if(isset($this->request->post['new_user']))
+		$this->load->model('account/customer');
+		$this->language->load('account/register');
+		
+		
+		if(isset($this->request->post['type']) && $this->request->post['type'] == "select_address")
 		{
-			$this->load->model('account/customer');
-			$this->language->load('account/register');
-				
-			if ((utf8_strlen($this->request->post['firstname']) < 1) || (utf8_strlen($this->request->post['firstname']) > 32)) {
-				$this->error['firstname'] = $this->language->get('error_firstname');
-			}
-	
-			if ((utf8_strlen($this->request->post['lastname']) < 1) || (utf8_strlen($this->request->post['lastname']) > 32)) {
-				$this->error['lastname'] = $this->language->get('error_lastname');
-			}
-	
-			if ((utf8_strlen($this->request->post['address_1']) < 3) || (utf8_strlen($this->request->post['address_1']) > 128)) {
-				$this->error['address_1'] = $this->language->get('error_address_1');
-			}
-	
-			if (utf8_strlen($this->request->post['address_2']) > 128) {
-				$this->error['address_2'] = $this->language->get('error_address_1');
-			}
-	
-			if ((utf8_strlen($this->request->post['city']) < 2) || (utf8_strlen($this->request->post['city']) > 128)) {
-				$this->error['city'] = $this->language->get('error_city');
-			}
-	
-			$this->load->model('localisation/country');
-	
-			$country_info = $this->model_localisation_country->getCountry($this->request->post['country_id']);
-	
-			if ($country_info) {
-				if ($country_info['postcode_required'] && (utf8_strlen($this->request->post['postcode']) < 2) || (utf8_strlen($this->request->post['postcode']) > 10)) {
-					$this->error['postcode'] = $this->language->get('error_postcode');
-				}
-	
-				// VAT Validation
-				$this->load->helper('vat');
-	
-				if ($this->config->get('config_vat') && $this->request->post['tax_id'] && (vat_validation($country_info['iso_code_2'], $this->request->post['tax_id']) == 'invalid')) {
-					$this->error['tax_id'] = $this->language->get('error_vat');
-				}
-			}
-	
-			if ($this->request->post['country_id'] == '') {
-				$this->error['country'] = $this->language->get('error_country');
-			}
-	
-			if (!isset($this->request->post['zone_id']) || $this->request->post['zone_id'] == '') {
-				$this->error['zone'] = $this->language->get('error_zone');
-			}
-	
-			if(!$this->customer->isLogged())
-			{
-				if ((utf8_strlen($this->request->post['email']) > 96) || !preg_match('/^[^\@]+@.*\.[a-z]{2,6}$/i', $this->request->post['email'])) {
-					$this->error['email'] = $this->language->get('error_email');
-				}
+			return true;	
+		}
 		
-				if ($this->model_account_customer->getTotalCustomersByEmail($this->request->post['email'])) {
-					$this->error['warning'] = $this->language->get('error_exists');
-				}
+		if(count($address) != 0)
+		{
+			$this->request->post = 	$address;	
+		}
 		
-				if ((utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20)) {
-					$this->error['password'] = $this->language->get('error_password');
-				}
-		
-				if ($this->request->post['confirm'] != $this->request->post['password']) {
-					$this->error['confirm'] = $this->language->get('error_confirm');
-				}
-		
-				/*if ($this->config->get('config_account_id')) {
-					$this->load->model('catalog/information');
-		
-					$information_info = $this->model_catalog_information->getInformation($this->config->get('config_account_id'));
-		
-					if ($information_info && !isset($this->request->post['agree'])) {
-						$this->error['warning'] = sprintf($this->language->get('error_agree'), $information_info['title']);
-					}
-				}*/
+			
+		if ((utf8_strlen($this->request->post['firstname']) < 1) || (utf8_strlen($this->request->post['firstname']) > 32)) {
+			$this->error['firstname'] = $this->language->get('error_firstname');
+		}
+
+		if ((utf8_strlen($this->request->post['lastname']) < 1) || (utf8_strlen($this->request->post['lastname']) > 32)) {
+			$this->error['lastname'] = $this->language->get('error_lastname');
+		}
+
+		if ((utf8_strlen($this->request->post['address_1']) < 3) || (utf8_strlen($this->request->post['address_1']) > 128)) {
+			$this->error['address_1'] = $this->language->get('error_address_1');
+		}
+
+		if (utf8_strlen($this->request->post['address_2']) > 128) {
+			$this->error['address_2'] = $this->language->get('error_address_1');
+		}
+
+		if ((utf8_strlen($this->request->post['city']) < 2) || (utf8_strlen($this->request->post['city']) > 128)) {
+			$this->error['city'] = $this->language->get('error_city');
+		}
+
+		$this->load->model('localisation/country');
+
+		$country_info = $this->model_localisation_country->getCountry($this->request->post['country_id']);
+
+		if ($country_info) {
+			if ($country_info['postcode_required'] && (utf8_strlen($this->request->post['postcode']) < 2) || (utf8_strlen($this->request->post['postcode']) > 10)) {
+				$this->error['postcode'] = $this->language->get('error_postcode');
 			}
 
-			if (!$this->error) {
-				return true;
-			} else {
-				return false;
+			// VAT Validation
+			$this->load->helper('vat');
+
+			if ($this->config->get('config_vat') && $this->request->post['tax_id'] && (vat_validation($country_info['iso_code_2'], $this->request->post['tax_id']) == 'invalid')) {
+				$this->error['tax_id'] = $this->language->get('error_vat');
 			}
 		}
-		return true;
+
+		if ($this->request->post['country_id'] == '') {
+			$this->error['country'] = $this->language->get('error_country');
+		}
+
+		if (!isset($this->request->post['zone_id']) || $this->request->post['zone_id'] == '') {
+			$this->error['zone'] = $this->language->get('error_zone');
+		}
+
+		if(!$this->customer->isLogged())
+		{
+			if ((utf8_strlen($this->request->post['email']) > 96) || !preg_match('/^[^\@]+@.*\.[a-z]{2,6}$/i', $this->request->post['email'])) {
+				$this->error['email'] = $this->language->get('error_email');
+			}
+	
+			if ($this->model_account_customer->getTotalCustomersByEmail($this->request->post['email'])) {
+				$this->error['warning'] = $this->language->get('error_exists');
+			}
+			
+			if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
+				$this->error['telephone'] = $this->language->get('error_telephone');
+			}
+	
+			if ((utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20)) {
+				$this->error['password'] = $this->language->get('error_password');
+			}
+	
+			if ($this->request->post['confirm'] != $this->request->post['password']) {
+				$this->error['confirm'] = $this->language->get('error_confirm');
+			}
+		}
+
+		if (!$this->error) {
+			return true;
+		} else {
+			return false;
+		}
 	}
+	
+	
+	public function ajaxGetShippingPriceMessage()
+	{
+		$json = array();	
+		
+		$this->load->model('shipping/custom_flatrate_shipping');
+
+		$shipping_price = $this->model_shipping_custom_flatrate_shipping->getShippingPrice($this->request->post['country_id'], $this->cart->getTotal());
+		
+		$json['message'] = $shipping_price['message']; 
+		
+		$this->response->setOutput(json_encode($json));	
+		
+	}
+	
 }

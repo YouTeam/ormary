@@ -22,11 +22,11 @@
     ?>
         <div class="choose_shipping_address clearfix">
             <h5>
-                Choose shipping address
+               Choose shipping address
                 <a href="javascript:void(0)" id="open_add_shipping_address">+ Add new address</a>
             </h5>
             <div class="flat_rate_shipping">
-                    Flat rate shipping
+                    <span id="shipping_message"><?php print $shipping_price_message;?></span>
                 </div>
                 <form action="<?php print $page_url;?>" method="post" id="select_shipping_address">
                 	<?php
@@ -34,7 +34,7 @@
                     {
                     ?>
                         <label class="csa clearfix">
-                            <div class="csa-checkbox text-center">
+                            <div class="csa-checkbox text-center" id="<?php print $addr['country_id'];?>">
                                 <input type="radio" id="" name="address_id" value="<?php print $addr['address_id'];?>" <?php if($selected_address == $addr['address_id']){ print "checked";}?> >
                             </div>
                             <div class="csa-address" id="<?php print $addr['address_id'];?>">
@@ -45,7 +45,7 @@
                                     <span>Address:</span><?php print $addr['city'].", ".$addr['country'];?>
                                 </p>
                                 <p>
-                                    <span>ZIP/Postal code:</span><?php print $addr['postcode'];?>
+                                    <span>ZIP/Postal code:</span>&nbsp;<?php print $addr['postcode'];?>
                                 </p>
                                 <p>
                                     <span>E-mail:</span><?php print $customer_email;?>
@@ -74,21 +74,21 @@
             <div class="add_shipping_information clearfix">
                 <h5>Add your shipping information</h5>
                 <div class="flat_rate_shipping">
-                    Flat rate shipping
+                    <span id="shipping_message">Please select your country below to calculate shipping costs</span>
                 </div>
                 <div class="cart_inputs">
                     <div class="inputs_group">
                         <div class="inputs_row clearfix">
                             <div class="input_wrap">
                                 <label>
-                                    <span>First name</span>
+                                    <span>First name*</span>
                                     <input type="text" name="firstname" value="<?php print $firstname;?>">
                                     <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_firstname;?></div>
                                 </label>
                             </div>
                             <div class="input_wrap">
                                 <label>
-                                    <span>Last name</span>
+                                    <span>Last name*</span>
                                     <input type="text" name="lastname" value="<?php print $lastname;?>">
                                     <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_lastname;?></div>
                                 </label>
@@ -97,7 +97,7 @@
                         <div class="inputs_row clearfix">
                             <div class="input_wrap">
                                 <label>
-                                    <span>Country</span>
+                                    <span>Country*</span>
                                     <select name="country_id" id="" class="form-control">
                                     	<option value=""><?php echo $text_select; ?></option>
                                         <?php foreach ($countries as $country) { ?>
@@ -117,7 +117,7 @@
                         <div class="inputs_row clearfix">
                             <div class="input_wrap">
                                 <label>
-                                    <span>Address 1</span>
+                                    <span>Address 1*</span>
                                     <input type="text" name="address_1" value="<?php print $address_1;?>">
                                     <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_address_1;?></div>
                                 </label>
@@ -135,14 +135,14 @@
                         <div class="inputs_row clearfix">
                             <div class="input_wrap">
                                 <label>
-                                    <span>City</span>
+                                    <span>City*</span>
                                     <input type="text" name="city" value="<?php print $city;?>">
                                     <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_city;?></div>
                                 </label>
                             </div>
                             <div class="input_wrap">
                                 <label>
-                                    <span>State</span>
+                                    <span>State*</span>
                                     <select name="zone_id" id="" class="form-control">
                                     </select>
                                     <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_zone;?></div>
@@ -152,38 +152,57 @@
                         <div class="inputs_row clearfix">
                             <div class="input_wrap">
                                 <label>
-                                    <span>Postcode or ZIP</span>
+                                    <span>Postcode or ZIP<span id="postcode-required" style="display:inline;">*</span></span>
                                     <input type="text" name="postcode" value="<?php print $postcode;?>">
                                     <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_postcode;?></div>
+                                </label>
+                            </div>
+                            <?php
+                            if(!$looged_in)
+                            {
+                            ?>
+                                <div class="input_wrap">
+                                    <label>
+                                        <span>Mobile*</span>
+                                        <input type="text" name="telephone" value="<?php print $telephone;?>">
+                                        <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_telephone;?></div>
+                                    </label>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php
+            if(!$looged_in)
+            {
+            ?>
+                <div class="security clearfix">
+                    <h5>Security</h5>
+                    <div class="cart_inputs">
+                        <div class="inputs_row clearfix">
+                            <div class="input_wrap">
+                                <label>
+                                    <span>Password*</span>
+                                    <input type="password" name="password" value="<?php print $password;?>">
+                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_password;?></div>
+                                </label>
+                            </div>
+                            <div class="input_wrap">
+                                <label>
+                                    <span>Confirm password*</span>
+                                    <input type="password" name="confirm" value="<?php print $confirm;?>">
+                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_confirm;?></div>
                                 </label>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="security clearfix">
-                <h5>Security</h5>
-                <div class="cart_inputs">
-                    <div class="inputs_row clearfix">
-                        <div class="input_wrap">
-                            <label>
-                                <span>Password</span>
-                                <input type="password" name="password" value="<?php print $password;?>">
-                                <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_password;?></div>
-                            </label>
-                        </div>
-                        <div class="input_wrap">
-                            <label>
-                                <span>Confirm password</span>
-                                <input type="password" name="confirm" value="<?php print $confirm;?>">
-                                <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_confirm;?></div>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
+            <?php
+            }
+            ?>
             <input type="hidden" name="email" value="<?php print $new_user_email;?>">
             <input type="hidden" name="type" value="new_user">
             <input type="hidden" name="company" value="">
@@ -279,7 +298,7 @@ if($list_addresses)
                     <div class="inputs_row clearfix">
                         <div class="input_wrap">
                             <label>
-                                <span>Postcode or ZIP</span>
+                                <span>Postcode or ZIP<span id="postcode-required" style="display:inline;">*</span></span>
                                 <input type="text" name="postcode">
                                 <div class="alert_error" style="display:none;" id="error_postcode"></div>
                             </label>
@@ -371,7 +390,7 @@ if($list_addresses)
                     <div class="inputs_row clearfix">
                         <div class="input_wrap">
                             <label>
-                                <span>Postcode or ZIP</span>
+                                <span>Postcode or ZIP<span id="postcode-required" style="display:inline;">*</span></span>
                                 <input type="text" name="postcode">
                                 <div class="alert_error" style="display:none;" id="error_postcode"></div>
                             </label>
@@ -410,6 +429,16 @@ if($list_addresses)
 <script type="text/javascript">
 
 $('select[name=\'country_id\']').bind('change', function() {
+
+	$.ajax({
+		url: 'index.php?route=checkout/checkout_shipping/ajaxGetShippingPriceMessage',
+		type: 'post',
+		data: {country_id : this.value},
+		dataType: 'json',
+		success: function(json) {
+			$('#shipping_message').html(json['message']);	
+		}
+	});
 
 	$.ajax({
 		url: 'index.php?route=account/address/country&country_id=' + this.value,
@@ -451,5 +480,5 @@ $('select[name=\'country_id\']').bind('change', function() {
 	});
 });
 
-$('select[name=\'country_id\']').trigger('change');
+//$('select[name=\'country_id\']').trigger('change');
 </script> 

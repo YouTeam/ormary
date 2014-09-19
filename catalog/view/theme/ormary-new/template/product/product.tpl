@@ -55,7 +55,7 @@
 
 
                     <div class="alert_error" style="display:none;">Please, select a size first</div>
-                    <a href="#" class="size_guide">Size Guide</a>
+                    <a href="javascript:void(0)" class="size_guide" id="openSizeGuide">Size Guide</a>
 	</div>
 			</div>
 
@@ -229,10 +229,373 @@
       <a href="#" class="close_popup"></a>
     </div>
 
+	<div class="size_guide_popup" id="size_guide_popup">
+      <div class="caption text-center">
+        SIZE GUIDE
+        <a href="javascript:void(0)" class="close_popup_big">
+          <img src="./images/close_popup_big.png" alt="Close">
+        </a>
+      </div>
+      <div class="tables">
+        <div class="table-responsive clothing-conversion">
+          <table>
+           <tr>
+             <td colspan="14" class="text-center" width="148">
+               <span class="table_title">
+                 CLOTHING - SINGLE SIZE CONVERSION
+               </span>
+             </td>
+           </tr>
+           <tr>
+             <td colspan="2" class="text-left" width="148">
+               <span class="table_title first_col">
+                 uk
+               </span>
+             </td>
+             <td width="65">4</td>
+             <td width="65">6</td>
+             <td width="65">8</td>
+             <td width="65">10</td>
+             <td width="65">12</td>
+             <td width="65">14</td>
+             <td width="65">16</td>
+             <td width="65">18</td>
+             <td width="65">20</td>
+             <td width="65">22</td>
+             <td width="65">24</td>
+             <td width="65">26</td>
+           </tr>
+           <tr>
+             <td colspan="2" class="text-left" width="148">
+               <span class="table_title first_col">
+                 european
+               </span>
+             </td>
+             <td width="65">32</td>
+             <td width="65">34</td>
+             <td width="65">36</td>
+             <td width="65">38</td>
+             <td width="65">40</td>
+             <td width="65">42</td>
+             <td width="65">44</td>
+             <td width="65">46</td>
+             <td width="65">48</td>
+             <td width="65">50</td>
+             <td width="65">52</td>
+             <td width="65">54</td>
+           </tr>
+           <tr>
+             <td colspan="2" class="text-left" width="148">
+               <span class="table_title first_col">
+                 us
+               </span>
+             </td>
+             <td width="65">1</td>
+             <td width="65">2</td>
+             <td width="65">4</td>
+             <td width="65">6</td>
+             <td width="65">8</td>
+             <td width="65">10</td>
+             <td width="65">12</td>
+             <td width="65">14</td>
+             <td width="65">16</td>
+             <td width="65">18</td>
+             <td width="65">20</td>
+             <td width="65">22</td>
+           </tr>
+           <tr>
+             <td colspan="2" class="text-left" width="148">
+               <span class="table_title first_col">
+                 australia
+               </span>
+             </td>
+             <td width="65">4</td>
+             <td width="65">6</td>
+             <td width="65">8</td>
+             <td width="65">10</td>
+             <td width="65">12</td>
+             <td width="65">14</td>
+             <td width="65">16</td>
+             <td width="65">18</td>
+             <td width="65">20</td>
+             <td width="65">22</td>
+             <td width="65">24</td>
+             <td width="65">26</td>
+           </tr>
+          </table>
+        </div> 
+
+
+        <div class="table-responsive clothing-siglesize">
+          <table>
+            <tr>
+              <td colspan="13" class="text-center">
+                <span class="table_title first_col">
+                  CLOTHING - SINGLE SIZE 
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="2">
+                <span class="table_title first_col">
+                  single size
+                </span>
+              </td>
+              <td>
+                <span class="table_title">
+                  uk 4
+                </span>
+              </td>
+              <td><span class="table_title">uk 6</span></td>
+              <td><span class="table_title">uk 8</span></td>
+              <td><span class="table_title">uk 10</span></td>
+              <td><span class="table_title">uk 12</span></td>
+              <td><span class="table_title">uk 14</span></td>
+              <td><span class="table_title">uk 16</span></td>
+              <td><span class="table_title">uk 18</span></td>
+              <td><span class="table_title">uk 20</span></td>
+              <td><span class="table_title">uk 22</span></td>
+              <td><span class="table_title">uk 24</span></td>
+              <td><span class="table_title">uk 26</span></td>
+            </tr>
+            <tr>
+              <td>CM IN</td>
+              <td>CM IN</td>
+              <td>CM IN</td>
+              <td>CM IN</td>
+              <td>CM IN</td>
+              <td>CM IN</td>
+              <td>CM IN</td>
+              <td>CM IN</td>
+              <td>CM IN</td>
+              <td>CM IN</td>
+              <td>CM IN</td>
+              <td>CM</td>
+            </tr>
+            <tr>
+              <td class="text-left">
+                <span class="table_title first_col">
+                  bust
+                </span>
+              </td>
+              <td>76 30</td>
+              <td>78½ 31</td>
+              <td>81 32</td>
+              <td>86 34</td>
+              <td>91 36</td>
+              <td>96 38</td>
+              <td>101 40</td>
+              <td>108½ 43</td>
+              <td>116 45½</td>
+              <td>122 48</td>
+              <td>128 50½</td>
+              <td>134</td>
+            </tr>
+            <tr>
+              <td class="text-left">
+                <span class="table_title first_col">
+                  waist
+                </span>
+              </td>
+              <td>58 22¾</td>
+              <td>60½ 23¾</td>
+              <td>63 24¾</td>
+              <td>68 26¾</td>
+              <td>73 28¾</td>
+              <td>78 30¾</td>
+              <td>83 32¾</td>
+              <td>90½ 35¾</td>
+              <td>98 38½</td>
+              <td>104 41</td>
+              <td>110 43½</td>
+              <td>116</td>
+            </tr>
+            <tr>
+              <td class="text-left">
+                <span class="table_title first_col">
+                  hips
+                </span>
+              </td>
+              <td>83½ 32¾</td>
+              <td>86 33¾</td>
+              <td>88½ 34¾</td>
+              <td>93½ 36¾</td>
+              <td>98½ 38¾</td>
+              <td>103½ 40¾</td>
+              <td>108½ 42¾</td>
+              <td>116 45¾</td>
+              <td>123½ 48½</td>
+              <td>129½ 51</td>
+              <td>135½ 53½</td>
+              <td>141½</td>
+            </tr>
+          </table>
+        </div>
+        <div class="table-responsive clothing-siglesize2">
+          <table>
+            <tr>
+              <td colspan="2" rowspan="2" class="text-left">
+                <span class="table_title first_col">
+                  dual size
+                </span>
+              </td>
+              <td colspan="2">
+                <span class="table_title">
+                  uk xs 6
+                </span>
+              </td>
+              <td colspan="2">
+                <span class="table_title">
+                  uk s 8-10
+                </span>
+              </td>
+              <td colspan="2">
+                <span class="table_title">
+                  uk m 12-14
+                </span>
+              </td>
+              <td colspan="2">
+                <span class="table_title">
+                  uk l 16-18
+                </span>
+              </td>
+              <td colspan="2">
+                <span class="table_title">
+                  uk xl 20
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>cm</td>
+              <td>inches</td>
+              <td>cm</td>
+              <td>inches</td>
+              <td>cm</td>
+              <td>inches</td>
+              <td>cm</td>
+              <td>inches</td>
+              <td>cm</td>
+              <td>inches</td>
+            </tr>
+            <tr>
+              <td colspan="2" class="text-left">
+                <span class="table_title first_col">
+                  bust
+                </span>
+              </td>
+              <td>78½</td>
+              <td>31</td>
+              <td>81-86</td>
+              <td>32-34</td>
+              <td>91-78</td>
+              <td>36-38</td>
+              <td>101-108½</td>
+              <td>40-43</td>
+              <td>116</td>
+              <td>45½</td>
+            </tr>
+            <tr>
+              <td colspan="2" class="text-left">
+                <span class="table_title first_col">
+                  waist
+                </span>
+              </td>
+              <td>60½</td>
+              <td>23¾</td>
+              <td>63-68</td>
+              <td>24¾-26¾</td>
+              <td>73-78</td>
+              <td>28¾-30¾</td>
+              <td>83-90½</td>
+              <td>32¾-35¾</td>
+              <td>98</td>
+              <td>38½</td>
+            </tr>
+            <tr>
+              <td colspan="2" class="text-left">
+                <span class="table_title first_col">
+                  hips
+                </span>
+              </td>
+              <td>86</td>
+              <td>33¾</td>
+              <td>88½-93½</td>
+              <td>34¾-36¾</td>
+              <td>98½-103½</td>
+              <td>38¾-40¾</td>
+              <td>108½-116</td>
+              <td>42¾-45¾</td>
+              <td>123½</td>
+              <td>48½</td>
+            </tr>
+          </table>
+        </div>
+        <div class="table-responsive">
+          <table>
+            <tr>
+              <td colspan="6" class="text-center" width="148">
+                <span class="table_title">
+                  CLOTHING - dual size
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-left" width="148">
+                <span class="table_title first_col">
+                  uk
+                </span>
+              </td>
+              <td>xs</td>
+              <td>s</td>
+              <td>m</td>
+              <td>l</td>
+              <td>xl</td>
+            </tr>
+            <tr>
+              <td class="text-left" width="148">
+                <span class="table_title first_col">
+                  european
+                </span>
+              </td>
+              <td>xs</td>
+              <td>s</td>
+              <td>m</td>
+              <td>l</td>
+              <td>xl</td>
+            </tr>
+            <tr>
+              <td class="text-left" width="148">
+                <span class="table_title first_col">
+                  us
+                </span>
+              </td>
+              <td>xxs</td>
+              <td>xs</td>
+              <td>s</td>
+              <td>m</td>
+              <td>l</td>
+            </tr>
+            <tr>
+              <td class="text-left" width="148">
+                <span class="table_title first_col">
+                  australia
+                </span>
+              </td>
+              <td>xs</td>
+              <td>s</td>
+              <td>m</td>
+              <td>l</td>
+              <td>xl</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
     <script>
 
-     
-	  
+
 	  function addEmail()
 	  {
 		$('#friendsEmail').append ('<br><br><span>&nbsp;</span><input type="text" required="" name="femail[]">');
@@ -241,6 +604,9 @@
 
     </script>
     
+
       <script type="text/javascript" src="catalog/view/javascript/ormary-js/OrmaryProductDetailsUI.js"></script>
+
+
 
 
