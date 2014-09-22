@@ -3477,6 +3477,34 @@ a.light_btn:hover {
 	margin-bottom: 50px;
 }
 
+.problem-message {
+	width: 100%;
+	background: #f4f4f4;
+	margin-bottom: 30px;
+}
+
+.problem-message p {
+	font-size: 13px;
+	padding: 12px 0 12px 35px;
+	color: #3d3d3d;
+}
+
+.problem-message p i {
+	position: relative;
+	top: -2px;
+	left: 0;
+	margin-right: 5px;
+}
+
+.problem-message p a {
+	display: inline-block;
+	border: 1px solid #c0c0c0;
+	padding: 5px;
+	color: #3d3d3d;
+	margin: 0 5px;
+	text-decoration: none;
+}
+
 /* Cart dropdown */
 
 .cart_dropdown {
@@ -4713,8 +4741,16 @@ display: block;
 		width: 45%;
 	}
 
-	.table_head {
-		display: none;
+	.table_head div.first_title {
+		width: 365px;
+	}
+
+	.table_head div {
+		width: 130px;
+	}
+
+	.table_head div.subtotal {
+		width: 85px;
 	}
 
 	.available + .available + .available {
@@ -4731,6 +4767,18 @@ display: block;
 }
 
 @media screen and (max-width: 991px){
+
+	.table_head div.first_title {
+		width: 315px;
+	}
+
+	.table_head div {
+		width: 96px;
+	}
+
+	.table_head div.subtotal {
+		width: 55px;
+	}
 
 	.top_bar .container {
 		padding: 0;
@@ -5029,6 +5077,10 @@ display: block;
 }
 
 @media screen and (max-width: 767px){
+
+	.table_head {
+		display: none;
+	}
 
 	header {
 		position: static;
