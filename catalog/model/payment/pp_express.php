@@ -146,7 +146,14 @@ class ModelPaymentPPExpress extends Model {
 
 	public function paymentRequestInfo() {
 
-		$data['PAYMENTREQUEST_0_SHIPPINGAMT'] = '';
+		if(isset($this->session->data['shipping_price']))
+		{
+			$data['PAYMENTREQUEST_0_SHIPPINGAMT'] = $this->session->data['shipping_price'];
+		}
+		else
+		{
+			$data['PAYMENTREQUEST_0_SHIPPINGAMT'] = 0;
+		}
 		$data['PAYMENTREQUEST_0_CURRENCYCODE'] = $this->currency->getCode();
 		$data['PAYMENTREQUEST_0_PAYMENTACTION'] = $this->config->get('pp_express_method');
 
@@ -265,7 +272,7 @@ class ModelPaymentPPExpress extends Model {
 		}
 
 		$data['PAYMENTREQUEST_0_ITEMAMT'] = number_format($item_total, 2, '.', '');
-		$data['PAYMENTREQUEST_0_AMT'] = number_format($item_total, 2, '.', '');
+		$data['PAYMENTREQUEST_0_AMT'] = number_format($item_total + $data['PAYMENTREQUEST_0_SHIPPINGAMT'], 2, '.', '');
 
 		$z = 0;
 

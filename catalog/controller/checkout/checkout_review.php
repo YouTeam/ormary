@@ -467,8 +467,8 @@ class ControllerCheckoutCheckoutReview extends Controller {
 
 		if($this->session->data['payment_method'] == 'paypal')
 		{
-			$this->data['payment_paypal_form'] = $this->getChild('payment/pp_standard');	
-			//$this->data['payment_paypal_form'] = $this->getChild('payment/pp_express');			
+			//$this->data['payment_paypal_form'] = $this->getChild('payment/pp_standard');	
+			$this->data['payment_paypal_form'] = $this->getChild('payment/pp_express');			
 		}
 		elseif($this->session->data['payment_method'] == 'card')
 		{

@@ -127,9 +127,7 @@
                             <div class="separate"></div>
                             <img src="catalog/view/theme/ormary-new/images/paypal.png" alt="PayPal">
                     </div>
-                    <?php
-                    	print $payment_paypal_form;
-                    ?>
+
                 <?php
                 }
                 ?>
@@ -158,9 +156,8 @@
             }
             elseif($payment_method == 'paypal')
             {
-            ?>
-				<a href="javascript:void(0)" class="dark_btn" id="pay_paypal">CONFIRM AND PAY</a><!-- onclick="$('#paypal_form').submit();"-->
-            <?php
+            	print $payment_paypal_form;
+				//<a href="javascript:void(0)" class="dark_btn" id="pay_paypal">CONFIRM AND PAY</a><!-- onclick="$('#paypal_form').submit();"-->
             }
             ?>            
         </div>

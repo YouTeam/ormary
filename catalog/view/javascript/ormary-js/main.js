@@ -25,6 +25,7 @@ $(document).ready(function() {
         if ($('#terms').prop("checked"))
         {
             var id = $(this).attr("id");
+	    var href = $(this).attr("href");	
             $.ajax({
                 url: 'index.php?route=checkout/checkout_review/updateOrder',
                 type: 'post',
@@ -40,7 +41,8 @@ $(document).ready(function() {
                     {
                         if (id == 'pay_paypal')
                         {
-                            $('#paypal_form').submit();
+							window.location.href = href;
+							//$('#paypal_form').submit();
                         }
                     }
 

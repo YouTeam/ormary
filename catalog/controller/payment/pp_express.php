@@ -1278,7 +1278,8 @@ class ControllerPaymentPPExpress extends Controller {
 			'METHOD' => 'SetExpressCheckout',
 			'MAXAMT' => $max_amount,
 			'RETURNURL' => $this->url->link('payment/pp_express/checkoutReturn', '', 'SSL'),
-			'CANCELURL' => $this->url->link('checkout/checkout', '', 'SSL'),
+			//'RETURNURL' => $this->url->link('checkout/success', '', 'SSL'),
+			'CANCELURL' => $this->url->link('checkout/checkout_review', '', 'SSL'),
 			'REQCONFIRMSHIPPING' => 0,
 			'NOSHIPPING' => 1,
 			'LOCALECODE' => 'EN',
@@ -1309,7 +1310,7 @@ class ControllerPaymentPPExpress extends Controller {
 				$this->log->write(serialize($result));
 			}
 
-			$this->redirect($this->url->link('checkout/checkout', '', 'SSL'));
+			$this->redirect($this->url->link('checkout/checkout_review', '', 'SSL'));
 		}
 
 		$this->session->data['paypal']['token'] = $result['TOKEN'];
