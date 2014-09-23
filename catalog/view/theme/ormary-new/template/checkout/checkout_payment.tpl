@@ -224,7 +224,7 @@
                                                        	}
                                                         ?>
 													</select>
-                                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_type;?></div>
+                                                    <div id="type-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_type;?></div>
 												</label>
 											</div>
 											<div class="input_wrap">
@@ -237,25 +237,26 @@
 											<div class="input_wrap">
 												<label>
 													<span>Card number*</span>
-													<input type="text"  name="card_number" value="" maxlength="16"  data-braintree-name="number">
-                                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_number;?></div>
+													<input type="text"  name="card_number" value="" maxlength="27"  data-braintree-name="number">
+                                                    <div id="number-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_number;?></div>
 												</label>
 											</div>
 											<div class="input_wrap">
 												<label>
 													<span>Expiry date*</span>
-                                                    <input data-braintree-name="expiration_month" value="" style="width:40px;" maxlength="2">
+</label>
+                                                    <input data-braintree-name="expiration_month" value="" name="card_month" style="width:40px;" maxlength="2">
                                                     &nbsp;/&nbsp;
-  													<input data-braintree-name="expiration_year" value="" style="width:55px;" maxlength="4">                                                    
+  													<input data-braintree-name="expiration_year" value="" name="card_year" style="width:55px;" maxlength="4">                                                    
 													
-                                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_date;?></div>
-												</label>
+                                                    <div id="date-error" style="display: block;" class="alert_error"><?php print $error_card_date;?></div>
+												
 											</div>
 											<div class="input_wrap">
 												<label>
 													<span>Security code*</span>
-													<input type="text"  name="card_code" value="" maxlength="3" data-braintree-name="cvv">
-                                                    <div id="name-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_code;?></div>
+													<input type="text"  name="card_code" value="" maxlength="4" data-braintree-name="cvv">
+                                                    <div id="code-error" style="display: block; float:left;" class="alert_error"><?php print $error_card_code;?></div>
 												</label>
 											</div>
 										</div>
@@ -265,7 +266,7 @@
 						</div>
 						<div class="clearfix">
 							<div class="bag-bottom clearfix">
-								<a href="javascript:void(0)" onclick="$( '#submit' ).trigger( 'click' );" class="dark_btn">next step</a>
+								<a href="javascript:void(0)" onclick="if(checkCardForm()){$( '#submit' ).trigger( 'click' );}" class="dark_btn">next step</a>
                                 <input type="submit" id="submit" value="Pay" class="dark_btn" style="display:none;"> 
 							</div>
 						</div>
