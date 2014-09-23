@@ -375,7 +375,14 @@ class ControllerCheckoutCheckoutShipping extends Controller {
 				$first_address = current($addresses);
 				$this->data['selected_address']	= $first_address['address_id'];
 				$shipping_address_info =  $this->model_account_address->getAddress($first_address['address_id']);	
-				$this->data['shipping_price_message'] = 'Please select your country below to calculate shipping costs';
+				
+				$country_info = $this->model_localisation_country->getCountry($first_address['country_id']);
+				$this->load->model('shipping/custom_flatrate_shipping');
+				$shipping_info = $this->model_shipping_custom_flatrate_shipping->getShippingPrice($country_info['country_id'], $this->cart->getTotal());
+			
+				$this->data['shipping_price_message'] = $shipping_info['message'];	
+				
+				//$this->data['shipping_price_message'] = 'Please select your country below to calculate shipping costs';
 			}
 
 			
