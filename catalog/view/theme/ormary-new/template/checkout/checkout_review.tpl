@@ -15,6 +15,23 @@
         	<a href="javascript:void(0)" class="step">3. review</a>
         </div>
     </div>
+    
+    <?php  
+    if($payment_error)
+    {  
+    ?>
+        <div class="problem-message text-center">
+            <p>
+                <i>
+                    <img alt="!" src="/catalog/view/theme/ormary-new/images/attention.png">
+                </i>
+                There is a problem with your payment details, click <a href="<?php print $payment_link;?>">here</a> to double check them
+            </p>
+        </div>
+    <?php
+    }
+    ?>
+    
     <div class="table_head clearfix">
         <div class="first_title">
         	Cart contents

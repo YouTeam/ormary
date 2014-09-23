@@ -3705,6 +3705,39 @@ a.light_btn:hover {
     margin-bottom: 50px;
 }
 
+.problem-message {
+    width: 100%;
+    background: #f4f4f4;
+    margin-bottom: 30px;
+}
+
+.problem-message p {
+    font-size: 13px;
+    padding: 8px 0 8px 35px;
+    color: #3d3d3d;
+}
+
+.problem-message p i {
+    position: relative;
+    top: -1px;
+    left: 0;
+    margin-right: 5px;
+}
+
+.problem-message p a {
+    display: inline-block;
+    border: 1px solid #c0c0c0;
+    padding: 3px 6px;
+    color: #3d3d3d;
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+.problem-message p a:hover {
+    background: #000;
+    color: #fff;
+}
+
 /* Cart dropdown */
 
 .cart_dropdown {
@@ -5815,6 +5848,51 @@ width: 112px;
 
 @media screen and (max-width: 480px){
 
+    .cart .bottom_btns a {
+        width: 100%;
+    }
+      .table_row .quantity {
+          
+          clear: none;
+        margin-left: 6px;
+        margin-top: 0px;
+    }
+
+    .table_row .product_info {
+        width: 60%;
+        margin-left: 10px;
+        
+        margin-top: 0px;
+    }
+
+    .table_row .quantity {
+        width: 60px;
+    }
+
+    .table_row .price {
+        width: 25%;
+        
+        margin-top: 0px;
+    }
+
+    .table_row .edit {
+        display: none;
+        width: 20px;
+        
+        margin-top: 0px;
+    }
+    .cart h3 {
+        margin-bottom: 0px;
+        margin-top: 5px;
+    }
+    
+    .cart .table_row .total-price {
+        float: left;
+        margin-left: 15px;
+            
+        margin-top: 0px;
+    }
+    
     .top_bar .left_side .logo {
         width: 140px;
         float: none;
@@ -5859,8 +5937,19 @@ width: 112px;
         margin-left: 0;
     }
 
-    .table_footer {
+    .table_footer label,
+    .table_footer a
+    {
         display: none;
+    }
+
+    
+       .table_footer > span
+    {
+        margin-bottom: 10px !important;
+        text-align: center !important;
+display: block !important;
+margin-right: 0px !important;
     }
 
     .cart .bottom_btns {

@@ -30,6 +30,7 @@ class ControllerCheckoutCheckoutReview extends Controller {
 		$products = $this->cart->getProducts();
 
 		$total_cart_price = 0;	
+		$this->data['payment_error'] = false;	
 			
 		foreach ($products as $product) 
 		{
@@ -405,7 +406,8 @@ class ControllerCheckoutCheckoutReview extends Controller {
 				{
 					foreach($result->errors->deepAll() AS $error) 
 					{
-						echo($error->code . ": " . $error->message . "\n");
+						$this->data['payment_error'] = true;		
+						//echo($error->code . ": " . $error->message . "\n");
 					}
 				}	
 				
