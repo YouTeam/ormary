@@ -387,11 +387,20 @@ class ControllerCheckoutCheckoutReview extends Controller {
 			//print_r($this->model_account_order->getOrder($this->session->data['order_id']));
 
 				require_once('./braintree/Braintree.php');
-			
-				Braintree_Configuration::environment('sandbox');
-				Braintree_Configuration::merchantId('4jqpkqmgcxncdxpj');
-				Braintree_Configuration::publicKey('qst446ds2nrxkg6f');
-				Braintree_Configuration::privateKey('ef986f8470630f70273d95a27425e560');	
+
+				
+				if($this->config->get('braintree_test'))
+				{
+					Braintree_Configuration::environment('sandbox');
+				}
+				else
+				{
+					Braintree_Configuration::environment('production');	
+				}
+				
+				Braintree_Configuration::merchantId($this->config->get('braintree_merchantid'));
+				Braintree_Configuration::publicKey($this->config->get('braintree_publickey'));
+				Braintree_Configuration::privateKey($this->config->get('braintree_privatekey'));
 				$result = Braintree_Transaction::sale(array(				
 				  'amount' => $total_cart_price + $shipping_price,
 				  'paymentMethodNonce' => $this->session->data['card_info']['payment_method_nonce'],
