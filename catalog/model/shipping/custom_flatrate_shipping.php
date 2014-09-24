@@ -1,8 +1,8 @@
 <?php
 class ModelShippingCustomFlatrateShipping extends Model {
-	function getShippingPrice($country_id, $price) 
+	public function getShippingPrice($country_id, $price) 
 	{
-		$query = $this->db->query("SELECT s.* FROM " . DB_PREFIX . "custom_flatrate_shipping AS s ORDER BY s.order ASC");
+		$query = $this->db->query("SELECT s.* FROM " . DB_PREFIX . "custom_flatrate_shipping AS s ORDER BY s.sort_order ASC");
 		
 		$this->load->model('localisation/country');
 		$country_info = $this->model_localisation_country->getCountry($country_id);

@@ -152,7 +152,7 @@ class ControllerCommonHeader extends Controller {
 			
 			$this->data['landing_page'] = $this->url->link('setting/landing', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['braintree'] = $this->url->link('payment/braintree', 'token=' . $this->session->data['token'], 'SSL');
-			$this->data['flatrate_shipping'] = $this->url->link('shipping/flatrate_shipping', 'token=' . $this->session->data['token'], 'SSL');
+			$this->data['flatrate_shipping'] = $this->url->link('shipping/flatrate_shipping_list', 'token=' . $this->session->data['token'], 'SSL');
 			
 			$this->data['language'] = $this->url->link('localisation/language', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['layout'] = $this->url->link('design/layout', 'token=' . $this->session->data['token'], 'SSL');
