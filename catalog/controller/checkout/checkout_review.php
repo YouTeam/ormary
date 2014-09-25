@@ -176,15 +176,15 @@ class ControllerCheckoutCheckoutReview extends Controller {
 			}
 		}
 		
-		$total_data[] = array( 
+/*		$total_data[] = array( 
 			'code'       => 'shipping',
-			'title'      => 'Shipping',
-			'text'       => $this->currency->format($this->data['shipping_price']),
-			'value'      => $this->data['shipping_price'],
+			'title'      => 'Flatrate Shipping',
+			'text'       => $this->currency->format($this->session->data['shipping_price']),
+			'value'      => $this->session->data['shipping_price'],
 			'sort_order' => 3
-		);
+		);*/
 		
-		$total += $this->session->data['shipping_price'];
+		//$total += $this->session->data['shipping_price'];
 
 		$sort_order = array(); 
 
@@ -230,22 +230,18 @@ class ControllerCheckoutCheckoutReview extends Controller {
 		$data['shipping_city'] = $shipping_address['city'];
 		$data['shipping_postcode'] = $shipping_address['postcode'];
 		$data['shipping_zone'] = $shipping_zone_name['name'];
-		$data['shipping_zone_id'] = $shipping_address['zone'];
+		$data['shipping_zone_id'] = $shipping_address['zone_id'];
 		$data['shipping_country'] = $shipping_country_name['name'];
-		$data['shipping_country_id'] = $shipping_address['country'];
+		$data['shipping_country_id'] = $shipping_address['country_id'];
 		$data['shipping_address_format'] = "";
 
-		if (isset($this->session->data['shipping_method']['title'])) {
-			$data['shipping_method'] = $this->session->data['shipping_method']['title'];
+		if (isset($this->session->data['shipping_price'])) {
+			$data['shipping_method'] = 'Fltarate shipping';
+			$data['shipping_code'] = 'flatrate.flatrate';
 		} else {
 			$data['shipping_method'] = '';
-		}
-
-		if (isset($this->session->data['shipping_method']['code'])) {
-			$data['shipping_code'] = $this->session->data['shipping_method']['code'];
-		} else {
 			$data['shipping_code'] = '';
-		}				
+		}
 
 		/*-- Payment data --*/
 		$this->load->model('localisation/country');
