@@ -1,7 +1,5 @@
 <?php echo $header; ?>
-
-
-
+<?php echo $content_top; ?>
 
 <div class="container content">
     <div class=""><h4 class="text-center">Your Shopping Bag Is Empty.</h4></div>
@@ -79,5 +77,7 @@
     
     </div>
 </div>
+
+<?php echo $content_bottom; ?>
 <?php echo $footer; ?>
 

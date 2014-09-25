@@ -562,10 +562,11 @@ class ControllerCheckoutCart extends Controller {
                 
                 	$this->load->model('account/follow');
 	$this->data['featured_products'] = $this->model_account_follow->getAllMyFashionfeedProd();
-                  foreach($this->data['featured_products'] as &$p)
-			{
-				$p['image'] = $this->model_tool_image->resize($p['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
-			}
+                 	foreach($this->data['featured_products'] as &$p)
+					{
+						$p['image'] = $this->model_tool_image->resize($p['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
+						$p['price'] = $this->currency->format($p['price']);
+					}
             }
 
             $this->children = array(
