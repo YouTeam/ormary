@@ -1,6 +1,10 @@
 <?php  
 class ControllerCheckoutCheckout extends Controller { 
 	public function index() {
+		
+		//Redirect to new checkout
+		$this->redirect($this->url->link('checkout/cart', '', 'SSL'));
+		
 		// Validate cart has products and has stock.
 		if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
 			//$this->redirect($this->url->link('checkout/cart'));

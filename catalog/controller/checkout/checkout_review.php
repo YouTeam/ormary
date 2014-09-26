@@ -244,27 +244,51 @@ class ControllerCheckoutCheckoutReview extends Controller {
 		}
 
 		/*-- Payment data --*/
-		$this->load->model('localisation/country');
-		$country_info = $this->model_localisation_country->getCountry($this->session->data['billing_address']['country']); 
+
+
 		
-		$this->load->model('localisation/zone');
-		$zone_info = $this->model_localisation_zone->getZone($this->session->data['billing_address']['zone']); 
+		if(isset( $this->session->data['billing_address']))
+		{
+			$this->load->model('localisation/country');
+			$country_info = $this->model_localisation_country->getCountry($this->session->data['billing_address']['country']); 
+			
+			$this->load->model('localisation/zone');
+			$zone_info = $this->model_localisation_zone->getZone($this->session->data['billing_address']['zone']); 
 
-		$data['payment_firstname'] = $this->session->data['billing_address']['firstname'];
-		$data['payment_lastname'] = $this->session->data['billing_address']['lastname'];	
-		$data['payment_company'] = "";
-		$data['payment_company_id'] = "";
-		$data['payment_tax_id'] = "";
-		$data['payment_address_1'] = $this->session->data['billing_address']['address_1'];
-		$data['payment_address_2'] = $this->session->data['billing_address']['address_2'];
-		$data['payment_city'] = $this->session->data['billing_address']['city'];
-		$data['payment_postcode'] = $this->session->data['billing_address']['postcode'];
-		$data['payment_zone'] = $zone_info['name'];
-		$data['payment_zone_id'] = $this->session->data['billing_address']['zone'];
-		$data['payment_country'] = $country_info['name'];
-		$data['payment_country_id'] = $this->session->data['billing_address']['country'];
-		$data['payment_address_format'] = "";
-
+			$data['payment_firstname'] = $this->session->data['billing_address']['firstname'];
+			$data['payment_lastname'] = $this->session->data['billing_address']['lastname'];	
+			$data['payment_company'] = "";
+			$data['payment_company_id'] = "";
+			$data['payment_tax_id'] = "";
+			$data['payment_address_1'] = $this->session->data['billing_address']['address_1'];
+			$data['payment_address_2'] = $this->session->data['billing_address']['address_2'];
+			$data['payment_city'] = $this->session->data['billing_address']['city'];
+			$data['payment_postcode'] = $this->session->data['billing_address']['postcode'];
+			$data['payment_zone'] = $zone_info['name'];
+			$data['payment_zone_id'] = $this->session->data['billing_address']['zone'];
+			$data['payment_country'] = $country_info['name'];
+			$data['payment_country_id'] = $this->session->data['billing_address']['country'];
+			$data['payment_address_format'] = "";
+		}
+		else
+		{
+			$data['payment_firstname'] = "";
+			$data['payment_lastname'] = "";	
+			$data['payment_company'] = "";
+			$data['payment_company_id'] = "";
+			$data['payment_tax_id'] = "";
+			$data['payment_address_1'] = "";
+			$data['payment_address_2'] = "";
+			$data['payment_city'] = "";
+			$data['payment_postcode'] = "";
+			$data['payment_zone'] = "";
+			$data['payment_zone_id'] = "";
+			$data['payment_country'] = "";
+			$data['payment_country_id'] = "";
+			$data['payment_address_format'] = "";
+			
+		}
+		
 		if (isset($this->session->data['payment_method']['title'])) {
 			$data['payment_method'] = $this->session->data['payment_method']['title'];
 		} else {
@@ -414,50 +438,7 @@ class ControllerCheckoutCheckoutReview extends Controller {
 						$this->data['payment_error'] = true;		
 						//echo($error->code . ": " . $error->message . "\n");
 					}
-				}	
-				
-				/*$result = Braintree_Transaction::sale(array(
-				  'amount' => $total_cart_price + $shipping_price,
-				  'orderId' => 'order id',
-				  'paymentMethodNonce' => $this->session->data['card_info']['payment_method_nonce'],
-				  'customer' => array(
-					'firstName' => '',
-					'lastName' => '',
-					'company' => '',
-					'phone' => '',
-					'fax' => '',
-					'website' => '',
-					'email' => 'drew@example.com'
-				  ),
-				  'billing' => array(
-					'firstName' => 'Paul',
-					'lastName' => 'Smith',
-					'company' => '',
-					'streetAddress' => '1 E Main St',
-					'extendedAddress' => '',
-					'locality' => 'Chicago',
-					'region' => 'IL',
-					'postalCode' => '60622',
-					'countryCodeAlpha2' => 'US'
-				  ),
-				  'shipping' => array(
-					'firstName' => 'Jen',
-					'lastName' => 'Smith',
-					'company' => '',
-					'streetAddress' => '1 E 1st St',
-					'extendedAddress' => '',
-					'locality' => 'Bartlett',
-					'region' => 'IL',
-					'postalCode' => '60103',
-					'countryCodeAlpha2' => 'US'
-				  ),
-				  'options' => array(
-					'submitForSettlement' => true
-				  ),
-				));
-				*/				
-				
-	
+				}
 			}	
 		}
 		else
