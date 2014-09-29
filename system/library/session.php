@@ -8,7 +8,12 @@ class Session {
 			ini_set('session.use_trans_sid', 'Off');
 			ini_set('session.cookie_httponly', 'On');
 			
-			session_set_cookie_params(0, '/');
+			session_set_cookie_params(86400, '/');
+            ini_set('session.cache_expire', '180');
+            ini_set('session.gc_maxlifetime', '86400');
+            ini_set('session.save_path','/var/www/sessions');
+			
+			//session_set_cookie_params(0, '/');
 			session_start();
 		}
 			
