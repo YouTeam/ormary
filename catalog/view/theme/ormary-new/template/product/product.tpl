@@ -73,7 +73,7 @@
 			<div class="orm_share clearfix">
 				<div>
                 	<span>Got more questions about this item?</span>
-                	<a href="#">Email us</a>
+                	<a href="/index.php?route=information/contact">Email us</a>
                 </div>
                 <div>
                     <span class="share_on">Share on</span>
@@ -228,7 +228,7 @@
       <a onclick="$('#frmShare').submit();" class="dark_btn">submit</a>
       <a href="#" class="close_popup"></a>
     </div>
-
+    
 	<div class="size_guide_popup" id="size_guide_popup">
       <div class="caption text-center">
         SIZE GUIDE
@@ -593,9 +593,11 @@
     </div>
 
 
+
     <script>
 
-
+     
+	  
 	  function addEmail()
 	  {
 		$('#friendsEmail').append ('<br><br><span>&nbsp;</span><input type="text" required="" name="femail[]">');
@@ -604,9 +606,6 @@
 
     </script>
     
-
       <script type="text/javascript" src="catalog/view/javascript/ormary-js/OrmaryProductDetailsUI.js"></script>
-
-
 
 
