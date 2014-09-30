@@ -120,5 +120,19 @@ class ControllerAccountPassword extends Controller {
 			return false;
 		}
 	}
+	
+	
+	public function ajaxValidate() {
+		$json = array('error' => array());
+		if ((utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20)) {
+			$json['error']['password'] = true;
+		}
+
+		if ($this->request->post['confirm'] != $this->request->post['password']) {
+			$json['error']['confirm'] = true;
+		}
+
+		$this->response->setOutput(json_encode($json));
+	}
 }
 ?>
