@@ -2,7 +2,8 @@
 <html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
     <head>
                 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-                <script type="text/javascript" src="catalog/view/javascript/jquery/modernizr.js"></script>
+                <script type="text/javascript" src="/catalog/view/javascript/jquery/modernizr.js"></script>
+                        <script type="text/javascript" src="/catalog/view/javascript/ormary-js/OrmaryUI.js"></script>
                 
     	<meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -198,7 +199,7 @@ on orders £125+<br>
                                         </li>
                                     <?php } else { ?>
                                         <li>
-                                            <a href="<?php echo $feed; ?>" class="account dropdown-toggle">
+                                            <a href="javascript:void(0)" class="account dropdown-toggle">
                                                 <div class="account_avatar">
                                                 	<img src="<?php echo $this->customer->getProfileImgURL();?>" alt="<?php echo $account_firstname ?>">
                                                 </div>
