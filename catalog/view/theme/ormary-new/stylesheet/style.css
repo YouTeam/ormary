@@ -1674,6 +1674,11 @@ div.related_goods {
     transition:.15s;
 }
 
+.share_with_friend_popup .alert_error
+{
+	margin-left:180px;
+}
+
 .add_shipping_address {
     width: 680px;
     background: #ffffff;
@@ -5298,6 +5303,10 @@ a.add_address_btn {
         width: 100%;
     }
 
+	.share_with_friend_popup .alert_error
+	{
+		margin-left:0px;
+	}
 
     /**/
 

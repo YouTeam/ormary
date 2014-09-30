@@ -200,23 +200,28 @@
               <label>
                 <span>Your name <span class="required">*</span></span>
                 <input type="text" required value="<?php print $user_firstname;?>" name="fname">
+                <div class="alert_error" style="width:240px display:none;" id="error_name">Please enter your name</div>
               </label>
               <label>
                 <span>Your email <span class="required">*</span></span>
                 <input type="text" required value="<?php print $user_email;?>" name="myemail">
+                <div class="alert_error" style="width:240px display:none;" id="error_myemail">Please enter your email</div>
               </label>
               <label id="friendsEmail">
                 <span>Your friend email <span class="required">*</span></span>
                 <input type="text" required name="femail[]">
+                <div class="alert_error" style="width:240px display:none;" id="error_friendemail">Please check your friends email addresses</div>
               </label>
-              <a href="javascript:void(0)" onclick="addEmail()" class="one_more_friend">Add one more friend </a>
+              <a href="javascript:void(0)" onclick="addEmail()" class="one_more_friend">Add one more friend </a>                            
               <label>
                 <span>Subject <span class="required">*</span></span>
                 <input type="text" required value="<?php echo $heading_title; ?>" name="subject">
+               <div class="alert_error" style="width:240px display:none;" id="error_subject">Please enter message subject</div>
               </label>
               <label>
                 <span>Your message <span class="required">*</span></span>
                 <textarea name="msg" id="msg"><?php echo trim(strip_tags($description)); ?></textarea>
+                <div class="alert_error" style="width:240px display:none;" id="error_msg">Please enter message text</div>
               </label>
             </form>
           </div>
@@ -225,7 +230,7 @@
           <img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>">
         </div>
       </div>
-      <a onclick="$('#frmShare').submit();" class="dark_btn">submit</a>
+     <a onclick="validateEmailUs()" class="dark_btn" href="javascript:void(0)">submit</a>
       <a href="#" class="close_popup"></a>
     </div>
     
@@ -596,11 +601,72 @@
 
     <script>
 
-     
+	function validateEmailUs()
+	{
+		$.ajax({
+			url: 'index.php?route=product/product/ajaxValidateEmailUsForm',
+			type: 'post',
+			data: $('#frmShare input, #frmShare textarea'),
+			dataType: 'json',
+			success: function(json) {
+				if (json['error'].length != 0) 
+				{										
+					if(json['error']['error_name'])
+					{
+						$('#frmShare #error_name').show();	
+					}
+					else
+					{
+						$('#frmShare #error_name').hide();
+					}
+					
+					if(json['error']['error_myemail'])
+					{
+						$('#frmShare #error_myemail').show();	
+					}
+					else
+					{
+						$('#frmShare #error_myemail').hide();
+					}	
+					
+					if(json['error']['error_friendemail'])
+					{
+						$('#frmShare #error_friendemail').show();	
+					}
+					else
+					{
+						$('#frmShare #error_friendemail').hide();
+					}					
+					
+					if(json['error']['error_subject'])
+					{
+						$('#frmShare #error_subject').show();	
+					}
+					else
+					{
+						$('#frmShare #error_subject').hide();
+					}		
+					
+					if(json['error']['error_msg'])
+					{
+						$('#frmShare #error_msg').show();	
+					}
+					else
+					{
+						$('#frmShare #error_msg').hide();
+					}								
+				} 
+				else
+				{
+					$('#frmShare').submit();
+				}	
+			}
+		});	
+	}
 	  
 	  function addEmail()
 	  {
-		$('#friendsEmail').append ('<br><br><span>&nbsp;</span><input type="text" required="" name="femail[]">');
+		$('#friendsEmail .alert_error').before ('<br/><br/><span>&nbsp;</span><input type="text" required="" name="femail[]">');
 	  }
 	  
 
