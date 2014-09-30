@@ -2052,7 +2052,7 @@ label .required {
 
 .do_you_like .designer_goods .swiper-slide {
     height: 212px;
-    width: 150px !important;
+   /* width: 150px !important;*/
 }
 
 .do_you_like .designer_goods a.des_slider_left,
