@@ -258,7 +258,19 @@ class ModelCatalogManufacturer extends Model {
 
 		if(count($cids) != 0)
 		{
-			$categories = $this->db->query("SELECT c.*, cd.* FROM " . DB_PREFIX . "category as c LEFT JOIN " . DB_PREFIX . "category_description as cd ON c.category_id = cd.category_id WHERE c.category_id IN (".implode(', ', $cids).") ORDER BY c.sort_order");
+                    
+                                                $cidstr = trim ( implode(', ', $cids) );
+                                                
+                                                
+                                                if ($cidstr[strlen($cidstr)-1] == ',' ) {
+                                                    
+                                                    $cidstr = substr ( $cidstr , 0 , strlen($cidstr)-1 );
+                                                    
+                                                }
+                                                
+
+                    
+			$categories = $this->db->query("SELECT c.*, cd.* FROM " . DB_PREFIX . "category as c LEFT JOIN " . DB_PREFIX . "category_description as cd ON c.category_id = cd.category_id WHERE c.category_id IN (". $cidstr .") ORDER BY c.sort_order");
 			$filter['categories'] = $categories->rows;
 		}
 		else
@@ -313,29 +325,72 @@ class ModelCatalogManufacturer extends Model {
 		$result = $this->db->query("SELECT m.*, 2*(SELECT COUNT(f.mid) as c FROM " . DB_PREFIX ."follows as f WHERE f.mid=m.manufacturer_id ) as count FROM " . DB_PREFIX ."manufacturer as m ORDER BY count DESC, m.style_id ASC");
 		
 		$this->load->model('tool/image');
+		$this->load->model('account/follow');
 		
-		foreach($result->rows as $des)
+		if($this->customer->isLogged())
+		{		
+			$uid = $this->customer->getId();
+		}
+		else
 		{
-			$designers[$des['manufacturer_id']]['mid'] = $des['manufacturer_id'];
-			$designers[$des['manufacturer_id']]['popularity'] = $des['count'];
-			$designers[$des['manufacturer_id']]['name'] = $des['name'];	
-			$designers[$des['manufacturer_id']]['style'] = $des['style_id'];	
-			if($des['image'] !="")
+			$uid = 0;	
+		}		
+		
+		if($uid != 0)
+		{
+			foreach($result->rows as $des)
 			{
-				$designers[$des['manufacturer_id']]['image'] = $this->model_tool_image->resize($des['image'], 215, 218);
+				if(!$this->model_account_follow->checkFollow($des['manufacturer_id'] ,$uid))
+				{
+					$designers[$des['manufacturer_id']]['mid'] = $des['manufacturer_id'];
+					$designers[$des['manufacturer_id']]['popularity'] = $des['count'];
+					$designers[$des['manufacturer_id']]['name'] = $des['name'];	
+					$designers[$des['manufacturer_id']]['style'] = $des['style_id'];	
+					if($des['image'] !="")
+					{
+						$designers[$des['manufacturer_id']]['image'] = $this->model_tool_image->resize($des['image'], 215, 218);
+					}
+					else
+					{
+						$designers[$des['manufacturer_id']]['image'] = $this->model_tool_image->resize("no_image.png", 215, 218);
+					}
+					
+					$designers[$des['manufacturer_id']]['liked'] = false;	
+					
+					$products = $this->db->query("SELECT p.*, (SELECT COUNT(w.product_id) as c FROM " . DB_PREFIX ."wishlist_product_to_collection as w WHERE w.product_id = p.product_id )+2*(SELECT COUNT(o.product_id) as cc FROM " . DB_PREFIX ."order_product as o WHERE o.product_id = p.product_id ) as popularity FROM " . DB_PREFIX ."product as p WHERE  manufacturer_id = ".$des['manufacturer_id']." ORDER BY popularity DESC LIMIT 0,10");
+					
+					foreach($products->rows as $product)
+					{
+						$designers[$des['manufacturer_id']]['images'][] = $this->model_tool_image->resize($product['image'], 150, 212); ;		
+					}
+				}
 			}
-			else
-			{
-				$designers[$des['manufacturer_id']]['image'] = $this->model_tool_image->resize("no_image.png", 215, 218);
-			}
-			
-			$designers[$des['manufacturer_id']]['liked'] = false;	
-			
-			$products = $this->db->query("SELECT p.*, (SELECT COUNT(w.product_id) as c FROM " . DB_PREFIX ."wishlist_product_to_collection as w WHERE w.product_id = p.product_id )+2*(SELECT COUNT(o.product_id) as cc FROM " . DB_PREFIX ."order_product as o WHERE o.product_id = p.product_id ) as popularity FROM " . DB_PREFIX ."product as p WHERE  manufacturer_id = ".$des['manufacturer_id']." ORDER BY popularity DESC LIMIT 0,10");
-			
-			foreach($products->rows as $product)
-			{
-				$designers[$des['manufacturer_id']]['images'][] = $this->model_tool_image->resize($product['image'], 150, 212); ;		
+		}
+		else
+		{
+			foreach($result->rows as $des)
+			{				
+				$designers[$des['manufacturer_id']]['mid'] = $des['manufacturer_id'];
+				$designers[$des['manufacturer_id']]['popularity'] = $des['count'];
+				$designers[$des['manufacturer_id']]['name'] = $des['name'];	
+				$designers[$des['manufacturer_id']]['style'] = $des['style_id'];	
+				if($des['image'] !="")
+				{
+					$designers[$des['manufacturer_id']]['image'] = $this->model_tool_image->resize($des['image'], 215, 218);
+				}
+				else
+				{
+					$designers[$des['manufacturer_id']]['image'] = $this->model_tool_image->resize("no_image.png", 215, 218);
+				}
+				
+				$designers[$des['manufacturer_id']]['liked'] = false;	
+				
+				$products = $this->db->query("SELECT p.*, (SELECT COUNT(w.product_id) as c FROM " . DB_PREFIX ."wishlist_product_to_collection as w WHERE w.product_id = p.product_id )+2*(SELECT COUNT(o.product_id) as cc FROM " . DB_PREFIX ."order_product as o WHERE o.product_id = p.product_id ) as popularity FROM " . DB_PREFIX ."product as p WHERE  manufacturer_id = ".$des['manufacturer_id']." ORDER BY popularity DESC LIMIT 0,10");
+				
+				foreach($products->rows as $product)
+				{
+					$designers[$des['manufacturer_id']]['images'][] = $this->model_tool_image->resize($product['image'], 150, 212); ;		
+				}				
 			}
 		}
 
