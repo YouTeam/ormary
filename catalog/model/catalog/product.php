@@ -810,7 +810,10 @@ class ModelCatalogProduct extends Model {
 		}
 		else
 		{
-			$options['price']['price_top'] = ceil($this->getMaxProductPriceByCategory($category_id));
+			if ($category_id > 0)
+				$options['price']['price_top'] = ceil($this->getMaxProductPriceByCategory($category_id));
+			else
+				$options['price']['price_top'] = ceil($this->getMaxProductPrice());
 		}
 		if (isset($this->request->get['price_low'])) 
 		{
@@ -821,7 +824,11 @@ class ModelCatalogProduct extends Model {
 			$options['price']['price_low'] = 0;
 		}
 		
-		$options['price']['max_price'] = ceil($this->getMaxProductPriceByCategory($category_id));
+		if ($category_id > 0)
+				$options['price']['max_price'] = ceil($this->getMaxProductPriceByCategory($category_id));
+		else
+				$options['price']['max_price'] = ceil($this->getMaxProductPrice());
+		//$options['price']['max_price'] = ceil($this->getMaxProductPriceByCategory($category_id));
 		
 		
 		
@@ -861,8 +868,10 @@ class ModelCatalogProduct extends Model {
 		}
 
 		$options['designers_list'] = "";
-		
-		$designers = $this->db->query("SELECT m.* FROM " . DB_PREFIX . "manufacturer m WHERE m.manufacturer_id in (select p.manufacturer_id from ".DB_PREFIX."product p left join ".DB_PREFIX."product_to_category ptc on p.product_id = ptc.product_id WHERE ptc.category_id = ".$category_id.") ORDER by name");//WHERE name LIKE '".$this->db->escape($this->request->get['designer_name'])."%'
+		if ($category_id > 0)
+			$designers = $this->db->query("SELECT m.* FROM " . DB_PREFIX . "manufacturer m WHERE m.manufacturer_id in (select p.manufacturer_id from ".DB_PREFIX."product p left join ".DB_PREFIX."product_to_category ptc on p.product_id = ptc.product_id WHERE ptc.category_id = ".$category_id.") ORDER by name");//WHERE name LIKE '".$this->db->escape($this->request->get['designer_name'])."%'
+		else
+			$designers = $this->db->query("SELECT m.* FROM " . DB_PREFIX . "manufacturer m ORDER BY name");
 		
 		if(isset($this->request->get['designer']) && $this->request->get['designer'] != '')
 		{
@@ -924,9 +933,10 @@ class ModelCatalogProduct extends Model {
 			$options['designer_name'] = $this->request->get['designer_name'];
 		}
 			
-
-		$option_colors = $this->db->query("SELECT * FROM " . DB_PREFIX . "option_value ov LEFT JOIN " . DB_PREFIX . "option_value_description ovd ON (ov.option_value_id = ovd.option_value_id) WHERE ov.option_id = '13' and ov.option_value_id in (select option_value_id from ".DB_PREFIX."product_option_value pov1 INNER JOIN ".DB_PREFIX."product_to_category ptc1 on pov1.product_id = ptc1.product_id WHERE pov1.option_id = '13' and pov1.quantity > 0 and ptc1.category_id = ".$category_id.") ORDER BY ov.sort_order ASC");
-
+		if ($category_id > 0)
+			$option_colors = $this->db->query("SELECT * FROM " . DB_PREFIX . "option_value ov LEFT JOIN " . DB_PREFIX . "option_value_description ovd ON (ov.option_value_id = ovd.option_value_id) WHERE ov.option_id = '13' and ov.option_value_id in (select option_value_id from ".DB_PREFIX."product_option_value pov1 INNER JOIN ".DB_PREFIX."product_to_category ptc1 on pov1.product_id = ptc1.product_id WHERE pov1.option_id = '13' and pov1.quantity > 0 and ptc1.category_id = ".$category_id.") ORDER BY ov.sort_order ASC");
+		else
+			$option_colors = $this->db->query("SELECT * FROM " . DB_PREFIX . "option_value ov LEFT JOIN " . DB_PREFIX . "option_value_description ovd ON (ov.option_value_id = ovd.option_value_id) WHERE ov.option_id = '13' ORDER BY ov.sort_order ASC");
 		if (isset($this->request->get['color']) &&  $this->request->get['color'] >= 0){
 		$options['colors_list'] .= '<li class="light_font"> 
 								<input type="radio" name="color" id="clallcolors" value="-1">
@@ -975,9 +985,10 @@ class ModelCatalogProduct extends Model {
 		}
 
 		
-		
-		$option_sizes = $this->db->query("SELECT * FROM " . DB_PREFIX . "option_value ov LEFT JOIN " . DB_PREFIX . "option_value_description ovd ON (ov.option_value_id = ovd.option_value_id) WHERE ov.option_id = '14' and ov.option_value_id in (select option_value_id from ".DB_PREFIX."product_option_value pov1 INNER JOIN ".DB_PREFIX."product_to_category ptc1 on pov1.product_id = ptc1.product_id WHERE pov1.option_id = '14' and pov1.quantity > 0 and ptc1.category_id = ".$category_id.") ORDER BY ov.sort_order ASC");
-
+		if ($category_id > 0)
+			$option_sizes = $this->db->query("SELECT * FROM " . DB_PREFIX . "option_value ov LEFT JOIN " . DB_PREFIX . "option_value_description ovd ON (ov.option_value_id = ovd.option_value_id) WHERE ov.option_id = '14' and ov.option_value_id in (select option_value_id from ".DB_PREFIX."product_option_value pov1 INNER JOIN ".DB_PREFIX."product_to_category ptc1 on pov1.product_id = ptc1.product_id WHERE pov1.option_id = '14' and pov1.quantity > 0 and ptc1.category_id = ".$category_id.") ORDER BY ov.sort_order ASC");
+		else
+			$option_sizes = $this->db->query("SELECT * FROM " . DB_PREFIX . "option_value ov LEFT JOIN " . DB_PREFIX . "option_value_description ovd ON (ov.option_value_id = ovd.option_value_id) WHERE ov.option_id = '14' ORDER BY ov.sort_order ASC");
 		if (isset($this->request->get['size']) &&  $this->request->get['size'] >= 0){
 		$options['sizes_list'] .= '<li class="light_font"> 
 								<input type="radio" name="size" id="szallsizes" value="-1">
@@ -1429,7 +1440,7 @@ class ModelCatalogProduct extends Model {
                         
           
         }
-		public function getManufacturerId($product_id)
+public function getManufacturerId($product_id)
 		{
 			 $manufacturer = $this->db->query("SELECT manufacturer_id FROM " . DB_PREFIX . "product WHERE product_id=".(int)$product_id); 
 			 if ($manufacturer->num_rows)
@@ -1441,6 +1452,5 @@ class ModelCatalogProduct extends Model {
 				return false; 
 			 }
 		}
-		
 }
 ?>
