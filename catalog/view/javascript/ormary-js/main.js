@@ -1227,9 +1227,146 @@ $(document).ready(function() {
 
 
     });
-
+	
+	$("#payment_form input[name='card_number']").focusout(function() {
+		number = $("#payment_form input[name='card_number']").val().replace(/\s+/g, '');
+		$(this).val(number);
+	});
 
 });
+
+
+/*-----------Credit card validation------------*/
+function checkCardForm()
+{
+	var error = false;
+	
+	if(!$("#payment_form select[name='card_type']").val())
+	{
+		$('#type-error').html('Please choose card type');	
+		error = true;
+	}
+	else
+	{
+		$('#type-error').html('');	
+	}
+	
+	if(!$("#payment_form input[name='card_name']").val())
+	{
+		$('#name-error').html('Please enter card name');	
+		error = true;
+	}
+	else
+	{
+		$('#name-error').html('');	
+	}
+	
+	if(!$("#payment_form input[name='card_number']").val())
+	{
+		$('#number-error').html('Please enter valid card number');	
+		error = true;
+	}
+	else
+	{
+		var rexp = /^[0-9]{12,19}$/;
+
+		number = $("#payment_form input[name='card_number']").val().replace(/\s+/g, '');
+		
+		if(rexp.test(number))
+		{
+			$('#number-error').html('');	
+		}
+		else
+		{
+			$('#number-error').html('Please enter valid card number');
+			error = true;
+		}			
+	}
+	
+	if(!$("#payment_form input[name='card_month']").val() || !$("#payment_form input[name='card_year']").val())
+	{
+		$('#date-error').html('Please enter valid date');	
+		error = true;
+	}
+	else
+	{
+		month = $("#payment_form input[name='card_month']").val();
+		year = $("#payment_form input[name='card_year']").val();
+		month_error = false;
+		var rexp = /^[0-9]{1,2}$/ ;
+		if(rexp.test(month))
+		{
+			if(parseInt(month) < 0 || parseInt(month) > 13)
+			{
+				$('#date-error').html('Please enter valid date');	
+				error = true;
+				month_error = true;
+			}
+			else
+			{
+				$('#date-error').html('');		
+			}
+		}
+		else
+		{
+			$('#date-error').html('Please enter valid date');	
+			error = true;
+			month_error = true;
+		}
+		
+		var rexp_ys = /^[0-9]{2}$/ ;
+		var rexp_yl = /^[0-9]{4}$/ ;
+		
+		if(rexp_ys.test(year) || rexp_yl.test(year))
+		{
+			var current_year_long = new Date().getFullYear(); 
+			var current_year_short = new Date().getFullYear().toString().substring(3, 4); 
+			if((year.length == 4  && parseInt(year) < parseInt(current_year_long))|| (year.length == 2 && parseInt(year) <  parseInt(current_year_short)))
+			{
+				$('#date-error').html('Please enter valid date');	
+				error = true;	
+			}
+			else
+			{
+				if(!month_error)
+				{
+					$('#date-error').html('');	
+				}
+			}
+		}
+		else
+		{
+			$('#date-error').html('Please enter valid date');	
+			error = true;
+		}		
+	}
+	
+	if(!$("#payment_form input[name='card_code']").val())
+	{
+		$('#code-error').html('Please enter valid security code');	
+		error = true;
+	}
+	else
+	{
+		code = $("#payment_form input[name='card_code']").val();
+		var rexp_code = /^[0-9]{3,4}$/ ;
+		if(!rexp_code.test(code))
+		{
+			$('#code-error').html('Please enter valid security code');	
+			error = true;	
+		}
+		else
+		{		
+			$('#code-error').html('');	
+		}
+	}
+	
+	if(!error)
+	{
+		return true;
+	}
+}
+
 
 /* Main slider */
 var MainSliderLoop = true;

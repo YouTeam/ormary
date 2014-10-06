@@ -66,7 +66,8 @@ class ControllerCommonHeader extends Controller {
 		$this->data['text_product'] = $this->language->get('text_product'); 
 		$this->data['text_profile'] = $this->language->get('text_profile');
 		$this->data['text_reports'] = $this->language->get('text_reports');
-		$this->data['text_report_sale_order'] = $this->language->get('text_report_sale_order');
+		$this->data['text_report_sale_order'] = $this->language->get('text_report_sale_order'); 
+                                      $this->data['text_report_manufacturer'] = $this->language->get('text_report_manufacturer');
 		$this->data['text_report_sale_tax'] = $this->language->get('text_report_sale_tax');
 		$this->data['text_report_sale_shipping'] = $this->language->get('text_report_sale_shipping');
 		$this->data['text_report_sale_return'] = $this->language->get('text_report_sale_return');
@@ -150,6 +151,8 @@ class ControllerCommonHeader extends Controller {
 			$this->data['information'] = $this->url->link('catalog/information', 'token=' . $this->session->data['token'], 'SSL');
 			
 			$this->data['landing_page'] = $this->url->link('setting/landing', 'token=' . $this->session->data['token'], 'SSL');
+			$this->data['braintree'] = $this->url->link('payment/braintree', 'token=' . $this->session->data['token'], 'SSL');
+			$this->data['flatrate_shipping'] = $this->url->link('shipping/flatrate_shipping_list', 'token=' . $this->session->data['token'], 'SSL');
 			
 			$this->data['language'] = $this->url->link('localisation/language', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['layout'] = $this->url->link('design/layout', 'token=' . $this->session->data['token'], 'SSL');
@@ -165,6 +168,7 @@ class ControllerCommonHeader extends Controller {
 			$this->data['product'] = $this->url->link('catalog/product', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['profile'] = $this->url->link('catalog/profile', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['report_sale_order'] = $this->url->link('report/sale_order', 'token=' . $this->session->data['token'], 'SSL');
+                                                          $this->data['report_manufacturer_report'] = $this->url->link('report/manufacturer', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['report_sale_tax'] = $this->url->link('report/sale_tax', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['report_sale_shipping'] = $this->url->link('report/sale_shipping', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['report_sale_return'] = $this->url->link('report/sale_return', 'token=' . $this->session->data['token'], 'SSL');

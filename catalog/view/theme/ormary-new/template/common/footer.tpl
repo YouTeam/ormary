@@ -43,7 +43,7 @@
                         }
                         ?>
                        <li><a href="/new">What's New</a></li>
-                       <li><a href="/desginers">Designers</a></li>
+                       <li><a href="/designers">Designers</a></li>
 
                     </ul>
                 </div>

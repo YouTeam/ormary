@@ -183,6 +183,8 @@ $(document).ready(function(){
           <?php } ?>
           <!-- PAYPAL MANAGE NAVIGATION LINK END -->
           <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
+          <li><a href="<?php echo $braintree; ?>">Braintree settings</a></li>
+          <li><a href="<?php echo $flatrate_shipping; ?>">Shipping settings</a></li>
         </ul>
       </li>
       <li id="system"><a class="top"><?php echo $text_system; ?></a>
@@ -240,6 +242,9 @@ $(document).ready(function(){
               <li><a href="<?php echo $report_sale_shipping; ?>"><?php echo $text_report_sale_shipping; ?></a></li>
               <li><a href="<?php echo $report_sale_return; ?>"><?php echo $text_report_sale_return; ?></a></li>
               <li><a href="<?php echo $report_sale_coupon; ?>"><?php echo $text_report_sale_coupon; ?></a></li>
+              <li>----------------------</li>
+
+              <li><a href="<?php echo $report_manufacturer_report; ?>"><?php echo $text_report_manufacturer; ?></a></li>
             </ul>
           </li>
           <li><a class="parent"><?php echo $text_product; ?></a>

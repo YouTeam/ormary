@@ -188,10 +188,9 @@
 
   }
   
-  $(document).ready ( function () {
-    var content = $('.orm_designer_info_wrap  > div').clone();
-    var logo 
-    $('.wrapper').append(content);
-})
+  //$(document).ready ( function () {
+  //  var content = $('.orm_designer_info_wrap  > div').clone();
+  //  $('.wrapper').append(content);
+//})
 
 </script>

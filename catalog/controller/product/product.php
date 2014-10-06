@@ -868,5 +868,53 @@ $this->data['share_prod_friend']=$this->url->link('product/product/emailshare', 
 		$this->response->setOutput(json_encode($json));
 	}
 	
+	
+	public function ajaxValidateEmailUsForm()
+	{
+		$json = array('error' => array());
+		
+		if ($this->request->server['REQUEST_METHOD'] == 'POST') 
+		{
+			if (utf8_strlen($this->request->post['fname']) == 0) 
+			{
+				$json['error']['error_name'] = true;
+			}
+			$mail_count = 0;
+			
+			foreach($this->request->post['femail'] as $fm)
+			{
+				if(utf8_strlen($fm) != 0)
+				{
+					if ((utf8_strlen($fm) > 96) || !preg_match('/^[^\@]+@.*\.[a-z]{2,6}$/i', $fm)) 
+					{
+						$json['error']['error_friendemail'] = true;
+					}
+					$mail_count++;					
+				}				
+			}
+			
+			if($mail_count == 0)
+			{
+				$json['error']['error_friendemail'] = true;	
+			}
+
+			if ((utf8_strlen($this->request->post['myemail']) > 96) || !preg_match('/^[^\@]+@.*\.[a-z]{2,6}$/i', $this->request->post['myemail'])) 
+			{
+				$json['error']['error_myemail'] = true;
+			}
+			
+			if (utf8_strlen($this->request->post['subject']) == 0) 
+			{
+				$json['error']['error_subject'] = true;
+			}
+			
+			if (utf8_strlen($this->request->post['msg']) == 0) {
+				$json['error']['error_msg'] = true;
+			}			
+		}
+		
+		$this->response->setOutput(json_encode($json));			
+	}
+	
 }
 ?>

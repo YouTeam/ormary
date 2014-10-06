@@ -42,7 +42,7 @@
                                     <span>Name:</span><?php print $addr['firstname']." ".$addr['lastname'];?>
                                 </p>
                                 <p>
-                                    <span>Address:</span><?php print $addr['city'].", ".$addr['country'];?>
+                                    <span>Address:</span><?php print $addr['address_1'].", ".$addr['city'].", ".$addr['zone'].", ".$addr['country'];?>
                                 </p>
                                 <p>
                                     <span>ZIP/Postal code:</span>&nbsp;<?php print $addr['postcode'];?>

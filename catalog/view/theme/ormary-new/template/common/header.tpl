@@ -199,7 +199,7 @@ on orders £125+<br>
                                         </li>
                                     <?php } else { ?>
                                         <li>
-                                            <a href="<?php echo $feed; ?>" class="account dropdown-toggle">
+                                            <a href="javascript:void(0)" class="account dropdown-toggle">
                                                 <div class="account_avatar">
                                                 	<img src="<?php echo $this->customer->getProfileImgURL();?>" alt="<?php echo $account_firstname ?>">
                                                 </div>

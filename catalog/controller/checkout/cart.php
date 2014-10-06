@@ -94,7 +94,7 @@ class ControllerCheckoutCart extends Controller {
         );
 
         $this->data['breadcrumbs'][] = array(
-            'href' => $this->url->link('checkout/cart'),
+            'href' => $this->url->link('checkout/cart', '', 'SSL'),
             'text' => $this->language->get('heading_title'),
             'separator' => $this->language->get('text_separator')
         );
@@ -289,7 +289,7 @@ class ControllerCheckoutCart extends Controller {
                     'price' => $price,
                     'total' => $total,
                     'href' => $this->url->link('product/product', 'product_id=' . $product['product_id']),
-                    'remove' => $this->url->link('checkout/cart', 'remove=' . $product['key']),
+                    'remove' => $this->url->link('checkout/cart', 'remove=' . $product['key'], '', 'SSL'),
                     'recurring' => $product['recurring'],
                     'profile_name' => $product['profile_name'],
                     'manufacturer' => $product['manufacturer'],
@@ -309,7 +309,7 @@ class ControllerCheckoutCart extends Controller {
                         'key' => $key,
                         'description' => $voucher['description'],
                         'amount' => $this->currency->format($voucher['amount']),
-                        'remove' => $this->url->link('checkout/cart', 'remove=' . $key)
+                        'remove' => $this->url->link('checkout/cart', 'remove=' . $key, '', 'SSL')
                     );
                 }
             }
@@ -562,10 +562,11 @@ class ControllerCheckoutCart extends Controller {
                 
                 	$this->load->model('account/follow');
 	$this->data['featured_products'] = $this->model_account_follow->getAllMyFashionfeedProd();
-                  foreach($this->data['featured_products'] as &$p)
-			{
-				$p['image'] = $this->model_tool_image->resize($p['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
-			}
+                 	foreach($this->data['featured_products'] as &$p)
+					{
+						$p['image'] = $this->model_tool_image->resize($p['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
+						$p['price'] = $this->currency->format($p['price']);
+					}
             }
 
             $this->children = array(
@@ -720,7 +721,7 @@ class ControllerCheckoutCart extends Controller {
             if (!$json) {
                 $this->cart->add($this->request->post['product_id'], $quantity, $option, $profile_id);
 
-                $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
+                $json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart', '', 'SSL'));
 
                 unset($this->session->data['shipping_method']);
                 unset($this->session->data['shipping_methods']);

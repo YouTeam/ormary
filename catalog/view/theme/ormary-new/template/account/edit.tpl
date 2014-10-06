@@ -20,7 +20,7 @@
            		 <img src="<?php echo $profile_img_url; ?>" alt="Avatar"/>
             </div>
             <div class="change_avatar">
-            	<a href="#">Change avatar</a>
+            	<a href="javascript:void(0)">Change avatar</a>
             	<span>Accepted formats: jpeg, png, gif    max size 900 kb</span>
                 <input type="hidden" name="MAX_FILE_SIZE" value="900000" />
 				<input name="ufile" id="ufile" type="file" />
