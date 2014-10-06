@@ -258,7 +258,19 @@ class ModelCatalogManufacturer extends Model {
 
 		if(count($cids) != 0)
 		{
-			$categories = $this->db->query("SELECT c.*, cd.* FROM " . DB_PREFIX . "category as c LEFT JOIN " . DB_PREFIX . "category_description as cd ON c.category_id = cd.category_id WHERE c.category_id IN (".implode(', ', $cids).") ORDER BY c.sort_order");
+                    
+                                                $cidstr = trim ( implode(', ', $cids) );
+                                                
+                                                
+                                                if ($cidstr[strlen($cidstr)-1] == ',' ) {
+                                                    
+                                                    $cidstr = substr ( $cidstr , 0 , strlen($cidstr)-1 );
+                                                    
+                                                }
+                                                
+
+                    
+			$categories = $this->db->query("SELECT c.*, cd.* FROM " . DB_PREFIX . "category as c LEFT JOIN " . DB_PREFIX . "category_description as cd ON c.category_id = cd.category_id WHERE c.category_id IN (". $cidstr .") ORDER BY c.sort_order");
 			$filter['categories'] = $categories->rows;
 		}
 		else
