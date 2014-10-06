@@ -8,7 +8,7 @@
         	<?php if($search_phrase == ""){?>
         	<h4><?php print $heading_title; ?></h4>
         	<span class="count_items">
-        		<span class="totalnumber"><?php print $product_total_in_category;?></span> 
+        		<span class="totalnumber"><?php print $total_products;?></span> 
         		items
         	</span>
             <?php

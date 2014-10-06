@@ -190,9 +190,16 @@ class ModelCatalogProduct extends Model {
 			$sql .= ")";
 		}
 
-		if (!empty($data['filter_manufacturer_id'])) {
-			$sql .= " AND p.manufacturer_id = '" . (int)$data['filter_manufacturer_id'] . "'";
+		if (!empty($data['designer'])) {
+			$sql .= " AND p.manufacturer_id = '" . (int)$data['designer'] . "'";
 		}
+                
+		if (!empty($data['filter_manufacturer_id'])) {
+                    
+                $sql .= " AND p.manufacturer_id = '" . (int)$data['filter_manufacturer_id'] . "'";
+                }
+                
+              
 
 		if (!empty($data['featured'])) {
 			$sql .= " AND p.featured = " . (int)$data['featured'] . "";
@@ -755,6 +762,8 @@ class ModelCatalogProduct extends Model {
 		
 		if(!empty($data['designer']) && $data['designer'] > -1)
 		{
+                    
+              
 			$result = $this->db->query("SELECT p.* FROM " . DB_PREFIX ."product as p LEFT JOIN  " . DB_PREFIX ."manufacturer as m ON p.manufacturer_id  = m.manufacturer_id WHERE m.manufacturer_id = ".(int)$data['designer']." AND p.product_id = ".$product_info['product_id']);
 			//m.name LIKE '".$data['dname']."' AND p.product_id = ".$product_info['product_id']);
 			

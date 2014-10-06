@@ -291,25 +291,21 @@ class ControllerProductCategory extends Controller {
                 'price_low' => $price_low,
                 'rd_year' => $rd_year,
                 'rd_month' => $rd_month,
-                'designer' => $designer,
+            
                 'color' => $color,
                 'size' => $size,
                 'filter_category_ids_list' => $subcategories_list,
                 'filter_name' => $search_phrase,
                 'filter_description' => $search_phrase,
+                                'filter_status' => 1,
             );
 
-
-            if (isset($this->request->get['featured'])) {
-                $data['featured'] = 1;
-                $product_total_in_category = $this->model_catalog_product->getProductCountByFeatured($category_id);
-            } else {
-                $product_total_in_category = $this->model_catalog_product->getProductCountByCategory($category_id);
-            }
-
+if (  $designer > -1) {
+    $data['designer'] = $designer;
+}
+          
             $product_total = $this->model_catalog_product->getTotalProducts($data);
 
-            $this->data['product_total_in_category'] = $product_total_in_category;
             $this->data['total_products'] = $product_total;
 
             $results = $this->model_catalog_product->getProducts($data);
