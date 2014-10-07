@@ -114,7 +114,9 @@ select {
     padding: 0 15px;
     text-decoration: none;
 }
-
+.zoomContainer {
+    z-index: 9999999;
+}
 .top_bar .right_side .join > ul > li > a {
     display: block;
     float: left;
