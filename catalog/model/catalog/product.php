@@ -69,7 +69,7 @@ class ModelCatalogProduct extends Model {
 			$customer_group_id = $this->config->get('config_customer_group_id');
 		}	
 
-		$sql = "SELECT p.product_id, p.price, (SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id AND r1.status = '1' GROUP BY r1.product_id) AS rating, (SELECT price FROM " . DB_PREFIX . "product_discount pd2 WHERE pd2.product_id = p.product_id AND pd2.customer_group_id = '" . (int)$customer_group_id . "' AND pd2.quantity = '1' AND ((pd2.date_start = '0000-00-00' OR pd2.date_start < NOW()) AND (pd2.date_end = '0000-00-00' OR pd2.date_end > NOW())) ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS discount, (SELECT price FROM " . DB_PREFIX . "product_special ps WHERE ps.product_id = p.product_id AND ps.customer_group_id = '" . (int)$customer_group_id . "' AND ((ps.date_start = '0000-00-00' OR ps.date_start < NOW()) AND (ps.date_end = '0000-00-00' OR ps.date_end > NOW())) ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special"; 
+		$sql = "SELECT p.product_id, p.price, m.name as manufacturer_name, (SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id AND r1.status = '1' GROUP BY r1.product_id) AS rating, (SELECT price FROM " . DB_PREFIX . "product_discount pd2 WHERE pd2.product_id = p.product_id AND pd2.customer_group_id = '" . (int)$customer_group_id . "' AND pd2.quantity = '1' AND ((pd2.date_start = '0000-00-00' OR pd2.date_start < NOW()) AND (pd2.date_end = '0000-00-00' OR pd2.date_end > NOW())) ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS discount, (SELECT price FROM " . DB_PREFIX . "product_special ps WHERE ps.product_id = p.product_id AND ps.customer_group_id = '" . (int)$customer_group_id . "' AND ((ps.date_start = '0000-00-00' OR ps.date_start < NOW()) AND (ps.date_end = '0000-00-00' OR ps.date_end > NOW())) ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special"; 
 
 
 		if(!isset($data['filter_category_id']))
@@ -95,7 +95,7 @@ class ModelCatalogProduct extends Model {
 				$sql .= " FROM " . DB_PREFIX . "product p";
 			}
 	
-			$sql .= " LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";
+			$sql .= " LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id)   LEFT JOIN " . DB_PREFIX . "manufacturer m ON (p.manufacturer_id = m.manufacturer_id) WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";
 	
 	
 	
@@ -127,10 +127,10 @@ class ModelCatalogProduct extends Model {
 		else
 		{
 			$sql .= " FROM " . DB_PREFIX . "product p";
-			$sql .= " LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";	
+			$sql .= " LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id)  LEFT JOIN " . DB_PREFIX . "manufacturer m ON (p.manufacturer_id = m.manufacturer_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";	
 		}
 		
-		if (!empty($data['filter_name']) || !empty($data['filter_tag'])) {
+		if (!empty($data['filter_name']) || !empty($data['filter_tag']) || !empty($data['search_phrase']) ) {
 			$sql .= " AND (";
 
 			if (!empty($data['filter_name'])) {
@@ -185,6 +185,19 @@ class ModelCatalogProduct extends Model {
 
 			if (!empty($data['filter_name'])) {
 				$sql .= " OR LCASE(p.mpn) = '" . $this->db->escape(utf8_strtolower($data['filter_name'])) . "'";
+			}
+                        
+                                                        if (!empty($data['search_phrase'])) {
+				$sql .= " OR REPLACE(LCASE(m.name) , ' ' , '' ) = '" . preg_replace('/\s+/', '', $this->db->escape(utf8_strtolower($data['search_phrase']))) . "'";
+                                
+                                
+                                $words = explode(' ', trim(preg_replace('/\s\s+/', ' ', $data['search_phrase'])));
+
+				foreach ($words as $word) {
+					$sql .= " OR REPLACE(LCASE(m.name) , ' ' , '' ) LIKE '%" . preg_replace('/\s+/', '', $this->db->escape(utf8_strtolower($word))) . "%'";
+				}
+
+                                
 			}
 
 			$sql .= ")";
@@ -534,7 +547,7 @@ class ModelCatalogProduct extends Model {
 		//$sql = "SELECT COUNT(DISTINCT p.product_id) AS total"; //- Old code
 		
 		//- New code
-		$sql = "SELECT DISTINCT p.product_id, p.price, (SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id AND r1.status = '1' GROUP BY r1.product_id) AS rating, (SELECT price FROM " . DB_PREFIX . "product_discount pd2 WHERE pd2.product_id = p.product_id AND pd2.customer_group_id = '" . (int)$customer_group_id . "' AND pd2.quantity = '1' AND ((pd2.date_start = '0000-00-00' OR pd2.date_start < NOW()) AND (pd2.date_end = '0000-00-00' OR pd2.date_end > NOW())) ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS discount, (SELECT price FROM " . DB_PREFIX . "product_special ps WHERE ps.product_id = p.product_id AND ps.customer_group_id = '" . (int)$customer_group_id . "' AND ((ps.date_start = '0000-00-00' OR ps.date_start < NOW()) AND (ps.date_end = '0000-00-00' OR ps.date_end > NOW())) ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special"; 
+		$sql = "SELECT DISTINCT p.product_id, p.price, m.name as manufacturer_name, (SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id AND r1.status = '1' GROUP BY r1.product_id) AS rating, (SELECT price FROM " . DB_PREFIX . "product_discount pd2 WHERE pd2.product_id = p.product_id AND pd2.customer_group_id = '" . (int)$customer_group_id . "' AND pd2.quantity = '1' AND ((pd2.date_start = '0000-00-00' OR pd2.date_start < NOW()) AND (pd2.date_end = '0000-00-00' OR pd2.date_end > NOW())) ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS discount, (SELECT price FROM " . DB_PREFIX . "product_special ps WHERE ps.product_id = p.product_id AND ps.customer_group_id = '" . (int)$customer_group_id . "' AND ((ps.date_start = '0000-00-00' OR ps.date_start < NOW()) AND (ps.date_end = '0000-00-00' OR ps.date_end > NOW())) ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special"; 
 		 //- New code
 
 		//print_r($data);
@@ -558,7 +571,7 @@ class ModelCatalogProduct extends Model {
 				$sql .= " FROM " . DB_PREFIX . "product p";
 			}
 	
-			$sql .= " LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";
+			$sql .= " LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id)  LEFT JOIN " . DB_PREFIX . "manufacturer as m ON p.manufacturer_id = m.manufacturer_id  WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";
 	
 			
 			
@@ -589,10 +602,10 @@ class ModelCatalogProduct extends Model {
 		else
 		{
 			$sql .= " FROM " . DB_PREFIX . "product p";
-			$sql .= " LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";	
+			$sql .= " LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id)  LEFT JOIN " . DB_PREFIX . "manufacturer as m ON p.manufacturer_id = m.manufacturer_id WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";	
 		}
 		
-		if (!empty($data['filter_name']) || !empty($data['filter_tag'])) {
+		if (!empty($data['filter_name']) || !empty($data['filter_tag']) || !empty($data['search_phrase']) ) {
 			$sql .= " AND (";
 
 			if (!empty($data['filter_name'])) {
@@ -649,6 +662,19 @@ class ModelCatalogProduct extends Model {
 				$sql .= " OR LCASE(p.mpn) = '" . $this->db->escape(utf8_strtolower($data['filter_name'])) . "'";
 			}
 
+                                                        if (!empty($data['search_phrase'])) {
+				$sql .= " OR REPLACE(LCASE(m.name) , ' ' , '' ) = '" . preg_replace('/\s+/', '', $this->db->escape(utf8_strtolower($data['search_phrase']))) . "'";
+			
+                                
+                                $words = explode(' ', trim(preg_replace('/\s\s+/', ' ', $data['search_phrase'])));
+
+				foreach ($words as $word) {
+					$sql .= " OR REPLACE(LCASE(m.name) , ' ' , '' ) LIKE '%" . preg_replace('/\s+/', '', $this->db->escape(utf8_strtolower($word))) . "%'";
+				}
+
+                                
+                                
+                                                        }
 			$sql .= ")";				
 		}
 

@@ -19,7 +19,7 @@
             <h4>SEARCH FOR: <span><?php print $search_phrase;?></span></h4>
             <span class="count_items">
               Found 
-              <span class="number"><?php print $total_products;?></span> 
+              <span class=""><?php print $total_products;?></span> 
                items
             </span>
             <?php }?>

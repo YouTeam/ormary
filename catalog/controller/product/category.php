@@ -297,6 +297,7 @@ class ControllerProductCategory extends Controller {
                 'filter_category_ids_list' => $subcategories_list,
                 'filter_name' => $search_phrase,
                 'filter_description' => $search_phrase,
+                 'search_phrase' => $search_phrase,
                                 'filter_status' => 1,
             );
 
@@ -306,6 +307,8 @@ if (  $designer > -1) {
           
             $product_total = $this->model_catalog_product->getTotalProducts($data);
 
+   
+            
             $this->data['total_products'] = $product_total;
 
             $results = $this->model_catalog_product->getProducts($data);
@@ -490,6 +493,7 @@ if (  $designer > -1) {
             $pagination->total = $product_total;
             $pagination->page = $page;
             $pagination->limit = $limit;
+             $pagination->search_phrase = $search_phrase;
             $pagination->text = $this->language->get('text_pagination');
 
             if (isset($this->request->get['featured'])) {
@@ -497,6 +501,10 @@ if (  $designer > -1) {
                 $pagination->url = 'new' . $url . '&page={page}';
 
                 $url .= '&featured=' . $this->request->get['featured'];
+            } else if ($search_phrase != '') {
+            
+                $pagination->url = $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url . '&page={page}&search_phrase='.$search_phrase.'');
+                
             } else {
 
                 $pagination->url = $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url . '&page={page}');

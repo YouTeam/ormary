@@ -4,6 +4,7 @@ class Pagination {
 	public $page = 1;
 	public $limit = 20;
 	public $num_links = 10;
+        public search_phrase = '';
 	public $url = '';
 	public $text = 'Showing {start} to {end} of {total} ({pages} Pages)';
 	public $text_first = '|&lt;';
