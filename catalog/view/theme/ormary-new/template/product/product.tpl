@@ -35,7 +35,38 @@
 			<div class="price"><?php print str_replace("£", "&pound;", $price); ?></div>
                         </div>
             <div class="product_description"><?php echo $description; ?></div>
-			
+            
+            
+          
+            
+            
+            
+	     <?php foreach ($attribute_groups as $attribute_group) { ?>
+             
+             <?php if ($attribute_group['name'] == 'Shipping Message') { ?>
+<?php foreach ($attribute_group['attribute'] as $attribute) { ?>
+             <?php if ($attribute['name'] == 'bespoke') { ?>
+                
+             <div class="product-detaisl-bespoke-message">
+              <p><?php echo str_replace(".", ".<br>", $attribute['text']);  ?></p>
+             
+             </div>
+             
+<?php } ?>
+
+<?php }  ?>
+<?php } ?>
+             
+      <tbody>
+        <?php foreach ($attribute_group['attribute'] as $attribute) { ?>
+        <div>
+
+          <?php  $attribute['text']; ?>
+	</div>
+        
+        <?php } ?>
+      </tbody>
+      <?php } ?>		
                     <form action=""  id="orm_product">
                         <?php if(isset($options['14'])){?>
 <div class="available clearfix">
